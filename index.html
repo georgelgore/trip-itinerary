@@ -824,9 +824,11 @@ const DAYS = [
       {
         label: 'Arrival',
         icon: '✈️',
-        content: 'Land SFO ~10am. Drive to Intercontinental, check in, get settled.',
-        address: 'Intercontinental SF · 888 Howard St, San Francisco',
-        notes: []
+        content: 'EWR → SFO · Departs 7:00 AM, Arrives 9:59 AM\n\nDrive to Intercontinental, check in, get settled.',
+        address: 'SFO · San Francisco International Airport',
+        notes: [
+          { type: 'info', text: '~30 min drive from SFO to Intercontinental SF' }
+        ]
       },
       {
         label: 'Lunch',
@@ -1854,6 +1856,15 @@ const DAYS = [
         content: 'Farewell Brunch — 10:00 AM to 1:00 PM.\n\nDress: Sunday Morning Picnic Attire.',
         address: 'Dragonfly Farm & Floral, Westside Rd, Healdsburg, CA',
         url: 'https://withjoy.com/michele-and-henri',
+        notes: [
+          { type: 'info', text: '~1h 15m drive from Healdsburg to SFO — depart by 11:00 AM to make your flight' }
+        ]
+      },
+      {
+        label: 'Departure',
+        icon: '✈️',
+        content: 'SFO → EWR · Departs 1:50 PM, Arrives 10:26 PM',
+        address: 'SFO · San Francisco International Airport',
         notes: []
       }
     ]
