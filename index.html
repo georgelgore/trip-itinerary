@@ -1806,6 +1806,7 @@ const DAYS = [
         icon: '🥂',
         content: 'Preston Farm & Winery — 6:00–9:00 PM.\n\nDress: Casual Chic — sundresses, skirts and tops, jumpsuits; trousers and t-shirts, denim and jackets.',
         address: 'Preston Farm & Winery, West Dry Creek Rd, Healdsburg, CA',
+        url: 'https://withjoy.com/michele-and-henri',
         notes: [
           { type: 'info', text: 'Wear sturdy shoes and bring layers' }
         ]
@@ -1832,6 +1833,7 @@ const DAYS = [
         icon: '💍',
         content: 'Ceremony at 4:00 PM.\n\nDress: Formal with Flair — suits and dresses with fun colors, patterns, or accessories.',
         address: '4250 West Dry Creek Road, Healdsburg, CA',
+        url: 'https://withjoy.com/michele-and-henri',
         notes: [
           { type: 'info', text: 'Wear sturdy shoes and bring layers' }
         ]
@@ -1851,6 +1853,7 @@ const DAYS = [
         icon: '🌸',
         content: 'Farewell Brunch — 10:00 AM to 1:00 PM.\n\nDress: Sunday Morning Picnic Attire.',
         address: 'Dragonfly Farm & Floral, Westside Rd, Healdsburg, CA',
+        url: 'https://withjoy.com/michele-and-henri',
         notes: []
       }
     ]
@@ -1952,6 +1955,7 @@ function renderSection(dayId, section) {
       <div class="section-body">
         <div class="section-content">${esc(section.content)}</div>
         ${section.address ? `<div class="section-address"><span>📍</span><span>${esc(section.address)}</span></div>` : ''}
+        ${section.url ? `<div class="section-address"><span>🔗</span><a href="${esc(section.url)}" target="_blank" rel="noopener">${esc(section.url)}</a></div>` : ''}
         ${notesHtml ? `<div class="section-notes">${notesHtml}</div>` : ''}
       </div>
     </div>
