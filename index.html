@@ -533,6 +533,202 @@
       flex-shrink: 0;
     }
 
+    /* ── DEEP DIVE SHEET ── */
+    #deep-dive-sheet {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--card);
+      border-radius: 18px 18px 0 0;
+      z-index: 51;
+      display: none;
+      flex-direction: column;
+      max-height: 90vh;
+      transform: translateY(100%);
+      transition: transform 0.25s ease-out;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+    }
+
+    #deep-dive-sheet.vis { transform: translateY(0); display: flex; }
+
+    .dd-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 6px 16px 10px;
+      flex-shrink: 0;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dd-day-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .dd-title { font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .dd-subtitle { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+    #dd-content {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1;
+      padding-bottom: calc(24px + env(safe-area-inset-bottom));
+    }
+
+    .dd-timeline { padding: 12px 16px 14px; border-bottom: 1px solid var(--border); }
+
+    .dd-group-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      padding: 14px 16px 2px;
+    }
+
+    .timeline-row {
+      display: flex;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0ede8;
+      align-items: baseline;
+    }
+
+    .timeline-row:last-child { border-bottom: none; }
+
+    .timeline-time {
+      font-size: 12px;
+      color: var(--muted);
+      flex-shrink: 0;
+      width: 104px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timeline-info { flex: 1; }
+    .timeline-activity { font-size: 14px; font-weight: 600; color: var(--text); }
+    .timeline-note { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+    .dd-section { border-top: 1px solid var(--border); }
+
+    .dd-section-header {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      gap: 10px;
+      user-select: none;
+    }
+
+    .dd-section-header:active { background: #f5f3ef; }
+    .dd-section-icon { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
+
+    .dd-section-label-wrap { flex: 1; }
+    .dd-section-label { font-size: 15px; font-weight: 600; color: var(--text); }
+    .dd-section-meta { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
+    .dd-chev { font-size: 11px; color: #bbb; flex-shrink: 0; transition: transform 0.15s; }
+    .dd-section.open .dd-chev { transform: rotate(180deg); }
+
+    .dd-section-body { display: none; padding: 2px 16px 14px; }
+    .dd-section.open .dd-section-body { display: block; }
+
+    .dd-content-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #2a2a2a;
+      white-space: pre-line;
+    }
+
+    .dd-address {
+      display: flex;
+      gap: 6px;
+      margin: 8px 0;
+      padding: 8px 10px;
+      background: #f5f3ef;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .dd-tips { margin-top: 10px; display: flex; flex-direction: column; gap: 3px; }
+
+    .dd-tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: #444;
+      line-height: 1.5;
+      padding: 3px 0;
+    }
+
+    .dd-tip-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #bbb;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* Checklist */
+    .dd-checklist { padding: 6px 16px 8px; }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid #f0ede8;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .checklist-item:last-child { border-bottom: none; }
+
+    .checklist-cb {
+      width: 20px; height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      transition: background 0.1s, border-color 0.1s;
+    }
+
+    .checklist-item.checked .checklist-cb { background: #4a7c59; border-color: #4a7c59; color: #fff; }
+    .checklist-text { font-size: 14px; color: var(--text); line-height: 1.5; flex: 1; }
+    .checklist-item.checked .checklist-text { color: #aaa; text-decoration: line-through; }
+
+    /* Deep dive button on day card */
+    .deep-dive-btn-wrap { padding: 4px 4px 8px; }
+
+    .deep-dive-btn {
+      width: 100%;
+      padding: 11px 14px;
+      background: #f0ede8;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2c3e50;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .deep-dive-btn:active { background: #e5e1da; }
+    .deep-dive-btn-arrow { margin-left: auto; color: #aaa; }
+
     /* ── RESPONSIVE ── */
     @media (min-width: 600px) {
       #main-content, .legend { max-width: 600px; margin-left: auto; margin-right: auto; }
@@ -540,6 +736,8 @@
       #bottom-bar { max-width: 600px; left: 50%; transform: translateX(-50%); border-radius: 12px 12px 0 0; }
       #quick-ref-sheet { max-width: 600px; left: 50%; transform: translateX(-50%) translateY(100%); border-radius: 18px 18px 0 0; }
       #quick-ref-sheet.vis { transform: translateX(-50%) translateY(0); }
+      #deep-dive-sheet { max-width: 600px; left: 50%; transform: translateX(-50%) translateY(100%); border-radius: 18px 18px 0 0; }
+      #deep-dive-sheet.vis { transform: translateX(-50%) translateY(0); }
     }
   </style>
 </head>
@@ -595,6 +793,20 @@
     <button class="sheet-tab" data-tab="transit">🚗 Transit</button>
   </div>
   <div id="sheet-content"></div>
+</div>
+
+<!-- ── DEEP DIVE SHEET ── -->
+<div id="deep-dive-sheet">
+  <div class="sheet-handle"></div>
+  <div class="dd-header">
+    <div>
+      <div class="dd-day-badge" id="dd-day-badge"></div>
+      <div class="dd-title" id="dd-title"></div>
+      <div class="dd-subtitle" id="dd-subtitle"></div>
+    </div>
+    <button class="sheet-close-btn" id="deep-dive-close-btn">✕</button>
+  </div>
+  <div id="dd-content"></div>
 </div>
 
 <script>
@@ -930,7 +1142,154 @@ const DAYS = [
           { type: 'info', text: 'BART: Civic Center or Powell St stations · Transfer at Embarcadero for ferry to Marin' }
         ]
       }
-    ]
+    ],
+    deepDive: {
+      title: 'SF Tea, Art & Neighborhood Deep Dive',
+      subtitle: 'Valencia Street + Chinatown Tea Route',
+      timeline: [
+        { time: '8:00–9:00am',    activity: 'Tartine Manufactory',         note: 'Breakfast · SOMA' },
+        { time: '9:30–11:00am',   activity: 'Valencia Street explore',      note: '~1.5 mi wander north' },
+        { time: '11:00am–12:30pm',activity: 'Walk to Chinatown',            note: 'Via Mission or Market St' },
+        { time: '12:30–1:15pm',   activity: 'Good Mong Kok Bakery',         note: 'Dim sum lunch' },
+        { time: '1:15–2:30pm',    activity: 'Red Blossom Tea Company',      note: 'Browse & buy · Grant Ave' },
+        { time: '2:30–4:00pm',    activity: 'City Lights + North Beach',    note: 'Books & stroll' },
+        { time: '4:00–5:30pm',    activity: 'Transit to Mill Valley',       note: 'BART or rideshare' },
+        { time: '6:00pm+',        activity: 'Dinner with friends',          note: 'Mill Valley' },
+      ],
+      stops: [
+        {
+          icon: '☕',
+          label: 'Tartine Manufactory',
+          meta: 'Breakfast · 8:00–9:00am',
+          address: '649 Guerrero St, San Francisco',
+          content: 'Iconic pastry destination. Sourdough croissants, excellent coffee. Worth the early wake.',
+          tips: [
+            'Arrive by 8:15am to beat the line',
+            'Grab a sourdough croissant and a pastry to share',
+            'Coffee is solid; tea not a priority here',
+            '~20 min to eat, then walk or transit to Valencia',
+          ],
+          notes: [],
+        },
+        {
+          icon: '🛍️',
+          label: 'Valencia Street Wander',
+          meta: 'Morning · 9:30–11:00am',
+          address: 'Valencia St from 16th to 22nd St',
+          content: 'Walk north from ~16th St. No fixed route — wander, dip into shops that appeal. Budget ~1.5hrs; you\'ll cover maybe 10–12 blocks.',
+          tips: [
+            'Paletería Nora (16th & Valencia) — colorful Mexican paletas',
+            'Bi-Rite Market (18th & Valencia) — high-end grocer, beautiful design',
+            'Noun Vintage (20th & Valencia) — curated vintage clothes',
+            'Costume & Cake (22nd & Valencia) — quirky bookstore/café',
+            'Dandelion Chocolate (18th & Guerrero, just west) — if craving chocolate',
+            'Stop at intersections for murals and photos',
+          ],
+          notes: [],
+        },
+        {
+          icon: '🚶',
+          label: 'Walk to Chinatown',
+          meta: 'Transit · 11:00am–12:30pm',
+          address: 'Valencia → Chinatown Gate (Stockton & Bush)',
+          content: 'Two route options depending on energy and time.',
+          tips: [
+            'Option A (scenic): Valencia → Mission Dolores Park → Grant Ave → Chinatown — ~2 mi, ~45–50 min walking',
+            'Option B (faster): Valencia → Market St east → Stockton St north — ~1.5 mi, ~30–35 min walking',
+            'Take Option A if energy is high; Option B if you want more time in Chinatown',
+          ],
+          notes: [],
+        },
+        {
+          icon: '🥟',
+          label: 'Good Mong Kok Bakery',
+          meta: 'Lunch · 12:30–1:15pm',
+          address: '1039 Stockton St, Chinatown',
+          content: 'Legendary dim sum bakery. Point at what you want at the counter. Budget $8–15 per person for 3–4 items.',
+          tips: [
+            'Signature items: BBQ pork bun, egg tart, shrimp dumpling',
+            'Cash preferred — ATM on Stockton nearby',
+            'Lines move fast despite the crowds',
+            'Take to go; eat at nearby benches if available',
+          ],
+          notes: [
+            { type: 'cash', text: 'Cash preferred' },
+            { type: 'warning', text: 'Peak hours 11:30am–1:30pm — you\'ll hit the tail end; move efficiently' },
+          ],
+        },
+        {
+          icon: '🍵',
+          label: 'Red Blossom Tea Company',
+          meta: 'Browse & shop · 1:15–2:30pm',
+          address: '735 Grant Ave, Chinatown',
+          content: 'Premier Chinese tea vendor. Extensive pu-erh, oolong, white, and black selections. Knowledgeable staff. 1.25 hrs gives you unhurried browsing — don\'t rush.',
+          tips: [
+            'Ask staff: "What\'s fresh this season?" or recommendations by price point',
+            'Sample scent before buying (cups provided for sniffing)',
+            'Focus areas: pu-erh, aged oolong, white tea, or something new',
+            'Budget $15–50 depending on rarity',
+            'They pack beautifully — gift-worthy',
+            'Grab their card for future online orders',
+          ],
+          notes: [
+            { type: 'warning', text: 'In-store tastings discontinued — browse and buy only' },
+          ],
+        },
+        {
+          icon: '📚',
+          label: 'City Lights Bookstore',
+          meta: 'North Beach · 2:30–4:00pm',
+          address: '261 Columbus Ave, North Beach',
+          content: 'Legendary Beat Generation bookshop. Three dense floors. Poetry section (rear, upper floor) is the heart of the place.',
+          tips: [
+            'Wander all three floors — not huge but very dense',
+            'Poetry section is rear, upper floor — City Lights\' legacy',
+            'Washington Square Park: 2 blocks away at Filbert & Stockton',
+            'Saints Peter and Paul Church: gorgeous white church nearby, great photo',
+            'Cafe Trieste (nearby): historic Italian café, atmospheric if touristy',
+          ],
+          notes: [],
+        },
+      ],
+      logistics: [
+        {
+          icon: '🚗',
+          label: 'Transit Back to Mill Valley',
+          content: '• BART: Walk to Civic Center or Powell St → BART to Embarcadero → Ferry or rideshare to Marin\n• Rideshare direct: ~30–40 min, ~$40–60\n• Golden Gate Ferry: BART → Ferry Building → ferry to Marin (check schedule)\n\nRecommendation: Check ferry schedule before leaving. If you\'ll miss it, rideshare is faster and less stressful — you have a dinner to make.',
+        },
+        {
+          icon: '⚡',
+          label: 'Pacing & Energy',
+          content: 'This is a FULL day on foot. Key notes:\n\n• 8–9am Tartine: High energy, standing\n• 9:30–11am Valencia: Moderate pace, meander and sit\n• 11am–12:30pm Walk to Chinatown: 45–50 min on feet — grab coffee en route if low\n• 12:30–1:15pm Good Mong Kok: Quick refuel\n• 1:15–2:30pm Red Blossom: Slow-paced browsing — perfect timing for the 2pm energy dip\n• 2:30–4pm City Lights: Standing, unhurried\n• 4–5:30pm Transit: Rest time',
+        },
+        {
+          icon: '🎒',
+          label: 'What to Bring',
+          content: '• Comfortable walking shoes (2+ miles of strolling)\n• Small backpack or crossbody bag (for light purchases)\n• Cash (Good Mong Kok, Red Blossom)\n• Water bottle (refill at cafés)\n• Camera (Valencia murals, North Beach aesthetics)\n• Layers — SF June mornings are chilly, afternoons warm up',
+        },
+        {
+          icon: '⚠️',
+          label: 'What to Skip / Alternatives',
+          content: 'If energy is low: Skip Valencia; replace with rest or a second coffee stop. Extend Red Blossom visit.\n\nIf compressed for time: Cut North Beach/City Lights; extend Red Blossom and grab tea at a Chinatown café.\n\nRain day: Use BART more liberally; skip outdoor walking sections; Tartine + Red Blossom + City Lights all work in rain.',
+        },
+      ],
+      checklists: [
+        {
+          id: 'red-blossom',
+          label: '🍵 Red Blossom Tea — Browsing Checklist',
+          items: [
+            'Ask about seasonal arrivals or staff favorites',
+            'Sample 3–5 teas by scent',
+            'Pick 1–2 to purchase (pu-erh, oolong, white, or something new)',
+            'Budget $15–50 depending on rarity',
+            'Consider what brewing vessel you have at home',
+            'Ask about storage tips for new tea',
+            'Check if they have gift sets',
+            'Grab their card for future online orders',
+          ],
+        },
+      ],
+    },
   },
   {
     id: 7,
@@ -1093,6 +1452,7 @@ function init() {
   renderDays();
   setupSearch();
   setupSheet();
+  document.getElementById('deep-dive-close-btn').addEventListener('click', closeDeepDive);
   setupServiceWorker();
 }
 
@@ -1113,6 +1473,12 @@ function renderDays() {
         </div>
         <div class="sections">
           ${day.sections.map(s => renderSection(day.id, s)).join('')}
+          ${day.deepDive ? `
+          <div class="deep-dive-btn-wrap">
+            <button class="deep-dive-btn" onclick="openDeepDive(${day.id})">
+              <span>📖</span><span>${esc(day.deepDive.title)}</span><span class="deep-dive-btn-arrow">→</span>
+            </button>
+          </div>` : ''}
         </div>
       </div>
     `).join('');
@@ -1330,7 +1696,10 @@ function applyHistory(q) {
 function setupSheet() {
   document.getElementById('quick-ref-btn').addEventListener('click', () => openSheet(currentTab));
   document.getElementById('sheet-close-btn').addEventListener('click', closeSheet);
-  document.getElementById('sheet-backdrop').addEventListener('click', closeSheet);
+  document.getElementById('sheet-backdrop').addEventListener('click', () => {
+    if (sheetOpen) closeSheet();
+    else if (ddOpen) closeDeepDive();
+  });
 
   document.querySelectorAll('.sheet-tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -1403,6 +1772,122 @@ function esc(s) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+// ─── DEEP DIVE ────────────────────────────────────────────────────────────────
+
+let ddOpen = false;
+
+function openDeepDive(dayId) {
+  const day = DAYS.find(d => d.id === dayId);
+  if (!day || !day.deepDive) return;
+  const dd = day.deepDive;
+
+  document.getElementById('dd-day-badge').textContent = `Day ${day.id} · ${day.date}`;
+  document.getElementById('dd-title').textContent = dd.title;
+  document.getElementById('dd-subtitle').textContent = dd.subtitle;
+
+  const content = document.getElementById('dd-content');
+  content.innerHTML = [
+    renderDDTimeline(dd.timeline),
+    dd.stops.length ? `<div class="dd-group-label">Stop-by-Stop</div>` + dd.stops.map(renderDDSection).join('') : '',
+    dd.logistics.length ? `<div class="dd-group-label">Logistics</div>` + dd.logistics.map(renderDDSection).join('') : '',
+    dd.checklists.length ? `<div class="dd-group-label">Checklists</div>` + dd.checklists.map(renderChecklist).join('') : '',
+  ].join('');
+
+  const backdrop = document.getElementById('sheet-backdrop');
+  const sheet    = document.getElementById('deep-dive-sheet');
+  backdrop.style.display = 'block';
+  sheet.style.display = 'flex';
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    backdrop.classList.add('vis');
+    sheet.classList.add('vis');
+  }));
+  ddOpen = true;
+}
+
+function closeDeepDive() {
+  const backdrop = document.getElementById('sheet-backdrop');
+  const sheet    = document.getElementById('deep-dive-sheet');
+  backdrop.classList.remove('vis');
+  sheet.classList.remove('vis');
+  setTimeout(() => {
+    backdrop.style.display = 'none';
+    sheet.style.display = 'none';
+  }, 260);
+  ddOpen = false;
+}
+
+function renderDDTimeline(rows) {
+  return `
+    <div class="dd-timeline">
+      <div class="dd-group-label" style="padding:0 0 8px">Timeline</div>
+      ${rows.map(r => `
+        <div class="timeline-row">
+          <div class="timeline-time">${esc(r.time)}</div>
+          <div class="timeline-info">
+            <div class="timeline-activity">${esc(r.activity)}</div>
+            ${r.note ? `<div class="timeline-note">${esc(r.note)}</div>` : ''}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function renderDDSection(s) {
+  const notesHtml = (s.notes || []).map(n => {
+    const cls  = n.type === 'cash' ? 'note-cash' : n.type === 'warning' ? 'note-warn' : n.type === 'reservation' ? 'note-res' : 'note-info';
+    const icon = n.type === 'cash' ? '💵' : n.type === 'warning' ? '⚠️' : n.type === 'reservation' ? '📋' : 'ℹ️';
+    return `<div class="note ${cls}" style="margin-top:6px"><span class="note-icon">${icon}</span><span class="note-text">${esc(n.text)}</span></div>`;
+  }).join('');
+
+  const tipsHtml = (s.tips || []).length
+    ? `<div class="dd-tips">${s.tips.map(t => `<div class="dd-tip"><div class="dd-tip-dot"></div><span>${esc(t)}</span></div>`).join('')}</div>`
+    : '';
+
+  return `
+    <div class="dd-section">
+      <div class="dd-section-header" onclick="this.parentElement.classList.toggle('open')">
+        <span class="dd-section-icon">${s.icon}</span>
+        <div class="dd-section-label-wrap">
+          <div class="dd-section-label">${esc(s.label)}</div>
+          ${s.meta ? `<div class="dd-section-meta">${esc(s.meta)}</div>` : ''}
+        </div>
+        <span class="dd-chev">▼</span>
+      </div>
+      <div class="dd-section-body">
+        ${s.address ? `<div class="dd-address"><span>📍</span><span>${esc(s.address)}</span></div>` : ''}
+        <div class="dd-content-text">${esc(s.content)}</div>
+        ${tipsHtml}
+        ${notesHtml}
+      </div>
+    </div>
+  `;
+}
+
+function renderChecklist(cl) {
+  return `
+    <div class="dd-checklist">
+      <div class="dd-group-label" style="padding:8px 0 6px;font-size:13px">${esc(cl.label)}</div>
+      ${cl.items.map((item, i) => {
+        const key = `ca-check-${cl.id}-${i}`;
+        const checked = localStorage.getItem(key) === '1';
+        return `
+          <div class="checklist-item${checked ? ' checked' : ''}" onclick="toggleCheck('${key}', this)">
+            <div class="checklist-cb">${checked ? '✓' : ''}</div>
+            <div class="checklist-text">${esc(item)}</div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+function toggleCheck(key, el) {
+  const isChecked = el.classList.toggle('checked');
+  el.querySelector('.checklist-cb').textContent = isChecked ? '✓' : '';
+  localStorage.setItem(key, isChecked ? '1' : '0');
 }
 
 // ─── BOOT ─────────────────────────────────────────────────────────────────────
