@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2c3e50" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="CA Trip" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.svg" />
+  <title>CA Trip 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f4f2ee;
+      --card: #fff;
+      --text: #1a1a1a;
+      --muted: #666;
+      --border: #e8e5df;
+      --header-h: 56px;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    }
+
+    /* ── HEADER ── */
+    #app-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: #2c3e50;
+      color: #fff;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      height: var(--header-h);
+    }
+
+    .app-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .app-dates {
+      font-size: 12px;
+      opacity: 0.65;
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    .header-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .header-btn:active { background: rgba(255,255,255,0.28); }
+
+    /* ── SEARCH ── */
+    #search-bar {
+      background: #243342;
+      padding: 8px 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    #search-bar.hidden { display: none; }
+
+    #search-input {
+      flex: 1;
+      background: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 16px;
+      outline: none;
+      color: var(--text);
+    }
+
+    #search-input::placeholder { color: #999; }
+
+    #search-close-btn {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    #search-history {
+      background: #2c3e50;
+      padding: 6px 12px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    #search-history.hidden { display: none; }
+
+    .history-chip {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #fff;
+      border-radius: 14px;
+      padding: 5px 13px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .history-chip:active { background: rgba(255,255,255,0.28); }
+
+    /* ── SEARCH RESULTS ── */
+    #search-results {
+      background: var(--card);
+      min-height: 60px;
+    }
+
+    #search-results.hidden { display: none; }
+
+    .search-empty {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .search-result {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .search-result:active { background: #f5f5f2; }
+
+    .result-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #aaa;
+      margin-bottom: 3px;
+    }
+
+    .result-main {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .result-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    mark {
+      background: rgba(255, 210, 0, 0.45);
+      color: inherit;
+      border-radius: 2px;
+      padding: 0 1px;
+    }
+
+    /* ── MAIN ── */
+    #main-content { padding: 8px 0 16px; }
+
+    /* ── DAY CARD ── */
+    .day-card {
+      margin: 8px 12px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--card);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.04);
+    }
+
+    .day-header {
+      padding: 14px 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+
+    .sf       .day-header { background: #1a6bac; }
+    .yosemite .day-header { background: #4a7c59; }
+    .marin    .day-header { background: #2a8080; }
+    .healdsburg .day-header { background: #7c5339; }
+
+    .day-header:active { filter: brightness(0.92); }
+
+    .day-header-text { color: #fff; flex: 1; min-width: 0; }
+
+    .day-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      opacity: 0.75;
+      margin-bottom: 2px;
+    }
+
+    .day-date {
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .day-loc {
+      font-size: 13px;
+      opacity: 0.88;
+      margin-top: 4px;
+    }
+
+    .day-stay {
+      font-size: 12px;
+      opacity: 0.68;
+      margin-top: 2px;
+    }
+
+    .chevron {
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 6px;
+      transition: transform 0.15s;
+    }
+
+    .day-card.open .chevron { transform: rotate(180deg); }
+
+    /* ── SECTIONS ── */
+    .sections { display: none; padding: 6px 10px 10px; }
+    .day-card.open .sections { display: block; }
+
+    .section {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 6px 0;
+      overflow: hidden;
+      background: var(--card);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      padding: 11px 13px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      gap: 9px;
+      background: #fafaf8;
+      user-select: none;
+    }
+
+    .section-header:active { background: #f0ede8; }
+
+    .section-icon { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
+
+    .section-label-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .section-badges { display: flex; gap: 4px; }
+
+    .badge {
+      font-size: 13px;
+      line-height: 1;
+      padding: 2px 1px;
+    }
+
+    .section-chev {
+      font-size: 11px;
+      color: #bbb;
+      flex-shrink: 0;
+      transition: transform 0.15s;
+    }
+
+    .section.open .section-chev { transform: rotate(180deg); }
+
+    /* ── SECTION BODY ── */
+    .section-body {
+      display: none;
+      padding: 12px 14px 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section.open .section-body { display: block; }
+
+    .section-content {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #2a2a2a;
+      white-space: pre-line;
+    }
+
+    .section-address {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 8px 10px;
+      background: #f5f3ef;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .section-notes { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+
+    .note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .note-cash { background: #fef9e7; border: 1px solid #f0d060; color: #7a5800; }
+    .note-warn { background: #fff3e0; border: 1px solid #ffcc80; color: #7a4400; }
+    .note-res  { background: #e8f4fb; border: 1px solid #90caf9; color: #1a4e80; }
+    .note-info { background: #f4f4f2; border: 1px solid #ddd;    color: #555; }
+
+    .note-icon { flex-shrink: 0; }
+    .note-text { flex: 1; }
+
+    /* ── BOTTOM BAR ── */
+    #bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 16px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      z-index: 40;
+    }
+
+    #quick-ref-btn {
+      width: 100%;
+      padding: 14px;
+      background: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.2px;
+    }
+
+    #quick-ref-btn:active { background: #243342; }
+
+    /* ── QUICK REF SHEET ── */
+    #sheet-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 50;
+      opacity: 0;
+      transition: opacity 0.2s;
+      display: none;
+    }
+
+    #sheet-backdrop.vis { opacity: 1; }
+
+    #quick-ref-sheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--card);
+      border-radius: 18px 18px 0 0;
+      z-index: 51;
+      display: none;
+      flex-direction: column;
+      max-height: 82vh;
+      transform: translateY(100%);
+      transition: transform 0.25s ease-out;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+    }
+
+    #quick-ref-sheet.vis { transform: translateY(0); display: flex; }
+
+    .sheet-handle {
+      width: 38px;
+      height: 4px;
+      background: #ccc;
+      border-radius: 2px;
+      margin: 12px auto 2px;
+      flex-shrink: 0;
+    }
+
+    .sheet-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 16px 12px;
+      flex-shrink: 0;
+    }
+
+    .sheet-title { font-size: 17px; font-weight: 700; }
+
+    .sheet-close-btn {
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: #eeece8;
+      border-radius: 50%;
+      font-size: 15px;
+      color: #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sheet-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex-shrink: 0;
+    }
+
+    .sheet-tabs::-webkit-scrollbar { display: none; }
+
+    .sheet-tab {
+      flex-shrink: 0;
+      padding: 11px 15px;
+      border: none;
+      background: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      color: #888;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+
+    .sheet-tab.active {
+      color: #2c3e50;
+      border-bottom-color: #2c3e50;
+      font-weight: 700;
+    }
+
+    #sheet-content {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      flex: 1;
+      padding: 4px 16px calc(20px + env(safe-area-inset-bottom));
+    }
+
+    .ref-item {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ref-item:last-child { border-bottom: none; }
+
+    .ref-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .ref-detail {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── LEGEND ── */
+    .legend {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 12px;
+      margin: 0 12px 0;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 600px) {
+      #main-content, .legend { max-width: 600px; margin-left: auto; margin-right: auto; }
+      .day-card { margin: 10px auto; max-width: 576px; }
+      #bottom-bar { max-width: 600px; left: 50%; transform: translateX(-50%); border-radius: 12px 12px 0 0; }
+      #quick-ref-sheet { max-width: 600px; left: 50%; transform: translateX(-50%) translateY(100%); border-radius: 18px 18px 0 0; }
+      #quick-ref-sheet.vis { transform: translateX(-50%) translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header id="app-header">
+  <div class="header-row">
+    <div>
+      <div class="app-title">🏕️ California Trip 2026</div>
+      <div class="app-dates">May 29 – June 5 · George &amp; Doug</div>
+    </div>
+    <button class="header-btn" id="search-toggle" aria-label="Search">🔍</button>
+  </div>
+  <div id="search-bar" class="hidden">
+    <input type="search" id="search-input" placeholder="Search places, times, addresses…" autocomplete="off" />
+    <button id="search-close-btn">✕</button>
+  </div>
+  <div id="search-history" class="hidden"></div>
+</header>
+
+<!-- ── SEARCH RESULTS ── -->
+<div id="search-results" class="hidden"></div>
+
+<!-- ── LEGEND ── -->
+<div class="legend" id="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1a6bac"></div> San Francisco</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#4a7c59"></div> Yosemite</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2a8080"></div> Mill Valley</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7c5339"></div> Healdsburg</div>
+</div>
+
+<!-- ── MAIN ── -->
+<main id="main-content"></main>
+
+<!-- ── BOTTOM BAR ── -->
+<div id="bottom-bar">
+  <button id="quick-ref-btn">Quick Ref · Cash · Hours · Reservations ↑</button>
+</div>
+
+<!-- ── QUICK REF SHEET ── -->
+<div id="sheet-backdrop"></div>
+<div id="quick-ref-sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title-row">
+    <span class="sheet-title">Quick Reference</span>
+    <button class="sheet-close-btn" id="sheet-close-btn">✕</button>
+  </div>
+  <div class="sheet-tabs">
+    <button class="sheet-tab active" data-tab="cashOnly">💵 Cash Only</button>
+    <button class="sheet-tab" data-tab="hours">⏰ Hours</button>
+    <button class="sheet-tab" data-tab="reservations">📋 Reservations</button>
+    <button class="sheet-tab" data-tab="transit">🚗 Transit</button>
+  </div>
+  <div id="sheet-content"></div>
+</div>
+
+<script>
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+const DAYS = [
+  {
+    id: 1,
+    date: 'Friday, May 29',
+    location: 'San Francisco',
+    sublocation: 'Downtown SOMA',
+    theme: 'sf',
+    stay: 'Intercontinental SF · 888 Howard St',
+    sections: [
+      {
+        label: 'Arrival',
+        icon: '✈️',
+        content: 'Land SFO ~10am. Drive to Intercontinental, check in, get settled.',
+        address: 'Intercontinental SF · 888 Howard St, San Francisco',
+        notes: []
+      },
+      {
+        label: 'Lunch',
+        icon: '🍴',
+        content: 'Ferry Building Marketplace — artisan food vendors, local produce, great for grazing. Walkable from hotel across the Embarcadero.',
+        address: '1 Ferry Building, San Francisco',
+        notes: [
+          { type: 'info', text: '~15 min walk from Intercontinental via Embarcadero' }
+        ]
+      },
+      {
+        label: 'Afternoon',
+        icon: '🏛️',
+        content: 'SOMA exploration: SFMOMA, nearby galleries, neighborhood walk.',
+        address: 'SFMOMA · 151 3rd St, San Francisco',
+        notes: [
+          { type: 'info', text: 'SFMOMA hours: 10am–5pm daily (Thu until 9pm)' }
+        ]
+      },
+      {
+        label: 'Dinner',
+        icon: '🍽️',
+        content: 'Anchovy Bar — seafood-focused, wine-driven spot in the Mission District.',
+        address: '579 Valencia St, San Francisco',
+        notes: []
+      },
+      {
+        label: 'Evening',
+        icon: '🌙',
+        content: 'Return to Intercontinental. Rest up — early Yosemite departure tomorrow.',
+        notes: []
+      }
+    ]
+  },
+  {
+    id: 2,
+    date: 'Saturday, May 30',
+    location: 'SF → Yosemite',
+    sublocation: 'Curry Village',
+    theme: 'yosemite',
+    stay: 'Curry Village, Yosemite Valley',
+    sections: [
+      {
+        label: 'Morning',
+        icon: '☕',
+        content: 'Meet friends in SF, final coffee, depart for Yosemite via Hwy 120 through Groveland.',
+        notes: [
+          { type: 'info', text: 'Hwy 120 entrance via Groveland · ~4–5 hrs from SF' },
+          { type: 'warning', text: 'Digital entrance pass required — have confirmation from recreation.gov' }
+        ]
+      },
+      {
+        label: 'Lunch',
+        icon: '🍴',
+        content: 'Iron Door Saloon — historic gold-rush era bar and grill in Groveland. Good stopping point midway to Yosemite.',
+        address: '18761 Main St, Groveland, CA',
+        notes: [
+          { type: 'info', text: 'Roughly halfway to Yosemite — good timing stop' }
+        ]
+      },
+      {
+        label: 'Afternoon',
+        icon: '🌲',
+        content: 'Arrive Curry Village. Check in, get oriented. Valley Floor Loop — easy stroll with views of Half Dome and El Capitan.',
+        address: 'Curry Village (Half Dome Village), Yosemite Valley',
+        notes: [
+          { type: 'info', text: 'Valley Floor Loop: ~13 mi full loop; any section makes for a great stroll' }
+        ]
+      },
+      {
+        label: 'Dinner',
+        icon: '🍽️',
+        content: 'Curry Village Pizza Deck or Bar 1899 — casual options right at base camp.',
+        address: 'Curry Village, Yosemite Valley',
+        notes: [
+          { type: 'info', text: 'Pizza Deck is outdoor seating · Bar 1899 has a full bar — both at Curry Village' }
+        ]
+      },
+      {
+        label: 'Evening',
+        icon: '🌙',
+        content: 'Settle in, early rest — big hike day tomorrow.',
+        notes: []
+      }
+    ]
+  },
+  {
+    id: 3,
+    date: 'Sunday, May 31',
+    location: 'Yosemite',
+    sublocation: 'Mist Trail Day',
+    theme: 'yosemite',
+    stay: 'Curry Village, Yosemite Valley',
+    sections: [
+      {
+        label: 'Breakfast',
+        icon: '☕',
+        content: 'Curry Village Market — grab supplies and pack a trail lunch for the hike.',
+        address: 'Curry Village Market, Yosemite Valley',
+        notes: [
+          { type: 'info', text: 'Pack lunch, snacks, and plenty of water — long hike day ahead' }
+        ]
+      },
+      {
+        label: 'Morning',
+        icon: '🥾',
+        content: 'Mist Trail — Vernal Fall + Nevada Fall extension. One of Yosemite\'s iconic hikes. Expect to get soaked near the falls — bring a rain jacket or poncho.',
+        address: 'Happy Isles Trailhead, Yosemite Valley',
+        notes: [
+          { type: 'warning', text: '6–9 miles total, moderate-to-strenuous. Bring rain jacket/poncho for the mist.' },
+          { type: 'info', text: 'Vernal Fall: ~3 mi RT · Nevada Fall extension: ~7 mi RT' },
+          { type: 'info', text: 'Start early to beat crowds and afternoon heat' }
+        ]
+      },
+      {
+        label: 'Lunch',
+        icon: '🎒',
+        content: 'Trail lunch at Nevada Fall viewpoint or Vernal Fall footbridge.',
+        notes: []
+      },
+      {
+        label: 'Afternoon',
+        icon: '🌿',
+        content: 'Return from hike, rest at Curry Village. Optional gentle Valley exploration.',
+        notes: []
+      },
+      {
+        label: 'Dinner',
+        icon: '🍽️',
+        content: 'Curry Village Pizza Deck or Bar 1899.',
+        address: 'Curry Village, Yosemite Valley',
+        notes: []
+      },
+      {
+        label: 'Evening',
+        icon: '🌙',
+        content: 'Night walk in the Valley or rest. Watch for deer.',
+        notes: []
+      }
+    ]
+  },
+  {
+    id: 4,
+    date: 'Monday, June 1',
+    location: 'Yosemite',
+    sublocation: 'Glacier Point or Clouds Rest',
+    theme: 'yosemite',
+    stay: 'Curry Village, Yosemite Valley',
+    sections: [
+      {
+        label: 'Breakfast',
+        icon: '☕',
+        content: 'Curry Village Meadow Grill — outdoor grill, good for a hearty morning meal.',
+        address: 'Curry Village, Yosemite Valley',
+        notes: []
+      },
+      {
+        label: 'Morning',
+        icon: '⛰️',
+        content: 'Option A — Glacier Point overlook: drive up (~1 hr), stunning 360° views of Half Dome, the Valley, and the High Sierra. Easy walk at the top.\n\nOption B — Clouds Rest hike: strenuous ridge hike above Half Dome elevation with incredible panoramic views.',
+        notes: [
+          { type: 'info', text: 'Glacier Point: ~1 hr drive from Curry Village · Overlook at 7,214 ft' },
+          { type: 'warning', text: 'Clouds Rest: ~14 mi RT, strenuous — best if legs recovered from Mist Trail' }
+        ]
+      },
+      {
+        label: 'Lunch',
+        icon: '🍴',
+        content: 'Degnan\'s Kitchen — deli-style sandwiches and quick bites in Yosemite Village.',
+        address: 'Yosemite Village (near Visitor Center), Yosemite Valley',
+        notes: []
+      },
+      {
+        label: 'Afternoon',
+        icon: '🌿',
+        content: 'Explore the Valley at leisure — Yosemite Village, Mirror Lake trail, or rest.',
+        notes: []
+      },
+      {
+        label: 'Dinner',
+        icon: '🍽️',
+        content: 'Curry Village Pizza Deck or Bar 1899.',
+        address: 'Curry Village, Yosemite Valley',
+        notes: []
+      },
+      {
+        label: 'Evening',
+        icon: '🥂',
+        content: 'Ahwahnee Bar — sundowners at the historic Ahwahnee Hotel. Open to the public; no hotel stay required. Worth dressing up slightly.',
+        address: 'The Ahwahnee Hotel, Yosemite Valley',
+        notes: [
+          { type: 'cash', text: 'Ahwahnee Bar — verify cash-only before going' },
+          { type: 'info', text: 'Open to public — no hotel stay required' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 5,
+    date: 'Tuesday, June 2',
+    location: 'Yosemite → Mill Valley',
+    sublocation: 'Transit Day',
+    theme: 'marin',
+    stay: "Friends' place, Mill Valley",
+    sections: [
+      {
+        label: 'Breakfast',
+        icon: '☕',
+        content: 'Curry Village Market — last Yosemite morning.',
+        address: 'Curry Village Market, Yosemite Valley',
+        notes: []
+      },
+      {
+        label: 'Morning',
+        icon: '🥾',
+        content: 'Lower Yosemite Falls — short, easy hike (1 mi loop). Great farewell to the Valley.',
+        address: 'Lower Yosemite Fall Trailhead, Yosemite Valley',
+        notes: [
+          { type: 'info', text: '~1 mile loop, easy — perfect relaxed morning before the drive' },
+          { type: 'info', text: 'Best water flow late May/early June (peak snowmelt)' }
+        ]
+      },
+      {
+        label: 'Lunch',
+        icon: '🍴',
+        content: 'Curry Village Meadow Grill — final Yosemite meal before departure.',
+        address: 'Curry Village, Yosemite Valley',
+        notes: []
+      },
+      {
+        label: 'Drive',
+        icon: '🚗',
+        content: 'Depart Yosemite for Mill Valley — ~3.5–4 hrs via Hwy 120 west to the Bay Area.',
+        notes: [
+          { type: 'info', text: '~3.5–4 hrs · Exit via Hwy 120 west (Groveland) · Golden Gate Bridge or Richmond Bridge into Marin' }
+        ]
+      },
+      {
+        label: 'Dinner',
+        icon: '🍽️',
+        content: 'Dinner with friends in Mill Valley.',
+        notes: []
+      },
+      {
+        label: 'Evening',
+        icon: '🌙',
+        content: "Settle in at friends' place in Mill Valley.",
+        notes: []
+      }
+    ]
+  },
+  {
+    id: 6,
+    date: 'Wednesday, June 3',
+    location: 'San Francisco',
+    sublocation: 'Mission → Chinatown → North Beach',
+    theme: 'sf',
+    stay: "Friends' place, Mill Valley",
+    sections: [
+      {
+        label: 'Breakfast',
+        icon: '☕',
+        content: 'Tartine Manufactory — legendary SF bakery. Exceptional coffee and pastries. Arrive early to beat the line.',
+        address: '649 Guerrero St, San Francisco (Mission/SOMA border)',
+        notes: [
+          { type: 'warning', text: 'Arrive by 8:15am to beat the line' }
+        ]
+      },
+      {
+        label: 'Morning',
+        icon: '🛍️',
+        content: 'Valencia Street — wander north from ~16th St:\n\n• Paletería Nora (16th & Valencia) — Mexican paletas\n• Bi-Rite Market (18th & Valencia) — beloved neighborhood grocery & deli\n• Noun Vintage (20th & Valencia) — curated vintage clothing\n• Costume & Cake (22nd & Valencia) — specialty shop',
+        address: 'Valencia St from 16th to 22nd St, San Francisco',
+        notes: [
+          { type: 'info', text: '~1.5 hrs, roughly 0.5 mi stroll · Most shops open by 11am' }
+        ]
+      },
+      {
+        label: 'Lunch',
+        icon: '🥟',
+        content: 'Good Mong Kok Bakery — classic Chinatown dim sum takeout. Order at the counter.',
+        address: '1039 Stockton St, Chinatown, San Francisco',
+        notes: [
+          { type: 'cash', text: 'Cash preferred — bring bills' },
+          { type: 'warning', text: 'Very busy 11:30am–1:30pm — arrive before noon if possible' },
+          { type: 'info', text: '18 stools, mostly takeout · Order at counter' }
+        ]
+      },
+      {
+        label: 'Afternoon',
+        icon: '🍵',
+        content: 'Red Blossom Tea Company — exceptional tea shop on Grant Ave. Browse and buy; in-store tastings are no longer offered.',
+        address: '735 Grant Ave, Chinatown, San Francisco',
+        notes: [
+          { type: 'warning', text: 'In-store tastings discontinued — browse and buy only' },
+          { type: 'info', text: '~1.25 hrs to browse their full selection' }
+        ]
+      },
+      {
+        label: 'Late Afternoon',
+        icon: '📚',
+        content: 'City Lights Bookstore — iconic Beat Generation bookshop in North Beach. Excellent poetry and literature. Washington Square Park is 2 blocks away for a breather.',
+        address: 'City Lights: 261 Columbus Ave, North Beach · Washington Square: Filbert & Stockton',
+        notes: [
+          { type: 'info', text: '~1.5 hrs · Walking total today: ~2 miles (Valencia + Chinatown + North Beach)' }
+        ]
+      },
+      {
+        label: 'Evening',
+        icon: '🚗',
+        content: 'Return to Mill Valley for dinner with friends.\n\nTransit options:\n• BART from Civic Center (~15 min walk) or Powell St\n• Rideshare from North Beach: ~30–40 min, ~$40–60',
+        notes: [
+          { type: 'info', text: 'BART: Civic Center or Powell St stations · Transfer at Embarcadero for ferry to Marin' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 7,
+    date: 'Thursday, June 4',
+    location: 'San Francisco',
+    sublocation: 'Japantown → Polk → GG Park',
+    theme: 'sf',
+    stay: "Friends' place, Mill Valley",
+    sections: [
+      {
+        label: 'Breakfast',
+        icon: '🍵',
+        content: 'Song Tea & Ceramics — intimate tea tasting experience. Reservation via Tock required.',
+        address: '2120 Sutter St, San Francisco',
+        notes: [
+          { type: 'reservation', text: 'Tock reservation required — confirm your booking before leaving' }
+        ]
+      },
+      {
+        label: 'Morning',
+        icon: '🚶',
+        content: 'Fillmore Street corridor — Japantown through Pacific Heights. Good coffee, small boutiques, great neighborhood energy.',
+        address: 'Fillmore St from Sutter to Sacramento, San Francisco',
+        notes: []
+      },
+      {
+        label: 'Lunch',
+        icon: '🦪',
+        content: 'Swan Oyster Depot — legendary SF raw bar. Counter-only. Cash only. Closes 2:30pm sharp. Order fresh oysters, Dungeness crab, clam chowder.',
+        address: '1517 Polk St, San Francisco (Polk Gulch)',
+        notes: [
+          { type: 'cash', text: 'Cash only — ATM nearby on Polk St' },
+          { type: 'warning', text: 'Closes 2:30pm sharp — arrive by noon; line forms early' },
+          { type: 'info', text: '18 counter stools only · No reservations' }
+        ]
+      },
+      {
+        label: 'Afternoon',
+        icon: '🖼️',
+        content: 'Option A — Fraenkel Gallery (49 Geary St): check website for current June exhibition before visiting.\n\nOption B — Evan Kinori (1367 Valencia St): Japanese-influenced menswear, open Thu 12–6pm only.\n\nOption C — Golden Gate Park: de Young Museum + Japanese Tea Garden + walk to Ocean Beach.',
+        address: 'Fraenkel: 49 Geary St · Evan Kinori: 1367 Valencia · de Young: 50 Hagiwara Tea Garden Dr',
+        notes: [
+          { type: 'warning', text: 'Fraenkel Gallery: Check website for current June exhibition and hours' },
+          { type: 'warning', text: 'Evan Kinori: Open Thu 12–6pm only · Closed Wednesdays' },
+          { type: 'info', text: 'de Young + Japanese Tea Garden: plan ~2–3 hrs for the full park visit' }
+        ]
+      },
+      {
+        label: 'Dinner',
+        icon: '🐓',
+        content: 'Zuni Café — roast chicken for two is the signature dish. Order immediately on arrival — it takes ~1 hour. Warm, wood-fired room, excellent wine list.',
+        address: '1658 Market St, San Francisco',
+        notes: [
+          { type: 'reservation', text: 'Order roast chicken for two on arrival — ~1 hr wait for the dish' },
+          { type: 'info', text: 'Classic SF bistro atmosphere · Great natural wine list' }
+        ]
+      },
+      {
+        label: 'Evening',
+        icon: '🚗',
+        content: 'Return to Mill Valley after dinner.',
+        notes: [
+          { type: 'info', text: 'Rideshare from Market St to Mill Valley: ~30–40 min' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 8,
+    date: 'Friday, June 5',
+    location: 'Mill Valley → Healdsburg',
+    sublocation: 'Dry Creek Valley',
+    theme: 'healdsburg',
+    stay: 'Best Western Dry Creek Inn, Healdsburg',
+    sections: [
+      {
+        label: 'Drive',
+        icon: '🚗',
+        content: 'Mill Valley → Healdsburg — ~1h 15m via Hwy 101 north through Marin and Sonoma.',
+        notes: [
+          { type: 'info', text: '~1h 15m · Hwy 101 north · Best Western Dry Creek Inn on arrival' }
+        ]
+      },
+      {
+        label: 'Morning',
+        icon: '☀️',
+        content: 'Healdsburg Plaza — beautiful Spanish colonial town square. Coffee, browse shops, get oriented.',
+        address: 'Healdsburg Plaza, Healdsburg, CA',
+        notes: []
+      },
+      {
+        label: 'Lunch',
+        icon: '🍴',
+        content: 'Dry Creek General Store — classic California roadhouse, great sandwiches and local atmosphere.',
+        address: '3495 Dry Creek Rd, Healdsburg, CA',
+        notes: [
+          { type: 'info', text: 'Classic stop en route to the Dry Creek Valley wineries' }
+        ]
+      },
+      {
+        label: 'Afternoon',
+        icon: '🍷',
+        content: 'Dry Creek Valley wineries:\n\n• A. Rafanelli Winery — family-owned, exceptional Zinfandel, appointment preferred\n• Preston Farm & Winery — organic, biodynamic, old-vine Zinfandel and Rhône varieties\n• Healdsburg Farmers\' Market (if timing works)',
+        address: 'A. Rafanelli: 4685 W Dry Creek Rd · Preston: 9282 W Dry Creek Rd',
+        notes: [
+          { type: 'reservation', text: 'A. Rafanelli: Appointment preferred — call ahead' },
+          { type: 'info', text: 'Dry Creek Valley is compact — wineries are close together on West Dry Creek Rd' }
+        ]
+      },
+      {
+        label: 'Dinner',
+        icon: '🥂',
+        content: 'Rehearsal dinner — 6–7pm. No additional dinner needed. Rest and celebrate.',
+        notes: []
+      }
+    ]
+  }
+];
+
+const QUICK_REF = {
+  cashOnly: [
+    { name: 'Good Mong Kok Bakery', detail: 'Cash preferred · 1039 Stockton St, Chinatown · Order at counter · Very busy 11:30am–1:30pm' },
+    { name: 'Swan Oyster Depot', detail: 'Cash only · 1517 Polk St, San Francisco · Closes 2:30pm sharp · 18 counter stools · No reservations' },
+    { name: 'Ahwahnee Bar', detail: 'Verify cash-only status · Yosemite Valley · Open to public (no hotel stay required)' }
+  ],
+  hours: [
+    { name: 'Swan Oyster Depot', detail: 'Closes 2:30pm sharp — arrive by noon to avoid waiting or missing it entirely' },
+    { name: 'Good Mong Kok Bakery', detail: 'Busiest 11:30am–1:30pm — arrive before noon for shorter wait' },
+    { name: 'Tartine Manufactory', detail: 'Arrive by 8:15am to beat the morning line — Day 6 breakfast' },
+    { name: 'Evan Kinori', detail: 'Open Thu only: 12–6pm · Closed Wednesdays · 1367 Valencia St' },
+    { name: 'Red Blossom Tea', detail: 'In-store tastings discontinued — browse and buy only · 735 Grant Ave, Chinatown' },
+    { name: 'Fraenkel Gallery', detail: 'Check website for June exhibition hours before visiting · 49 Geary St' }
+  ],
+  reservations: [
+    { name: 'Song Tea & Ceramics', detail: 'Tock reservation required — confirm before Day 7 · 2120 Sutter St, SF' },
+    { name: 'Zuni Café', detail: 'Order roast chicken for two immediately on arrival — ~1 hr wait for the dish · Day 7 dinner' },
+    { name: 'A. Rafanelli Winery', detail: 'Appointment preferred — call ahead · 4685 W Dry Creek Rd, Healdsburg' },
+    { name: 'Fraenkel Gallery', detail: 'Check website for current June exhibition before visiting · 49 Geary St, SF' },
+    { name: 'Yosemite Entrance Pass', detail: 'Digital pass required via recreation.gov — have confirmation ready at park entrance' }
+  ],
+  transit: [
+    { name: 'BART Stations (Day 6)', detail: 'Civic Center or Powell St · Day 6 return from North Beach to Mill Valley · Transfer at Embarcadero for ferry' },
+    { name: 'Rideshare — North Beach → Mill Valley', detail: '~30–40 min drive · ~$40–60 · Day 6 evening' },
+    { name: 'Rideshare — Market St → Mill Valley', detail: '~30–40 min drive · Day 7 after Zuni dinner' },
+    { name: 'Golden Gate Ferry', detail: 'Ferry Building → Marin — check schedule in advance · seasonal timing varies' },
+    { name: 'Yosemite — Hwy 120', detail: 'Enter via Groveland on Hwy 120 · ~4–5 hrs from SF · Pass Iron Door Saloon at midpoint' },
+    { name: 'Mill Valley → Healdsburg', detail: '~1h 15m via Hwy 101 north · Day 8 morning drive' }
+  ]
+};
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+
+let searchOpen = false;
+let sheetOpen = false;
+let currentTab = 'cashOnly';
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+
+function init() {
+  renderDays();
+  setupSearch();
+  setupSheet();
+  setupServiceWorker();
+}
+
+// ─── RENDER DAYS ──────────────────────────────────────────────────────────────
+
+function renderDays() {
+  document.getElementById('main-content').innerHTML =
+    DAYS.map(day => `
+      <div class="day-card ${day.theme}" data-day="${day.id}">
+        <div class="day-header" onclick="toggleDay(${day.id})">
+          <div class="day-header-text">
+            <div class="day-label">Day ${day.id}</div>
+            <div class="day-date">${esc(day.date)}</div>
+            <div class="day-loc">${esc(day.location)}${day.sublocation ? ` · ${esc(day.sublocation)}` : ''}</div>
+            <div class="day-stay">🏨 ${esc(day.stay)}</div>
+          </div>
+          <div class="chevron">▼</div>
+        </div>
+        <div class="sections">
+          ${day.sections.map(s => renderSection(day.id, s)).join('')}
+        </div>
+      </div>
+    `).join('');
+}
+
+function renderSection(dayId, section) {
+  const alertBadges = (section.notes || [])
+    .filter(n => n.type !== 'info')
+    .slice(0, 3)
+    .map(n => {
+      const icon = n.type === 'cash' ? '💵' : n.type === 'warning' ? '⚠️' : '📋';
+      return `<span class="badge">${icon}</span>`;
+    }).join('');
+
+  const notesHtml = (section.notes || []).map(n => {
+    const cls = n.type === 'cash' ? 'note-cash'
+              : n.type === 'warning' ? 'note-warn'
+              : n.type === 'reservation' ? 'note-res'
+              : 'note-info';
+    const icon = n.type === 'cash' ? '💵' : n.type === 'warning' ? '⚠️' : n.type === 'reservation' ? '📋' : 'ℹ️';
+    return `<div class="note ${cls}"><span class="note-icon">${icon}</span><span class="note-text">${esc(n.text)}</span></div>`;
+  }).join('');
+
+  return `
+    <div class="section" data-day="${dayId}" data-label="${esc(section.label)}">
+      <div class="section-header" onclick="toggleSection(this.parentElement)">
+        <span class="section-icon">${section.icon}</span>
+        <span class="section-label-text">${esc(section.label)}</span>
+        ${alertBadges ? `<div class="section-badges">${alertBadges}</div>` : ''}
+        <span class="section-chev">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="section-content">${esc(section.content)}</div>
+        ${section.address ? `<div class="section-address"><span>📍</span><span>${esc(section.address)}</span></div>` : ''}
+        ${notesHtml ? `<div class="section-notes">${notesHtml}</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+function toggleDay(dayId) {
+  document.querySelector(`.day-card[data-day="${dayId}"]`).classList.toggle('open');
+}
+
+function toggleSection(el) {
+  el.classList.toggle('open');
+}
+
+// ─── SEARCH ───────────────────────────────────────────────────────────────────
+
+function setupSearch() {
+  const toggleBtn = document.getElementById('search-toggle');
+  const input     = document.getElementById('search-input');
+  const closeBtn  = document.getElementById('search-close-btn');
+  const bar       = document.getElementById('search-bar');
+  const results   = document.getElementById('search-results');
+  const history   = document.getElementById('search-history');
+  const main      = document.getElementById('main-content');
+  const legend    = document.getElementById('legend');
+
+  toggleBtn.addEventListener('click', () => {
+    searchOpen = !searchOpen;
+    bar.classList.toggle('hidden', !searchOpen);
+    if (searchOpen) {
+      input.focus();
+      showHistory();
+    } else {
+      closeSearch();
+    }
+  });
+
+  closeBtn.addEventListener('click', closeSearch);
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    history.classList.add('hidden');
+    if (q.length >= 2) {
+      const res = doSearch(q);
+      renderSearchResults(res, q);
+      results.classList.remove('hidden');
+      main.classList.add('hidden');
+      legend.classList.add('hidden');
+    } else if (q.length === 0) {
+      results.classList.add('hidden');
+      main.classList.remove('hidden');
+      legend.classList.remove('hidden');
+      showHistory();
+    }
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && input.value.trim()) saveHistory(input.value.trim());
+    if (e.key === 'Escape') closeSearch();
+  });
+}
+
+function closeSearch() {
+  searchOpen = false;
+  document.getElementById('search-bar').classList.add('hidden');
+  document.getElementById('search-history').classList.add('hidden');
+  document.getElementById('search-results').classList.add('hidden');
+  document.getElementById('main-content').classList.remove('hidden');
+  document.getElementById('legend').classList.remove('hidden');
+  document.getElementById('search-input').value = '';
+}
+
+function doSearch(query) {
+  const q = query.toLowerCase();
+  const results = [];
+
+  DAYS.forEach(day => {
+    day.sections.forEach(section => {
+      const haystack = [
+        section.label, section.content, section.address || '',
+        day.location, day.sublocation || '', day.stay, day.date,
+        ...(section.notes || []).map(n => n.text)
+      ].join(' ').toLowerCase();
+
+      if (haystack.includes(q)) {
+        results.push({ type: 'section', day, section });
+      }
+    });
+  });
+
+  const catLabels = { cashOnly: 'Cash Only', hours: 'Hours', reservations: 'Reservations', transit: 'Transit' };
+  Object.entries(QUICK_REF).forEach(([cat, items]) => {
+    items.forEach(item => {
+      if (`${item.name} ${item.detail}`.toLowerCase().includes(q)) {
+        results.push({ type: 'ref', cat, catLabel: catLabels[cat], item });
+      }
+    });
+  });
+
+  return results;
+}
+
+function renderSearchResults(results, query) {
+  const container = document.getElementById('search-results');
+  if (results.length === 0) {
+    container.innerHTML = `<div class="search-empty">No results for "<strong>${esc(query)}</strong>"</div>`;
+    return;
+  }
+
+  container.innerHTML = results.map(r => {
+    if (r.type === 'section') {
+      const snippet = r.section.content.replace(/\n/g, ' ').slice(0, 120);
+      return `
+        <div class="search-result" onclick="jumpTo(${r.day.id}, ${JSON.stringify(r.section.label)})">
+          <div class="result-tag">Day ${r.day.id} · ${esc(r.day.date)}</div>
+          <div class="result-main">${hilite(r.section.label, query)}</div>
+          <div class="result-sub">${hilite(snippet, query)}${r.section.content.length > 120 ? '…' : ''}</div>
+          ${r.section.address ? `<div class="result-sub">📍 ${hilite(r.section.address, query)}</div>` : ''}
+        </div>
+      `;
+    } else {
+      return `
+        <div class="search-result" onclick="openSheet('${r.cat}')">
+          <div class="result-tag">Quick Ref · ${esc(r.catLabel)}</div>
+          <div class="result-main">${hilite(r.item.name, query)}</div>
+          <div class="result-sub">${hilite(r.item.detail, query)}</div>
+        </div>
+      `;
+    }
+  }).join('');
+}
+
+function jumpTo(dayId, sectionLabel) {
+  closeSearch();
+  const card = document.querySelector(`.day-card[data-day="${dayId}"]`);
+  if (!card) return;
+  card.classList.add('open');
+  const section = card.querySelector(`.section[data-label="${sectionLabel.replace(/"/g, '\\"')}"]`);
+  if (section) section.classList.add('open');
+  setTimeout(() => {
+    const target = section || card;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 60);
+}
+
+function hilite(text, query) {
+  const safe = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return esc(text).replace(new RegExp(`(${safe})`, 'gi'), '<mark>$1</mark>');
+}
+
+// ─── SEARCH HISTORY ───────────────────────────────────────────────────────────
+
+function saveHistory(q) {
+  let h = getHistory().filter(x => x !== q);
+  h.unshift(q);
+  localStorage.setItem('ca-trip-history', JSON.stringify(h.slice(0, 6)));
+}
+
+function getHistory() {
+  try { return JSON.parse(localStorage.getItem('ca-trip-history') || '[]'); } catch { return []; }
+}
+
+function showHistory() {
+  const div = document.getElementById('search-history');
+  const h = getHistory();
+  if (!h.length) { div.classList.add('hidden'); return; }
+  div.innerHTML = h.map(q =>
+    `<button class="history-chip" onclick="applyHistory(${JSON.stringify(q)})">${esc(q)}</button>`
+  ).join('');
+  div.classList.remove('hidden');
+}
+
+function applyHistory(q) {
+  const input = document.getElementById('search-input');
+  input.value = q;
+  input.dispatchEvent(new Event('input'));
+}
+
+// ─── QUICK REF SHEET ──────────────────────────────────────────────────────────
+
+function setupSheet() {
+  document.getElementById('quick-ref-btn').addEventListener('click', () => openSheet(currentTab));
+  document.getElementById('sheet-close-btn').addEventListener('click', closeSheet);
+  document.getElementById('sheet-backdrop').addEventListener('click', closeSheet);
+
+  document.querySelectorAll('.sheet-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      currentTab = tab.dataset.tab;
+      document.querySelectorAll('.sheet-tab').forEach(t => t.classList.toggle('active', t === tab));
+      renderSheetContent(currentTab);
+    });
+  });
+}
+
+function openSheet(tab) {
+  if (tab) {
+    currentTab = tab;
+    document.querySelectorAll('.sheet-tab').forEach(t =>
+      t.classList.toggle('active', t.dataset.tab === tab)
+    );
+  }
+  renderSheetContent(currentTab);
+
+  const backdrop = document.getElementById('sheet-backdrop');
+  const sheet    = document.getElementById('quick-ref-sheet');
+
+  backdrop.style.display = 'block';
+  sheet.style.display = 'flex';
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    backdrop.classList.add('vis');
+    sheet.classList.add('vis');
+  }));
+
+  sheetOpen = true;
+}
+
+function closeSheet() {
+  const backdrop = document.getElementById('sheet-backdrop');
+  const sheet    = document.getElementById('quick-ref-sheet');
+  backdrop.classList.remove('vis');
+  sheet.classList.remove('vis');
+  setTimeout(() => {
+    backdrop.style.display = 'none';
+    sheet.style.display = 'none';
+  }, 260);
+  sheetOpen = false;
+}
+
+function renderSheetContent(tab) {
+  const items = QUICK_REF[tab] || [];
+  document.getElementById('sheet-content').innerHTML = items.map(item => `
+    <div class="ref-item">
+      <div class="ref-name">${esc(item.name)}</div>
+      <div class="ref-detail">${esc(item.detail)}</div>
+    </div>
+  `).join('');
+}
+
+// ─── SERVICE WORKER ───────────────────────────────────────────────────────────
+
+function setupServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  }
+}
+
+// ─── UTILS ────────────────────────────────────────────────────────────────────
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// ─── BOOT ─────────────────────────────────────────────────────────────────────
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
