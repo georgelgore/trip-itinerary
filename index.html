@@ -911,7 +911,167 @@ const DAYS = [
         content: 'Settle in, early rest — big hike day tomorrow.',
         notes: []
       }
-    ]
+    ],
+    deepDive: {
+      title: 'Yosemite Hiking Guide',
+      subtitle: 'Days 2–5 · All hikes, entry, logistics & packing list',
+      timeline: [
+        { time: 'Day 2 · Arrival',    activity: 'Valley Floor Loop or Vernal Fall Footbridge', note: 'Easy — 1–2 hrs after the drive' },
+        { time: 'Day 3 · Full day',   activity: 'Mist Trail: Vernal + Nevada Falls',           note: '6.4 mi · 2,000 ft · start by 7:30am' },
+        { time: 'Day 4 · Half/full',  activity: 'Glacier Point + Sentinel Dome, or Clouds Rest', note: 'Drive required' },
+        { time: 'Day 5 · Morning',    activity: 'Lower Yosemite Falls + checkout',             note: '45–60 min · on road by 11am' },
+      ],
+      stops: [
+        {
+          icon: '🎫',
+          label: 'Entry Notes — Read First',
+          meta: 'No timed-entry required for 2026',
+          address: 'Yosemite National Park · Hwy 120 via Groveland',
+          content: 'No timed-entry reservations required for 2026 — NPS eliminated the system.\n\nEntrance queues: Expect 60–90 min waits between 8am–5pm in peak season. Avoid by:\n• Buying a digital day pass at recreation.gov (use the pre-paid lane)\n• Arriving before 8am or after 5pm\n\nGlacier Point Road: Open for the 2026 season.\n\nMist Trail note: The JMT "Ice Cut" between Clark Point and Panorama Trail Junction is closed through late June for repairs. The Mist Trail to Nevada Fall remains fully open — this only affects the JMT-Panorama loop variant, not your route.',
+          tips: [
+            'Digital pass at recreation.gov → skip the toll booth queue entirely',
+            'America the Beautiful pass covers entry if you have one',
+            'Tioga Road (for Clouds Rest): confirm open before planning — typically opens mid-May',
+          ],
+          notes: [
+            { type: 'reservation', text: 'Buy digital entrance pass at recreation.gov to skip entry queues' },
+          ],
+        },
+        {
+          icon: '🚌',
+          label: 'Valley Shuttle — Park Your Car',
+          meta: 'Free · covers all Valley trailheads',
+          content: 'Staying at Curry Village means your car is largely irrelevant for Valley hikes. The free Valley Shuttle covers everything:\n\n• Stop #16 — Happy Isles (Mist Trail trailhead)\n• Stop #6 — Lower Yosemite Falls trailhead\n• Stop #17 — Mirror Lake / Valley east\n• Stop #5 — Yosemite Village / Visitor Center\n\nDrive only for Glacier Point Road and Clouds Rest (Tioga Road).',
+          tips: [
+            'Shuttle runs frequently — expanded summer hours',
+            'Curry Village to Happy Isles (Mist Trail): ~5 min ride',
+            'Valley parking fills completely by 9am — let the shuttle handle it',
+          ],
+          notes: [],
+        },
+        {
+          icon: '🥾',
+          label: 'Mist Trail — Vernal & Nevada Falls',
+          meta: 'Day 3 · Strenuous · 6.4 mi · 2,000 ft · 5–6 hrs',
+          address: 'Happy Isles Trailhead · Shuttle stop #16',
+          content: 'The single best day hike in Yosemite Valley. Ascend via the Mist Trail (steep granite staircase through Vernal Fall spray), reach Nevada Fall, descend via JMT switchbacks. Late May/early June is prime: falls at full force, wildflowers, manageable temperatures.\n\nRoute options:\n• A: Vernal Fall Footbridge only — 1.6 mi RT, 1–1.5 hrs (arrival day or rest day)\n• B: Top of Vernal Fall — 2.4 mi RT, ~3 hrs, strenuous\n• C (recommended): Full loop Mist Trail up, JMT down — 6.4 mi, 5–6 hrs\n\nFar fewer people past Vernal Fall. Nevada Fall viewpoint is spectacular and much less crowded.',
+          tips: [
+            'Start by 7:30am — lower trail crowds by 9am, thins significantly above Vernal Fall',
+            'Expect to get soaked on the staircase — wear rain jacket, pack phone in ziplock bag',
+            'Wet granite steps are genuinely slippery — use handrails, take your time',
+            'Carry 2L+ water; refill at Emerald Pool or Nevada Fall area (filter required)',
+            'Nevada Fall top: stay behind railings — drop is unguarded in places',
+          ],
+          notes: [
+            { type: 'warning', text: 'JMT "Ice Cut" closure does NOT affect the standard Mist Trail loop — your route is fully open' },
+          ],
+        },
+        {
+          icon: '⛰️',
+          label: 'Glacier Point',
+          meta: 'Day 4 option · Easy · 0.6 mi viewpoint · 1 hr drive each way',
+          address: 'Glacier Point Road (16 mi from Hwy 41 junction)',
+          content: '3,200-foot sheer drop to Yosemite Valley with Half Dome directly across. Not a hike — one of the world\'s great viewpoints. Best 3–5pm for warm afternoon light on Half Dome.\n\nAdd-ons from Glacier Point Road:\n• Sentinel Dome (2 mi before GP): 2.2 mi RT, 400 ft, 1.5–2 hrs — 360° summit view, arguably better than Glacier Point\n• Taft Point (same trailhead): 2.2 mi RT, dramatic overhanging ledge, vertiginous\n\nBest combo: Hike Sentinel Dome → drive to Glacier Point viewpoint for sunset.',
+          tips: [
+            'Depart Curry Village by 2pm for golden afternoon light',
+            'Parking fills mid-morning on weekends — arrive before 9am or go in the afternoon',
+          ],
+          notes: [],
+        },
+        {
+          icon: '🏔️',
+          label: 'Clouds Rest',
+          meta: 'Day 4 alternative · Strenuous · 12.5 mi · 2,300 ft · 6–8 hrs',
+          address: 'Sunrise Lakes Trailhead · Tioga Road (Hwy 120) · ~1 hr drive',
+          content: 'Granite spine 1,000 ft above Half Dome — no permit lottery, no cables, no crowds. Panoramic views from 9,926 ft. The ambitious alternative to Glacier Point.\n\nFinal 0.5 miles: narrow exposed ridge with steep drop-offs on both sides. Not technical but confidence-inducing. Views from just before the ridge are still excellent if it feels too exposed.',
+          tips: [
+            'Start by 7am — thunderstorm risk builds in the afternoon on this exposed summit',
+            'Aim to summit by 11am–noon; descend immediately if clouds build',
+            'Carry 2.5–3L water from trailhead — no water at summit',
+            'Microspikes may help if snow remains in late May on north-facing sections',
+            'High elevation (~10,000 ft) — pace slower than valley elevation',
+            'Confirm Tioga Road open: nps.gov/yose/planyourvisit/conditions.htm',
+          ],
+          notes: [
+            { type: 'warning', text: 'Start by 7am. Descend immediately if clouds build — exposed summit in thunderstorms' },
+            { type: 'warning', text: 'Confirm Tioga Road is open before planning this hike' },
+          ],
+        },
+        {
+          icon: '💧',
+          label: 'Lower Yosemite Falls',
+          meta: 'Day 5 morning · Easy · 1.2 mi · 45–60 min',
+          address: 'Lower Yosemite Fall Trailhead · Shuttle stop #6',
+          content: 'Easy flat loop to the base of the tallest waterfall in North America. Perfect for Day 5 before checkout. Late May–early June is the best time — falls at maximum flow from snowmelt.\n\nTake the Valley Shuttle from Curry Village to stop #6. Back at Curry Village by 9am easily.',
+          tips: [
+            'Start 7–8am on departure day — peaceful and uncrowded early',
+            'Photo: bridge at base of Lower Falls framing the full drop, and looking up the full 2,425 ft',
+          ],
+          notes: [],
+        },
+        {
+          icon: '🌿',
+          label: 'Valley Floor Loop',
+          meta: 'Day 2 arrival · Easy · 2–5 hrs · flat',
+          content: 'Flat network of paths through meadows, river crossings, and iconic viewpoints. Many of Yosemite\'s best photo angles are along the valley floor at dawn and dusk.\n\nHighlights:\n• Sentinel Meadow — El Capitan and Cathedral Rocks\n• Valley View / El Capitan Meadow — the classic Yosemite photograph\n• Cook\'s Meadow — Half Dome and Yosemite Falls in one frame\n• Mirror Lake (shuttle #17) — Half Dome reflection on calm mornings',
+          tips: [
+            'Use the shuttle to position yourself at different points and walk sections',
+            'Dawn and dusk: best light and most wildlife (deer, black bears active)',
+          ],
+          notes: [],
+        },
+      ],
+      logistics: [
+        {
+          icon: '🌤️',
+          label: 'Weather (Late May / Early June)',
+          content: 'Valley daytime: 65–80°F. Mornings: 45–55°F — layers needed. Afternoons: thunderstorms can build at higher elevations (especially Clouds Rest — start early).\n\nWaterfalls at peak flow from snowmelt — Mist Trail at its most spectacular and most soaking.\n\nSnow possible above 8,000 ft on Tioga Road routes in late May.',
+        },
+        {
+          icon: '🐻',
+          label: 'Bear Safety',
+          content: 'Black bears active in late spring:\n• Store ALL food in bear boxes at Curry Village (provided at tent cabins)\n• No food, trash, or scented items in your car — ever, even day bags\n• On trail: bear canister for long stops\n\nDeer common in meadows at dawn/dusk — keep distance.',
+        },
+        {
+          icon: '💧',
+          label: 'Water on Trail',
+          content: 'Multiple sources on all Valley trails — always filter or treat (Giardia is present).\n\nStarting load: 2L per person minimum. 2.5–3L for Clouds Rest (no water at summit).\n\nRefill points: Merced River at Happy Isles, Emerald Pool (above Vernal Fall), Nevada Fall area.',
+        },
+        {
+          icon: '👥',
+          label: 'Crowd Strategy',
+          content: 'Mist Trail lower section is the most crowded trail in the park. Start before 8am — crowds thin significantly above Vernal Fall at ~mile 1.5.\n\nYour window (Fri May 30 – Mon June 2) is mixed: weekend days are busier. Early starts solve most of it.',
+        },
+      ],
+      checklists: [
+        {
+          id: 'yosemite-pack',
+          label: '🎒 Packing List',
+          items: [
+            'Lightweight packable rain jacket — essential for Mist Trail',
+            'Moisture-wicking base layer (not cotton)',
+            'Light fleece or mid-layer for mornings and high elevation',
+            'Hiking shoes with grip (wet granite on Mist Trail is slippery)',
+            'Trekking poles — helpful on Mist Trail descent',
+            'Sun hat and sunglasses',
+            'Daypack (20–30L)',
+            'Water filter or purification tablets',
+            '2–3L water capacity (bottles or reservoir)',
+            'Downloaded offline Yosemite map (AllTrails or Gaia GPS)',
+            'Microspikes — if attempting Clouds Rest in late May',
+            'Headlamp — for pre-dawn starts',
+            'Sunscreen SPF 50+',
+            'Bug repellent (late May meadows)',
+            'Blister kit, ibuprofen, bandages',
+            'Snacks and trail lunch (no food services on trail)',
+            'Ziplock bag for phone — Mist Trail spray',
+            'Digital entrance pass (recreation.gov)',
+            'Bear box usage at Curry Village — mandatory',
+            'NPS Yosemite app downloaded offline',
+          ],
+        },
+      ],
+    },
   },
   {
     id: 3,
@@ -966,7 +1126,88 @@ const DAYS = [
         content: 'Night walk in the Valley or rest. Watch for deer.',
         notes: []
       }
-    ]
+    ],
+    deepDive: {
+      title: 'Mist Trail Deep Dive',
+      subtitle: 'Vernal & Nevada Falls Loop · 6.4 mi · 2,000 ft · 5–6 hrs',
+      timeline: [
+        { time: '7:30am',    activity: 'Depart Curry Village on shuttle',      note: 'Stop #16 · Happy Isles' },
+        { time: '7:45am',    activity: 'Start hiking from Happy Isles',        note: 'Beat the 9am crowd surge' },
+        { time: '~9:00am',   activity: 'Top of Vernal Fall',                   note: '~1.5 mi · 1,000 ft gain' },
+        { time: '~11:00am',  activity: 'Nevada Fall summit',                   note: '~3.2 mi · 2,000 ft total' },
+        { time: '~11:30am',  activity: 'Lunch at Nevada Fall viewpoint',       note: 'Trail lunch with a view' },
+        { time: '~1:30pm',   activity: 'Back at Happy Isles via JMT',          note: 'Gradual switchback descent' },
+        { time: '~2:00pm',   activity: 'Shuttle back to Curry Village',        note: 'Rest of day free' },
+      ],
+      stops: [
+        {
+          icon: '🚌',
+          label: 'Getting There',
+          meta: 'Take the shuttle — do not drive',
+          content: 'Valley parking fills completely by 9am. Take the free Valley Shuttle from Curry Village to Stop #16 (Happy Isles trailhead).\n\n~5 min ride. The shuttle drops you right at the start of the trail.',
+          tips: [],
+          notes: [],
+        },
+        {
+          icon: '🌊',
+          label: 'The Mist Trail Staircase',
+          meta: 'Mile 0 to ~1.5 · 1,000 ft gain · where you get soaked',
+          content: 'The famous granite staircase climbs directly through Vernal Fall mist. In late May, this is heavy spray — not drizzle. You will get soaked from the knees up.\n\nThe steps are wet, polished granite. They are genuinely slippery — use the handrails and take your time. Slipping accidents on this section happen every season.\n\nAbove the staircase: Emerald Pool — beautiful calm water above the fall. Excellent rest stop and refill point.',
+          tips: [
+            'Put rain jacket on before the staircase starts — faster than stopping mid-climb',
+            'Pack phone in a ziplock bag before you leave Curry Village',
+            'Trekking poles useful here for extra stability on descent and wet steps',
+            'Crowds thin significantly past the top of Vernal Fall (~mile 1.5) — push through',
+          ],
+          notes: [
+            { type: 'warning', text: 'Wet granite steps — use handrails, no rushing, watch footing' },
+          ],
+        },
+        {
+          icon: '🏔️',
+          label: 'Nevada Fall',
+          meta: 'Mile 3.2 · 2,000 ft total gain · the payoff',
+          content: 'Nevada Fall viewpoint is one of the finest views in the park — Half Dome directly across, the Valley spread far below. This is where the crowds disappear entirely.\n\nTake your time here. Eat lunch. This is the point.',
+          tips: [
+            'Stay behind railings at the overlook — drop is unguarded in places',
+            'Photo: Half Dome framed directly behind Nevada Fall from the overlook',
+            'Photo: Liberty Cap and Nevada Fall together on the JMT descent',
+          ],
+          notes: [
+            { type: 'warning', text: 'Nevada Fall top: stay behind railings — drop is unguarded in places' },
+          ],
+        },
+        {
+          icon: '🔽',
+          label: 'JMT Descent',
+          meta: 'Nevada Fall → Happy Isles · easier on knees than out-and-back',
+          content: 'Descend via the John Muir Trail switchbacks — more gradual than the Mist Trail, much kinder on your knees. This is why the loop is better than out-and-back.\n\nThe JMT passes Clark Point, another excellent viewpoint en route down.\n\nNOTE: The JMT "Ice Cut" closure (Clark Point to Panorama Junction) does NOT affect this descent — your route to Happy Isles is fully open.',
+          tips: [
+            'Trekking poles help significantly on the descent if knees are feeling the climb',
+            'Keep a steady pace — it\'s easy to go too fast on switchbacks and blow out your knees',
+          ],
+          notes: [],
+        },
+      ],
+      logistics: [
+        {
+          icon: '🎒',
+          label: 'What to Pack Today',
+          content: '• Rain jacket — on before the Mist Trail staircase\n• Ziplock bag for phone\n• 2L+ water per person; refill at Emerald Pool or Nevada Fall (filter required)\n• Trail lunch\n• Trekking poles — optional but useful on the staircase and descent\n• Hiking shoes with grip — wet granite does not forgive trail runners',
+        },
+        {
+          icon: '📸',
+          label: 'Photo Spots',
+          content: '1. Vernal Fall footbridge — classic framed view of the fall\n2. Top of Mist Trail staircase — looking back down the valley\n3. Emerald Pool above Vernal Fall — turquoise water, dramatic walls\n4. Nevada Fall overlook — Half Dome centered in background\n5. JMT descent — Liberty Cap and Nevada Fall together',
+        },
+        {
+          icon: '💧',
+          label: 'Water Sources',
+          content: '• Merced River at Happy Isles trailhead\n• Vernal Fall footbridge area\n• Emerald Pool (above Vernal Fall) — filter required\n• Nevada Fall area — filter required\n\nCarry at least 2L from the start. Refill and filter at Emerald Pool if running low before Nevada Fall.',
+        },
+      ],
+      checklists: [],
+    },
   },
   {
     id: 4,
@@ -1022,7 +1263,76 @@ const DAYS = [
           { type: 'info', text: 'Open to public — no hotel stay required' }
         ]
       }
-    ]
+    ],
+    deepDive: {
+      title: 'Glacier Point & Clouds Rest',
+      subtitle: 'Choose your Day 4 adventure',
+      timeline: [
+        { time: 'Option A',  activity: 'Glacier Point drive (depart 2pm)',         note: 'Half day · easy · stunning sunset views' },
+        { time: 'Option A+', activity: 'Glacier Point + Sentinel Dome',            note: 'Full afternoon · moderate · better 360° views' },
+        { time: 'Option B',  activity: 'Clouds Rest full day (depart 7am)',        note: 'Strenuous · 12.5 mi · above Half Dome' },
+      ],
+      stops: [
+        {
+          icon: '🌅',
+          label: 'Glacier Point',
+          meta: 'Easy · 0.6 mi viewpoint · depart by 2pm for sunset light',
+          address: 'End of Glacier Point Road · ~1 hr drive from Curry Village',
+          content: '3,200-foot sheer drop to Yosemite Valley with Half Dome directly across. Not a hike — one of the world\'s great viewpoints. Open for the 2026 season.\n\nBest visited 3–5pm for warm afternoon light on Half Dome. Sunset here is exceptional — plan to linger.',
+          tips: [
+            'Depart Curry Village by 2pm to catch golden afternoon light on Half Dome',
+            'Parking fills by mid-morning on weekends — arriving in the afternoon is actually ideal',
+            'Faces west into the Valley — sunset colors are extraordinary',
+          ],
+          notes: [],
+        },
+        {
+          icon: '🗻',
+          label: 'Sentinel Dome (add-on)',
+          meta: 'Moderate · 2.2 mi RT · 400 ft · 1.5–2 hrs',
+          address: 'Sentinel Dome Trailhead — 2 miles before Glacier Point on the road',
+          content: '360-degree panoramic summit — El Capitan, Half Dome, the entire high Sierra. Arguably a better view than Glacier Point itself, with far fewer people.\n\nEasy to combine: hike Sentinel Dome first, then drive the remaining 2 miles to Glacier Point viewpoint. Best Day 4 pairing.',
+          tips: [
+            'Stop at the Sentinel Dome trailhead before reaching Glacier Point parking',
+            'Taft Point shares this same trailhead: dramatic overhanging ledge, vertiginous — not for heights-averse',
+            'Doing both Sentinel Dome + Taft Point is a solid 3–4 hr outing before the Glacier Point drive',
+          ],
+          notes: [],
+        },
+        {
+          icon: '⛰️',
+          label: 'Clouds Rest',
+          meta: 'Strenuous · 12.5 mi · 2,300 ft · 6–8 hrs · depart 7am',
+          address: 'Sunrise Lakes Trailhead · Tioga Road (Hwy 120) · ~1 hr drive',
+          content: 'Granite spine 1,000 ft above Half Dome — no permit lottery, no cables, no crowds. Panoramic views from 9,926 ft. The most ambitious option — commit to a full day.\n\nFirst challenge: steep switchbacks ~1.5 miles in, gaining ~1,000 ft. Sustained but not technical.\n\nFinal 0.5 miles: narrow exposed granite ridge, steep drop-offs on both sides. Not technical — but bold. Views from just before the ridge are still excellent if it feels too exposed.\n\nHigh elevation (~10,000 ft) means thinner air — budget extra time.',
+          tips: [
+            'Start by 7am — thunderstorms build fast on this exposed summit in the afternoon',
+            'Aim to be at summit by 11am–noon; descend immediately if clouds build',
+            'Carry 2.5–3L water from trailhead — no water sources at summit',
+            'Microspikes may help on north-facing snow patches in late May',
+            '~1 hr drive from Curry Village via Big Oak Flat Road → Tioga Road',
+            'Confirm Tioga Road is open: nps.gov/yose/planyourvisit/conditions.htm',
+          ],
+          notes: [
+            { type: 'warning', text: 'Start by 7am. Descend immediately if clouds build — no shelter on the exposed summit ridge' },
+            { type: 'warning', text: 'Confirm Tioga Road is open before planning this hike' },
+          ],
+        },
+      ],
+      logistics: [
+        {
+          icon: '🤔',
+          label: 'Glacier Point vs. Clouds Rest',
+          content: 'Glacier Point: 30 min from the car, iconic Half Dome view in comfort. Perfect if yesterday\'s Mist Trail left you tired or if you want a relaxed afternoon.\n\nClouds Rest: 6–8 hour full-day commitment, physically higher than Half Dome, more dramatic and earned. Best if you recovered well and want one more big day in the mountains.\n\nBoth are worth doing — on different days if schedule allows.',
+        },
+        {
+          icon: '🚗',
+          label: 'Getting There',
+          content: 'Glacier Point: Drive from Curry Village — Hwy 41 south, then Glacier Point Road (16 miles). ~1 hr. No shuttle service to Glacier Point.\n\nClouds Rest: Drive from Curry Village — Big Oak Flat Road north, then Tioga Road (Hwy 120) east to Sunrise Lakes Trailhead. ~1 hr. Confirm Tioga Road open before going.',
+        },
+      ],
+      checklists: [],
+    },
   },
   {
     id: 5,
