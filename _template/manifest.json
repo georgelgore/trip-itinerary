@@ -1,0 +1,18 @@
+{
+  "name": "TRIP_NAME YYYY",
+  "short_name": "Trip",
+  "description": "Mobile trip planner · TRIP_NAME · DATES",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f2ee",
+  "theme_color": "#2c3e50",
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
-const CACHE = 'ca-trip-v3';
+// TODO: rename CACHE to something unique for this trip, e.g. 'japan-2027-v1'
+const CACHE = 'trip-name-v1';
 const FILES = ['./', './index.html', './manifest.json', './sw.js', './icon-192.svg'];
 
 self.addEventListener('install', e => {
