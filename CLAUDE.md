@@ -18,6 +18,59 @@ trip-itinerary/
         └── icon-192.svg
 ```
 
+## Edit mode (in-app trip editing)
+
+Every trip page has an inline edit mode: tap the ✏️ button in the header while viewing a single day (`?day=N`) and the day's content becomes editable. Hitting **Done** saves the edits.
+
+### How edits are persisted
+
+Two layers, applied in this order at boot:
+
+1. **`localStorage`** — instant, per-device. Key: `<tripId>:days`. Always populated by Save.
+2. **`edits.json`** at the trip's folder — fetched async at boot, applied if newer than the cached copy. This is the cross-device source of truth.
+
+The inline `let DAYS = [...]` constant in `index.html` is the **fallback** — used only if both layers above are absent. It never gets rewritten by the app.
+
+### Publishing edits to GitHub
+
+To make an edit reach other devices, the app commits `edits.json` to the repo via the GitHub REST API. This requires a **fine-grained Personal Access Token** with `Contents: Read & Write` on `georgelgore/trip-itinerary` only.
+
+1. Open the trip in edit mode (✏️ → ⚙ in the brown edit header)
+2. Paste the PAT into the Settings sheet
+3. From now on, every Save publishes to GitHub + localStorage. Without a PAT, edits stay in this browser.
+
+The token is stored in `localStorage['trip-gh-pat']` and is shared across all trips on this device.
+
+### What's editable (today)
+
+- Day header: date string, location, sublocation, hotel/stay
+- Sections: icon, label, content (textarea), address
+- Section notes: toggle info / warning / cash / reservation pills, edit text
+- Reorder sections within a day (↑ / ↓ buttons)
+- Add a new section / delete a section
+
+### What's *not* editable yet
+
+- Day theme/region (would change CSS class)
+- Reordering days
+- `deepDive` blocks (timeline, stops, logistics, checklists)
+- `QUICK_REF` tabs
+
+Those still require an editor + commit by hand.
+
+### Edit-mode files
+
+The edit-mode CSS, HTML chrome, and JS live as templates in `_edit_mode/`:
+
+```
+_edit_mode/
+  edit-mode.css   — styles for edit chrome, editable day card, section form, settings sheet, toast
+  edit-mode.html  — the brown edit header + settings sheet markup
+  edit-mode.js    — enter/exit, render, save, GitHub commit, toast
+```
+
+The per-trip `index.html` files include these inline (spliced in during the original edit-mode rollout). To roll out future edit-mode changes to a new trip, splice them in the same way — see `_template/index.html` for the canonical placement of each block.
+
 ## Adding a new trip
 
 1. Copy `_template/` → `trips/destination-year/` (e.g. `trips/japan-2027/`)
@@ -27,6 +80,7 @@ trip-itinerary/
    - Replace `TRIP_NAME YYYY` in `<title>` and the header `app-title`
    - Replace `DATES · TRAVELERS` in `app-dates`
    - Replace `TRIP_ID` in the two localStorage key strings with a short unique id (e.g. `japan-27`)
+   - **In the `EDIT_CFG` block (near bottom of script):** set `tripId` (same id), `editsPath: 'trips/destination-year/edits.json'`, and `storageKey: '<tripId>:days'`. The default values use placeholders that need replacing.
    - **Fill in the `TRIP_META` block** (see schema below) — drives share text + per-day date inference
    - Update the `<style>` region color variables (`.sf`, `.yosemite`, etc.) to match new regions
    - **Add matching `.ov-card.<region>` rules** in the overview CSS block so overview accent stripes match the day-header colors
