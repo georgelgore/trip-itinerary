@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "trip-planner",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8099"],
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "cd /Users/georgegore/projects/trip-itinerary && python3 -m http.server 8099"],
       "port": 8099
     }
   ]
