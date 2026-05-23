@@ -29,7 +29,7 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      padding-bottom: calc(76px + env(safe-area-inset-bottom));
+      padding-bottom: env(safe-area-inset-bottom);
     }
 
     /* ── HEADER ── */
@@ -360,34 +360,6 @@
 
     .note-icon { flex-shrink: 0; }
     .note-text { flex: 1; }
-
-    /* ── BOTTOM BAR ── */
-    #bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 10px 16px;
-      padding-bottom: calc(10px + env(safe-area-inset-bottom));
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      z-index: 40;
-    }
-
-    #quick-ref-btn {
-      width: 100%;
-      padding: 14px;
-      background: #2c3e50;
-      color: #fff;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      letter-spacing: 0.2px;
-    }
-
-    #quick-ref-btn:active { background: #243342; }
 
     /* ── QUICK REF SHEET ── */
     #sheet-backdrop {
@@ -886,12 +858,22 @@
     .day-nav-center {
       flex: 1.4;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       font-size: 12px;
       color: var(--muted);
       text-align: center;
       letter-spacing: 0.2px;
+      text-decoration: none;
+      cursor: pointer;
+      gap: 2px;
+    }
+    .day-nav-center:active { opacity: 0.6; }
+    .day-nav-all-days {
+      font-size: 10px;
+      opacity: 0.65;
+      letter-spacing: 0.3px;
     }
     .day-nav-center b {
       color: var(--text);
@@ -904,30 +886,6 @@
       background: #c64a1f;
       margin-right: 5px;
       vertical-align: 1px;
-    }
-
-    /* ── SHARE TOAST ── */
-    #share-toast {
-      position: fixed;
-      left: 50%;
-      bottom: calc(86px + env(safe-area-inset-bottom));
-      transform: translateX(-50%) translateY(8px);
-      background: rgba(40,40,40,0.94);
-      color: #fff;
-      padding: 9px 16px;
-      border-radius: 22px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.2px;
-      z-index: 60;
-      opacity: 0;
-      transition: opacity 0.18s, transform 0.18s;
-      pointer-events: none;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    }
-    #share-toast.vis {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
     }
 
     /* ── OFFLINE BADGE (subtle, in header) ── */
@@ -945,15 +903,11 @@
     }
     body.is-offline #offline-badge { display: inline-block; }
 
-    /* ── HEADER: share button (matches header-btn) ── */
-    /* (no extra styles needed — reuses .header-btn) */
-
     /* ── RESPONSIVE ── */
     @media (min-width: 600px) {
       .overview-list { max-width: 600px; margin-left: auto; margin-right: auto; }
       #main-content, .legend { max-width: 600px; margin-left: auto; margin-right: auto; }
       .day-card { margin: 10px auto; max-width: 576px; }
-      #bottom-bar { max-width: 600px; left: 50%; transform: translateX(-50%); border-radius: 12px 12px 0 0; }
       #quick-ref-sheet { max-width: 600px; left: 50%; transform: translateX(-50%) translateY(100%); border-radius: 18px 18px 0 0; }
       #quick-ref-sheet.vis { transform: translateX(-50%) translateY(0); }
       #deep-dive-sheet { max-width: 600px; left: 50%; transform: translateX(-50%) translateY(100%); border-radius: 18px 18px 0 0; }
@@ -971,7 +925,6 @@
       <div class="app-title">🏕️ California Trip 2026 <span id="offline-badge">Offline</span></div>
       <div class="app-dates">May 29 – June 7 · George &amp; Doug</div>
     </div>
-    <button class="header-btn" id="share-btn" aria-label="Share trip">↗</button>
     <button class="header-btn" id="search-toggle" aria-label="Search">🔍</button>
   </div>
   <div id="search-bar" class="hidden">
@@ -980,8 +933,6 @@
   </div>
   <div id="search-history" class="hidden"></div>
 </header>
-<div id="share-toast"></div>
-
 <!-- ── SEARCH RESULTS ── -->
 <div id="search-results" class="hidden"></div>
 
@@ -995,11 +946,6 @@
 
 <!-- ── MAIN ── -->
 <main id="main-content"></main>
-
-<!-- ── BOTTOM BAR ── -->
-<div id="bottom-bar">
-  <button id="quick-ref-btn">Quick Ref · Cash · Hours · Reservations ↑</button>
-</div>
 
 <!-- ── QUICK REF SHEET ── -->
 <div id="sheet-backdrop"></div>
@@ -2147,7 +2093,6 @@ function init() {
   setupSearch();
   setupSheet();
   document.getElementById('deep-dive-close-btn').addEventListener('click', closeDeepDive);
-  document.getElementById('share-btn').addEventListener('click', shareTrip);
   document.getElementById('header-back').addEventListener('click', onBackClick);
   window.addEventListener('popstate', renderRoute);
   window.addEventListener('online',  updateOnlineBadge);
@@ -2399,7 +2344,6 @@ function applyHistory(q) {
 // ─── QUICK REF SHEET ──────────────────────────────────────────────────────────
 
 function setupSheet() {
-  document.getElementById('quick-ref-btn').addEventListener('click', () => openSheet(state.currentTab));
   document.getElementById('sheet-close-btn').addEventListener('click', closeSheet);
   document.getElementById('sheet-backdrop').addEventListener('click', () => {
     if (state.sheetOpen) closeSheet();
@@ -2731,9 +2675,10 @@ function renderDayDetail(dayId) {
       ${prev
         ? `<a class="day-nav-btn" href="?day=${prev.id}" onclick="onDayNavClick(event, ${prev.id})">← Day ${prev.id}</a>`
         : `<span class="day-nav-btn disabled">←</span>`}
-      <div class="day-nav-center">
-        ${isToday ? '<span class="day-nav-today-mark"></span><b>Today</b> · ' : ''}<b>Day ${day.id}</b> of ${DAYS.length}
-      </div>
+      <a class="day-nav-center" href="./" onclick="onOverviewNavClick(event)">
+        <span>${isToday ? '<span class="day-nav-today-mark"></span><b>Today</b> · ' : ''}<b>Day ${day.id}</b> of ${DAYS.length}</span>
+        <span class="day-nav-all-days">↑ All Days</span>
+      </a>
       ${next
         ? `<a class="day-nav-btn" href="?day=${next.id}" onclick="onDayNavClick(event, ${next.id})">Day ${next.id} →</a>`
         : `<span class="day-nav-btn disabled">→</span>`}
@@ -2746,6 +2691,12 @@ function onDayNavClick(e, dayId) {
   if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
   e.preventDefault();
   navigateTo('?day=' + dayId);
+}
+
+function onOverviewNavClick(e) {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+  e.preventDefault();
+  navigateTo('./');
 }
 
 // ─── CHIPS (auto-detect highlights for overview cards) ───────────────────────
@@ -2948,61 +2899,6 @@ function formatShortDate(rawDate, isoDate) {
     return `${dow} · ${m[2]}`.replace(/\s+·\s*$/, '');
   }
   return noSuffix;
-}
-
-// ─── SHARE ────────────────────────────────────────────────────────────────────
-
-async function shareTrip() {
-  const url = location.href;
-  const route = state.route || { view: 'overview' };
-
-  let title = TRIP_META.name;
-  let text  = `${TRIP_META.shortName || TRIP_META.name} · ${TRIP_META.dates}`;
-  if (route.view === 'day') {
-    const day = DAYS.find(d => d.id === route.id);
-    if (day) {
-      title = `Day ${day.id} · ${TRIP_META.shortName}`;
-      text  = `${TRIP_META.shortName} — Day ${day.id}: ${day.location}`;
-    }
-  }
-
-  // Web Share API (iOS / Android) — opens native share sheet
-  if (navigator.share) {
-    try {
-      await navigator.share({ title, text, url });
-      return;
-    } catch (e) {
-      // User cancelled — silently fall through to clipboard
-      if (e && e.name === 'AbortError') return;
-    }
-  }
-
-  // Clipboard fallback (desktop)
-  const fullText = `${text}\n${url}`;
-  try {
-    await navigator.clipboard.writeText(fullText);
-    showShareToast('Link copied');
-  } catch (e) {
-    // Last-resort fallback: select & copy via legacy execCommand
-    const ta = document.createElement('textarea');
-    ta.value = fullText;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); showShareToast('Link copied'); }
-    catch { showShareToast('Copy failed'); }
-    document.body.removeChild(ta);
-  }
-}
-
-function showShareToast(message) {
-  const t = document.getElementById('share-toast');
-  if (!t) return;
-  t.textContent = message;
-  t.classList.add('vis');
-  clearTimeout(showShareToast._t);
-  showShareToast._t = setTimeout(() => t.classList.remove('vis'), 1800);
 }
 
 // ─── ONLINE / OFFLINE ─────────────────────────────────────────────────────────
