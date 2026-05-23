@@ -81,14 +81,32 @@ Each element of the `DAYS` array is a day object:
 
 ## QUICK_REF schema
 
+Tabs are configurable per trip — only include the keys that apply. The sheet-tabs HTML block in `index.html` must match exactly (same keys, same order). Common options:
+
 ```js
 const QUICK_REF = {
-  cashOnly:     [ { name: 'Venue', detail: 'Details' } ],
+  cashOnly:     [ { name: 'Venue', detail: 'Details' } ],   // drop if none
   hours:        [ { name: 'Venue', detail: 'Hours note' } ],
   reservations: [ { name: 'Venue', detail: 'Reservation note' } ],
-  transit:      [ { name: 'Route', detail: 'Details' } ]
+  transit:      [ { name: 'Route', detail: 'Details' } ],
+  tips:         [ { name: 'Tip', detail: 'One-liner' } ]    // add if useful
 };
 ```
+
+Also update `state.currentTab` to match the first tab key, and the `catLabels` map inside `doSearch()`.
+
+## Ingesting raw itinerary content
+
+When the user pastes raw HTML or a text itinerary, extract the content — don't copy markup. Structure it directly into `DAYS` and `QUICK_REF`. Useful signals to look for:
+
+- **Times** → `section.label` (or included in `content`)
+- **Venue names** → `section.label` title portion
+- **Addresses** → `section.address`
+- **Italic tips / "Note:" callouts** → `notes` array with appropriate type (`info`, `warning`, `reservation`, `cash`)
+- **"Book ahead" / "reservation required"** → `{ type: 'reservation', text: '...' }` note + entry in `QUICK_REF.reservations`
+- **Closing times / "arrive early"** → `{ type: 'warning', text: '...' }` note + entry in `QUICK_REF.hours`
+
+Run `/project:new-trip` for the full step-by-step workflow.
 
 ## Region theme colors
 
