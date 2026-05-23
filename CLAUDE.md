@@ -27,7 +27,9 @@ trip-itinerary/
    - Replace `TRIP_NAME YYYY` in `<title>` and the header `app-title`
    - Replace `DATES · TRAVELERS` in `app-dates`
    - Replace `TRIP_ID` in the two localStorage key strings with a short unique id (e.g. `japan-27`)
+   - **Fill in the `TRIP_META` block** (see schema below) — drives share text + per-day date inference
    - Update the `<style>` region color variables (`.sf`, `.yosemite`, etc.) to match new regions
+   - **Add matching `.ov-card.<region>` rules** in the overview CSS block so overview accent stripes match the day-header colors
    - Update the legend block in the HTML body
    - Update the `sheet-tabs` HTML block to match the QUICK_REF keys you've chosen
    - Set `state.currentTab` (line ~862) to the first tab key
@@ -52,6 +54,51 @@ trip-itinerary/
 
 The gradient colors in `card-accent` should match the day-header theme colors, in the order they appear through the trip.
 
+## TRIP_META schema
+
+One `TRIP_META` constant per trip, declared near the top of the script. Drives the share button text
+and provides a start date that the overview uses to infer per-day dates when `day.date` lacks a month
+(e.g. Vegas's `"Monday — Big Day"`).
+
+```js
+const TRIP_META = {
+  name: 'California Trip 2026',     // full title — used by navigator.share
+  shortName: 'California 2026',     // short title — used in clipboard text & day-detail share
+  dates: 'May 29 – June 7',         // pretty date range
+  travelers: 'George & Doug',
+  startDate: '2026-05-29',          // ISO date of Day 1 — used as the fallback date when a day's
+                                    //   `date` string is non-parseable. Per-day dates derive as
+                                    //   `startDate + (idx)`. Override per-day with `day.dateISO`.
+};
+```
+
+## Overview / Day detail behaviour
+
+The trip page has two views, switched by URL:
+
+| URL                     | View          |
+|-------------------------|---------------|
+| `/trips/<id>/`          | Overview — condensed day cards (Variant D: accent stripe + chips) |
+| `/trips/<id>/?day=N`    | Day detail — that one day expanded, with prev / next nav |
+
+Navigation is `history.pushState`-based (no page reloads). Browser back works naturally.
+A share button (`↗`) in the header copies the current URL to clipboard (or opens the native share
+sheet on mobile via `navigator.share`).
+
+### Overview chip auto-detection
+
+Chips are derived from existing `DAYS` data. Order: flight → drive → new hotel → hike → deep dive →
+distinctive sections. Up to 4 chips per card. Override entirely with `day.highlights`.
+
+Driving day = a section labelled `Drive*` OR a `location` containing `→`. A bare `🚗` icon on an
+evening section (e.g. "return transit") does NOT trigger a drive chip.
+
+### Today highlight
+
+The day matching today's date (via `dateISO` > parsed `date` > `startDate + idx`) gets a colored
+ring + "TODAY" pill in the overview, and scrolls into view on load. In day detail, the prev/next
+nav strip shows a red dot + "Today" label when the current day is today. Past days are dimmed.
+
 ## DAYS schema
 
 Each element of the `DAYS` array is a day object:
@@ -60,10 +107,20 @@ Each element of the `DAYS` array is a day object:
 {
   id: 1,                          // sequential integer
   date: 'Friday, May 29',         // full display string
-  location: 'City / Region',      // primary location label
+  dateISO: '2026-05-29',          // OPTIONAL — explicit ISO date. Use when `date` lacks a month
+                                  //   (e.g. "Monday — Big Day"). Falls back to TRIP_META.startDate
+                                  //   + (id-1) days if neither is parseable.
+  location: 'City / Region',      // primary location label. If it contains "→" (e.g. "SF → Yosemite"),
+                                  //   the overview auto-flags this as a driving day.
   sublocation: 'Neighborhood',    // optional — shown after a ·
-  theme: 'sf',                    // matches a CSS class with a colored .day-header
-  stay: 'Hotel Name · Address',   // shown under 🏨
+  theme: 'sf',                    // matches a CSS class with a colored .day-header AND a .ov-card.<theme>
+                                  //   overview accent rule.
+  stay: 'Hotel Name · Address',   // shown under 🏨. When stay differs from the previous day, the overview
+                                  //   auto-adds a "🏨 Hotel" chip.
+
+  highlights: [],                 // OPTIONAL — explicit overview chips. Overrides auto-detection.
+                                  //   Format: ['🍷 Wine tasting', { icon: '🍴', text: 'Zuni Café' }, …]
+                                  //   Use this when auto-detection picks the wrong section to surface.
 
   sections: [                     // ordered list of activities for the day
     {
@@ -208,6 +265,19 @@ Add a CSS rule in `<style>` for each region used in `day.theme`:
 | SW cache name | `destination-year-v1` — bump the version number on any cache-affecting change |
 | localStorage prefix | Short unique id, e.g. `japan-27:` |
 
+## Service worker — cache strategy
+
+From v2 onward the SW uses a split strategy:
+
+- **HTML** (the trip's `index.html` / `/`) → **network-first**, falls back to cache when offline.
+  Means content updates land without bumping the cache version, but the app still works offline.
+- **Everything else** (manifest, icons, sw.js itself) → **cache-first**, falls back to network.
+  These rarely change, and caching them aggressively makes the app feel native offline.
+
+You still bump the `CACHE` version when you want to force a refresh of cached assets (e.g. you
+changed the manifest or icon — anything cache-first). HTML-only content changes do NOT require
+a bump.
+
 ## Local testing
 
 Service workers require HTTP (not `file://`):
@@ -224,4 +294,6 @@ Push to `main` — GitHub Actions deploys the entire repo root to GitHub Pages a
 - Landing page: `georgelgore.github.io/trip-itinerary/`
 - Each trip: `georgelgore.github.io/trip-itinerary/trips/destination-year/`
 
-Bump the `CACHE` version in `sw.js` (e.g. `v1` → `v2`) any time you change content that should be re-fetched by users who already have the PWA installed. If you only changed the JS data (`DAYS`/`QUICK_REF`) the service worker will still serve the cached shell — bump the version to force a cache refresh.
+Bump the `CACHE` version in `sw.js` (e.g. `v1` → `v2`) when you change a **cache-first** asset
+(manifest, icon, sw.js itself). HTML content changes do NOT need a bump — the SW now fetches
+HTML network-first.

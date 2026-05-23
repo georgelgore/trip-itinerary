@@ -16,10 +16,14 @@ Copy `_template/` into `trips/destination-year/`, fill in the data, then add a c
 
 ## Features
 
+- **Two-level trip view**
+  - **Overview** — condensed day cards at a glance (route, hotels, flights, hikes, deep dives auto-detected as chips)
+  - **Day detail** — full schedule for one day with prev/next nav, behind `?day=N`
+  - **"Today" highlight** — colored ring + auto-scroll when viewing the trip mid-flight
 - Mobile-first PWA — installs to home screen per trip
-- Offline-capable after first load (service worker, cache-first)
+- **Offline-capable** — service worker: network-first for HTML (updates land without cache bumps), cache-first for icons/manifest
+- **Share** — native share sheet on mobile, clipboard fallback on desktop. Day detail URLs are deep-linkable.
 - Full-text search across itinerary + quick reference
-- Expandable day cards with section-level detail
 - Quick Reference sheet: cash-only, hours, reservations, transit
 - Deep Dive sheets for complex days (optional)
 
