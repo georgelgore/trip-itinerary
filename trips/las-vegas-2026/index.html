@@ -1658,7 +1658,6 @@ const state = { searchOpen: false, sheetOpen: false, currentTab: 'hours' };
 function init() {
   setupSearch();
   setupSheet();
-  document.getElementById('share-btn').addEventListener('click', shareTrip);
   document.getElementById('header-back').addEventListener('click', onBackClick);
   window.addEventListener('popstate', renderRoute);
   window.addEventListener('online',  updateOnlineBadge);
