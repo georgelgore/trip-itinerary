@@ -215,9 +215,10 @@
       user-select: none;
     }
 
-    .strip    .day-header { background: #b8890e; }
-    .offstrip .day-header { background: #2e7d5e; }
-    .downtown .day-header { background: #6b3a8b; }
+    .strip       .day-header { background: #b8890e; }
+    .offstrip    .day-header { background: #2e7d5e; }
+    .downtown    .day-header { background: #6b3a8b; }
+    .brycecanyon .day-header { background: #b5451b; }
 
     .day-header:active { filter: brightness(0.92); }
 
@@ -570,6 +571,7 @@
   <div class="legend-item"><div class="legend-dot" style="background:#b8890e"></div> The Strip</div>
   <div class="legend-item"><div class="legend-dot" style="background:#2e7d5e"></div> Arts District &amp; Chinatown</div>
   <div class="legend-item"><div class="legend-dot" style="background:#6b3a8b"></div> Downtown</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#b5451b"></div> Bryce Canyon</div>
 </div>
 
 <!-- ── MAIN ── -->
@@ -641,6 +643,16 @@ const DAYS = [
         address: '4480 Spring Mountain Rd · Chinatown-Adjacent',
         notes: [
           { type: 'reservation', text: 'Book ahead — this place fills up. Let the server make recommendations.' }
+        ]
+      },
+      {
+        label: 'Show — Cirque du Soleil · Mystère',
+        icon: '🎪',
+        content: 'One of the longest-running shows in Las Vegas — an athletic, gravity-defying spectacle unlike anything else on the Strip. Plan dinner by 7:30pm to arrive at Treasure Island relaxed. Doors open 30 min before showtime.',
+        address: 'Treasure Island · 3300 S Las Vegas Blvd',
+        notes: [
+          { type: 'reservation', text: 'Saturday August 8 · 9:30–10:30pm · Tickets required' },
+          { type: 'info', text: 'Short Uber from Sparrow + Wolf (~10 min up the Strip). Arrive 15 min early — seating is reserved but entry lines form quickly.' }
         ]
       },
       {
@@ -772,6 +784,15 @@ const DAYS = [
         ]
       },
       {
+        label: 'Show — RuPaul\'s Drag Race LIVE',
+        icon: '👑',
+        content: 'Las Vegas\'s resident Drag Race show — cast members performing live in a classic mid-century showroom. Plan an early Bavette\'s dinner (5:30–6pm) to arrive at Flamingo relaxed. The Flamingo is an easy walk up the Strip from Park MGM (~15 min) or a quick Uber.',
+        address: 'Flamingo Showroom · Flamingo Las Vegas · 3555 S Las Vegas Blvd',
+        notes: [
+          { type: 'reservation', text: 'Monday August 10 · Tickets required · Flamingo Showroom' }
+        ]
+      },
+      {
         label: 'Late Night — Petite Boheme',
         icon: '🍸',
         content: 'Best bar in Las Vegas for the vibe you two would actually like — Bohemian-industrial, arts district, cozy couches, genuinely great cocktails. Multiple reviewers compare it to a great NYC bar. Order the Dealer\'s Choice and let them go. Open until 2am.',
@@ -782,25 +803,104 @@ const DAYS = [
   },
   {
     id: 4,
-    date: 'Tuesday — Departure',
-    location: 'Las Vegas',
-    sublocation: 'Morning · Check out · Last bite',
+    date: 'Tuesday — Drive to Bryce Canyon',
+    location: 'Las Vegas → Bryce Canyon, UT',
+    sublocation: 'Park MGM checkout · 4-hr drive · Under Canvas check-in',
     theme: 'strip',
-    stay: 'Park MGM · Standard checkout 11am',
+    stay: 'Under Canvas Bryce Canyon',
     sections: [
       {
         label: 'Breakfast — Eataly Café',
         icon: '☕',
-        content: 'Quick and easy: walk downstairs, grab an espresso and cornetti before the car. Or grab something to go from the market counter. Smooth exit from a smooth hotel.',
+        content: 'Quick and easy: walk downstairs, grab an espresso and cornetti before the drive. Or grab something to go from the market counter.',
         address: 'Park MGM · Opens 7am',
         notes: []
       },
       {
-        label: 'Check-Out',
+        label: 'Check-Out — Park MGM',
         icon: '🏨',
-        content: 'Standard checkout 11am. Bags to bell desk if your flight is later. The hotel\'s tram connects directly to the Bellagio if you need to kill time nearby.',
+        content: 'Standard checkout 11am. Load the car and head out — you have a 4-hour drive ahead.',
         address: 'Park MGM · 3770 S Las Vegas Blvd',
         notes: []
+      },
+      {
+        label: 'Drive — Las Vegas to Bryce Canyon',
+        icon: '🚗',
+        content: 'About 4 hours via I-15 N → UT-20 E → US-89 N. The landscape shifts dramatically as you leave the desert basin — red rock country starts around Zion. Fill up gas before leaving Las Vegas; options get thin on the Utah stretch.',
+        notes: [
+          { type: 'info', text: 'UT-9 through Zion is a scenic detour (+30 min) — worth it if you want a taste of Zion Canyon on the way.' },
+          { type: 'warning', text: 'Last real gas and grocery stop: Cedar City, UT — about 50 miles before Bryce.' }
+        ]
+      },
+      {
+        label: 'Check-In — Under Canvas Bryce Canyon',
+        icon: '⛺',
+        content: 'Under Canvas is a glamping resort just outside the national park — safari-style canvas tents with real beds, wood-burning stoves, and private outdoor spaces. Check-in at 3pm. The camp has a communal fire area, a café/bar, and organized activities including guided hikes and stargazing.',
+        address: 'Under Canvas Bryce Canyon · 2600 N Highway 12, Tropic, UT',
+        notes: [
+          { type: 'info', text: 'Pick up the activity schedule at check-in — guided sunset hikes and stargazing programs book up fast.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 5,
+    date: 'Wednesday — Bryce Canyon',
+    location: 'Bryce Canyon National Park',
+    sublocation: 'Hoodoos · Navajo Loop · Sunset Point',
+    theme: 'brycecanyon',
+    stay: 'Under Canvas Bryce Canyon',
+    sections: [
+      {
+        label: 'Morning — Sunrise Point & Navajo Loop',
+        icon: '🌄',
+        content: 'Start at Sunrise Point before the crowds arrive — the light on the hoodoos in the early morning is the defining Bryce image. From there, drop into the canyon via the Navajo Loop (1.3 miles, steep but manageable) for the only perspective you can\'t get from the rim. The Wall Street slot canyon section is the highlight.\n\nNavajo Loop + Queens Garden combo (3 miles total) is the single best hike in the park for first-timers.',
+        address: 'Sunrise Point Trailhead · Bryce Canyon NP',
+        notes: [
+          { type: 'warning', text: 'Altitude is 8,000–9,000 ft — take it easy and hydrate more than you think you need to.' }
+        ]
+      },
+      {
+        label: 'Afternoon — Rim Trail & Inspiration Point',
+        icon: '🥾',
+        content: 'Walk the paved Rim Trail between Sunrise and Sunset Points — mostly flat, best for absorbing the panorama at your own pace. Stop at Inspiration Point for the most dramatic hoodoo amphitheater in the park. The free park shuttle connects all major viewpoints if your legs need a rest.',
+        address: 'Rim Trail · Bryce Canyon NP',
+        notes: []
+      },
+      {
+        label: 'Evening — Under Canvas',
+        icon: '🔭',
+        content: 'Back at camp for sunset and the dark-sky experience Bryce is famous for. The sky here is legitimately dark — one of the best stargazing locations in the continental US. Under Canvas runs guided stargazing programs from the communal fire area.',
+        address: 'Under Canvas Bryce Canyon',
+        notes: [
+          { type: 'info', text: 'No light pollution for miles. A clear night here is unforgettable — worth staying up for.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 6,
+    date: 'Thursday — Departure',
+    location: 'Bryce Canyon',
+    sublocation: 'Morning walk · Checkout · Drive home',
+    theme: 'brycecanyon',
+    stay: 'Under Canvas Bryce Canyon · Checkout 11am',
+    sections: [
+      {
+        label: 'Morning — One Last Look',
+        icon: '🌅',
+        content: 'One more early morning at the rim before the day heats up. Sunset Point at dawn is often quieter than Sunrise Point and the light reverses beautifully onto the far canyon wall. Short and sweet before packing up.',
+        address: 'Sunset Point · Bryce Canyon NP',
+        notes: []
+      },
+      {
+        label: 'Check-Out',
+        icon: '🏕️',
+        content: 'Under Canvas checkout at 11am. Leave bags with camp staff if you want one last walk. The drive back to Las Vegas is about 4 hours — or continue onward.',
+        address: 'Under Canvas Bryce Canyon',
+        notes: [
+          { type: 'info', text: 'Scenic route back via UT-9 through Zion Canyon adds ~30 min and is absolutely worth it on a clear day.' }
+        ]
       }
     ]
   }
@@ -816,6 +916,9 @@ const QUICK_REF = {
     { name: 'Iwana Specialty Coffee', detail: 'Arts District roaster · 61 W Utah Ave · Free street parking on Sundays' }
   ],
   reservations: [
+    { name: 'Cirque du Soleil — Mystère', detail: 'Saturday August 8 · 9:30pm · Treasure Island · Tickets required in advance' },
+    { name: 'Drag Race LIVE', detail: 'Monday August 10 · Flamingo Showroom · Tickets required in advance' },
+    { name: 'Under Canvas Bryce Canyon', detail: 'August 11–13 · Check-in 3pm · Checkout 11am · 2600 N Highway 12, Tropic, UT' },
     { name: 'Sparrow + Wolf', detail: 'Reservation required · 4480 Spring Mountain Rd · Let the server guide you — do not fight it' },
     { name: 'Ton Shou Premium Katsu', detail: 'Reservations recommended · 4049 Spring Mountain Rd · Long waits without one' },
     { name: 'Bavette\'s Steakhouse', detail: 'Reservation recommended · Park MGM · Walk-in at the back bar ("secret room") if unavailable' },
@@ -823,6 +926,9 @@ const QUICK_REF = {
     { name: 'Las Vegas Walking Tours', detail: 'Book ahead · 2-hour tour starting 11am or 2:30pm · Downtown Las Vegas' }
   ],
   transit: [
+    { name: 'Drive — Las Vegas to Bryce Canyon', detail: '~4 hrs · I-15 N → UT-20 E → US-89 N · Last gas/grocery: Cedar City, UT (~50 mi before Bryce)' },
+    { name: 'Mystère (Treasure Island)', detail: 'Short Uber from Sparrow + Wolf or Park MGM (~10 min up the Strip)' },
+    { name: 'Drag Race LIVE (Flamingo)', detail: 'Walk up the Strip from Park MGM (~15 min) or quick Uber' },
     { name: 'Sparrow + Wolf', detail: 'Short Uber from Strip (~10 min) · 4480 Spring Mountain Rd · Not walkable from Park MGM' },
     { name: 'Arts District', detail: 'Short Uber from Park MGM · Main St & Charleston Blvd · Free street parking on Sundays' },
     { name: 'Stray Pirate', detail: 'Uber to Arts District · 1321 S Commerce St · Not on the Strip' },
@@ -831,6 +937,10 @@ const QUICK_REF = {
     { name: 'Park MGM Tram', detail: 'Connects directly to Bellagio — useful for Strip exploration or killing time before checkout' }
   ],
   tips: [
+    { name: 'Bryce Canyon altitude', detail: '8,000–9,000 ft — go slower than you think, drink extra water, especially on Day 1 at altitude.' },
+    { name: 'Bryce stargazing', detail: 'One of the best dark-sky locations in the US. Under Canvas runs guided programs — sign up at check-in.' },
+    { name: 'Mystère dinner timing', detail: 'Book Sparrow + Wolf for 7–7:30pm to arrive at Treasure Island relaxed before the 9:30pm show.' },
+    { name: 'Drag Race LIVE dinner timing', detail: 'Book Bavette\'s for 5:30–6pm on Monday so you\'re at Flamingo before showtime.' },
     { name: 'Park MGM is smoke-free', detail: 'One of the only smoke-free casino hotels on the Strip. The calm vibe is real — worth choosing wisely.' },
     { name: 'Spring Mountain Road', detail: 'The move for serious eating in Vegas. Sparrow + Wolf, Ton Shou, and True Matcha are all in this corridor.' },
     { name: 'Bellagio Fountain overlook', detail: 'Best photos 4–5pm during golden hour. The park bridge south of Bellagio gives the best unobstructed angle.' },
