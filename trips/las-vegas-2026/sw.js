@@ -1,6 +1,9 @@
 // Bump the version suffix any time you change content that users with the PWA installed should re-fetch.
-const CACHE = 'las-vegas-2026-v2';
-const PRECACHE = ['./', './index.html', './manifest.json', './sw.js', './icon-192.svg'];
+const CACHE = 'las-vegas-2026-v3';
+const PRECACHE = [
+  './', './index.html', './data.js', './manifest.json', './sw.js', './icon-192.svg',
+  '../../shared/app.css', '../../shared/app.js',
+];
 
 // ── Install: prime the cache so the app works offline after first visit ─────
 self.addEventListener('install', e => {
