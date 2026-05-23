@@ -29,8 +29,28 @@ trip-itinerary/
    - Replace `TRIP_ID` in the two localStorage key strings with a short unique id (e.g. `japan-27`)
    - Update the `<style>` region color variables (`.sf`, `.yosemite`, etc.) to match new regions
    - Update the legend block in the HTML body
+   - Update the `sheet-tabs` HTML block to match the QUICK_REF keys you've chosen
+   - Set `state.currentTab` (line ~862) to the first tab key
+   - Update `catLabels` inside `doSearch()` to include any new tab keys with their display labels
    - Fill in `DAYS` and `QUICK_REF` (see schemas below)
-5. Add a card for the new trip in the root `index.html`
+5. Add a card for the new trip in the root `index.html`:
+
+```html
+<a class="trip-card" href="trips/destination-year/">
+  <div class="card-accent" style="background: linear-gradient(90deg, COLOR1 0%, COLOR2 100%)"></div>
+  <div class="card-body">
+    <div class="card-arrow">→</div>
+    <div class="card-name">Destination Year</div>
+    <div class="card-dates">Dates · Travelers</div>
+    <div class="card-tags">
+      <span class="tag"><span class="tag-dot" style="background:COLOR1"></span>Area 1</span>
+      <span class="tag"><span class="tag-dot" style="background:COLOR2"></span>Area 2</span>
+    </div>
+  </div>
+</a>
+```
+
+The gradient colors in `card-accent` should match the day-header theme colors, in the order they appear through the trip.
 
 ## DAYS schema
 
@@ -61,17 +81,26 @@ Each element of the `DAYS` array is a day object:
     }
   ],
 
-  deepDive: {                     // optional — adds a "Deep Dive →" button on the day card
-    title: 'Deep Dive Title',
+  deepDive: {                     // optional — only add for days with complex logistics
+    title: 'Deep Dive Title',     //   (e.g. a multi-hike park, a driving route with many stops)
     subtitle: 'Subtitle line',
     timeline: [
       { time: '9:00 AM', activity: 'Activity name', note: 'optional note' }
     ],
-    stops: [                      // array of dd-section objects (see below)
-      { icon: '🏛️', label: 'Stop Name', meta: 'optional meta', address: 'optional',
-        content: 'Details', tips: ['Tip 1', 'Tip 2'], notes: [] }
+    stops: [                      // detailed info cards — same shape used for logistics
+      {
+        icon: '🏛️',
+        label: 'Stop Name',
+        meta: 'optional meta (distance, hours, etc.)',
+        address: 'optional — shown under 📍',
+        content: 'Markdown-ish text.\nNewlines with \\n.',
+        tips: ['Tip 1', 'Tip 2'],  // optional bullet list of tips
+        notes: [                   // same note types as section.notes
+          { type: 'warning', text: 'Caution text' }
+        ]
+      }
     ],
-    logistics: [],                // same shape as stops
+    logistics: [],                // same shape as stops — use for transport/entry/practical info
     checklists: [
       { id: 'pack', label: 'Packing List', items: ['Item 1', 'Item 2'] }
     ]
@@ -81,19 +110,30 @@ Each element of the `DAYS` array is a day object:
 
 ## QUICK_REF schema
 
-Tabs are configurable per trip — only include the keys that apply. The sheet-tabs HTML block in `index.html` must match exactly (same keys, same order). Common options:
+Tabs are configurable per trip — only include the keys that apply:
+
+| Tab key | Include when |
+|---------|-------------|
+| `cashOnly` | Any venue is cash-only |
+| `hours` | Any venue has a quirky closing time or needs early arrival |
+| `reservations` | Any venue requires or strongly recommends booking ahead |
+| `transit` | Any route needs an Uber, specific directions, or non-obvious transport |
+| `tips` | Short actionable tips that don't fit elsewhere (order X, sit in section Y) |
 
 ```js
 const QUICK_REF = {
-  cashOnly:     [ { name: 'Venue', detail: 'Details' } ],   // drop if none
+  cashOnly:     [ { name: 'Venue', detail: 'Details' } ],
   hours:        [ { name: 'Venue', detail: 'Hours note' } ],
   reservations: [ { name: 'Venue', detail: 'Reservation note' } ],
   transit:      [ { name: 'Route', detail: 'Details' } ],
-  tips:         [ { name: 'Tip', detail: 'One-liner' } ]    // add if useful
+  tips:         [ { name: 'Tip', detail: 'One-liner' } ]
 };
 ```
 
-Also update `state.currentTab` to match the first tab key, and the `catLabels` map inside `doSearch()`.
+Three things must stay in sync when you add or remove tabs:
+1. The `QUICK_REF` object keys
+2. The `<div class="sheet-tabs">` HTML block (same keys, same order)
+3. The `catLabels` map inside `doSearch()` — maps each key to its search result label (e.g. `cashOnly: 'Cash Only'`). Missing entries will silently omit those results from search.
 
 ## Ingesting itinerary content
 
@@ -183,3 +223,5 @@ python3 -m http.server 8080
 Push to `main` — GitHub Actions deploys the entire repo root to GitHub Pages automatically.
 - Landing page: `georgelgore.github.io/trip-itinerary/`
 - Each trip: `georgelgore.github.io/trip-itinerary/trips/destination-year/`
+
+Bump the `CACHE` version in `sw.js` (e.g. `v1` → `v2`) any time you change content that should be re-fetched by users who already have the PWA installed. If you only changed the JS data (`DAYS`/`QUICK_REF`) the service worker will still serve the cached shell — bump the version to force a cache refresh.
