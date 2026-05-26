@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-26T03:17:25.350Z",
+  "updatedAt": "2026-05-26T03:20:05.465Z",
   "days": [
     {
       "id": 1,
@@ -501,7 +501,7 @@
       "id": 4,
       "date": "Monday, June 1",
       "location": "Yosemite",
-      "sublocation": "Glacier Point or Clouds Rest",
+      "sublocation": "Glacier Point and Washburn Point",
       "theme": "yosemite",
       "stay": "Curry Village, Yosemite Valley",
       "sections": [
@@ -515,15 +515,11 @@
         {
           "label": "Morning",
           "icon": "⛰️",
-          "content": "Option A — Glacier Point overlook: drive up (~1 hr), stunning 360° views of Half Dome, the Valley, and the High Sierra. Easy walk at the top.\n\nOption B — Clouds Rest hike: strenuous ridge hike above Half Dome elevation with incredible panoramic views.",
+          "content": "Option A — Glacier Point overlook: drive up (~1 hr), stunning 360° views of Half Dome, the Valley, and the High Sierra. Easy walk at the top.\n\nOption B — Washburn Point - easy hike with good views, near Glacier Point",
           "notes": [
             {
               "type": "info",
               "text": "Glacier Point: ~1 hr drive from Curry Village · Overlook at 7,214 ft"
-            },
-            {
-              "type": "warning",
-              "text": "Clouds Rest: ~14 mi RT, strenuous — best if legs recovered from Mist Trail"
             }
           ]
         },
