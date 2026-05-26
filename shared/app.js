@@ -23,7 +23,6 @@ function init() {
   setupSheet();
   document.getElementById('deep-dive-close-btn').addEventListener('click', closeDeepDive);
   document.getElementById('header-back').addEventListener('click', onBackClick);
-  document.getElementById('share-btn').addEventListener('click', shareTrip);
   window.addEventListener('popstate', renderRoute);
   window.addEventListener('online',  updateOnlineBadge);
   window.addEventListener('offline', updateOnlineBadge);
@@ -895,61 +894,6 @@ function formatShortDate(rawDate, isoDate) {
 
 function isDesktop() {
   return window.matchMedia('(min-width: 1024px)').matches;
-}
-
-// ─── SHARE ────────────────────────────────────────────────────────────────────
-
-async function shareTrip() {
-  const url = location.href;
-  const route = state.route || { view: 'overview' };
-
-  let title = TRIP_META.name;
-  let text  = `${TRIP_META.shortName || TRIP_META.name} · ${TRIP_META.dates}`;
-  if (route.view === 'day') {
-    const day = DAYS.find(d => d.id === route.id);
-    if (day) {
-      title = `Day ${day.id} · ${TRIP_META.shortName}`;
-      text  = `${TRIP_META.shortName} — Day ${day.id}: ${day.location}`;
-    }
-  }
-
-  // Web Share API (iOS / Android) — opens native share sheet
-  if (navigator.share) {
-    try {
-      await navigator.share({ title, text, url });
-      return;
-    } catch (e) {
-      // User cancelled — silently fall through to clipboard
-      if (e && e.name === 'AbortError') return;
-    }
-  }
-
-  // Clipboard fallback (desktop)
-  const fullText = `${text}\n${url}`;
-  try {
-    await navigator.clipboard.writeText(fullText);
-    showShareToast('Link copied');
-  } catch (e) {
-    // Last-resort fallback: select & copy via legacy execCommand
-    const ta = document.createElement('textarea');
-    ta.value = fullText;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); showShareToast('Link copied'); }
-    catch { showShareToast('Copy failed'); }
-    document.body.removeChild(ta);
-  }
-}
-
-function showShareToast(message) {
-  const t = document.getElementById('share-toast');
-  if (!t) return;
-  t.textContent = message;
-  t.classList.add('vis');
-  clearTimeout(showShareToast._t);
-  showShareToast._t = setTimeout(() => t.classList.remove('vis'), 1800);
 }
 
 // ─── ONLINE / OFFLINE ─────────────────────────────────────────────────────────

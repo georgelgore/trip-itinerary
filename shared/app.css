@@ -886,29 +886,6 @@ mark {
   vertical-align: 1px;
 }
 
-/* ── SHARE TOAST ── */
-#share-toast {
-  position: fixed;
-  left: 50%;
-  bottom: calc(86px + env(safe-area-inset-bottom));
-  transform: translateX(-50%) translateY(8px);
-  background: rgba(40,40,40,0.94);
-  color: #fff;
-  padding: 9px 16px;
-  border-radius: 22px;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  z-index: 60;
-  opacity: 0;
-  transition: opacity 0.18s, transform 0.18s;
-  pointer-events: none;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-}
-#share-toast.vis {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
 
 /* ── OFFLINE BADGE (subtle, in header) ── */
 #offline-badge {
@@ -1048,7 +1025,6 @@ body.is-offline #offline-badge { display: inline-block; }
 #edit-btn { display: none; }
 body.day-detail.editable-route #edit-btn { display: flex; }
 
-body.editing #share-btn,
 body.editing #search-toggle,
 body.editing #edit-btn { display: none !important; }
 
