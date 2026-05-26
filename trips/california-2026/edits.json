@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-26T03:13:57.092Z",
+  "updatedAt": "2026-05-26T03:17:25.350Z",
   "days": [
     {
       "id": 1,
@@ -24,12 +24,12 @@
         {
           "label": "Lunch",
           "icon": "🍴",
-          "content": "Ferry Building Marketplace — artisan food vendors, local produce, great for grazing. Walkable from hotel across the Embarcadero.",
-          "address": "1 Ferry Building, San Francisco",
+          "content": "Tuyet Mai\n\n(previous option)\nFerry Building Marketplace — artisan food vendors, local produce, great for grazing. Walkable from hotel across the Embarcadero.",
+          "address": "547 Hyde St",
           "notes": [
             {
               "type": "info",
-              "text": "~15 min walk from Intercontinental via Embarcadero"
+              "text": "~20 min walk from Intercontinental via Dandelion Chocolate"
             }
           ]
         },
