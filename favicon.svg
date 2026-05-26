@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background -->
+  <circle cx="50" cy="50" r="50" fill="#f4f2ee"/>
+
+  <!-- Ears (pointy, erect) -->
+  <polygon points="22,48 30,18 40,46" fill="#1a1a1a"/>
+  <polygon points="78,48 70,18 60,46" fill="#1a1a1a"/>
+  <!-- Inner ear -->
+  <polygon points="25,46 30,24 37,44" fill="#c47a7a"/>
+  <polygon points="75,46 70,24 63,44" fill="#c47a7a"/>
+
+  <!-- Head — black -->
+  <ellipse cx="50" cy="58" rx="30" ry="26" fill="#1a1a1a"/>
+
+  <!-- White muzzle -->
+  <ellipse cx="50" cy="70" rx="16" ry="11" fill="#fff"/>
+
+  <!-- White forehead blaze -->
+  <ellipse cx="50" cy="48" rx="9" ry="11" fill="#fff"/>
+
+  <!-- Eyes — white sclera -->
+  <circle cx="38" cy="55" r="8" fill="#fff"/>
+  <circle cx="62" cy="55" r="8" fill="#fff"/>
+  <!-- Pupils -->
+  <circle cx="39" cy="55" r="5" fill="#1a1a1a"/>
+  <circle cx="63" cy="55" r="5" fill="#1a1a1a"/>
+  <!-- Eye shine -->
+  <circle cx="41" cy="53" r="2" fill="#fff"/>
+  <circle cx="65" cy="53" r="2" fill="#fff"/>
+
+  <!-- Nose -->
+  <ellipse cx="50" cy="65" rx="5.5" ry="4" fill="#1a1a1a"/>
+  <!-- Nose highlight -->
+  <ellipse cx="48.5" cy="64" rx="1.5" ry="1" fill="#555"/>
+
+  <!-- Smile -->
+  <path d="M44 71 Q50 77 56 71" stroke="#888" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>
