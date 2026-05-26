@@ -1,6 +1,6 @@
 // ─── STATE ───────────────────────────────────────────────────────────────────
 
-const state = { searchOpen: false, sheetOpen: false, currentTab: EDIT_CFG.initialTab, ddOpen: false };
+const state = { searchOpen: false, sheetOpen: false, currentTab: EDIT_CFG.initialTab, ddOpen: false, overviewPaneRendered: false };
 
 // ─── EDIT MODE: LOAD OVERRIDES AT BOOT ───────────────────────────────────────
 // Synchronous overlay from localStorage (instant; offline-safe)
@@ -23,6 +23,7 @@ function init() {
   setupSheet();
   document.getElementById('deep-dive-close-btn').addEventListener('click', closeDeepDive);
   document.getElementById('header-back').addEventListener('click', onBackClick);
+  document.getElementById('share-btn').addEventListener('click', shareTrip);
   window.addEventListener('popstate', renderRoute);
   window.addEventListener('online',  updateOnlineBadge);
   window.addEventListener('offline', updateOnlineBadge);
@@ -31,6 +32,16 @@ function init() {
   bindEditButtons();
   renderRoute();
   fetchRemoteEdits();
+
+  const mq = window.matchMedia('(min-width: 1024px)');
+  const onMq = () => {
+    state.overviewPaneRendered = false;
+    const pane = document.getElementById('overview-pane');
+    if (pane) pane.innerHTML = '';
+    renderRoute();
+  };
+  if (mq.addEventListener) mq.addEventListener('change', onMq);
+  else mq.addListener(onMq);
 }
 
 // ─── RENDER DAYS ──────────────────────────────────────────────────────────────
@@ -494,18 +505,19 @@ function getRoute() {
 }
 
 function renderRoute() {
-  // Cancel any active search UI when route changes
   if (state.searchOpen) closeSearch();
 
-  const route = getRoute();
-  state.route = route;
+  const route   = getRoute();
+  state.route   = route;
+  const desktop = isDesktop();
+  const legend  = document.getElementById('legend');
+  const back    = document.getElementById('header-back');
 
-  const legend = document.getElementById('legend');
-  const back   = document.getElementById('header-back');
-
-  // Toggle body class for route-aware CSS (e.g. show edit button on day-detail)
+  document.body.classList.toggle('desktop-mode', desktop);
   document.body.classList.toggle('day-detail', route.view === 'day');
   document.body.classList.toggle('editable-route', route.view === 'day');
+
+  if (desktop && !state.overviewPaneRendered) renderOverviewPane();
 
   if (state.editing && route.view === 'day' && route.id === state.editing.dayId) {
     legend.classList.add('hidden');
@@ -517,15 +529,20 @@ function renderRoute() {
   }
 
   if (route.view === 'overview') {
-    legend.classList.remove('hidden');
+    legend.classList.toggle('hidden', desktop);
     back.setAttribute('href', '../../');
     back.setAttribute('aria-label', 'All trips');
-    renderOverview();
+    if (desktop) {
+      renderDesktopEmpty();
+    } else {
+      renderOverview();
+    }
   } else {
     legend.classList.add('hidden');
-    back.setAttribute('href', './');
-    back.setAttribute('aria-label', 'Back to overview');
+    back.setAttribute('href', desktop ? '../../' : './');
+    back.setAttribute('aria-label', desktop ? 'All trips' : 'Back to overview');
     renderDayDetail(route.id);
+    if (desktop) setActiveDayInPane(route.id);
   }
 
   window.scrollTo({ top: 0, behavior: 'auto' });
@@ -546,16 +563,15 @@ function onBackClick(e) {
 
 // ─── OVERVIEW VIEW ────────────────────────────────────────────────────────────
 
-function renderOverview() {
-  const todayId = getTodayDayId();
+function buildOverviewListHTML() {
+  const todayId  = getTodayDayId();
   const todayIdx = todayId ? DAYS.findIndex(d => d.id === todayId) : -1;
-
-  const html = DAYS.map((day, i) => {
-    const prev = i > 0 ? DAYS[i - 1] : null;
-    const chips = detectChips(day, prev);
-    const isToday = day.id === todayId;
-    const isPast = todayIdx >= 0 && i < todayIdx;
-    const isoDate = getDayDate(day, i);
+  return DAYS.map((day, i) => {
+    const prev      = i > 0 ? DAYS[i - 1] : null;
+    const chips     = detectChips(day, prev);
+    const isToday   = day.id === todayId;
+    const isPast    = todayIdx >= 0 && i < todayIdx;
+    const isoDate   = getDayDate(day, i);
     const shortDate = formatShortDate(day.date, isoDate);
     return `
       <a class="ov-card ${day.theme}${isToday ? ' today' : ''}${isPast ? ' past' : ''}"
@@ -575,17 +591,54 @@ function renderOverview() {
       </a>
     `;
   }).join('');
+}
 
+function renderOverview() {
+  const todayId = getTodayDayId();
   document.getElementById('main-content').innerHTML =
-    `<div class="overview-list">${html}</div>`;
+    `<div class="overview-list">${buildOverviewListHTML()}</div>`;
 
-  // Scroll today's card into view (centered) on the next frame
   if (todayId) {
     requestAnimationFrame(() => {
       const el = document.querySelector(`[data-ov-day="${todayId}"]`);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   }
+}
+
+function renderOverviewPane() {
+  const pane = document.getElementById('overview-pane');
+  if (!pane) return;
+  pane.innerHTML = `<div class="overview-list">${buildOverviewListHTML()}</div>`;
+  state.overviewPaneRendered = true;
+  const activeId = (state.route && state.route.view === 'day') ? state.route.id : getTodayDayId();
+  if (activeId) {
+    requestAnimationFrame(() => {
+      const el = pane.querySelector(`[data-ov-day="${activeId}"]`);
+      if (el) {
+        const top = el.offsetTop - pane.clientHeight / 2 + el.clientHeight / 2;
+        pane.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+      }
+    });
+  }
+}
+
+function setActiveDayInPane(dayId) {
+  const pane = document.getElementById('overview-pane');
+  if (!pane) return;
+  pane.querySelectorAll('.ov-card').forEach(card => {
+    card.classList.toggle('is-active', parseInt(card.dataset.ovDay, 10) === dayId);
+  });
+}
+
+function renderDesktopEmpty() {
+  document.getElementById('main-content').innerHTML = `
+    <div class="desktop-empty">
+      <div class="desktop-empty-emoji">🗓️</div>
+      <div class="desktop-empty-title">Pick a day</div>
+      <div class="desktop-empty-text">Tap any day on the left to see its full itinerary here.</div>
+    </div>
+  `;
 }
 
 function onOverviewCardClick(e, dayId) {
@@ -836,6 +889,12 @@ function formatShortDate(rawDate, isoDate) {
     return `${dow} · ${m[2]}`.replace(/\s+·\s*$/, '');
   }
   return noSuffix;
+}
+
+// ─── DESKTOP DETECTION ───────────────────────────────────────────────────────
+
+function isDesktop() {
+  return window.matchMedia('(min-width: 1024px)').matches;
 }
 
 // ─── SHARE ────────────────────────────────────────────────────────────────────

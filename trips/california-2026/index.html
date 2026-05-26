@@ -41,6 +41,7 @@
       <div class="app-dates">May 29 – June 7 · George &amp; Doug</div>
     </div>
     <button class="header-btn" id="edit-btn" aria-label="Edit day">✏️</button>
+    <button class="header-btn" id="share-btn" aria-label="Share trip">↗</button>
     <button class="header-btn" id="search-toggle" aria-label="Search">🔍</button>
   </div>
   <div id="search-bar" class="hidden">
@@ -95,8 +96,11 @@
   <div class="legend-item"><div class="legend-dot" style="background:#7c5339"></div> Healdsburg</div>
 </div>
 
-<!-- ── MAIN ── -->
-<main id="main-content"></main>
+<!-- ── MAIN (desktop: 2-pane wrapper) ── -->
+<div id="app-body">
+  <aside id="overview-pane" aria-label="Itinerary overview"></aside>
+  <main id="main-content"></main>
+</div>
 
 <!-- ── QUICK REF SHEET ── -->
 <div id="sheet-backdrop"></div>

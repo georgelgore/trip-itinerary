@@ -35,6 +35,7 @@
       <div class="app-dates">DATES · TRAVELERS</div>
     </div>
     <button class="header-btn" id="edit-btn" aria-label="Edit day">✏️</button>
+    <button class="header-btn" id="share-btn" aria-label="Share trip">↗</button>
     <button class="header-btn" id="search-toggle" aria-label="Search">🔍</button>
   </div>
   <div id="search-bar" class="hidden">
@@ -86,8 +87,11 @@
   <!-- <div class="legend-item"><div class="legend-dot" style="background:#COLOR"></div> Region Name</div> -->
 </div>
 
-<!-- ── MAIN ── -->
-<main id="main-content"></main>
+<!-- ── MAIN (desktop: 2-pane wrapper) ── -->
+<div id="app-body">
+  <aside id="overview-pane" aria-label="Itinerary overview"></aside>
+  <main id="main-content"></main>
+</div>
 
 <!-- ── QUICK REF SHEET — update tabs to match QUICK_REF keys in data.js ── -->
 <div id="sheet-backdrop"></div>

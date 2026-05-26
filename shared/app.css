@@ -180,6 +180,8 @@ mark {
 }
 
 /* ── MAIN ── */
+#app-body { display: contents; }
+#overview-pane { display: none; }
 #main-content { padding: 8px 0 16px; }
 
 /* ── DAY CARD ── */
@@ -933,6 +935,113 @@ body.is-offline #offline-badge { display: inline-block; }
   #quick-ref-sheet.vis { transform: translateX(-50%) translateY(0); }
   #deep-dive-sheet { max-width: 600px; left: 50%; transform: translateX(-50%) translateY(100%); border-radius: 18px 18px 0 0; }
   #deep-dive-sheet.vis { transform: translateX(-50%) translateY(0); }
+}
+
+/* ── DESKTOP TWO-PANE LAYOUT ── */
+@media (min-width: 1024px) {
+  body { padding-bottom: 0; }
+
+  #app-body {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  #overview-pane {
+    display: block;
+    position: sticky;
+    top: calc(var(--header-h) + env(safe-area-inset-top));
+    height: calc(100vh - var(--header-h) - env(safe-area-inset-top));
+    overflow-y: auto;
+    padding: 12px 10px 24px;
+    border-right: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  #overview-pane .overview-list { max-width: none; margin: 0; padding: 0; gap: 8px; }
+
+  #overview-pane .ov-card { padding: 11px 12px 12px 14px; font-size: 13px; }
+  #overview-pane .ov-card .ov-day  { font-size: 12px; }
+  #overview-pane .ov-card .ov-date { font-size: 11px; }
+  #overview-pane .ov-card .ov-loc  { font-size: 14px; margin-top: 2px; }
+  #overview-pane .ov-card .ov-sub  { font-size: 11.5px; }
+  #overview-pane .ov-card .ov-chips { margin-top: 6px; gap: 4px; }
+  #overview-pane .ov-card .ov-chip  { font-size: 10.5px; padding: 2px 6px; }
+
+  #overview-pane .ov-card.is-active {
+    background: #fff;
+    box-shadow: 0 0 0 2px var(--ov-accent-color, #888), 0 6px 18px rgba(0,0,0,0.08);
+  }
+  #overview-pane .ov-card.is-active .ov-accent { width: 6px; }
+  #overview-pane .ov-card.is-active.past { opacity: 1; }
+
+  body.desktop-mode .legend { display: none !important; }
+
+  #main-content {
+    padding: 16px 32px 80px;
+    max-width: none;
+    margin: 0;
+    min-height: calc(100vh - var(--header-h) - 80px);
+  }
+  #main-content .day-card { margin: 0 auto 12px; max-width: 760px; }
+  #main-content .day-nav  { max-width: 760px; }
+
+  #bottom-bar {
+    left: auto;
+    right: 0;
+    width: calc(100% - 380px);
+    max-width: calc(1400px - 380px);
+    transform: none;
+    border-radius: 12px 12px 0 0;
+    margin: 0;
+  }
+
+  #quick-ref-sheet, #deep-dive-sheet {
+    left: 380px;
+    right: 0;
+    width: auto;
+    max-width: none;
+    transform: translateY(100%);
+    border-radius: 18px 18px 0 0;
+  }
+  #quick-ref-sheet.vis, #deep-dive-sheet.vis { transform: translateY(0); }
+
+  .desktop-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - var(--header-h) - 120px);
+    color: var(--muted);
+    padding: 40px 20px;
+  }
+  .desktop-empty-emoji { font-size: 56px; opacity: 0.35; margin-bottom: 18px; }
+  .desktop-empty-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  .desktop-empty-text { font-size: 14px; max-width: 320px; line-height: 1.55; }
+
+  body.editing #overview-pane { display: block; }
+}
+
+@media (min-width: 1400px) {
+  #bottom-bar {
+    left: calc(50% - 700px + 380px);
+    right: auto;
+    width: calc(1400px - 380px);
+  }
+  #quick-ref-sheet, #deep-dive-sheet {
+    left: calc(50% - 700px + 380px);
+    right: auto;
+    width: calc(1400px - 380px);
+  }
 }
 
 /* ── EDIT MODE ─────────────────────────────────────────── */
