@@ -127,12 +127,11 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Flight — Seoul to Jeju',
+        label: 'Flight — GMP to CJU',
         icon: '✈️',
-        content: 'TBD — book the domestic flight (or ferry) from Seoul to Jeju.',
-        notes: [
-          { type: 'warning', text: 'Book Seoul → Jeju transport and add flight/ferry number and time.' }
-        ]
+        content: 'Domestic flight from Seoul/Gimpo to Jeju. Depart 9:10am, arrive 10:25am — 1h 15m.',
+        address: 'Seoul/Gimpo (GMP) · Terminal D (Domestic) → Jeju (CJU)',
+        notes: []
       },
       {
         label: 'Check-In — Seom Studio',
@@ -244,12 +243,11 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Flight — Jeju to Seoul',
+        label: 'Flight — CJU to GMP',
         icon: '✈️',
-        content: 'TBD — book the domestic flight (or ferry) from Jeju back to Seoul.',
-        notes: [
-          { type: 'warning', text: 'Book Jeju → Seoul transport and add flight/ferry number and time.' }
-        ]
+        content: 'Domestic flight from Jeju back to Seoul/Gimpo. Depart 9:50am, arrive 11:05am — 1h 15m.',
+        address: 'Jeju (CJU) → Seoul/Gimpo (GMP) · Terminal D (Domestic)',
+        notes: []
       },
       {
         label: 'Check-In — Seoul Myeongdong',
@@ -443,7 +441,7 @@ const QUICK_REF = {
   transit: [
     { name: 'Arrival Flight', detail: 'Lands Seoul 3:20pm, Oct 18 — add flight number once booked' },
     { name: 'Departure Flight', detail: 'Departs Seoul 5:30pm, Oct 31 — add flight number once booked' },
-    { name: 'Seoul → Jeju', detail: 'TBD — book domestic flight or ferry for Oct 21' },
-    { name: 'Jeju → Seoul', detail: 'TBD — book domestic flight or ferry for Oct 25' }
+    { name: 'GMP → CJU (Oct 21)', detail: 'Depart Gimpo Terminal D 9:10am · Arrive Jeju 10:25am · 1h 15m' },
+    { name: 'CJU → GMP (Oct 25)', detail: 'Depart Jeju 9:50am · Arrive Gimpo Terminal D 11:05am · 1h 15m' }
   ]
 };
