@@ -1,0 +1,18 @@
+{
+  "name": "South Korea 2026",
+  "short_name": "Korea Trip",
+  "description": "Mobile trip planner · South Korea 2026 · Oct 18–31",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f2ee",
+  "theme_color": "#2c3e50",
+  "icons": [
+    {
+      "src": "icon-192.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

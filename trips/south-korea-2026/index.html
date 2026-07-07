@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2c3e50" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Korea Trip" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.svg" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <title>South Korea 2026</title>
+  <link rel="stylesheet" href="../../shared/app.css" />
+  <style>
+    /* ── South Korea region theme colors ── */
+    .seoul .day-header { background: #1a6bac; }
+    .jeju  .day-header { background: #2a8080; }
+
+    .ov-card.seoul { --ov-accent-color: #1a6bac; }
+    .ov-card.jeju  { --ov-accent-color: #2a8080; }
+
+    .editing-card.seoul .edit-day-header { background: #1a6bac; }
+    .editing-card.jeju  .edit-day-header { background: #2a8080; }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header id="app-header">
+  <div class="header-row">
+    <a class="header-btn" id="header-back" href="../../" aria-label="All trips">←</a>
+    <div>
+      <div class="app-title">🍵 South Korea 2026 <span id="offline-badge">Offline</span></div>
+      <div class="app-dates">Oct 18–31 · George &amp; Doug</div>
+    </div>
+    <button class="header-btn" id="edit-btn" aria-label="Edit day">✏️</button>
+    <button class="header-btn" id="search-toggle" aria-label="Search">🔍</button>
+  </div>
+  <div id="search-bar" class="hidden">
+    <input type="search" id="search-input" placeholder="Search places, times, addresses…" autocomplete="off" />
+    <button id="search-close-btn">✕</button>
+  </div>
+  <div id="search-history" class="hidden"></div>
+</header>
+
+<!-- ── EDIT MODE HEADER (shown when body.editing) ── -->
+<header id="edit-header">
+  <div class="edit-header-row">
+    <button class="eh-btn cancel" id="edit-cancel-btn">Cancel</button>
+    <div class="eh-title">
+      <div id="edit-title-main">Edit day</div>
+      <div class="eh-sub" id="edit-title-sub"></div>
+    </div>
+    <button class="eh-btn icon" id="edit-settings-btn" aria-label="Settings">⚙</button>
+    <button class="eh-btn save" id="edit-save-btn">Done</button>
+  </div>
+</header>
+
+<!-- ── SETTINGS SHEET ── -->
+<div id="settings-sheet">
+  <div class="sheet-handle"></div>
+  <div class="settings-title">Publish edits</div>
+  <div class="settings-sub">
+    Edits save to <b>this browser</b> by default. Enter the shared trip passphrase below to publish changes to GitHub so they reach everyone's device. Ask your trip organiser for the passphrase.
+  </div>
+  <div class="settings-field">
+    <label>Trip passphrase</label>
+    <input type="password" id="pat-input" placeholder="e.g. vegas2026" autocomplete="off" spellcheck="false">
+  </div>
+  <div class="settings-actions">
+    <button class="settings-cancel" id="settings-cancel-btn">Cancel</button>
+    <button class="settings-save" id="settings-save-btn">Save</button>
+  </div>
+  <div class="settings-status" id="settings-status"></div>
+</div>
+
+<!-- ── SEARCH RESULTS ── -->
+<div id="search-results" class="hidden"></div>
+
+<!-- ── LEGEND ── -->
+<div class="legend" id="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#1a6bac"></div> Seoul</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2a8080"></div> Jeju</div>
+</div>
+
+<!-- ── MAIN (desktop: 2-pane wrapper) ── -->
+<div id="app-body">
+  <aside id="overview-pane" aria-label="Itinerary overview"></aside>
+  <main id="main-content"></main>
+</div>
+
+<!-- ── QUICK REF SHEET ── -->
+<div id="sheet-backdrop"></div>
+<div id="quick-ref-sheet">
+  <div class="sheet-handle"></div>
+  <div class="sheet-title-row">
+    <span class="sheet-title">Quick Reference</span>
+    <button class="sheet-close-btn" id="sheet-close-btn">✕</button>
+  </div>
+  <div class="sheet-tabs">
+    <button class="sheet-tab active" data-tab="reservations">📋 Reservations</button>
+    <button class="sheet-tab" data-tab="transit">🚗 Transit</button>
+  </div>
+  <div id="sheet-content"></div>
+</div>
+
+<!-- ── DEEP DIVE SHEET ── -->
+<div id="deep-dive-sheet">
+  <div class="sheet-handle"></div>
+  <div class="dd-header">
+    <div>
+      <div class="dd-day-badge" id="dd-day-badge"></div>
+      <div class="dd-title" id="dd-title"></div>
+      <div class="dd-subtitle" id="dd-subtitle"></div>
+    </div>
+    <button class="sheet-close-btn" id="deep-dive-close-btn">✕</button>
+  </div>
+  <div id="dd-content"></div>
+</div>
+
+<script src="data.js"></script>
+<script src="../../shared/app.js"></script>
+</body>
+</html>
