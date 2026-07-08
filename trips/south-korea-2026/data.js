@@ -64,6 +64,11 @@ let DAYS = [
     sublocation: 'Jet Lag Buffer',
     theme: 'seoul',
     stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
+    highlights: [
+      { icon: '🏨', text: 'Hotel Sunbee Insadong' },
+      { icon: '🚶', text: 'TBD' },
+      { icon: '🍴', text: 'Food' }
+    ],
     sections: [
       {
         label: 'Morning',
@@ -92,6 +97,11 @@ let DAYS = [
     sublocation: 'Neighborhoods & Food',
     theme: 'seoul',
     stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
+    highlights: [
+      { icon: '🏨', text: 'Hotel Sunbee Insadong' },
+      { icon: '🚶', text: 'Neighborhoods' },
+      { icon: '🍴', text: 'Food' }
+    ],
     sections: [
       {
         label: 'Morning',
