@@ -30,7 +30,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Arrival',
     theme: 'seoul',
-    stay: 'TBD · Seoul (Oct 18–21)',
+    stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
     sections: [
       {
         label: 'Flight — Arrival',
@@ -43,9 +43,10 @@ let DAYS = [
       {
         label: 'Transfer & Check-In',
         icon: '🏨',
-        content: 'TBD — accommodation for this first Seoul stay (Oct 18–21) is not yet booked. Add hotel name, address, and airport transfer details once confirmed.',
+        content: 'Check in to Hotel Sunbee Insadong — a quiet side street just off the main Insadong pedestrian street, 5 min walk to Jonggak Station (Line 1) and 7 min to Anguk Station (Line 3).',
+        address: 'Hotel Sunbee Insadong · 26 Insadong 7-gil, Seoul',
         notes: [
-          { type: 'warning', text: 'Accommodation TBD — fill in before the trip.' }
+          { type: 'reservation', text: 'Confirmed · Check-in Oct 18 · Check-out Oct 21' }
         ]
       },
       {
@@ -62,7 +63,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Jet Lag Buffer',
     theme: 'seoul',
-    stay: 'TBD · Seoul (Oct 18–21)',
+    stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
     sections: [
       {
         label: 'Morning',
@@ -90,7 +91,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Neighborhoods & Food',
     theme: 'seoul',
-    stay: 'TBD · Seoul (Oct 18–21)',
+    stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
     sections: [
       {
         label: 'Morning',
@@ -121,9 +122,10 @@ let DAYS = [
     stay: 'Seom Studio In Seogwipo #7 · check-in',
     sections: [
       {
-        label: 'Check-Out',
+        label: 'Check-Out — Hotel Sunbee',
         icon: '🏨',
-        content: 'TBD — check out of the first Seoul accommodation.',
+        content: 'Check out of Hotel Sunbee Insadong.',
+        address: 'Hotel Sunbee Insadong · 26 Insadong 7-gil, Seoul',
         notes: []
       },
       {
@@ -435,6 +437,7 @@ let DAYS = [
 // ─── QUICK REF ────────────────────────────────────────────────────────────────
 const QUICK_REF = {
   reservations: [
+    { name: 'Hotel Sunbee Insadong', detail: 'Confirmed · Check-in Oct 18 · Check-out Oct 21 · 26 Insadong 7-gil, Seoul' },
     { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–25 · Unit #7' },
     { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31' }
   ],
