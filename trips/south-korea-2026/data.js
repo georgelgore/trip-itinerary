@@ -9,16 +9,17 @@ const TRIP_META = {
 
 // ─── EDIT CONFIG ──────────────────────────────────────────────────────────────
 const EDIT_CFG = {
-  tripId:       'korea-26',
-  githubOwner:  'georgelgore',
-  githubRepo:   'trip-itinerary',
+  tripId: 'korea-26',
+  githubOwner: 'georgelgore',
+  githubRepo: 'trip-itinerary',
   githubBranch: 'main',
-  editsPath:    'trips/south-korea-2026/edits.json',
-  storageKey:   'korea-26:days',
-  initialTab:   'reservations',
+  editsPath: 'trips/south-korea-2026/edits.json',
+  storageKey: 'korea-26:days',
+  initialTab: 'reservations',
   catLabels: {
     reservations: 'Reservations',
-    transit:      'Transit',
+    transit: 'Transit',
+    pinnedSpots: 'Saved Pins',
   },
 };
 
@@ -52,7 +53,8 @@ let DAYS = [
       {
         label: 'Evening — Settle In',
         icon: '🌆',
-        content: 'TBD — keep the first evening light given the flight. First taste of Seoul food nearby.',
+        content: 'Keep it light given the flight. Dinner at Sinsajeon, an easy walk from Insadong — saved from the "Want to go" list.',
+        address: 'Sinsajeon, Seoul',
         notes: []
       }
     ]
@@ -66,26 +68,29 @@ let DAYS = [
     stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
     highlights: [
       { icon: '🏨', text: 'Hotel Sunbee Insadong' },
-      { icon: '🚶', text: 'TBD' },
-      { icon: '🍴', text: 'Food' }
+      { icon: '🍵', text: 'Osulloc Bukchon' },
+      { icon: '🍴', text: 'Pildong Myeonok' }
     ],
     sections: [
       {
-        label: 'Morning',
+        label: 'Morning — Tea',
         icon: '☕',
-        content: 'TBD — easy pace, jet lag buffer day.',
+        content: 'Easy pace. Tea at Osulloc Tea House Bukchon, a short walk from Insadong.',
+        address: 'Osulloc Tea House Bukchon, Seoul',
         notes: []
       },
       {
-        label: 'Afternoon',
-        icon: '🚶',
-        content: 'TBD — first pass at nearby neighborhoods.',
+        label: 'Afternoon — Seoul Museum of Craft Art',
+        icon: '🎨',
+        content: 'Browse the Seoul Museum of Craft Art (Anguk area) — the guidebook flags a good gift shop here, worth it early in the trip.',
+        address: 'Seoul Museum of Craft Art, Seoul',
         notes: []
       },
       {
         label: 'Evening — Food',
         icon: '🍴',
-        content: 'TBD — first real food exploration.',
+        content: 'Dinner at Pildong Myeonok, from the "Want to go" list.',
+        address: 'Pildong Myeonok, Seoul',
         notes: []
       }
     ]
@@ -99,26 +104,29 @@ let DAYS = [
     stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
     highlights: [
       { icon: '🏨', text: 'Hotel Sunbee Insadong' },
-      { icon: '🚶', text: 'Neighborhoods' },
-      { icon: '🍴', text: 'Food' }
+      { icon: '🛒', text: 'Gwangjang Market' },
+      { icon: '🍴', text: 'Gamekol Son Wangmandu' }
     ],
     sections: [
       {
-        label: 'Morning',
+        label: 'Morning — Tea',
         icon: '☕',
-        content: 'TBD.',
+        content: 'Tea at Jidaebang, sourced from an Instagram find.',
+        address: 'Jidaebang, Seoul',
         notes: []
       },
       {
-        label: 'Afternoon — Neighborhoods',
-        icon: '🚶',
-        content: 'TBD — continue exploring neighborhoods.',
+        label: 'Afternoon — Gwangjang Market',
+        icon: '🛒',
+        content: 'Gwangjang Market — the NYT pick from the "Want to go" list. Street food, textiles, and one of Seoul\u2019s oldest markets.',
+        address: 'Gwangjang Market, Seoul',
         notes: []
       },
       {
         label: 'Evening — Food',
         icon: '🍴',
-        content: 'TBD.',
+        content: 'Gamekol Son Wangmandu for kimchi buns — a YouTube find.',
+        address: 'Gamekol Son Wangmandu, Seoul',
         notes: []
       }
     ]
@@ -279,51 +287,73 @@ let DAYS = [
     sublocation: 'Tea & Ceramics Shopping',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    highlights: [
+      { icon: '🍵', text: 'Sumuqa Tea Room' },
+      { icon: '🏺', text: 'EDEN POTTERY' },
+      { icon: '🍴', text: 'Buchon Yukhoe' }
+    ],
     sections: [
       {
-        label: 'Morning',
+        label: 'Morning — Tea',
         icon: '☕',
-        content: 'TBD.',
+        content: 'Sumuqa Tea Room, an Instagram find.',
+        address: 'Sumuqa Tea Room, Seoul',
         notes: []
       },
       {
-        label: 'Afternoon — Tea & Ceramics',
-        icon: '🍵',
-        content: 'TBD — tea and ceramics shopping.',
+        label: 'Afternoon — Ceramics Shopping',
+        icon: '🏺',
+        content: 'Ceramics run: EDEN POTTERY, OJASEOUL by OJACRAFT, and Narrative Object (내러티브오브젝트) — all saved from Instagram finds.',
         notes: []
       },
       {
-        label: 'Evening',
+        label: 'Evening — Food',
         icon: '🍴',
-        content: 'TBD.',
+        content: 'Buchon Yukhoe Main Store.',
+        address: 'Buchon Yukhoe Main Store, Seoul',
         notes: []
       }
     ]
   },
   {
     id: 10,
-    date: 'Tuesday, October 27 — Markets',
-    location: 'Seoul',
-    sublocation: 'Markets',
+    date: 'Tuesday, October 27 — Icheon Day Trip (Pottery)',
+    location: 'Icheon',
+    sublocation: 'Ceramics Village',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    highlights: [
+      { icon: '🚌', text: 'Day trip from Seoul' },
+      { icon: '🏺', text: 'Master potter workshop' },
+      { icon: '🖼️', text: 'Icheon Ceramic Village' }
+    ],
     sections: [
       {
-        label: 'Morning',
-        icon: '☕',
-        content: 'TBD.',
+        label: 'Morning — Travel to Icheon',
+        icon: '🚌',
+        content: 'Icheon is about 1–1.5 hrs from Seoul by car or bus. Head out early to make the most of the day.',
+        notes: [
+          { type: 'warning', text: 'Book transport (car service, intercity bus, or tour) once decided.' }
+        ]
+      },
+      {
+        label: 'Midday — Icheon Ceramic Village',
+        icon: '🖼️',
+        content: 'Browse the kilns and galleries of Icheon Ceramic Village and the Icheon World Ceramic Center — Korea\u2019s traditional ceramics hub.',
         notes: []
       },
       {
-        label: 'Afternoon — Markets',
-        icon: '🛍️',
-        content: 'TBD — market browsing.',
-        notes: []
+        label: 'Afternoon — Hands-On Pottery Workshop',
+        icon: '🏺',
+        content: 'Book a wheel-throwing or hand-building session with a local master potter — inspired by the Icheon Master Potter workshops (Master Lee Hyang-gu and similar studios).',
+        notes: [
+          { type: 'warning', text: 'Reserve the workshop in advance — slots fill up, and some require a deposit.' }
+        ]
       },
       {
-        label: 'Evening',
-        icon: '🍴',
-        content: 'TBD.',
+        label: 'Evening — Return to Seoul',
+        icon: '🌆',
+        content: 'Head back to Seoul; keep dinner simple near Myeongdong.',
         notes: []
       }
     ]
@@ -335,23 +365,31 @@ let DAYS = [
     sublocation: 'Tea & Ceramics Shopping',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    highlights: [
+      { icon: '☕', text: 'Anthracite Coffee Seogyo' },
+      { icon: '🏺', text: 'Dapsimni Antiques Market' },
+      { icon: '🍴', text: 'Jayeondo Sogeumppang' }
+    ],
     sections: [
       {
-        label: 'Morning',
+        label: 'Morning — Coffee',
         icon: '☕',
-        content: 'TBD.',
+        content: 'Anthracite Coffee Seogyo, from the "Want to go" list.',
+        address: 'Anthracite Coffee Seogyo, Seoul',
         notes: []
       },
       {
-        label: 'Afternoon — Tea & Ceramics',
-        icon: '🍵',
-        content: 'TBD — more tea and ceramics shopping.',
+        label: 'Afternoon — Antiques & Ceramics',
+        icon: '🏺',
+        content: 'Dapsimni Antiques Market (an Instagram find) and gradus (grds), sourced from the guidebook.',
+        address: 'Dapsimni Antiques Market, Seoul',
         notes: []
       },
       {
-        label: 'Evening',
+        label: 'Evening — Food',
         icon: '🍴',
-        content: 'TBD.',
+        content: 'Jayeondo Sogeumppang (Salt Bread) in Seongsu.',
+        address: 'Jayeondo Sogeumppang, Seongsu, Seoul',
         notes: []
       }
     ]
@@ -363,23 +401,30 @@ let DAYS = [
     sublocation: 'Markets',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    highlights: [
+      { icon: '☕', text: 'Cha Cha Tea Club' },
+      { icon: '🛍️', text: 'DDP' },
+      { icon: '🍧', text: 'Sulbing Hannam' }
+    ],
     sections: [
       {
-        label: 'Morning',
+        label: 'Morning — Tea',
         icon: '☕',
-        content: 'TBD.',
+        content: 'Cha Cha Tea Club.',
+        address: 'Cha Cha Tea Club, Seoul',
         notes: []
       },
       {
         label: 'Afternoon — Markets',
         icon: '🛍️',
-        content: 'TBD.',
+        content: 'Seoul Yangnyeongsi Medicine Market and Dongdaemun Design Plaza (DDP); Goto Mall if there\u2019s time.',
         notes: []
       },
       {
-        label: 'Evening',
-        icon: '🍴',
-        content: 'TBD.',
+        label: 'Evening — Food',
+        icon: '🍧',
+        content: 'Sulbing Hannam branch.',
+        address: 'Sulbing, Hannam, Seoul',
         notes: []
       }
     ]
@@ -391,23 +436,30 @@ let DAYS = [
     sublocation: 'Relaxed Pace',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    highlights: [
+      { icon: '☕', text: 'Dadole' },
+      { icon: '🛍️', text: 'LCDC Seoul' },
+      { icon: '🍹', text: 'VIBD BLVD' }
+    ],
     sections: [
       {
-        label: 'Morning',
+        label: 'Morning — Tea',
         icon: '☕',
-        content: 'TBD — slower pace toward the end of the trip.',
+        content: 'Slower pace toward the end of the trip. Dadole for tea.',
+        address: 'Dadole, Seoul',
         notes: []
       },
       {
-        label: 'Afternoon',
-        icon: '🚶',
-        content: 'TBD.',
+        label: 'Afternoon — Last-Minute Shopping',
+        icon: '🛍️',
+        content: 'LCDC Seoul, Beaker, NIFTYDO (a Spyplane pick), and Unipair.',
         notes: []
       },
       {
-        label: 'Evening',
-        icon: '🍴',
-        content: 'TBD — last relaxed dinner.',
+        label: 'Evening — Drinks',
+        icon: '🍹',
+        content: 'VIBD BLVD, an NYT pick, for a last relaxed evening.',
+        address: 'VIBD BLVD, Seoul',
         notes: []
       }
     ]
@@ -429,7 +481,7 @@ let DAYS = [
       {
         label: 'Free Time',
         icon: '🕐',
-        content: 'TBD — last-minute shopping or errands before heading to the airport.',
+        content: 'Last-minute shopping or errands before heading to the airport — Alkimia Seo Chon Ice Cream (an NYT pick) or Youngpoong Bookstore Jongno Main Branch are both nearby options if there\u2019s time.',
         notes: []
       },
       {
@@ -455,6 +507,35 @@ const QUICK_REF = {
     { name: 'Arrival Flight', detail: 'Lands Seoul 3:20pm, Oct 18 — add flight number once booked' },
     { name: 'Departure Flight', detail: 'Departs Seoul 5:30pm, Oct 31 — add flight number once booked' },
     { name: 'GMP → CJU (Oct 21)', detail: 'Depart Gimpo Terminal D 9:10am · Arrive Jeju 10:25am · 1h 15m' },
-    { name: 'CJU → GMP (Oct 25)', detail: 'Depart Jeju 9:50am · Arrive Gimpo Terminal D 11:05am · 1h 15m' }
-  ]
+    { name: 'CJU → GMP (Oct 25)', detail: 'Depart Jeju 9:50am · Arrive Gimpo Terminal D 11:05am · 1h 15m' },
+    { name: 'Icheon Day Trip (Oct 27)', detail: 'From Seoul, ~1–1.5 hrs each way by car or bus — transport TBD' }
+  ],
+  // Saved Google Maps pins not yet slotted into a specific day — pull from here when filling in TBD sections.
+  pinnedSpots: {
+    food: [
+      { name: 'Sancheong Charcoal Garden Euljiro', note: 'Want to go · YouTube' },
+      { name: 'Eulmildae', note: 'IG cold noodles' },
+      { name: 'Mandong Bakery', note: 'Want to go · YouTube' },
+      { name: 'Yun Seoul', note: 'Want to go · NYT' }
+    ],
+    cafesTea: [
+      { name: 'Lao Sanghai', note: 'Tea · Reddit' },
+      { name: 'Ace 4 club', note: 'Want to go · NYT' }
+    ],
+    shopping: [
+      { name: 'Shinsegae Department Store Main Store', note: 'General shopping' },
+      { name: 'Goto Mall', note: '' },
+      { name: 'Musinsa Standard', note: 'Want to go' },
+      { name: 'SUPY Myeongdong', note: "Men's shopping" },
+      { name: 'Random Walk', note: "Men's shopping" },
+      { name: 'Coor', note: 'Want to go' },
+      { name: 'Ourselves', note: 'Want to go' },
+      { name: 'Kyobo Book Centre Gangnam', note: '' }
+    ],
+    markets: [
+      { name: 'COEX Convention & Exhibition Center', note: '' },
+      { name: 'Koreal Color', note: 'Want to go' },
+      { name: 'GU Clinic', note: 'Want to go' }
+    ]
+  }
 };
