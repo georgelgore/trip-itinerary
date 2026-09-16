@@ -29,9 +29,14 @@ let DAYS = [
     id: 1,
     date: 'Sunday, October 18 — Arrival',
     location: 'Seoul',
-    sublocation: 'Arrival',
+    sublocation: 'Insadong',
     theme: 'seoul',
     stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
+    highlights: [
+      { icon: '✈️', text: 'Land 3:20pm' },
+      { icon: '🏨', text: 'Hotel Sunbee Insadong' },
+      { icon: '🍴', text: 'Sinsajeon' }
+    ],
     sections: [
       {
         label: 'Flight — Arrival',
@@ -51,6 +56,13 @@ let DAYS = [
         ]
       },
       {
+        label: 'Late Afternoon — Insadong-gil & Ssamziegil',
+        icon: '🚶',
+        content: 'Once settled, walk Insadong-gil itself — the pedestrian street lined with galleries, stationery shops, and tea houses — and duck into Ssamziegil, a spiral-ramped complex of small design and craft shops. Easy, jet-lag-friendly, and right outside the hotel.',
+        address: 'Ssamziegil, Insadong, Seoul',
+        notes: []
+      },
+      {
         label: 'Evening — Settle In',
         icon: '🌆',
         content: 'Keep it light given the flight. Dinner at Sinsajeon, an easy walk from Insadong — saved from the "Want to go" list.',
@@ -61,15 +73,16 @@ let DAYS = [
   },
   {
     id: 2,
-    date: 'Monday, October 19 — Jet Lag Buffer',
+    date: 'Monday, October 19 — Bukchon & Samcheong-dong',
     location: 'Seoul',
-    sublocation: 'Jet Lag Buffer',
+    sublocation: 'Bukchon & Samcheong-dong',
     theme: 'seoul',
     stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
     highlights: [
-      { icon: '🏨', text: 'Hotel Sunbee Insadong' },
+      { icon: '🏯', text: 'Gyeongbokgung Palace' },
+      { icon: '🏛️', text: 'National Folk Museum' },
       { icon: '🍵', text: 'Osulloc Bukchon' },
-      { icon: '🍴', text: 'Pildong Myeonok' }
+      { icon: '🎨', text: 'Seoul Museum of Craft Art' }
     ],
     sections: [
       {
@@ -80,9 +93,25 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Afternoon — Seoul Museum of Craft Art',
+        label: 'Late Morning — Gyeongbokgung Palace & National Folk Museum',
+        icon: '🏯',
+        content: 'Walk to Gyeongbokgung Palace, the largest of Seoul\u2019s Five Grand Palaces, and duck into the National Folk Museum of Korea on the palace grounds — a good overview of Korean daily life and craft history before diving into Bukchon\u2019s workshops.',
+        address: 'Gyeongbokgung Palace, Jongno-gu, Seoul',
+        notes: [
+          { type: 'warning', text: 'Palace is closed on Tuesdays — fine for this Monday visit, but worth double-checking closer to the date.' }
+        ]
+      },
+      {
+        label: 'Afternoon — Bukchon Hanok Village Walk',
+        icon: '🏘️',
+        content: 'Wander the sloped lanes of Bukchon Hanok Village, one of Seoul\u2019s best-preserved traditional neighborhoods — a mix of centuries-old hanok homes, small craft studios, and photo-friendly overlooks toward the palace and Namsan.',
+        address: 'Bukchon Hanok Village, Jongno-gu, Seoul',
+        notes: []
+      },
+      {
+        label: 'Afternoon — Seoul Museum of Craft Art & Samcheong-dong Shopping',
         icon: '🎨',
-        content: 'Browse the Seoul Museum of Craft Art (Anguk area) — the guidebook flags a good gift shop here, worth it early in the trip.',
+        content: 'Browse the Seoul Museum of Craft Art (Anguk area) — the guidebook flags a good gift shop here, worth it early in the trip. Afterward, pop into the boutiques along Samcheong-dong-gil for ceramics, stationery, and small galleries.',
         address: 'Seoul Museum of Craft Art, Seoul',
         notes: []
       },
@@ -97,14 +126,15 @@ let DAYS = [
   },
   {
     id: 3,
-    date: 'Tuesday, October 20 — Neighborhoods & Food',
+    date: 'Tuesday, October 20 — Jongno & Ikseon-dong',
     location: 'Seoul',
-    sublocation: 'Neighborhoods & Food',
+    sublocation: 'Jongno & Ikseon-dong',
     theme: 'seoul',
     stay: 'Hotel Sunbee Insadong · Seoul (Oct 18–21)',
     highlights: [
-      { icon: '🏨', text: 'Hotel Sunbee Insadong' },
+      { icon: '🏘️', text: 'Ikseon-dong-gil' },
       { icon: '🛒', text: 'Gwangjang Market' },
+      { icon: '🛕', text: 'Jogyesa Temple' },
       { icon: '🍴', text: 'Gamekol Son Wangmandu' }
     ],
     sections: [
@@ -113,6 +143,20 @@ let DAYS = [
         icon: '☕',
         content: 'Tea at Jidaebang, sourced from an Instagram find.',
         address: 'Jidaebang, Seoul',
+        notes: []
+      },
+      {
+        label: 'Late Morning — Ikseon-dong-gil',
+        icon: '🏘️',
+        content: 'Walk over to Ikseon-dong-gil — Seoul\u2019s smallest hanok village, now packed with boutique cafes, indie fashion shops, and small galleries tucked into century-old houses. Good for browsing before the market crowds pick up.',
+        address: 'Ikseon-dong-gil, Jongno-gu, Seoul',
+        notes: []
+      },
+      {
+        label: 'Midday — Jogyesa Temple',
+        icon: '🛕',
+        content: 'Short stop at Jogyesa Temple, the head temple of the Jogye Order — a quiet, colorful contrast to the market streets around it, and only a few minutes\u2019 walk from Insadong.',
+        address: 'Jogyesa Temple, Jongno-gu, Seoul',
         notes: []
       },
       {
@@ -282,14 +326,15 @@ let DAYS = [
   },
   {
     id: 9,
-    date: 'Monday, October 26 — Tea & Ceramics Shopping',
+    date: 'Monday, October 26 — Seongsu-dong',
     location: 'Seoul',
-    sublocation: 'Tea & Ceramics Shopping',
+    sublocation: 'Seongsu-dong',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
       { icon: '🍵', text: 'Sumuqa Tea Room' },
-      { icon: '🏺', text: 'EDEN POTTERY' },
+      { icon: '🌳', text: 'Seoul Forest' },
+      { icon: '🏺', text: 'Seongsu ceramics run' },
       { icon: '🍴', text: 'Buchon Yukhoe' }
     ],
     sections: [
@@ -301,9 +346,16 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Afternoon — Ceramics Shopping',
+        label: 'Late Morning — Seoul Forest',
+        icon: '🌳',
+        content: 'Walk through Seoul Forest — a large riverside park with a deer enclosure, wetlands, and a bike/walking path along the Han River. A good breather before the shopping-heavy afternoon.',
+        address: 'Seoul Forest, Seongdong-gu, Seoul',
+        notes: []
+      },
+      {
+        label: 'Afternoon — Ceramics & Design Shopping',
         icon: '🏺',
-        content: 'Ceramics run: EDEN POTTERY, OJASEOUL by OJACRAFT, and Narrative Object (내러티브오브젝트) — all saved from Instagram finds.',
+        content: 'Ceramics run: EDEN POTTERY, OJASEOUL by OJACRAFT, and Narrative Object (내러티브오브젝트) — all saved from Instagram finds. Seongsu is also full of converted-warehouse concept stores and design galleries (Daelim Changgo Warehouse, Common Ground container mall) worth a wander between stops.',
         notes: []
       },
       {
@@ -339,7 +391,7 @@ let DAYS = [
       {
         label: 'Midday — Icheon Ceramic Village',
         icon: '🖼️',
-        content: 'Browse the kilns and galleries of Icheon Ceramic Village and the Icheon World Ceramic Center — Korea\u2019s traditional ceramics hub.',
+        content: 'Browse the kilns and galleries of Icheon Ceramic Village and the Icheon World Ceramic Center — Korea\u2019s traditional ceramics hub. The Haegang Ceramics Museum is also here if there\u2019s time for one more stop.',
         notes: []
       },
       {
@@ -360,15 +412,16 @@ let DAYS = [
   },
   {
     id: 11,
-    date: 'Wednesday, October 28 — Tea & Ceramics Shopping',
+    date: 'Wednesday, October 28 — Hongdae & Yeonnam-dong',
     location: 'Seoul',
-    sublocation: 'Tea & Ceramics Shopping',
+    sublocation: 'Hongdae & Yeonnam-dong',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
       { icon: '☕', text: 'Anthracite Coffee Seogyo' },
-      { icon: '🏺', text: 'Dapsimni Antiques Market' },
-      { icon: '🍴', text: 'Jayeondo Sogeumppang' }
+      { icon: '🌳', text: 'Yeonnam-dong Forest Park' },
+      { icon: '🖼️', text: 'Trick Eye Museum' },
+      { icon: '🍴', text: 'Yeonnam-dong dinner' }
     ],
     sections: [
       {
@@ -379,32 +432,40 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Afternoon — Antiques & Ceramics',
-        icon: '🏺',
-        content: 'Dapsimni Antiques Market (an Instagram find) and gradus (grds), sourced from the guidebook.',
-        address: 'Dapsimni Antiques Market, Seoul',
+        label: 'Late Morning — Yeonnam-dong Forest Park Walk',
+        icon: '🌳',
+        content: 'Walk the Gyeongui Line Forest Park through Yeonnam-dong — a converted rail line turned narrow park, lined with indie boutiques, secondhand shops, and cafes on either side.',
+        address: 'Gyeongui Line Forest Park, Yeonnam-dong, Seoul',
+        notes: []
+      },
+      {
+        label: 'Afternoon — Trick Eye Museum & Hongdae Shopping',
+        icon: '🖼️',
+        content: 'The Trick Eye Museum in Hongdae is a playful, photo-driven 3D art museum — a fun change of pace from the day\u2019s craft-and-tea itinerary. Follow with a browse through Hongdae\u2019s indie fashion and street-style shops.',
+        address: 'Trick Eye Museum, Hongdae, Seoul',
         notes: []
       },
       {
         label: 'Evening — Food',
         icon: '🍴',
-        content: 'Jayeondo Sogeumppang (Salt Bread) in Seongsu.',
-        address: 'Jayeondo Sogeumppang, Seongsu, Seoul',
+        content: 'Dinner among Yeonnam-dong\u2019s food street — a dense strip of casual Korean and Korean-Chinese spots, easy walking distance from the afternoon\u2019s stops.',
+        address: 'Yeonnam-dong, Mapo-gu, Seoul',
         notes: []
       }
     ]
   },
   {
     id: 12,
-    date: 'Thursday, October 29 — Markets',
+    date: 'Thursday, October 29 — Dongdaemun & Jegi-dong',
     location: 'Seoul',
-    sublocation: 'Markets',
+    sublocation: 'Dongdaemun & Jegi-dong',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
       { icon: '☕', text: 'Cha Cha Tea Club' },
+      { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
       { icon: '🛍️', text: 'DDP' },
-      { icon: '🍧', text: 'Sulbing Hannam' }
+      { icon: '🧸', text: 'Dapsimni Antiques Market' }
     ],
     sections: [
       {
@@ -415,50 +476,74 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Afternoon — Markets',
+        label: 'Late Morning — Seoul Yangnyeongsi Medicine Market',
+        icon: '🌿',
+        content: 'Seoul Yangnyeongsi Medicine Market in Jegi-dong is Korea\u2019s largest traditional herbal medicine market — narrow lanes stacked with dried roots and herbs. The small Herbal Medicine Museum on site gives good context before wandering the stalls.',
+        notes: []
+      },
+      {
+        label: 'Midday — Dapsimni Antiques Market',
+        icon: '🧸',
+        content: 'Dapsimni Antiques Market (an Instagram find), just down the road — a sprawling, less-touristed market for antiques, vintage furniture, and curios.',
+        address: 'Dapsimni Antiques Market, Seoul',
+        notes: []
+      },
+      {
+        label: 'Afternoon — DDP & Goto Mall',
         icon: '🛍️',
-        content: 'Seoul Yangnyeongsi Medicine Market and Dongdaemun Design Plaza (DDP); Goto Mall if there\u2019s time.',
+        content: 'Dongdaemun Design Plaza (DDP), Zaha Hadid\u2019s landmark building, for architecture and design exhibits, followed by gradus (grds), sourced from the guidebook. Goto Mall\u2019s underground shopping arcade is close by if there\u2019s time.',
         notes: []
       },
       {
         label: 'Evening — Food',
         icon: '🍧',
-        content: 'Sulbing Hannam branch.',
-        address: 'Sulbing, Hannam, Seoul',
+        content: 'Sulbing, Dongdaemun branch, for shaved ice to close out the day.',
+        address: 'Sulbing, Dongdaemun, Seoul',
         notes: []
       }
     ]
   },
   {
     id: 13,
-    date: 'Friday, October 30 — Relaxed Pace',
+    date: 'Friday, October 30 — Jamsil',
     location: 'Seoul',
-    sublocation: 'Relaxed Pace',
+    sublocation: 'Jamsil',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
-      { icon: '☕', text: 'Dadole' },
-      { icon: '🛍️', text: 'LCDC Seoul' },
+      { icon: '🎨', text: 'Color Analysis — Hybrid Rainbow Studio' },
+      { icon: '🗼', text: 'Lotte World Tower / Seoul Sky' },
+      { icon: '🛍️', text: 'Lotte World Mall' },
       { icon: '🍹', text: 'VIBD BLVD' }
     ],
     sections: [
       {
-        label: 'Morning — Tea',
-        icon: '☕',
-        content: 'Slower pace toward the end of the trip. Dadole for tea.',
-        address: 'Dadole, Seoul',
+        label: 'Morning — Color Analysis',
+        icon: '🎨',
+        content: 'Personal color analysis at Hybrid Rainbow Studio — run by a native English-speaking, dual-licensed (Korean/Japanese system) consultant, no interpreter needed. Sessions run 45–90 minutes depending on package (fashion-only vs. fashion + makeup) and use full draping with 500+ fabric colors.',
+        address: 'Hybrid Rainbow Studio · Unit 204, Jeongmyeong Building, 24 Baekjaegobunro 45-gil, Songpa-gu, Seoul',
+        notes: [
+          { type: 'warning', text: 'Book several weeks ahead — English sessions fill up fast, especially in October. Reserve via their booking site and confirm which package (fashion vs. fashion + makeup).' }
+        ]
+      },
+      {
+        label: 'Midday — Lotte World Tower / Seoul Sky',
+        icon: '🗼',
+        content: 'Jamsil is anchored by Lotte World Tower — Korea\u2019s tallest building. Head up to the Seoul Sky observation deck for panoramic views over the Han River while you\u2019re already in the neighborhood.',
+        address: 'Lotte World Tower, Jamsil, Songpa-gu, Seoul',
         notes: []
       },
       {
-        label: 'Afternoon — Last-Minute Shopping',
+        label: 'Afternoon — Lotte World Mall & Seokchon Lake',
         icon: '🛍️',
-        content: 'LCDC Seoul, Beaker, NIFTYDO (a Spyplane pick), and Unipair.',
+        content: 'Shop Lotte World Mall (duty-free, department store, and a wide mix of Korean and international brands), then walk off the color-analysis high with a loop around Seokchon Lake next door.',
+        address: 'Lotte World Mall, Jamsil, Seoul',
         notes: []
       },
       {
         label: 'Evening — Drinks',
         icon: '🍹',
-        content: 'VIBD BLVD, an NYT pick, for a last relaxed evening.',
+        content: 'VIBD BLVD, an NYT pick, for a last relaxed evening — worth the short subway ride back toward Gangnam from Jamsil.',
         address: 'VIBD BLVD, Seoul',
         notes: []
       }
@@ -468,9 +553,14 @@ let DAYS = [
     id: 14,
     date: 'Saturday, October 31 — Departure',
     location: 'Seoul',
-    sublocation: 'Departure',
+    sublocation: 'Namdaemun',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · Checkout',
+    highlights: [
+      { icon: '🛒', text: 'Namdaemun Market' },
+      { icon: '📚', text: 'Youngpoong Bookstore' },
+      { icon: '✈️', text: 'Depart 5:30pm' }
+    ],
     sections: [
       {
         label: 'Check-Out',
@@ -479,7 +569,14 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Free Time',
+        label: 'Morning — Namdaemun Market',
+        icon: '🛒',
+        content: 'Namdaemun Market is a 10-minute walk from the hotel — Korea\u2019s oldest and largest traditional market, good for last-minute food stalls, kitchenware, and souvenirs without needing to go far on a travel day.',
+        address: 'Namdaemun Market, Jung-gu, Seoul',
+        notes: []
+      },
+      {
+        label: 'Late Morning — Free Time',
         icon: '🕐',
         content: 'Last-minute shopping or errands before heading to the airport — Alkimia Seo Chon Ice Cream (an NYT pick) or Youngpoong Bookstore Jongno Main Branch are both nearby options if there\u2019s time.',
         notes: []
@@ -501,7 +598,8 @@ const QUICK_REF = {
   reservations: [
     { name: 'Hotel Sunbee Insadong', detail: 'Confirmed · Check-in Oct 18 · Check-out Oct 21 · 26 Insadong 7-gil, Seoul' },
     { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–25 · Unit #7' },
-    { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31' }
+    { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31' },
+    { name: 'Hybrid Rainbow Studio — Color Analysis', detail: 'Not yet booked · Oct 30 · Jamsil, Songpa-gu · book several weeks ahead' }
   ],
   transit: [
     { name: 'Arrival Flight', detail: 'Lands Seoul 3:20pm, Oct 18 — add flight number once booked' },
@@ -516,21 +614,26 @@ const QUICK_REF = {
       { name: 'Sancheong Charcoal Garden Euljiro', note: 'Want to go · YouTube' },
       { name: 'Eulmildae', note: 'IG cold noodles' },
       { name: 'Mandong Bakery', note: 'Want to go · YouTube' },
-      { name: 'Yun Seoul', note: 'Want to go · NYT' }
+      { name: 'Yun Seoul', note: 'Want to go · NYT' },
+      { name: 'Jayeondo Sogeumppang', note: 'Salt bread, Seongsu — pair with a return trip to the neighborhood' }
     ],
     cafesTea: [
       { name: 'Lao Sanghai', note: 'Tea · Reddit' },
-      { name: 'Ace 4 club', note: 'Want to go · NYT' }
+      { name: 'Ace 4 club', note: 'Want to go · NYT' },
+      { name: 'Dadole', note: 'Tea · not yet slotted' }
     ],
     shopping: [
       { name: 'Shinsegae Department Store Main Store', note: 'General shopping' },
-      { name: 'Goto Mall', note: '' },
       { name: 'Musinsa Standard', note: 'Want to go' },
       { name: 'SUPY Myeongdong', note: "Men's shopping" },
       { name: 'Random Walk', note: "Men's shopping" },
       { name: 'Coor', note: 'Want to go' },
       { name: 'Ourselves', note: 'Want to go' },
-      { name: 'Kyobo Book Centre Gangnam', note: '' }
+      { name: 'Kyobo Book Centre Gangnam', note: '' },
+      { name: 'LCDC Seoul', note: 'Concept store, Seongsu — not yet slotted' },
+      { name: 'Beaker', note: 'Concept store, Hannam/Itaewon — not yet slotted' },
+      { name: 'NIFTYDO', note: 'Spyplane pick, Hannam/Itaewon — not yet slotted' },
+      { name: 'Unipair', note: 'Hannam/Itaewon — not yet slotted' }
     ],
     markets: [
       { name: 'COEX Convention & Exhibition Center', note: '' },
