@@ -5,7 +5,7 @@ const PASSPHRASE_KEY = 'trip-edit-passphrase';
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
 
-const state = { searchOpen: false, sheetOpen: false, currentTab: EDIT_CFG.initialTab, ddOpen: false, overviewPaneRendered: false };
+const state = { searchOpen: false, sheetOpen: false, currentTab: EDIT_CFG.initialTab, ddOpen: false, overviewPaneRendered: false, openDayId: null };
 
 // ─── EDIT MODE: LOAD OVERRIDES AT BOOT ───────────────────────────────────────
 // Synchronous overlay from localStorage (instant; offline-safe)
@@ -27,7 +27,6 @@ function init() {
   setupSearch();
   setupSheet();
   document.getElementById('deep-dive-close-btn').addEventListener('click', closeDeepDive);
-  document.getElementById('header-back').addEventListener('click', onBackClick);
   window.addEventListener('popstate', renderRoute);
   window.addEventListener('scroll', onWindowScroll, { passive: true });
   window.addEventListener('online',  updateOnlineBadge);
@@ -50,33 +49,6 @@ function init() {
 }
 
 // ─── RENDER DAYS ──────────────────────────────────────────────────────────────
-
-function renderDays(filterFn) {
-  const list = filterFn ? DAYS.filter(filterFn) : DAYS;
-  document.getElementById('main-content').innerHTML =
-    list.map(day => `
-      <div class="day-card ${day.theme}" data-day="${day.id}">
-        <div class="day-header" onclick="toggleDay(${day.id})">
-          <div class="day-header-text">
-            <div class="day-label">Day ${day.id}</div>
-            <div class="day-date">${esc(day.date)}</div>
-            <div class="day-loc">${esc(day.location)}${day.sublocation ? ` · ${esc(day.sublocation)}` : ''}</div>
-            <div class="day-stay">🏨 ${esc(day.stay)}</div>
-          </div>
-          <div class="chevron">▼</div>
-        </div>
-        <div class="sections">
-          ${day.sections.map(s => renderSection(day.id, s)).join('')}
-          ${day.deepDive ? `
-          <div class="deep-dive-btn-wrap">
-            <button class="deep-dive-btn" onclick="openDeepDive(${day.id})">
-              <span>📖</span><span>${esc(day.deepDive.title)}</span><span class="deep-dive-btn-arrow">→</span>
-            </button>
-          </div>` : ''}
-        </div>
-      </div>
-    `).join('');
-}
 
 function renderSection(dayId, section) {
   const alertBadges = (section.notes || [])
@@ -105,10 +77,6 @@ function renderSection(dayId, section) {
       </div>
     </div>
   `;
-}
-
-function toggleDay(dayId) {
-  document.querySelector(`.day-card[data-day="${dayId}"]`).classList.toggle('open');
 }
 
 function toggleSection(el) {
@@ -231,20 +199,19 @@ function renderSearchResults(results, query) {
 
 function jumpTo(dayId, sectionLabel) {
   closeSearch();
-  const onSameDay = state.route && state.route.view === 'day' && state.route.id === dayId;
-  if (!onSameDay) navigateTo('?day=' + dayId);
-  // Open the named section after the day detail has rendered
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    const card = document.querySelector(`.day-card[data-day="${dayId}"]`);
-    if (!card) return;
-    card.classList.add('open');
-    const sel = `.section[data-label="${sectionLabel.replace(/"/g, '\\"')}"]`;
-    const section = card.querySelector(sel);
+  expandDay(dayId);
+  const card = document.getElementById('op-day-' + dayId);
+  if (!card) return;
+  const sel = `.section[data-label="${sectionLabel.replace(/"/g, '\\"')}"]`;
+  const section = card.querySelector(sel);
+  requestAnimationFrame(() => {
     if (section) {
       section.classList.add('open');
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }));
+  });
 }
 
 function hilite(text, query) {
@@ -496,11 +463,9 @@ function getRoute() {
   const rawDay = params.get('day');
   if (rawDay) {
     const id = parseInt(rawDay, 10);
-    if (Number.isFinite(id) && DAYS.some(d => d.id === id)) {
-      return { view: 'day', id };
-    }
+    if (Number.isFinite(id) && DAYS.some(d => d.id === id)) return { dayId: id };
   }
-  return { view: 'overview' };
+  return { dayId: null };
 }
 
 function renderRoute() {
@@ -509,49 +474,29 @@ function renderRoute() {
   const route   = getRoute();
   state.route   = route;
   const desktop = isDesktop();
-  const back    = document.getElementById('header-back');
 
   document.body.classList.toggle('desktop-mode', desktop);
-  document.body.classList.toggle('day-detail', route.view === 'day');
-  document.body.classList.toggle('editable-route', route.view === 'day');
 
   if (desktop && !state.overviewPaneRendered) renderOverviewPane();
 
-  if (state.editing && route.view === 'day' && route.id === state.editing.dayId) {
-    back.setAttribute('href', './');
-    back.setAttribute('aria-label', 'Back to overview');
+  if (state.editing) {
     renderDayEdit();
     updateEditTitle();
     return;
   }
 
-  if (route.view === 'overview') {
-    back.setAttribute('href', '../../');
-    back.setAttribute('aria-label', 'All trips');
-    renderOnePager();
-    state.spyDayId = null;
-    if (desktop) onWindowScroll();
+  // Single view: the one-pager, with at most one day unfurled (the URL's ?day=N, else today).
+  renderOnePager();
+  state.spyDayId = null;
+  const todayId = getTodayDayId();
+  if (route.dayId) {
+    expandDay(route.dayId, { scroll: true, instant: true });     // page load / deep link: jump, don't animate
+  } else if (todayId) {
+    expandDay(todayId, { scroll: true, instant: true, updateUrl: false });
   } else {
-    back.setAttribute('href', './');
-    back.setAttribute('aria-label', 'Back to overview');
-    renderDayDetail(route.id);
-    if (desktop) setActiveDayInPane(route.id);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   }
-
-  window.scrollTo({ top: 0, behavior: 'auto' });
-}
-
-function navigateTo(url) {
-  history.pushState({}, '', url);
-  renderRoute();
-}
-
-function onBackClick(e) {
-  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
-  if (state.route && state.route.view === 'day') {
-    e.preventDefault();
-    navigateTo('./');
-  }
+  if (desktop) onWindowScroll();
 }
 
 // ─── REGION COLORS ───────────────────────────────────────────────────────────
@@ -706,22 +651,24 @@ function buildOnePagerHTML() {
       const sub      = day.sublocation && day.sublocation !== title ? day.sublocation : '';
       const sections = day.sections || [];
       return `
-        <a class="op-day ${day.theme}${isToday ? ' today' : ''}${isPast ? ' past' : ''}"
-           id="op-day-${day.id}" data-op-day="${day.id}"
-           href="?day=${day.id}" onclick="onOverviewCardClick(event, ${day.id})"
-           style="${dayStripeStyle(day, i, legs)}">
+        <div class="op-day ${day.theme}${isToday ? ' today' : ''}${isPast ? ' past' : ''}"
+             id="op-day-${day.id}" data-op-day="${day.id}"
+             style="${dayStripeStyle(day, i, legs)}">
           <div class="op-stripe"></div>
           <div class="op-body">
-            <div class="op-head">
-              <span class="op-n">Day ${day.id}</span>
-              <span class="op-date">${esc(formatShortDate(day.date, getDayDate(day, i)))}</span>
-              ${isToday ? '<span class="op-today-pill">Today</span>' : ''}
-            </div>
-            <div class="op-title">${esc(title)}</div>
-            ${sub ? `<div class="op-sub">${esc(sub)}</div>` : ''}
-            <div class="op-agenda" style="--rows:${Math.ceil(sections.length / 2)}">${sections.map(agendaLine).join('')}</div>
+            <a class="op-toggle" href="?day=${day.id}" onclick="onDayToggle(event, ${day.id})" aria-expanded="false">
+              <div class="op-head">
+                <span class="op-n">Day ${day.id}</span>
+                <span class="op-date">${esc(formatShortDate(day.date, getDayDate(day, i)))}</span>
+                ${isToday ? '<span class="op-today-pill">Today</span>' : ''}
+                <span class="op-chev">▼</span>
+              </div>
+              <div class="op-title">${esc(title)}</div>
+              ${sub ? `<div class="op-sub">${esc(sub)}</div>` : ''}
+              <div class="op-agenda" style="--rows:${Math.ceil(sections.length / 2)}">${sections.map(agendaLine).join('')}</div>
+            </a>
           </div>
-        </a>`;
+        </div>`;
     }).join('');
     return head + days;
   }).join('');
@@ -734,24 +681,67 @@ function buildOnePagerHTML() {
 
 function renderOnePager() {
   document.getElementById('main-content').innerHTML = buildOnePagerHTML();
-  const todayId = getTodayDayId();
-  if (todayId) {
-    requestAnimationFrame(() => {
-      const el = document.getElementById('op-day-' + todayId);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    });
+  state.openDayId = null;
+  document.body.classList.remove('has-open-day');
+}
+
+// ─── EXPAND / COLLAPSE A DAY IN PLACE (accordion: one open at a time) ────────
+
+function buildDaySectionsHTML(day) {
+  return `
+    <div class="op-sections">
+      ${day.stay ? `<div class="op-stay">🏨 ${esc(day.stay)}</div>` : ''}
+      ${(day.sections || []).map(s => renderSection(day.id, s).replace('<div class="section"', '<div class="section open"')).join('')}
+      ${day.deepDive ? `
+      <div class="deep-dive-btn-wrap">
+        <button class="deep-dive-btn" onclick="openDeepDive(${day.id})">
+          <span>📖</span><span>${esc(day.deepDive.title)}</span><span class="deep-dive-btn-arrow">→</span>
+        </button>
+      </div>` : ''}
+      <button type="button" class="op-collapse" onclick="collapseDay({ scroll: true })">▲ Collapse Day ${day.id}</button>
+    </div>`;
+}
+
+function expandDay(dayId, opts = {}) {
+  const card = document.getElementById('op-day-' + dayId);
+  const day  = DAYS.find(d => d.id === dayId);
+  if (!card || !day) return;
+  if (state.openDayId && state.openDayId !== dayId) collapseDay({ updateUrl: false });
+  if (!card.classList.contains('open')) {
+    card.classList.add('open');
+    card.querySelector('.op-toggle').setAttribute('aria-expanded', 'true');
+    card.querySelector('.op-body').insertAdjacentHTML('beforeend', buildDaySectionsHTML(day));
   }
+  state.openDayId = dayId;
+  document.body.classList.add('has-open-day');
+  if (opts.updateUrl !== false) history.replaceState({}, '', '?day=' + dayId);
+  if (opts.scroll) requestAnimationFrame(() => card.scrollIntoView({ behavior: opts.instant ? 'auto' : 'smooth', block: 'start' }));
+}
+
+function collapseDay(opts = {}) {
+  const card = state.openDayId ? document.getElementById('op-day-' + state.openDayId) : null;
+  if (card) {
+    card.classList.remove('open');
+    card.querySelector('.op-toggle').setAttribute('aria-expanded', 'false');
+    const secs = card.querySelector('.op-sections');
+    if (secs) secs.remove();
+    if (opts.scroll) requestAnimationFrame(() => card.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+  state.openDayId = null;
+  document.body.classList.remove('has-open-day');
+  if (opts.updateUrl !== false) history.replaceState({}, '', './');
+}
+
+function onDayToggle(e, dayId) {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;   // let the deep link open in a new tab
+  e.preventDefault();
+  if (state.openDayId === dayId) collapseDay();
+  else expandDay(dayId, { scroll: true });
 }
 
 function scrollToLeg(li) {
   const el = document.getElementById('op-leg-' + li);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function onOverviewCardClick(e, dayId) {
-  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
-  e.preventDefault();
-  navigateTo('?day=' + dayId);
 }
 
 // ─── DESKTOP: TABLE-OF-CONTENTS RAIL ─────────────────────────────────────────
@@ -779,19 +769,15 @@ function renderOverviewPane() {
         </a>`;
     }).join('')}`).join('');
   state.overviewPaneRendered = true;
-  const activeId = (state.route && state.route.view === 'day') ? state.route.id : todayId;
+  const activeId = state.openDayId || todayId;
   if (activeId) setActiveDayInPane(activeId);
 }
 
-// On the one-pager the rail scrolls to the day; on a day view it switches days.
+// Rail click: scroll to the day and unfurl it.
 function onTocClick(e, dayId) {
   if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
   e.preventDefault();
-  if (state.route && state.route.view === 'overview') {
-    const el = document.getElementById('op-day-' + dayId);
-    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
-  }
-  navigateTo('?day=' + dayId);
+  expandDay(dayId, { scroll: true });
 }
 
 function setActiveDayInPane(dayId) {
@@ -818,7 +804,7 @@ function onWindowScroll() {
   scrollSpyTicking = true;
   requestAnimationFrame(() => {
     scrollSpyTicking = false;
-    if (!state.route || state.route.view !== 'overview' || !isDesktop()) return;
+    if (state.editing || !isDesktop()) return;
     const cards = document.querySelectorAll('.op-day');
     if (!cards.length) return;
     // Reading line: just under the sticky headers at the top of the page, sliding down to the
@@ -836,48 +822,6 @@ function onWindowScroll() {
     const id = parseInt(current.dataset.opDay, 10);
     if (id !== state.spyDayId) { state.spyDayId = id; setActiveDayInPane(id); }
   });
-}
-
-// ─── DAY DETAIL VIEW ──────────────────────────────────────────────────────────
-
-function renderDayDetail(dayId) {
-  const day = DAYS.find(d => d.id === dayId);
-  if (!day) { history.replaceState({}, '', './'); return renderOnePager(); }
-
-  const idx     = DAYS.findIndex(d => d.id === dayId);
-  const prev    = idx > 0 ? DAYS[idx - 1] : null;
-  const next    = idx < DAYS.length - 1 ? DAYS[idx + 1] : null;
-  const todayId = getTodayDayId();
-  const isToday = dayId === todayId;
-
-  // 1) Render the day card via the existing pipeline (filtered to one day)
-  renderDays(d => d.id === dayId);
-
-  // 2) Auto-expand it
-  const card = document.querySelector(`.day-card[data-day="${dayId}"]`);
-  if (card) card.classList.add('open');
-
-  // 3) Prepend a prev / center / next nav strip
-  const navHtml = `
-    <div class="day-nav">
-      ${prev
-        ? `<a class="day-nav-btn" href="?day=${prev.id}" onclick="onDayNavClick(event, ${prev.id})">← Day ${prev.id}</a>`
-        : `<span class="day-nav-btn disabled">←</span>`}
-      <div class="day-nav-center">
-        ${isToday ? '<span class="day-nav-today-mark"></span><b>Today</b> · ' : ''}<b>Day ${day.id}</b> of ${DAYS.length}
-      </div>
-      ${next
-        ? `<a class="day-nav-btn" href="?day=${next.id}" onclick="onDayNavClick(event, ${next.id})">Day ${next.id} →</a>`
-        : `<span class="day-nav-btn disabled">→</span>`}
-    </div>
-  `;
-  document.getElementById('main-content').insertAdjacentHTML('afterbegin', navHtml);
-}
-
-function onDayNavClick(e, dayId) {
-  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
-  e.preventDefault();
-  navigateTo('?day=' + dayId);
 }
 
 // Pull a short title from a section's content text — first phrase before — or .
@@ -1333,7 +1277,7 @@ function showToast(msg, kind) {
 // ─── EDIT MODE: WIRE UP ──────────────────────────────────────────────────────
 function bindEditButtons() {
   document.getElementById('edit-btn').addEventListener('click', function () {
-    if (state.route && state.route.view === 'day') enterEditMode(state.route.id);
+    if (state.openDayId) enterEditMode(state.openDayId);
   });
   document.getElementById('edit-cancel-btn').addEventListener('click', function () {
     if (state.saving) return;

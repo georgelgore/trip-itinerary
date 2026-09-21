@@ -30,7 +30,7 @@ in each trip's `<style>` block.
 
 ## Edit mode (in-app trip editing)
 
-Every trip page has an inline edit mode: tap the ✏️ button in the header while viewing a single day (`?day=N`) and the day's content becomes editable. Hitting **Done** saves the edits.
+Every trip page has an inline edit mode: tap the ✏️ button in the header while a day is unfurled on the one-pager (`?day=N`) and that day's content becomes editable. Hitting **Done** saves the edits.
 
 ### How edits are persisted
 
@@ -129,16 +129,18 @@ const TRIP_META = {
 };
 ```
 
-## Overview / Day detail behaviour
+## One-pager behaviour
 
-The trip page has two views, switched by URL:
+The trip page is a single view — the one-pager — with at most one day unfurled (accordion):
 
-| URL                     | View          |
-|-------------------------|---------------|
-| `/trips/<id>/`          | Overview — the one-pager: legs strip + every day's agenda, grouped by stay |
-| `/trips/<id>/?day=N`    | Day detail — that one day expanded, with prev / next nav |
+| URL                     | State          |
+|-------------------------|----------------|
+| `/trips/<id>/`          | One-pager: legs strip + every day's agenda, grouped by stay. Today auto-unfurls mid-trip. |
+| `/trips/<id>/?day=N`    | Same page, with day N unfurled in place (full sections, notes, deep-dive button) and scrolled into view |
 
-Navigation is `history.pushState`-based (no page reloads). Browser back works naturally.
+Tapping a day toggles it; opening another collapses the previous one. The URL tracks the open day via
+`history.replaceState` (unfurling is UI state, not navigation — browser back leaves the trip page).
+`?day=N` links are still deep-linkable and are what search results and the share button produce.
 A share button (`↗`) in the header copies the current URL to clipboard (or opens the native share
 sheet on mobile via `navigator.share`).
 
@@ -162,14 +164,14 @@ Everything on the overview is derived from `DAYS` — there is no separate overv
 - **Transition days** — when the stay changes (or `location` contains `→`), the day's stripe is a
   vertical gradient from the departing region colour to the arriving one.
 - **Desktop** (≥1024px) — a 240px TOC rail on the left (legs → days) with scroll-spy while reading the
-  one-pager; clicking a rail entry scrolls to that day on the overview, or switches days in day detail.
-  Clicking a day card opens day detail in the main pane. `@media print` renders the one-pager alone.
+  one-pager; clicking a rail entry scrolls to that day and unfurls it. `@media print` renders the
+  one-pager alone.
 
 ### Today highlight
 
 The day matching today's date (via `dateISO` > parsed `date` > `startDate + idx`) gets a colored
-ring + "TODAY" pill in the overview, and scrolls into view on load. In day detail, the prev/next
-nav strip shows a red dot + "Today" label when the current day is today. Past days are dimmed.
+ring + "TODAY" pill, is unfurled and scrolled into view on load (unless the URL names another day).
+Past days are dimmed.
 
 ## DAYS schema
 
