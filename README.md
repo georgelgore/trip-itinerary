@@ -17,7 +17,7 @@ Copy `_template/` into `trips/destination-year/`, fill in the data, then add a c
 ## Features
 
 - **Two-level trip view**
-  - **Overview** — condensed day cards at a glance (route, hotels, flights, hikes, deep dives auto-detected as chips)
+  - **Overview** — a one-pager: legs strip (stays, nights, flights) + every day's agenda grouped by stay, with a TOC rail on desktop
   - **Day detail** — full schedule for one day with prev/next nav, behind `?day=N`
   - **"Today" highlight** — colored ring + auto-scroll when viewing the trip mid-flight
 - Mobile-first PWA — installs to home screen per trip

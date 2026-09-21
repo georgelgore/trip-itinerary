@@ -29,6 +29,7 @@ function init() {
   document.getElementById('deep-dive-close-btn').addEventListener('click', closeDeepDive);
   document.getElementById('header-back').addEventListener('click', onBackClick);
   window.addEventListener('popstate', renderRoute);
+  window.addEventListener('scroll', onWindowScroll, { passive: true });
   window.addEventListener('online',  updateOnlineBadge);
   window.addEventListener('offline', updateOnlineBadge);
   updateOnlineBadge();
@@ -124,7 +125,6 @@ function setupSearch() {
   const results   = document.getElementById('search-results');
   const history   = document.getElementById('search-history');
   const main      = document.getElementById('main-content');
-  const legend    = document.getElementById('legend');
 
   toggleBtn.addEventListener('click', () => {
     state.searchOpen = !state.searchOpen;
@@ -147,11 +147,9 @@ function setupSearch() {
       renderSearchResults(res, q);
       results.classList.remove('hidden');
       main.classList.add('hidden');
-      legend.classList.add('hidden');
     } else if (q.length === 0) {
       results.classList.add('hidden');
       main.classList.remove('hidden');
-      if (state.route && state.route.view === 'overview') legend.classList.remove('hidden');
       showHistory();
     }
   });
@@ -168,9 +166,6 @@ function closeSearch() {
   document.getElementById('search-history').classList.add('hidden');
   document.getElementById('search-results').classList.add('hidden');
   document.getElementById('main-content').classList.remove('hidden');
-  if (state.route && state.route.view === 'overview') {
-    document.getElementById('legend').classList.remove('hidden');
-  }
   document.getElementById('search-input').value = '';
 }
 
@@ -514,7 +509,6 @@ function renderRoute() {
   const route   = getRoute();
   state.route   = route;
   const desktop = isDesktop();
-  const legend  = document.getElementById('legend');
   const back    = document.getElementById('header-back');
 
   document.body.classList.toggle('desktop-mode', desktop);
@@ -524,7 +518,6 @@ function renderRoute() {
   if (desktop && !state.overviewPaneRendered) renderOverviewPane();
 
   if (state.editing && route.view === 'day' && route.id === state.editing.dayId) {
-    legend.classList.add('hidden');
     back.setAttribute('href', './');
     back.setAttribute('aria-label', 'Back to overview');
     renderDayEdit();
@@ -533,18 +526,14 @@ function renderRoute() {
   }
 
   if (route.view === 'overview') {
-    legend.classList.toggle('hidden', desktop);
     back.setAttribute('href', '../../');
     back.setAttribute('aria-label', 'All trips');
-    if (desktop) {
-      renderDesktopEmpty();
-    } else {
-      renderOverview();
-    }
+    renderOnePager();
+    state.spyDayId = null;
+    if (desktop) onWindowScroll();
   } else {
-    legend.classList.add('hidden');
-    back.setAttribute('href', desktop ? '../../' : './');
-    back.setAttribute('aria-label', desktop ? 'All trips' : 'Back to overview');
+    back.setAttribute('href', './');
+    back.setAttribute('aria-label', 'Back to overview');
     renderDayDetail(route.id);
     if (desktop) setActiveDayInPane(route.id);
   }
@@ -565,84 +554,198 @@ function onBackClick(e) {
   }
 }
 
-// ─── OVERVIEW VIEW ────────────────────────────────────────────────────────────
+// ─── REGION COLORS ───────────────────────────────────────────────────────────
+// Each trip's index.html defines `.<theme> { --region-color: #xxx; }`. Resolve it
+// once per theme so JS can build two-colour gradients for transition days.
 
-function buildOverviewListHTML() {
-  const todayId  = getTodayDayId();
-  const todayIdx = todayId ? DAYS.findIndex(d => d.id === todayId) : -1;
-  return DAYS.map((day, i) => {
-    const prev      = i > 0 ? DAYS[i - 1] : null;
-    const chips     = detectChips(day, prev);
-    const isToday   = day.id === todayId;
-    const isPast    = todayIdx >= 0 && i < todayIdx;
-    const isoDate   = getDayDate(day, i);
-    const shortDate = formatShortDate(day.date, isoDate);
-    return `
-      <a class="ov-card ${day.theme}${isToday ? ' today' : ''}${isPast ? ' past' : ''}"
-         data-ov-day="${day.id}"
-         href="?day=${day.id}"
-         onclick="onOverviewCardClick(event, ${day.id})">
-        <div class="ov-accent"></div>
-        <div class="ov-head">
-          <div class="ov-day">Day ${day.id}${isToday ? '<span class="ov-today-pill">Today</span>' : ''}</div>
-          <div class="ov-date">${esc(shortDate)}</div>
-        </div>
-        <div class="ov-loc">${esc(day.location)}</div>
-        ${day.sublocation ? `<div class="ov-sub">${esc(day.sublocation)}</div>` : ''}
-        ${chips.length ? `<div class="ov-chips">${chips.map(c =>
-          `<span class="ov-chip"><span class="ov-chip-i">${c.icon}</span><span class="ov-chip-t">${esc(c.text)}</span></span>`
-        ).join('')}</div>` : ''}
-      </a>
-    `;
-  }).join('');
+const themeColorCache = {};
+function themeColor(theme) {
+  if (!theme) return '#888';
+  if (themeColorCache[theme]) return themeColorCache[theme];
+  const probe = document.createElement('div');
+  probe.className = theme;
+  probe.style.display = 'none';
+  document.body.appendChild(probe);
+  const c = getComputedStyle(probe).getPropertyValue('--region-color').trim() || '#888';
+  probe.remove();
+  themeColorCache[theme] = c;
+  return c;
 }
 
-function renderOverview() {
-  const todayId = getTodayDayId();
-  document.getElementById('main-content').innerHTML =
-    `<div class="overview-list">${buildOverviewListHTML()}</div>`;
+// ─── TRIP STRUCTURE (legs, day titles, agenda lines) ─────────────────────────
 
+const TOD_LABELS = /^(early\s*morning|morning|late\s*morning|midday|noon|afternoon|late\s*afternoon|evening|late\s*evening|night|late\s*night|breakfast|brunch|coffee|lunch|late\s*lunch|dinner|drinks|free|rest)$/i;
+// Label suffixes too generic to stand alone ("Evening — Food") — try the content for a venue instead.
+const GENERIC_TITLES = /^(food|drinks|dinner|lunch|breakfast|brunch|tea|coffee|tbd)$/i;
+// "Dinner at Sinsajeon, an easy walk…" → "Sinsajeon"
+const VENUE_AT = /\b(?:[Dd]inner|[Ll]unch|[Bb]reakfast|[Bb]runch|[Tt]ea|[Cc]offee|[Dd]rinks|[Aa] drink)\s+(?:at|from)\s+([A-Z][^,.;:—\n]{2,40}?)(?=\s*[,.;:—\n(]|$)/;
+
+function stayKey(day)     { return (day.stay || '').split('·')[0].split(',')[0].trim(); }
+function labelLeft(s)     { return (s.label || '').replace(/\s*[—–]\s*.*$/, '').trim(); }
+function labelRight(s)    { const i = (s.label || '').search(/[—–]/); return i >= 0 ? (s.label || '').slice(i + 1).trim() : ''; }
+function arrivalPlace(loc){ return (loc || '').split('→').pop().split('·')[0].split(',')[0].trim(); }
+function isTBD(text)      { return /^tbd\b/i.test((text || '').trim()); }
+
+// Day headline: "Sunday, October 18 — Arrival" → "Arrival"; otherwise the location.
+function dayTitle(day) {
+  const m = (day.date || '').match(/[—–]\s*(.+)$/);
+  return m ? m[1].trim() : (day.location || `Day ${day.id}`);
+}
+
+// Group consecutive days that share a stay into legs (Seoul 3n → Jeju 4n → Seoul 6n).
+function buildLegs() {
+  const legs = [];
+  DAYS.forEach((day, i) => {
+    const key  = stayKey(day);
+    const last = legs[legs.length - 1];
+    if (last && last.key === key) last.idxs.push(i);
+    else legs.push({ key, idxs: [i] });
+  });
+  legs.forEach((leg, li) => {
+    const days   = leg.idxs.map(i => DAYS[i]);
+    const counts = {};
+    days.forEach(d => { counts[d.theme] = (counts[d.theme] || 0) + 1; });
+    leg.theme  = days.map(d => d.theme).sort((a, b) => counts[b] - counts[a])[0];
+    leg.city   = arrivalPlace(days[0].location) || leg.key;
+    leg.nights = leg.idxs.length - (li === legs.length - 1 ? 1 : 0);   // last leg ends with a departure day
+    leg.from   = getDayDate(days[0], leg.idxs[0]);
+    leg.to     = getDayDate(days[days.length - 1], leg.idxs[leg.idxs.length - 1]);
+    leg.byAir  = (days[0].sections || []).some(s => s.icon === '✈️');
+  });
+  return legs;
+}
+
+// Transition days (stay changes, or location contains →) get a two-colour stripe: departing → arriving.
+function dayStripeStyle(day, i, legs) {
+  const prev        = i > 0 ? DAYS[i - 1] : null;
+  const leg         = legs.find(l => l.idxs.includes(i));
+  const stayChanged = !!prev && stayKey(prev) !== stayKey(day);
+  const hasArrow    = (day.location || '').includes('→');
+  if (!stayChanged && !hasArrow) return '';
+  let from, to;
+  if (stayChanged) {
+    to   = themeColor(leg.theme);
+    from = day.theme !== leg.theme ? themeColor(day.theme) : themeColor(prev.theme);
+  } else {
+    // Same stay but travelling (e.g. final-day drive to the airport): fade toward the destination leg, else neutral.
+    from = themeColor(day.theme);
+    const dest   = arrivalPlace(day.location).toLowerCase();
+    const target = legs.find(l => l.city.toLowerCase() === dest);
+    to = target ? themeColor(target.theme) : '#9a9a9a';
+  }
+  return from === to ? '' : `--region-color:${from};--region-color-to:${to}`;
+}
+
+// One agenda line per section: icon + short title. Prefers the label suffix ("Lunch — Tosokchon"),
+// then a venue pulled from the content for generic labels ("Evening — Food" / "Morning").
+function agendaLine(s) {
+  const left  = labelLeft(s);
+  const right = labelRight(s);
+  const tod   = TOD_LABELS.test(left) ? left : '';
+  const tbd   = isTBD(right) || (!right && isTBD(s.content)) || (GENERIC_TITLES.test(right) && isTBD(s.content));
+  let text, showTod = tod;
+  if (tbd) {
+    text = `${tod || left} — TBD`;
+    showTod = '';
+  } else if (right && /^check[- ]?(in|out)\b/i.test(left)) {
+    text = `${left} — ${right}`;           // "Check-Out — Park MGM" keeps its meaning without the time column
+  } else if (right && !GENERIC_TITLES.test(right)) {
+    text = right;
+  } else if (!right && !tod) {
+    text = left;
+  } else {
+    const venue = ((s.content || '').match(VENUE_AT) || [])[1];
+    const fromContent = venue ? venue.trim() : extractContentTitle(s.content);
+    text = (fromContent && fromContent.length <= 44) ? fromContent : (right || left);
+  }
+  const partial = !tbd && isTBD(s.content);   // titled section whose plan is still a placeholder
+  const note = (s.notes || []).find(n => n.type === 'warning' || n.type === 'reservation');
+  return `<div class="op-line${s.icon === '✈️' ? ' flight' : ''}${tbd || partial ? ' tbd' : ''}">`
+    + `<span class="op-line-i">${s.icon || '·'}</span>`
+    + (showTod ? `<span class="op-tod">${esc(showTod)}</span>` : '')
+    + `<span class="op-line-t">${esc(text)}</span>`
+    + (note ? `<span class="op-badge ${note.type}" title="${esc(note.text || '')}">${note.type === 'reservation' ? '📋' : '⚠'}</span>` : '')
+    + `</div>`;
+}
+
+function formatMonthDay(d) {
+  if (!d) return '';
+  return `${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]} ${d.getDate()}`;
+}
+
+// ─── OVERVIEW VIEW (one-pager) ────────────────────────────────────────────────
+
+function buildOnePagerHTML() {
+  const legs     = buildLegs();
+  const todayId  = getTodayDayId();
+  const todayIdx = todayId ? DAYS.findIndex(d => d.id === todayId) : -1;
+  const flights  = DAYS.reduce((n, d) => n + (d.sections || []).filter(s => s.icon === '✈️').length, 0);
+
+  const legsHtml = legs.map((leg, li) => `
+    ${li ? `<div class="leg-gap">${leg.byAir ? '✈️' : '→'}</div>` : ''}
+    <button type="button" class="leg" style="--region-color:${themeColor(leg.theme)};--n:${Math.max(leg.nights, 1)}" onclick="scrollToLeg(${li})">
+      <div class="leg-city">${esc(leg.city)}</div>
+      <div class="leg-meta">${esc(formatMonthDay(leg.from))}–${esc(formatMonthDay(leg.to))} · ${leg.nights} night${leg.nights === 1 ? '' : 's'}</div>
+      <div class="leg-hotel">${esc(leg.key)}</div>
+    </button>`).join('');
+
+  const summary = `${DAYS.length} days · ${legs.length} stay${legs.length === 1 ? '' : 's'}${flights ? ` · ${flights} flight${flights === 1 ? '' : 's'}` : ''}`;
+
+  const body = legs.map((leg, li) => {
+    const head = `
+      <div class="op-leg-head" id="op-leg-${li}" style="--region-color:${themeColor(leg.theme)}">
+        <span class="op-leg-dot"></span>
+        <span class="op-leg-city">${esc(leg.city)}</span>
+        <span class="op-leg-meta">🏨 ${esc(leg.key)} · ${esc(formatMonthDay(leg.from))}–${esc(formatMonthDay(leg.to))}</span>
+      </div>`;
+    const days = leg.idxs.map(i => {
+      const day      = DAYS[i];
+      const isToday  = day.id === todayId;
+      const isPast   = todayIdx >= 0 && i < todayIdx;
+      const title    = dayTitle(day);
+      const sub      = day.sublocation && day.sublocation !== title ? day.sublocation : '';
+      const sections = day.sections || [];
+      return `
+        <a class="op-day ${day.theme}${isToday ? ' today' : ''}${isPast ? ' past' : ''}"
+           id="op-day-${day.id}" data-op-day="${day.id}"
+           href="?day=${day.id}" onclick="onOverviewCardClick(event, ${day.id})"
+           style="${dayStripeStyle(day, i, legs)}">
+          <div class="op-stripe"></div>
+          <div class="op-body">
+            <div class="op-head">
+              <span class="op-n">Day ${day.id}</span>
+              <span class="op-date">${esc(formatShortDate(day.date, getDayDate(day, i)))}</span>
+              ${isToday ? '<span class="op-today-pill">Today</span>' : ''}
+            </div>
+            <div class="op-title">${esc(title)}</div>
+            ${sub ? `<div class="op-sub">${esc(sub)}</div>` : ''}
+            <div class="op-agenda" style="--rows:${Math.ceil(sections.length / 2)}">${sections.map(agendaLine).join('')}</div>
+          </div>
+        </a>`;
+    }).join('');
+    return head + days;
+  }).join('');
+
+  return `
+    <div class="legs">${legsHtml}</div>
+    <div class="legs-summary">${esc(summary)}</div>
+    <div class="one-pager">${body}</div>`;
+}
+
+function renderOnePager() {
+  document.getElementById('main-content').innerHTML = buildOnePagerHTML();
+  const todayId = getTodayDayId();
   if (todayId) {
     requestAnimationFrame(() => {
-      const el = document.querySelector(`[data-ov-day="${todayId}"]`);
+      const el = document.getElementById('op-day-' + todayId);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   }
 }
 
-function renderOverviewPane() {
-  const pane = document.getElementById('overview-pane');
-  if (!pane) return;
-  pane.innerHTML = `<div class="overview-list">${buildOverviewListHTML()}</div>`;
-  state.overviewPaneRendered = true;
-  const activeId = (state.route && state.route.view === 'day') ? state.route.id : getTodayDayId();
-  if (activeId) {
-    requestAnimationFrame(() => {
-      const el = pane.querySelector(`[data-ov-day="${activeId}"]`);
-      if (el) {
-        const top = el.offsetTop - pane.clientHeight / 2 + el.clientHeight / 2;
-        pane.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
-      }
-    });
-  }
-}
-
-function setActiveDayInPane(dayId) {
-  const pane = document.getElementById('overview-pane');
-  if (!pane) return;
-  pane.querySelectorAll('.ov-card').forEach(card => {
-    card.classList.toggle('is-active', parseInt(card.dataset.ovDay, 10) === dayId);
-  });
-}
-
-function renderDesktopEmpty() {
-  document.getElementById('main-content').innerHTML = `
-    <div class="desktop-empty">
-      <div class="desktop-empty-emoji">🗓️</div>
-      <div class="desktop-empty-title">Pick a day</div>
-      <div class="desktop-empty-text">Tap any day on the left to see its full itinerary here.</div>
-    </div>
-  `;
+function scrollToLeg(li) {
+  const el = document.getElementById('op-leg-' + li);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function onOverviewCardClick(e, dayId) {
@@ -651,11 +754,89 @@ function onOverviewCardClick(e, dayId) {
   navigateTo('?day=' + dayId);
 }
 
+// ─── DESKTOP: TABLE-OF-CONTENTS RAIL ─────────────────────────────────────────
+
+function renderOverviewPane() {
+  const pane = document.getElementById('overview-pane');
+  if (!pane) return;
+  const legs     = buildLegs();
+  const todayId  = getTodayDayId();
+  const todayIdx = todayId ? DAYS.findIndex(d => d.id === todayId) : -1;
+  pane.innerHTML = legs.map(leg => `
+    <div class="toc-leg" style="--region-color:${themeColor(leg.theme)}">${esc(leg.city)} · ${leg.nights}n</div>
+    ${leg.idxs.map(i => {
+      const day = DAYS[i];
+      const isToday = day.id === todayId;
+      const isPast  = todayIdx >= 0 && i < todayIdx;
+      return `
+        <a class="toc-day ${day.theme}${isToday ? ' today' : ''}${isPast ? ' past' : ''}"
+           data-ov-day="${day.id}" href="?day=${day.id}"
+           onclick="onTocClick(event, ${day.id})"
+           style="${dayStripeStyle(day, i, legs)}">
+          <span class="toc-n">Day ${day.id}</span>
+          <span class="toc-date">${esc(formatShortDate(day.date, getDayDate(day, i)))}</span>
+          <span class="toc-title">${esc(dayTitle(day))}</span>
+        </a>`;
+    }).join('')}`).join('');
+  state.overviewPaneRendered = true;
+  const activeId = (state.route && state.route.view === 'day') ? state.route.id : todayId;
+  if (activeId) setActiveDayInPane(activeId);
+}
+
+// On the one-pager the rail scrolls to the day; on a day view it switches days.
+function onTocClick(e, dayId) {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+  e.preventDefault();
+  if (state.route && state.route.view === 'overview') {
+    const el = document.getElementById('op-day-' + dayId);
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+  }
+  navigateTo('?day=' + dayId);
+}
+
+function setActiveDayInPane(dayId) {
+  const pane = document.getElementById('overview-pane');
+  if (!pane) return;
+  let active = null;
+  pane.querySelectorAll('.toc-day').forEach(row => {
+    const on = parseInt(row.dataset.ovDay, 10) === dayId;
+    row.classList.toggle('is-active', on);
+    if (on) active = row;
+  });
+  if (active) {
+    const top = active.offsetTop, bottom = top + active.offsetHeight;
+    if (top < pane.scrollTop || bottom > pane.scrollTop + pane.clientHeight) {
+      pane.scrollTo({ top: Math.max(0, top - pane.clientHeight / 2 + active.offsetHeight / 2), behavior: 'smooth' });
+    }
+  }
+}
+
+// Scroll-spy: while reading the one-pager on desktop, highlight the day nearest the top.
+let scrollSpyTicking = false;
+function onWindowScroll() {
+  if (scrollSpyTicking) return;
+  scrollSpyTicking = true;
+  requestAnimationFrame(() => {
+    scrollSpyTicking = false;
+    if (!state.route || state.route.view !== 'overview' || !isDesktop()) return;
+    const cards = document.querySelectorAll('.op-day');
+    if (!cards.length) return;
+    const threshold = 56 + 48 + 24;   // header + sticky leg head + slack
+    let current = cards[0];
+    for (const c of cards) {
+      if (c.getBoundingClientRect().top <= threshold) current = c;
+      else break;
+    }
+    const id = parseInt(current.dataset.opDay, 10);
+    if (id !== state.spyDayId) { state.spyDayId = id; setActiveDayInPane(id); }
+  });
+}
+
 // ─── DAY DETAIL VIEW ──────────────────────────────────────────────────────────
 
 function renderDayDetail(dayId) {
   const day = DAYS.find(d => d.id === dayId);
-  if (!day) { history.replaceState({}, '', './'); return renderOverview(); }
+  if (!day) { history.replaceState({}, '', './'); return renderOnePager(); }
 
   const idx     = DAYS.findIndex(d => d.id === dayId);
   const prev    = idx > 0 ? DAYS[idx - 1] : null;
@@ -691,120 +872,6 @@ function onDayNavClick(e, dayId) {
   if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
   e.preventDefault();
   navigateTo('?day=' + dayId);
-}
-
-// ─── CHIPS (auto-detect highlights for overview cards) ───────────────────────
-
-const TOD_LABELS = /^(morning|afternoon|evening|night|late\s*night|lunch|late\s*lunch|dinner|breakfast|brunch|free|rest)$/i;
-
-function detectChips(day, prevDay) {
-  const chips = [];
-  const seen = new Set();
-  const push = (icon, text) => {
-    if (!text || chips.length >= 4) return;
-    const key = text.toLowerCase().trim();
-    if (seen.has(key)) return;
-    seen.add(key);
-    chips.push({ icon: icon || '•', text });
-  };
-  const truncate = (s, n) => s.length > n ? s.slice(0, n - 1) + '…' : s;
-  const labelLeft = (s) => (s.label || '').replace(/[—–-].*$/, '').trim();
-  const labelRight = (s) => {
-    const i = (s.label || '').search(/[—–]/);
-    return i >= 0 ? (s.label || '').slice(i + 1).trim() : '';
-  };
-
-  // 0) Explicit override on the day (future trips can set this)
-  if (Array.isArray(day.highlights) && day.highlights.length) {
-    day.highlights.forEach(h => {
-      if (typeof h === 'string') {
-        const m = h.match(/^(\S+)\s+(.+)$/);
-        if (m && /\p{Extended_Pictographic}/u.test(m[1])) push(m[1], m[2]);
-        else push('•', h);
-      } else if (h) {
-        push(h.icon || '•', h.text);
-      }
-    });
-    return chips;
-  }
-
-  const sections = day.sections || [];
-
-  // 1) Flight
-  const flight = sections.find(s => s.icon === '✈️');
-  if (flight) {
-    const codes = (flight.content || '').match(/\b([A-Z]{3})\s*[→\-➔>]+\s*([A-Z]{3})\b/);
-    push('✈️', codes ? `${codes[1]} → ${codes[2]}` : (labelRight(flight) || labelLeft(flight) || 'Flight'));
-  }
-
-  // 2) Drive — label "Drive*" OR location includes "→"
-  // (A bare 🚗 icon on an evening section is usually return-transit, not a drive day — don't trigger on icon alone.)
-  const driveSec = sections.find(s => /^drive\b/i.test(labelLeft(s)));
-  const locationHasArrow = !!(day.location && day.location.includes('→'));
-  const isDriveDay = !!driveSec || locationHasArrow;
-  if (isDriveDay) {
-    // Look in the drive section + ALL sections' content + ALL notes for a duration.
-    const noteText = sections.flatMap(s => (s.notes || []).map(n => n.text || '')).join(' ');
-    const src = (driveSec && driveSec.content)
-      || (sections.map(s => s.content || '').join(' ') + ' ' + noteText)
-      + ' ' + noteText;
-    // Match e.g. "4h", "4 hr", "4–5 hrs", "3.5–4 hrs". Guard against ".5" being matched as just "5".
-    const dur = src.match(/(?:^|[^\d.])(\d+(?:\.\d+)?(?:\s*[-–]\s*\d+(?:\.\d+)?)?)\s*(?:h|hr|hrs|hour|hours)\b/i);
-    let text;
-    if (day.location && day.location.includes('→')) {
-      const dest = day.location.split('→').pop().trim().split(',')[0];
-      text = dur ? `${dest} · ${dur[1].replace(/\s+/g,'')}h` : dest;
-    } else {
-      text = dur ? `Drive ${dur[1].replace(/\s+/g,'')}h` : 'Driving day';
-    }
-    push('🚗', truncate(text, 26));
-  }
-
-  // 3) New hotel (only if stay changed from prev day)
-  if (day.stay && (!prevDay || day.stay !== prevDay.stay)) {
-    const hotel = day.stay.split('·')[0].split(',')[0].trim();
-    push('🏨', truncate(hotel, 24));
-  }
-
-  // 4) Hike (any of the hike/peak icons)
-  const HIKE = ['🥾','🏔️','⛰️','🌄'];
-  const hikeSec = sections.find(s => HIKE.includes(s.icon));
-  if (hikeSec) {
-    const right = labelRight(hikeSec);
-    const left = labelLeft(hikeSec);
-    const fallback = TOD_LABELS.test(left) ? extractContentTitle(hikeSec.content) : '';
-    push(hikeSec.icon, truncate(right || fallback || left, 24));
-  }
-
-  // 5) Deep dive
-  if (day.deepDive) {
-    const t = (day.deepDive.title || '').replace(/\b(Guide|Deep Dive)\b/gi, '').trim() || 'Deep Dive';
-    push('📖', truncate(t, 24));
-  }
-
-  // 6) Any other distinctive sections (skip generic time-of-day labels & already-claimed icons)
-  const claimed = new Set(chips.map(c => c.icon));
-  // Icons that are interesting enough to surface even with a generic label.
-  // Excludes pure "time of day / atmosphere" icons (☕ 🌙 ☀️ 🌅).
-  const GENERIC_AMBIENT = new Set(['☕','🌙','☀️','🌅','🌃','🍞','🌿','🎒']);
-  for (const s of sections) {
-    if (chips.length >= 4) break;
-    if (claimed.has(s.icon)) continue;
-    if (['✈️','🚗','🏨'].includes(s.icon)) continue;
-    const left = labelLeft(s);
-    const right = labelRight(s);
-    let text;
-    if (right) {
-      text = right;          // "Dinner — Bavette's Steakhouse" → "Bavette's…"
-    } else if (!TOD_LABELS.test(left)) {
-      text = left;           // "Welcome Party" / "The Wedding"
-    } else if (s.icon && !GENERIC_AMBIENT.has(s.icon)) {
-      text = extractContentTitle(s.content);  // distinctive icon + generic label → derive from content
-    }
-    if (text) push(s.icon || '•', truncate(text, 22));
-  }
-
-  return chips;
 }
 
 // Pull a short title from a section's content text — first phrase before — or .
@@ -920,6 +987,7 @@ function enterEditMode(dayId) {
 function exitEditMode() {
   state.editing = null;
   document.body.classList.remove('editing');
+  state.overviewPaneRendered = false;
   renderRoute();
 }
 
@@ -1285,6 +1353,7 @@ async function fetchRemoteEdits() {
     if (cached === incoming) return; // No change
     DAYS = data.days;
     try { localStorage.setItem(EDIT_CFG.storageKey, incoming); } catch (e) {}
+    state.overviewPaneRendered = false;
     if (!state.editing && state.route) renderRoute();
   } catch (e) { /* offline, swallow */ }
 }

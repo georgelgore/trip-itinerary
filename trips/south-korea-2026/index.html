@@ -17,8 +17,8 @@
     .seoul .day-header { background: #003478; }
     .jeju  .day-header { background: #C60C30; }
 
-    .ov-card.seoul { --ov-accent-color: #003478; }
-    .ov-card.jeju  { --ov-accent-color: #C60C30; }
+    .seoul { --region-color: #003478; }
+    .jeju  { --region-color: #C60C30; }
 
     .editing-card.seoul .edit-day-header { background: #003478; }
     .editing-card.jeju  .edit-day-header { background: #C60C30; }
@@ -77,12 +77,6 @@
 
 <!-- ── SEARCH RESULTS ── -->
 <div id="search-results" class="hidden"></div>
-
-<!-- ── LEGEND ── -->
-<div class="legend" id="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:#003478"></div> Seoul</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#C60C30"></div> Jeju</div>
-</div>
 
 <!-- ── MAIN (desktop: 2-pane wrapper) ── -->
 <div id="app-body">

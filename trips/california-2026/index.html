@@ -19,10 +19,10 @@
     .marin      .day-header { background: #2a8080; }
     .healdsburg .day-header { background: #7c5339; }
 
-    .ov-card.sf         { --ov-accent-color: #1a6bac; }
-    .ov-card.yosemite   { --ov-accent-color: #4a7c59; }
-    .ov-card.marin      { --ov-accent-color: #2a8080; }
-    .ov-card.healdsburg { --ov-accent-color: #7c5339; }
+    .sf         { --region-color: #1a6bac; }
+    .yosemite   { --region-color: #4a7c59; }
+    .marin      { --region-color: #2a8080; }
+    .healdsburg { --region-color: #7c5339; }
 
     .editing-card.sf         .edit-day-header { background: #1a6bac; }
     .editing-card.yosemite   .edit-day-header { background: #4a7c59; }
@@ -83,14 +83,6 @@
 
 <!-- ── SEARCH RESULTS ── -->
 <div id="search-results" class="hidden"></div>
-
-<!-- ── LEGEND ── -->
-<div class="legend" id="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:#1a6bac"></div> San Francisco</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#4a7c59"></div> Yosemite</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#2a8080"></div> Mill Valley</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#7c5339"></div> Healdsburg</div>
-</div>
 
 <!-- ── MAIN (desktop: 2-pane wrapper) ── -->
 <div id="app-body">

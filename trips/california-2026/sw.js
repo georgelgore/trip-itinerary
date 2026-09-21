@@ -1,5 +1,5 @@
 // Bump the version suffix any time you change content that users with the PWA installed should re-fetch.
-const CACHE = 'california-2026-v5';
+const CACHE = 'california-2026-v6';
 const PRECACHE = [
   './', './index.html', './data.js', './manifest.json', './sw.js', './icon-192.svg',
   '../../shared/app.css', '../../shared/app.js',
@@ -21,7 +21,7 @@ self.addEventListener('activate', e => {
 });
 
 // ── Fetch strategy ─────────────────────────────────────────────────────────
-//   HTML pages    → network-first  (content updates without a cache bump)
+//   HTML, JS, CSS  → network-first  (content + code updates without a cache bump)
 //   everything else → cache-first  (icons, manifest, sw.js — rarely change)
 //   Both fall back to cache if the network is unreachable.
 //
@@ -34,13 +34,15 @@ self.addEventListener('fetch', e => {
   // Only handle same-origin requests; let cross-origin pass through.
   if (url.origin !== location.origin) return;
 
-  const isHTML =
+  const isFresh =
     req.mode === 'navigate' ||
     req.destination === 'document' ||
     url.pathname.endsWith('/') ||
-    url.pathname.endsWith('.html');
+    url.pathname.endsWith('.html') ||
+    url.pathname.endsWith('.js') ||
+    url.pathname.endsWith('.css');
 
-  if (isHTML) {
+  if (isFresh) {
     e.respondWith(networkFirst(req));
   } else {
     e.respondWith(cacheFirst(req));

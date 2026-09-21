@@ -86,8 +86,7 @@ To update edit-mode behavior for all trips at once, edit `shared/app.css` or `sh
 4. In `trips/destination-year/index.html`:
    - Replace `TRIP_NAME YYYY` in `<title>` and the header `app-title`
    - Replace `DATES · TRAVELERS` in `app-dates`
-   - Replace the commented-out region CSS rules in `<style>` with actual rules for your trip's regions (`.region1 .day-header`, `.ov-card.region1`, `.editing-card.region1 .edit-day-header`)
-   - Update the legend block with your actual regions + colors
+   - Replace the commented-out region CSS rules in `<style>` with actual rules for your trip's regions (`.region1 .day-header`, `.region1 { --region-color }`, `.editing-card.region1 .edit-day-header`)
    - Update the `sheet-tabs` HTML block to match the QUICK_REF keys you've chosen in `data.js`
 5. In `trips/destination-year/data.js`:
    - Fill in `TRIP_META` (name, shortName, dates, travelers, startDate)
@@ -136,20 +135,35 @@ The trip page has two views, switched by URL:
 
 | URL                     | View          |
 |-------------------------|---------------|
-| `/trips/<id>/`          | Overview — condensed day cards (Variant D: accent stripe + chips) |
+| `/trips/<id>/`          | Overview — the one-pager: legs strip + every day's agenda, grouped by stay |
 | `/trips/<id>/?day=N`    | Day detail — that one day expanded, with prev / next nav |
 
 Navigation is `history.pushState`-based (no page reloads). Browser back works naturally.
 A share button (`↗`) in the header copies the current URL to clipboard (or opens the native share
 sheet on mobile via `navigator.share`).
 
-### Overview chip auto-detection
+### One-pager overview
 
-Chips are derived from existing `DAYS` data. Order: flight → drive → new hotel → hike → deep dive →
-distinctive sections. Up to 4 chips per card. Override entirely with `day.highlights`.
+Everything on the overview is derived from `DAYS` — there is no separate overview data.
 
-Driving day = a section labelled `Drive*` OR a `location` containing `→`. A bare `🚗` icon on an
-evening section (e.g. "return transit") does NOT trigger a drive chip.
+- **Legs** — consecutive days sharing a `stay` (text before the first `·` / `,`) form a leg. Each leg
+  gets a card in the strip at the top (width ∝ nights on desktop; hotel name desktop-only), a sticky
+  header above its days, and a group in the desktop TOC rail. Leg city = the arrival part of the first
+  day's `location` (after `→`); leg colour = the most common `theme` in the leg; nights = days in the
+  leg (minus one for the final leg). `✈️` between legs when the first day has a flight section.
+- **Day title** — the text after `—` in `day.date` (`"Sunday, October 18 — Arrival"` → `Arrival`),
+  else `location`. `sublocation` is shown underneath when it differs.
+- **Agenda lines** — one per section: icon + short title. Title = label suffix after `—`
+  (`"Lunch — Tosokchon"` → `Tosokchon`); for generic suffixes (`Food`, `Tea`, `Dinner`…) or bare
+  time-of-day labels, a venue is pulled from the content (`"Dinner at Sinsajeon, …"` → `Sinsajeon`,
+  else the first phrase). Sections whose content starts with `TBD` render greyed-italic. A ⚠ / 📋
+  badge appears when the section has a `warning` / `reservation` note. On desktop the time-of-day
+  (`Morning`, `Lunch`…) sits in its own muted column and the agenda is two columns.
+- **Transition days** — when the stay changes (or `location` contains `→`), the day's stripe is a
+  vertical gradient from the departing region colour to the arriving one.
+- **Desktop** (≥1024px) — a 240px TOC rail on the left (legs → days) with scroll-spy while reading the
+  one-pager; clicking a rail entry scrolls to that day on the overview, or switches days in day detail.
+  Clicking a day card opens day detail in the main pane. `@media print` renders the one-pager alone.
 
 ### Today highlight
 
@@ -169,16 +183,13 @@ Each element of the `DAYS` array is a day object:
                                   //   (e.g. "Monday — Big Day"). Falls back to TRIP_META.startDate
                                   //   + (id-1) days if neither is parseable.
   location: 'City / Region',      // primary location label. If it contains "→" (e.g. "SF → Yosemite"),
-                                  //   the overview auto-flags this as a driving day.
+                                  //   the overview treats it as a transition day (gradient stripe) and
+                                  //   uses the part after → as the leg's city.
   sublocation: 'Neighborhood',    // optional — shown after a ·
-  theme: 'sf',                    // matches a CSS class with a colored .day-header AND a .ov-card.<theme>
-                                  //   overview accent rule.
-  stay: 'Hotel Name · Address',   // shown under 🏨. When stay differs from the previous day, the overview
-                                  //   auto-adds a "🏨 Hotel" chip.
-
-  highlights: [],                 // OPTIONAL — explicit overview chips. Overrides auto-detection.
-                                  //   Format: ['🍷 Wine tasting', { icon: '🍴', text: 'Zuni Café' }, …]
-                                  //   Use this when auto-detection picks the wrong section to surface.
+  theme: 'sf',                    // matches a CSS class with a colored .day-header AND a
+                                  //   `.<theme> { --region-color }` rule (drives overview colours).
+  stay: 'Hotel Name · Address',   // shown under 🏨. The text before the first · groups consecutive
+                                  //   days into a leg on the overview — keep it stable across the stay.
 
   sections: [                     // ordered list of activities for the day
     {
@@ -305,12 +316,13 @@ Run `/project:new-trip` for the full step-by-step workflow.
 
 ## Region theme colors
 
-Each trip's `index.html` has a `<style>` block with three rules per region — day header, overview
-accent stripe, and edit-mode header. Add one set per theme value used in `day.theme` in `data.js`:
+Each trip's `index.html` has a `<style>` block with three rules per region — day header, region
+colour variable (used by the overview stripes, legs, TOC rail and gradients), and edit-mode header.
+Add one set per theme value used in `day.theme` in `data.js`:
 
 ```css
 .sf         .day-header { background: #1a6bac; }
-.ov-card.sf             { --ov-accent-color: #1a6bac; }
+.sf                     { --region-color: #1a6bac; }
 .editing-card.sf        .edit-day-header { background: #1a6bac; }
 ```
 
@@ -328,14 +340,14 @@ These do **not** go in `shared/app.css` — they are trip-specific.
 
 From v2 onward the SW uses a split strategy:
 
-- **HTML** (the trip's `index.html` / `/`) → **network-first**, falls back to cache when offline.
-  Means content updates land without bumping the cache version, but the app still works offline.
+- **HTML, JS, CSS** (`index.html`, `data.js`, `shared/app.js`, `shared/app.css`) → **network-first**,
+  falls back to cache when offline. Means content and code updates land without bumping the cache
+  version, but the app still works offline.
 - **Everything else** (manifest, icons, sw.js itself) → **cache-first**, falls back to network.
   These rarely change, and caching them aggressively makes the app feel native offline.
 
 You still bump the `CACHE` version when you want to force a refresh of cached assets (e.g. you
-changed the manifest or icon — anything cache-first). HTML-only content changes do NOT require
-a bump.
+changed the manifest or icon — anything cache-first). HTML / JS / CSS changes do NOT require a bump.
 
 ## Local testing
 
@@ -354,5 +366,5 @@ Push to `main` — GitHub Actions deploys the entire repo root to GitHub Pages a
 - Each trip: `georgelgore.github.io/trip-itinerary/trips/destination-year/`
 
 Bump the `CACHE` version in `sw.js` (e.g. `v1` → `v2`) when you change a **cache-first** asset
-(manifest, icon, sw.js itself). HTML content changes do NOT need a bump — the SW now fetches
-HTML network-first.
+(manifest, icon, sw.js itself). HTML / `data.js` / shared JS+CSS changes do NOT need a bump — the SW
+fetches those network-first.
