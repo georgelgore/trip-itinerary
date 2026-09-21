@@ -821,16 +821,17 @@ function onWindowScroll() {
     if (!state.route || state.route.view !== 'overview' || !isDesktop()) return;
     const cards = document.querySelectorAll('.op-day');
     if (!cards.length) return;
-    const threshold = 56 + 48 + 24;   // header + sticky leg head + slack
-    const atBottom  = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    // Reading line: just under the sticky headers at the top of the page, sliding down to the
+    // bottom of the viewport by the end — so the last days (which never reach the top) still
+    // activate one by one as they come into view.
+    const headerH   = 56 + 48 + 24;   // header + sticky leg head + slack
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress  = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+    const line      = headerH + (window.innerHeight - headerH) * progress;
     let current = cards[0];
-    if (atBottom) {
-      current = cards[cards.length - 1];   // last days never reach the top of a short tail — mark the final one
-    } else {
-      for (const c of cards) {
-        if (c.getBoundingClientRect().top <= threshold) current = c;
-        else break;
-      }
+    for (const c of cards) {
+      if (c.getBoundingClientRect().top <= line) current = c;
+      else break;
     }
     const id = parseInt(current.dataset.opDay, 10);
     if (id !== state.spyDayId) { state.spyDayId = id; setActiveDayInPane(id); }
