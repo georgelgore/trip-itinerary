@@ -822,10 +822,15 @@ function onWindowScroll() {
     const cards = document.querySelectorAll('.op-day');
     if (!cards.length) return;
     const threshold = 56 + 48 + 24;   // header + sticky leg head + slack
+    const atBottom  = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
     let current = cards[0];
-    for (const c of cards) {
-      if (c.getBoundingClientRect().top <= threshold) current = c;
-      else break;
+    if (atBottom) {
+      current = cards[cards.length - 1];   // last days never reach the top of a short tail — mark the final one
+    } else {
+      for (const c of cards) {
+        if (c.getBoundingClientRect().top <= threshold) current = c;
+        else break;
+      }
     }
     const id = parseInt(current.dataset.opDay, 10);
     if (id !== state.spyDayId) { state.spyDayId = id; setActiveDayInPane(id); }
