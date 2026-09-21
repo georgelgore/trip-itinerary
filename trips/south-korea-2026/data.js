@@ -40,17 +40,18 @@ let DAYS = [
     ],
     sections: [
       {
-        label: 'Flight — Arrival',
+        label: 'Flight — Arrival at Incheon',
         icon: '✈️',
-        content: 'Arrive Seoul at 3:20pm.',
+        content: 'Arrive Incheon International Airport (ICN) at 3:20pm.',
+        address: 'Incheon International Airport (ICN)',
         notes: [
-          { type: 'warning', text: 'Confirm arrival airport (ICN vs GMP) and add flight number once booked.' }
+          { type: 'warning', text: 'Add flight number and terminal once booked.' }
         ]
       },
       {
         label: 'Transfer & Check-In',
         icon: '🏨',
-        content: 'Check in to Hotel Sunbee Insadong — a quiet side street just off the main Insadong pedestrian street, 5 min walk to Jonggak Station (Line 1) and 7 min to Anguk Station (Line 3).',
+        content: 'ICN to Insadong is about an hour: AREX express train to Seoul Station (~45 min), then Line 1 two stops to Jonggak and a 5-min walk; or a taxi straight to the hotel (~60–80 min, more in rush hour). Check in to Hotel Sunbee Insadong — a quiet side street just off the main Insadong pedestrian street, 5 min walk to Jonggak Station (Line 1) and 7 min to Anguk Station (Line 3).',
         address: 'Hotel Sunbee Insadong · 26 Insadong 7-gil, Seoul',
         notes: [
           { type: 'reservation', text: 'Confirmed · Check-in Oct 18 · Check-out Oct 21' }
@@ -637,7 +638,8 @@ const QUICK_REF = {
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Not yet booked · Evening of Oct 29 · 3F, 8-10 Myeongdong 8-gil · open to 10pm weekdays' }
   ],
   transit: [
-    { name: 'Arrival Flight', detail: 'Lands Seoul 3:20pm, Oct 18 — add flight number once booked' },
+    { name: 'Arrival Flight', detail: 'Lands Incheon (ICN) 3:20pm, Oct 18 — add flight number once booked' },
+    { name: 'ICN → Insadong', detail: 'AREX express to Seoul Station (~45 min) + Line 1 to Jonggak · or taxi ~60–80 min' },
     { name: 'Departure Flight', detail: 'Departs Seoul 5:30pm, Oct 31 — add flight number once booked' },
     { name: 'GMP → CJU (Oct 21)', detail: 'Depart Gimpo Terminal D 9:10am · Arrive Jeju 10:25am · 1h 15m' },
     { name: 'CJU → GMP (Oct 25)', detail: 'Depart Jeju 9:50am · Arrive Gimpo Terminal D 11:05am · 1h 15m' },
