@@ -302,7 +302,7 @@ let DAYS = [
     location: 'Jeju → Seoul',
     sublocation: 'Checkout · Flight to Seoul',
     theme: 'jeju',
-    stay: 'Seoul Myeongdong Hotel · check-in',
+    stay: 'voco Seoul Myeongdong · check-in',
     sections: [
       {
         label: 'Check-Out — Seom Studio',
@@ -318,10 +318,10 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Check-In — Seoul Myeongdong',
+        label: 'Check-In — voco Seoul Myeongdong',
         icon: '🏨',
-        content: 'Check in to the Seoul Myeongdong hotel.',
-        address: 'Seoul Myeongdong',
+        content: 'Check in to voco Seoul Myeongdong. Right on Toegye-ro in Jung-gu — Myeongdong Station (Line 4) and Namdaemun Market are both a short walk away.',
+        address: 'voco Seoul Myeongdong · 52, Toegye-ro, Jung-gu, Seoul 04634, Korea',
         notes: [
           { type: 'reservation', text: 'Hotel confirmed · Confirmation #42971084 · Oct 25–31' }
         ]
@@ -334,7 +334,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Yongsan & Noryangjin',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'voco Seoul Myeongdong · 52 Toegye-ro, Jung-gu · confirmation #42971084',
     highlights: [
       { icon: '🐟', text: 'Noryangjin Fish Market' },
       { icon: '🏛️', text: 'National Museum of Korea' },
@@ -377,7 +377,7 @@ let DAYS = [
     location: 'Icheon',
     sublocation: 'Ceramics Village',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'voco Seoul Myeongdong · 52 Toegye-ro, Jung-gu · confirmation #42971084',
     highlights: [
       { icon: '🚌', text: 'Day trip from Seoul' },
       { icon: '🏺', text: 'Master potter workshop' },
@@ -420,7 +420,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Jongno & Ikseon-dong',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'voco Seoul Myeongdong · 52 Toegye-ro, Jung-gu · confirmation #42971084',
     highlights: [
       { icon: '🏘️', text: 'Ikseon-dong-gil' },
       { icon: '🎨', text: 'Seoul Museum of Craft Art' },
@@ -487,7 +487,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Dongdaemun & Jegi-dong',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'voco Seoul Myeongdong · 52 Toegye-ro, Jung-gu · confirmation #42971084',
     highlights: [
       { icon: '☕', text: 'Cha Cha Tea Club' },
       { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
@@ -545,7 +545,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Hannam-dong & Itaewon',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'voco Seoul Myeongdong · 52 Toegye-ro, Jung-gu · confirmation #42971084',
     highlights: [
       { icon: '🖼️', text: 'Leeum Museum of Art' },
       { icon: '🛍️', text: 'Beaker & NIFTYDO' },
@@ -588,7 +588,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Namdaemun',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · Checkout',
+    stay: 'voco Seoul Myeongdong · Checkout',
     highlights: [
       { icon: '🛒', text: 'Namdaemun Market' },
       { icon: '🧵', text: 'Kukje Embroidery' },
@@ -599,7 +599,7 @@ let DAYS = [
       {
         label: 'Check-Out',
         icon: '🏨',
-        content: 'Check out of the Seoul Myeongdong hotel.',
+        content: 'Check out of voco Seoul Myeongdong.',
         notes: []
       },
       {
@@ -634,7 +634,7 @@ const QUICK_REF = {
   reservations: [
     { name: 'Hotel Sunbee Insadong', detail: 'Confirmed · Check-in Oct 18 · Check-out Oct 21 · 26 Insadong 7-gil, Seoul' },
     { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–25 · Unit #7' },
-    { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31' },
+    { name: 'voco Seoul Myeongdong', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31 · 52, Toegye-ro, Jung-gu, Seoul 04634' },
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Not yet booked · Oct 20 · Hongdae, Mapo-gu · book via Kakao/WhatsApp several weeks ahead' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Not yet booked · Evening of Oct 29 · 3F, 8-10 Myeongdong 8-gil · open to 10pm weekdays' }
   ],
