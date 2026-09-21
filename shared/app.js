@@ -691,7 +691,7 @@ function buildDaySectionsHTML(day) {
   return `
     <div class="op-sections">
       ${day.stay ? `<div class="op-stay">🏨 ${esc(day.stay)}</div>` : ''}
-      ${(day.sections || []).map(s => renderSection(day.id, s).replace('<div class="section"', '<div class="section open"')).join('')}
+      ${(day.sections || []).map(s => renderSection(day.id, s)).join('')}
       ${day.deepDive ? `
       <div class="deep-dive-btn-wrap">
         <button class="deep-dive-btn" onclick="openDeepDive(${day.id})">
