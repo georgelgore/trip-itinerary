@@ -617,11 +617,12 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Flight — Departure',
+        label: 'Flight — Departure from Incheon',
         icon: '✈️',
-        content: 'Depart Seoul at 5:30pm.',
+        content: 'Depart Incheon International Airport (ICN) at 5:30pm. Leave Myeongdong by ~1:30pm — AREX from Seoul Station (~45 min to ICN) or taxi (~60–80 min) — to be at the airport 3 hours ahead for an international departure.',
+        address: 'Incheon International Airport (ICN)',
         notes: [
-          { type: 'warning', text: 'Confirm departure airport (ICN vs GMP) and add flight number once booked.' }
+          { type: 'warning', text: 'Add flight number and terminal once booked. Leave the hotel bags at reception after check-out so the morning stays hands-free.' }
         ]
       }
     ]
@@ -640,7 +641,7 @@ const QUICK_REF = {
   transit: [
     { name: 'Arrival Flight', detail: 'Lands Incheon (ICN) 3:20pm, Oct 18 — add flight number once booked' },
     { name: 'ICN → Insadong', detail: 'AREX express to Seoul Station (~45 min) + Line 1 to Jonggak · or taxi ~60–80 min' },
-    { name: 'Departure Flight', detail: 'Departs Seoul 5:30pm, Oct 31 — add flight number once booked' },
+    { name: 'Departure Flight', detail: 'Departs Incheon (ICN) 5:30pm, Oct 31 — leave Myeongdong by ~1:30pm · add flight number once booked' },
     { name: 'GMP → CJU (Oct 21)', detail: 'Depart Gimpo Terminal D 9:10am · Arrive Jeju 10:25am · 1h 15m' },
     { name: 'CJU → GMP (Oct 25)', detail: 'Depart Jeju 9:50am · Arrive Gimpo Terminal D 11:05am · 1h 15m' },
     { name: 'Icheon Day Trip (Oct 27)', detail: 'From Seoul, ~1–1.5 hrs each way by car or bus — transport TBD' }
@@ -670,7 +671,7 @@ const QUICK_REF = {
     { name: 'Koreal Color', detail: 'Market/Venue · Want to go' },
     { name: 'GU Clinic', detail: 'Market/Venue · Want to go' },
     { name: 'The Hyundai Seoul', detail: 'Needs a day \u2014 flagship department store in Yeouido, architecturally notable, but across the river from every current day.' },
-    { name: 'Seoul Botanic Park', detail: 'Needs a day \u2014 Gangseo-gu, next to Gimpo Airport (GMP); could work as a pre-departure stop if the international flight leaves from Gimpo rather than Incheon.' }
+    { name: 'Seoul Botanic Park', detail: 'Needs a day \u2014 Gangseo-gu, next to Gimpo Airport (GMP), the opposite side of the city from ICN, so not a pre-departure stop.' }
   ]
 };
 
