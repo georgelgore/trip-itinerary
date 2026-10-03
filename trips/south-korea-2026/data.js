@@ -173,10 +173,12 @@ let DAYS = [
       {
         label: 'Morning — Color Analysis',
         icon: '🎨',
-        content: 'Personal color analysis at Vic’s Lab Korea — founded 2016 as Korea’s only personal-color consultancy dedicated exclusively to international clients, so it’s English throughout, no interpreter needed. Full draping session plus makeup and product recommendations.',
+        content: '10:50 AM: [1:2] Signature Color Analysis for two at Vic’s Lab Korea — founded 2016 as Korea’s only personal-color consultancy dedicated exclusively to international clients, so it’s English throughout, no interpreter needed. Full draping session plus makeup and product recommendations.',
         address: 'Vic’s Lab Korea · 15 World Cup buk-ro 4-gil, Mapo-gu, Seoul [3F]',
         notes: [
-          { type: 'warning', text: 'Book several weeks ahead via Kakao (vicslabkorea) or WhatsApp (+82 10 6455 2010) — published hours aren’t listed online, so confirm the exact appointment time and session length when you reserve.' }
+          { type: 'reservation', text: 'Confirmed by email: Oct 20 at 10:50 AM, 2 people. Prepayment already made through EXIMLink.' },
+          { type: 'cash', text: 'Remaining balance is due at the studio: pay in KRW cash, or with your own overseas credit card through EXIMLink (same system as the prepayment).' },
+          { type: 'warning', text: 'Vic’s Lab advises against booking a session on the day of a flight, so the booking isn’t affected by flight schedule changes. Contact: Kakao (vicslabkorea) or WhatsApp (+82 10 6455 2010).' }
         ]
       },
       {
@@ -795,7 +797,7 @@ const QUICK_REF = {
     { name: 'Hotel Sunbee Insadong', detail: 'Confirmed · Check-in Oct 18 · Check-out Oct 21 · 26 Insadong 7-gil, Seoul' },
     { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–25 · Unit #7' },
     { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31' },
-    { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Not yet booked · Oct 20 · Hongdae, Mapo-gu · book via Kakao/WhatsApp several weeks ahead' },
+    { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
     { name: 'Seal Carving Class — Feel So Good Calli Studio', detail: 'Not yet booked · Mon Oct 19, 3–5pm · Anguk Station exit 6 · book online (Trazy)' },
     { name: 'Hwahaedang', detail: 'Not yet booked · Lunch Oct 20 (Tue) · Yeouido · book by phone +82 2-785-4422 · lunch only, 11am–3pm' },
     { name: 'Mongtan', detail: 'Not yet booked · Dinner Oct 26 (Mon) · Samgakji, Yongsan · online reservations weekdays only' },
