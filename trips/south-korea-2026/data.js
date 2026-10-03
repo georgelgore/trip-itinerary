@@ -36,7 +36,7 @@ let DAYS = [
       { icon: '✈️', text: 'Land 3:20pm' },
       { icon: '🏨', text: 'Hotel Sunbee Insadong' },
       { icon: '🎨', text: 'KCDF Gallery' },
-      { icon: '🍴', text: 'Sinsajeon / Koong' }
+      { icon: '🥟', text: 'Gaeseong Mandu Koong' }
     ],
     sections: [
       {
@@ -67,9 +67,11 @@ let DAYS = [
       {
         label: 'Evening — Settle In',
         icon: '🌆',
-        content: 'Keep it light given the flight. Dinner at Sinsajeon, an easy walk from Insadong — saved from the "Want to go" list. Koong (Gaeseong Mandu Koong), the Michelin Bib Gourmand dumpling house also in Insadong, is a good alternative if you\u2019d rather eat lighter after the flight.',
-        address: 'Sinsajeon, Seoul',
-        notes: []
+        content: 'Keep it light given the flight. Dinner at Koong (Gaeseong Mandu Koong), the Michelin Bib Gourmand dumpling house on Insadong-gil, a few minutes from the hotel. Walk-in only; expect a short queue.',
+        address: 'Gaeseong Mandu Koong, Insadong-gil, Jongno-gu, Seoul',
+        notes: [
+          { type: 'warning', text: 'Sunday hours are 11:30am\u20138pm, last order 7:10pm, so go by about 6:30. Sinsajeon (from the "Want to go" list) turned out to be in Sinsa-dong, Gangnam, about 30 minutes away, not near Insadong.' }
+        ]
       }
     ]
   },
@@ -91,9 +93,9 @@ let DAYS = [
         label: 'Breakfast — Cheongjinok',
         icon: '🍲',
         content: 'Haejangguk (beef-bone soup) at Cheongjinok, a Jongno institution since 1937 and a Seoul Future Heritage site. The broth simmers for over a day. Aim for about 8:00am. It’s a short walk from the hotel and about 10 minutes on foot to Gwanghwamun, the palace’s main gate.',
-        address: 'Cheongjinok · 19 Jong-ro, Jongno-gu, Seoul',
+        address: 'Cheongjinok · 32 Jong-ro 3-gil, Jongno-gu, Seoul',
         notes: [
-          { type: 'info', text: 'Listed as open 24 hours. Confirm Monday-morning hours closer to the date.' }
+          { type: 'info', text: 'Open daily 6am\u201310pm, no closing days. Walk-in only.' }
         ]
       },
       {
@@ -102,7 +104,8 @@ let DAYS = [
         content: 'Be at Gwanghwamun for the 9:00am opening, while the courtyards are still quiet. Gyeongbokgung is the largest of Seoul’s Five Grand Palaces. Then duck into the National Folk Museum of Korea on the palace grounds, a good overview of Korean daily life and craft history before diving into Bukchon’s workshops. The changing of the guard runs at Gwanghwamun at 10:00am, so you can catch it on the way out.',
         address: 'Gyeongbokgung Palace, Jongno-gu, Seoul',
         notes: [
-          { type: 'warning', text: 'Opens 9:00am (Oct hours 9:00–18:00, last entry 17:00). Closed Tuesdays, so it has to be today. Double-check hours closer to the date.' }
+          { type: 'warning', text: 'Opens 9:00am (Oct hours 9:00–18:00, last entry 17:00). Closed Tuesdays, so it has to be today. Double-check hours closer to the date.' },
+          { type: 'info', text: 'National Folk Museum: open Mondays, but its Exhibition Hall 1 is closed for maintenance from Sep 30 to about Dec 21.' }
         ]
       },
       {
@@ -110,7 +113,9 @@ let DAYS = [
         icon: '🍲',
         content: 'Tosokchon Samgyetang, a few minutes from the palace\u2019s west gate — one of Seoul\u2019s best-known spots for ginseng chicken soup, and about as traditional a lunch as it gets in this neighborhood. Ogawa, a well-regarded sushi counter tucked into a small underground mall in nearby Dangju-dong, is a good alternative if you\u2019d rather do Japanese. Muguok, near Anguk Station, is the other samgyetang option: a Michelin-listed spot doing a North Korean-style version, and an easy walk from the palace\u2019s east side.',
         address: 'Tosokchon Samgyetang, Jongno-gu, Seoul',
-        notes: []
+        notes: [
+          { type: 'info', text: 'Both are walk-in only. Tosokchon is open daily 10am\u201310pm. Muguok runs a waitlist: sign up on site from 10:30am, or remotely in the Catch Table app from noon.' }
+        ]
       },
       {
         label: 'Afternoon — Bukchon Hanok Village Walk',
@@ -152,7 +157,9 @@ let DAYS = [
         icon: '🍴',
         content: 'Dinner at Pildong Myeonok, from the "Want to go" list.',
         address: 'Pildong Myeonok, Seoul',
-        notes: []
+        notes: [
+          { type: 'warning', text: 'Closes early: last order 7:50pm, with a 3\u20135pm break. Closed Sundays. Walk-in only.' }
+        ]
       }
     ]
   },
@@ -400,15 +407,6 @@ let DAYS = [
         ]
       },
       {
-        label: 'Afternoon — Kwangjuyo',
-        icon: '🏺',
-        content: 'Before leaving Apgujeong, stop at Kwangjuyo, a well-known Korean ceramics brand. It makes refined, minimal white porcelain and celadon meant for everyday use, and the shops are elegant.',
-        address: 'Kwangjuyo, Gangnam (Apgujeong / Dosan area), Seoul',
-        notes: [
-          { type: 'warning', text: 'Exact store address not confirmed. Check kwangjuyo.com for the Gangnam shop before going; the brand is also sold in the major department stores.' }
-        ]
-      },
-      {
         label: 'Afternoon — Bongeunsa & COEX',
         icon: '🛕',
         content: 'About 15 minutes from Apgujeong to Samseong. Bongeunsa is a 1,200-year-old Buddhist temple set right among Gangnam’s towers, with a giant standing Maitreya statue. COEX is directly across the street: the Starfield Library’s two-story bookshelf atrium is the main draw.',
@@ -439,8 +437,10 @@ let DAYS = [
         label: 'Evening — Sancheong Charcoal Garden',
         icon: '🔥',
         content: 'A late dinner at Sancheong Charcoal Garden in Euljiro, a short walk or one subway stop from the hotel, and a direct Line 2 ride from Jamsil. Saved from the "Want to go" list.',
-        address: 'Sancheong Charcoal Garden, Euljiro, Jung-gu, Seoul',
-        notes: []
+        address: 'Sancheong Charcoal Garden \u00b7 114-6 Eulji-ro, Jung-gu, Seoul',
+        notes: [
+          { type: 'info', text: 'Open daily 11:30am\u201311pm. Long waits at peak times; join the waitlist in the Catch Table app.' }
+        ]
       }
     ]
   },
@@ -483,7 +483,7 @@ let DAYS = [
         content: 'Dinner at Mongtan near Samgakji Station, a short hop from Ichon: straw-fire-grilled beef short ribs (udae galbi) and smoky pork belly. One of the most sought-after barbecue spots in Seoul.',
         address: 'Mongtan · 50 Baekbeom-ro 99-gil, Yongsan-gu, Seoul',
         notes: [
-          { type: 'reservation', text: 'Online reservations are weekdays only, and this is a Monday, so book ahead. Without one, expect a wait of a couple of hours or more.' }
+          { type: 'warning', text: 'No reservations: on-site waitlist only (open daily 12\u201310pm). Register in person about 2\u20133 hours before you want to eat, e.g. around 3:30pm during the museum visit (Samgakji is one stop from Ichon). They call when your table is ready and you must be back within 10 minutes. Without a Korean phone number, tell the staff when you register.' }
         ]
       }
     ]
@@ -557,16 +557,9 @@ let DAYS = [
     ],
     sections: [
       {
-        label: 'Morning — Tea',
-        icon: '☕',
-        content: 'Tea at Jidaebang, sourced from an Instagram find.',
-        address: 'Jidaebang, Seoul',
-        notes: []
-      },
-      {
-        label: 'Late Morning — Changdeokgung & Huwon Secret Garden',
+        label: 'Morning — Changdeokgung & Huwon Secret Garden',
         icon: '🌳',
-        content: 'Get to Changdeokgung around 10:00 to buy the palace ticket and see the main halls, then join the 10:30 English tour of Huwon, the Secret Garden: the royal family’s wooded back garden of pavilions and ponds, open only by guided tour (about 90 minutes). Late October should be near peak autumn color.',
+        content: 'Start the day here: get to Changdeokgung around 10:00 to buy the palace ticket and see the main halls, then join the 10:30 English tour of Huwon, the Secret Garden: the royal family’s wooded back garden of pavilions and ponds, open only by guided tour (about 90 minutes). Late October should be near peak autumn color.',
         address: 'Changdeokgung Palace · 99 Yulgok-ro, Jongno-gu, Seoul',
         notes: [
           { type: 'reservation', text: 'Book the 10:30 English Secret Garden tour at ticket.uforus.co.kr (account required). Booking opens Oct 22 at 10:00am KST (6 days ahead) and closes 3 days before. 5,000 KRW, plus a separate palace ticket. 50 walk-up spots per tour if online sells out.' },
@@ -586,7 +579,7 @@ let DAYS = [
         content: 'Three good options right in this cluster: Balwoo Gongyang, the Michelin-starred temple-cuisine restaurant a few minutes from Jogyesa Temple; A Flower Blossom on the Rice, a Michelin-recommended modern Korean tasting menu nearby in Gwanhun-dong; or Koong (Gaeseong Mandu Koong), a Michelin Bib Gourmand spot for North Korean-style dumplings, if you\u2019d rather save the sit-down meal for dinner and keep lunch casual.',
         address: 'Insadong / Gwanhun-dong, Jongno-gu, Seoul',
         notes: [
-          { type: 'warning', text: 'Balwoo Gongyang and A Flower Blossom on the Rice both take reservations \u2014 worth booking ahead given the Michelin attention.' }
+          { type: 'reservation', text: 'Balwoo Gongyang: book the 1:30pm lunch seating (closed Sundays; reserve up to a month ahead, +82 2-733-2081). A Flower Blossom on the Rice: open daily 11:30am\u20133pm, call +82 2-732-0276. Koong is walk-in only.' }
         ]
       },
       {
@@ -595,6 +588,15 @@ let DAYS = [
         content: 'A short walk to the Seoul Museum of Craft Art near Anguk — it\u2019s closed Mondays, so it moves here from earlier in the trip. The guidebook flags a good gift shop on site.',
         address: 'Seoul Museum of Craft Art, Jongno-gu, Seoul',
         notes: []
+      },
+      {
+        label: 'Afternoon — Tea at Jidaebang',
+        icon: '☕',
+        content: 'Tea at Jidaebang, sourced from an Instagram find: a traditional tea house in Insadong that has been there for over 35 years, a few minutes from Jogyesa.',
+        address: 'Jidaebang, Insadong, Jongno-gu, Seoul',
+        notes: [
+          { type: 'info', text: 'Moved from the morning: it opens at 10:30am, after you need to be at Changdeokgung. Open daily.' }
+        ]
       },
       {
         label: 'Late Afternoon — Jogyesa Temple',
@@ -616,7 +618,7 @@ let DAYS = [
         content: 'One stop from Gwangjang, the Jongno 3-ga galmaegisal alley: a lane of old-school spots grilling pork skirt meat at plastic tables out on the street. Ikseon-dong Wando Matjib is a well-known pick there; it grills aged kimchi alongside the meat. Order somaek (soju + beer). The Jongno 3-ga pojangmacha tent stalls are next door for another drink after.',
         address: 'Galmaegisal Alley · behind Jongno 3-ga Station exit 6 (Ikseon-dong Wando Matjib: 29 Donhwamun-ro 11ga-gil), Jongno-gu, Seoul',
         notes: [
-          { type: 'info', text: 'Gets packed after about 7pm. Go early to get an outdoor table.' }
+          { type: 'info', text: 'Walk-in only. The alley\u2019s grills open mid-afternoon (Mi Galmaegisal: 2:30\u201311pm, closed Mondays). Gets packed after about 7pm, so go early for an outdoor table.' }
         ]
       }
     ]
@@ -629,26 +631,19 @@ let DAYS = [
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
-      { icon: '☕', text: 'Cha Cha Tea Club' },
       { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
+      { icon: '☕', text: 'Cha Cha Tea Club' },
       { icon: '🛍️', text: 'DDP' },
       { icon: '💆', text: 'EcoJardin Myeongdong' }
     ],
     sections: [
       {
-        label: 'Morning — Tea',
-        icon: '☕',
-        content: 'Cha Cha Tea Club.',
-        address: 'Cha Cha Tea Club, Seoul',
-        notes: []
-      },
-      {
-        label: 'Late Morning — Seoul Yangnyeongsi Medicine Market',
+        label: 'Morning — Seoul Yangnyeongsi Medicine Market',
         icon: '🌿',
         content: 'Seoul Yangnyeongsi Medicine Market in Jegi-dong is Korea\u2019s largest traditional herbal medicine market — narrow lanes stacked with dried roots and herbs. The small Herbal Medicine Museum on site gives good context before wandering the stalls. Stop in at the Seoul K-Medi Center on the market for the Bojewon massage: a heated massage bed with hand and foot massage (\u20a95,000). The medicinal foot bath (\u20a96,000) is also here.',
         address: 'Seoul K-Medi Center · 26 Yangnyeongjungang-ro, Dongdaemun-gu, Seoul',
         notes: [
-          { type: 'info', text: 'K-Medi Center: 10am–6pm, closed Mondays. Experiences are first-come, first-served, booked on site.' }
+          { type: 'info', text: 'K-Medi Center: 10am–6pm, closed Mondays, so start here around 10. Experiences are first-come, first-served, booked on site.' }
         ]
       },
       {
@@ -664,7 +659,16 @@ let DAYS = [
         content: 'Seoul Folk Flea Market in Sinseol-dong, on the way from Dapsimni back toward Dongdaemun: a big covered market of antiques, secondhand goods, vintage clothes and old electronics.',
         address: 'Seoul Folk Flea Market · 21 Cheonho-daero 4-gil, Dongdaemun-gu, Seoul',
         notes: [
-          { type: 'info', text: 'Open 10am–7pm. Closed Tuesdays. Sinseol-dong Station exit 9.' }
+          { type: 'info', text: 'Open 10am–7pm. Closed Tuesdays. Sinseol-dong Station exit 9. (Dapsimni Antiques Market is open 9am\u20137pm, closed only the 1st and 3rd Sundays.)' }
+        ]
+      },
+      {
+        label: 'Afternoon — Tea at Cha Cha Tea Club',
+        icon: '☕',
+        content: 'Cha Cha Tea Club, a hidden hanok tea house down an alley near Dongdaemun Station, where you brew your own tea. It\u2019s a few minutes from DDP, so it fits between the flea market and DDP.',
+        address: 'Cha Cha Tea Club \u00b7 13 Jong-ro 46ga-gil, Jongno-gu, Seoul (Dongdaemun Station exit 6)',
+        notes: [
+          { type: 'info', text: 'Moved from the morning: it opens at 1pm (Wed\u2013Sun, 1\u201310pm; closed Mon & Tue).' }
         ]
       },
       {
@@ -721,6 +725,15 @@ let DAYS = [
         content: 'Samsung\u2019s museum of traditional and contemporary Korean art in Hannam-dong — three buildings designed by Mario Botta, Jean Nouvel, and Rem Koolhaas. Closed Mondays, so today works fine.',
         address: 'Leeum Museum of Art, Hannam-dong, Yongsan-gu, Seoul',
         notes: []
+      },
+      {
+        label: 'Midday — Kwangjuyo Showroom',
+        icon: '🏺',
+        content: 'Kwangjuyo\u2019s Hannam showroom, a short walk from the Leeum. Kwangjuyo is a well-known Korean ceramics brand making refined, minimal white porcelain and celadon meant for everyday use.',
+        address: 'Kwangjuyo Hannam Showroom \u00b7 28 Hannam-daero 20-gil, Yongsan-gu, Seoul',
+        notes: [
+          { type: 'info', text: 'Hours aren\u2019t published; call +82 2-3446-4800 before going. Kwangjuyo also has a counter on 7F of Shinsegae\u2019s main store in Myeongdong, next to the hotel.' }
+        ]
       },
       {
         label: 'Midday — Concept Store Shopping',
@@ -802,7 +815,8 @@ const QUICK_REF = {
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM (1 hr 10 min) · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
     { name: 'Seal Carving Class — Feel So Good Calli Studio', detail: 'Not yet booked · Mon Oct 19, 3–5pm · Anguk Station exit 6 · book online (Trazy)' },
     { name: 'Hwahaedang', detail: 'Not yet booked · Lunch Oct 20 (Tue) · Yeouido · book by phone +82 2-785-4422 · lunch only, 11am–3pm' },
-    { name: 'Mongtan', detail: 'Not yet booked · Dinner Oct 26 (Mon) · Samgakji, Yongsan · online reservations weekdays only' },
+    { name: 'Mongtan', detail: 'No reservations · Dinner Oct 26 (Mon) · Samgakji, Yongsan · on-site waitlist: register in person ~2–3 hrs ahead' },
+    { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Not yet booked · Evening of Oct 29 · 3F, 8-10 Myeongdong 8-gil · open to 10pm weekdays' }
   ],
