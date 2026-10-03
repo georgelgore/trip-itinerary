@@ -178,7 +178,9 @@ let DAYS = [
         notes: [
           { type: 'reservation', text: 'Confirmed by email: Oct 20 at 10:50 AM, 2 people. Prepayment already made through EXIMLink.' },
           { type: 'cash', text: 'Remaining balance is due at the studio: pay in KRW cash, or with your own overseas credit card through EXIMLink (same system as the prepayment).' },
-          { type: 'warning', text: 'Vic’s Lab advises against booking a session on the day of a flight, so the booking isn’t affected by flight schedule changes. Contact: Kakao (vicslabkorea) or WhatsApp (+82 10 6455 2010).' }
+          { type: 'warning', text: 'Arrive by 10:40 AM. More than 20 minutes late and the appointment is cancelled with no refund of the prepayment.' },
+          { type: 'info', text: 'Prep: no color makeup or colored lenses (non-tinted sunscreen and clear lenses are fine). Skip any treatment that leaves skin red or flushed beforehand. Wear something that shows your neck, no turtlenecks or high collars.' },
+          { type: 'info', text: 'Contact: Kakao (vicslabkorea) or WhatsApp (+82 10 6455 2010).' }
         ]
       },
       {
