@@ -490,54 +490,22 @@ let DAYS = [
   },
   {
     id: 10,
-    date: 'Tuesday, October 27 — Icheon Day Trip (Pottery)',
-    location: 'Icheon',
-    sublocation: 'Ceramics Village',
+    date: 'Tuesday, October 27 — Open Day',
+    location: 'Seoul',
+    sublocation: 'Open Day',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
-      { icon: '🚌', text: 'Day trip from Seoul' },
-      { icon: '🏺', text: 'Master potter workshop' },
-      { icon: '🖼️', text: 'Icheon Ceramic Village' }
+      { icon: '🗓️', text: 'Open day' }
     ],
     sections: [
       {
-        label: 'Morning — Travel to Icheon',
-        icon: '🚌',
-        content: 'Icheon is about 1–1.5 hrs from Seoul by car or bus. Head out early to make the most of the day.',
+        label: 'Open Day',
+        icon: '🗓️',
+        content: 'TBD — nothing planned yet.',
         notes: [
-          { type: 'warning', text: 'Book transport (car service, intercity bus, or tour) once decided.' }
+          { type: 'info', text: 'Open day: kept free on purpose. Fill in or leave flexible. See pinnedSpots for unslotted ideas.' }
         ]
-      },
-      {
-        label: 'Midday — Icheon Ceramic Village',
-        icon: '🖼️',
-        content: 'Browse the kilns and galleries of Icheon Ceramic Village and the Icheon World Ceramic Center — Korea\u2019s traditional ceramics hub. The Haegang Ceramics Museum is also here if there\u2019s time for one more stop.',
-        notes: []
-      },
-      {
-        label: 'Lunch — Ssalbap',
-        icon: '🍚',
-        content: 'Icheon is famous for its rice, once sent to the royal court. Have ssalbap jeongsik: stone-pot Icheon rice with a full spread of banchan, grilled fish and stews. Two ideas, both open Tuesdays and a few minutes from the ceramics village on Gyeongchung-daero:\n• Imgeumnim Ssalbap-jip (임금님쌀밥집), 3134 Gyeongchung-daero, Sindun-myeon. Sets ₩19,000–46,000; the “Sura” set adds soy-marinated crab, bulgogi and dried fish. Open 10:30–21:00, closed Wednesdays.\n• Naratnim Icheon Ssalbap (나랏님이천쌀밥), 3044 Gyeongchung-daero. The whole meal arrives on one pre-set table slid into place. Sets ₩19,000–41,000. Open 10:30–20:30, break 4–5pm.',
-        address: 'Gyeongchung-daero rice restaurant street, Icheon',
-        notes: [
-          { type: 'warning', text: 'Icheon Ssalbap-jip and Eohyangmiga are closed Tuesdays, so skip them. Naratnim’s closing day isn’t listed online; confirm before going.' }
-        ]
-      },
-      {
-        label: 'Afternoon — Hands-On Pottery Workshop',
-        icon: '🏺',
-        content: 'Book a wheel-throwing or hand-building session with a local master potter — inspired by the Icheon Master Potter workshops (Master Lee Hyang-gu and similar studios).',
-        notes: [
-          { type: 'warning', text: 'Reserve the workshop in advance — slots fill up, and some require a deposit.' }
-        ]
-      },
-      {
-        label: 'Evening — Return to Seoul',
-        icon: '🌆',
-        content: 'Head back to Seoul and keep dinner simple at Myeongdong Kyoja, a few minutes from the hotel: the classic kalguksu (knife-cut noodle soup) and mandu house.',
-        address: 'Myeongdong Kyoja, Myeongdong, Jung-gu, Seoul',
-        notes: []
       }
     ]
   },
@@ -687,7 +655,7 @@ let DAYS = [
       {
         label: 'Evening — Hair/Scalp Treatment at EcoJardin',
         icon: '💆',
-        content: 'Booked for 7:00 PM. Head back toward the hotel for EcoJardin Myeongdong \u2014 a 3-minute walk from Myeongdong Station, a few subway stops from Dongdaemun. Lighter day than Icheon, so there\u2019s room for this without it feeling like too much. English-speaking staff (English, Japanese, and Chinese service). Open until 10pm on weekdays. Offers K-style cuts, 9/15/18-step scalp treatments, keratin treatment, perms, and coloring.',
+        content: 'Booked for 7:00 PM. Head back toward the hotel for EcoJardin Myeongdong \u2014 a 3-minute walk from Myeongdong Station, a few subway stops from Dongdaemun. English-speaking staff (English, Japanese, and Chinese service). Open until 10pm on weekdays. Offers K-style cuts, 9/15/18-step scalp treatments, keratin treatment, perms, and coloring.',
         address: 'EcoJardin Myeongdong \u00b7 3F, 8-10 Myeongdong 8-gil, Jung-gu, Seoul',
         notes: [
           { type: 'reservation', text: 'Confirmed via WhatsApp: Oct 29 at 7:00 PM, 2 people. Contact EcoJardin on WhatsApp at +82 10-8332-6980 to make changes.' }
@@ -826,7 +794,6 @@ const QUICK_REF = {
     { name: 'Departure Flight', detail: 'Departs Incheon (ICN) 5:30pm, Oct 31 — leave Myeongdong by ~1:30pm · add flight number once booked' },
     { name: 'GMP → CJU (Oct 21)', detail: 'Depart Gimpo Terminal D 9:10am · Arrive Jeju 10:25am · 1h 15m' },
     { name: 'CJU → GMP (Oct 25)', detail: 'Depart Jeju 9:50am · Arrive Gimpo Terminal D 11:05am · 1h 15m' },
-    { name: 'Icheon Day Trip (Oct 27)', detail: 'From Seoul, ~1–1.5 hrs each way by car or bus — transport TBD' }
   ],
   // Saved Google Maps pins not yet slotted into a specific day — pull from here when filling in TBD sections.
   // Flat array of { name, detail } — QUICK_REF categories must be flat arrays like this;
