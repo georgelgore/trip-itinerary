@@ -353,9 +353,9 @@ let DAYS = [
     ],
     sections: [
       {
-        label: '10:00am — Book Secret Garden Tour',
+        label: '10:00am — Book Seoul Secret Garden Tour (Oct 28)',
         icon: '📲',
-        content: 'Booking for the Oct 28 Huwon Secret Garden tour opens at 10:00am KST today. Book the 10:30 English tour at ticket.uforus.co.kr before heading out. The popular slots go quickly.',
+        content: 'This is only the booking reminder. The Huwon Secret Garden is at Changdeokgung in Seoul, and the visit itself is on Oct 28 (Day 11). Booking for that tour opens at 10:00am KST today. Book the 10:30 English tour at ticket.uforus.co.kr before heading out. The popular slots go quickly.',
         url: 'https://ticket.uforus.co.kr/web/main?shopEncode=&lang=en',
         notes: [
           { type: 'reservation', text: 'Book right at 10:00am. 5,000 KRW, plus a separate Changdeokgung ticket on the day.' },
