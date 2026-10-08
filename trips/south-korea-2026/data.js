@@ -198,8 +198,8 @@ let DAYS = [
         content: 'Taxi across the river to Yeouido (about 20 minutes from Hongdae) for ganjang gejang, soy-marinated raw blue crab, at Hwahaedang. It’s the Seoul branch of a well-known restaurant in Taean on the west coast, where the crabs are caught and marinated before being shipped up. Michelin Bib Gourmand, with a spread of seafood side dishes.',
         address: 'Hwahaedang · 15 Gukhoe-daero 62-gil, Yeongdeungpo-gu (Yeouido), Seoul',
         notes: [
-          { type: 'reservation', text: 'Book by phone: +82 2-785-4422. Lunch only, 11am–3pm, Tue–Sat (closed Sun & Mon), so today is the only day it fits.' },
-          { type: 'warning', text: 'If the color analysis runs long, keep an eye on the 3pm close.' }
+          { type: 'reservation', text: 'Confirmed via AutoReserve: Tue Oct 20 at 12:45, 2 people, table, seating only (order on the day). Listed there as "Hanakando Yeouido Branch" under the name "Goa George." Booking fee already paid to AutoReserve; pay for food and drinks at the restaurant. A card hold for possible cancellation fees may show and is released when you arrive. Questions go to AutoReserve, not the restaurant.' },
+          { type: 'warning', text: 'Leave Vic’s Lab by about 12:15 for the ~20-min taxi. If the color analysis runs long, keep an eye on the 3pm close.' }
         ]
       },
       {
@@ -1077,7 +1077,7 @@ const QUICK_REF = {
     { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31' },
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM (1 hr 10 min) · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
     { name: 'Seal Carving Class — Feel So Good Calli Studio', detail: 'Not yet booked · Mon Oct 19, 3–5pm · Anguk Station exit 6 · book online (Trazy)' },
-    { name: 'Hwahaedang', detail: 'Not yet booked · Lunch Oct 20 (Tue) · Yeouido · book by phone +82 2-785-4422 · lunch only, 11am–3pm' },
+    { name: 'Hwahaedang', detail: 'Confirmed via AutoReserve · Lunch Oct 20 (Tue), 12:45 · 2 people, seating only · Yeouido · listed as "Hanakando Yeouido Branch" · fee prepaid, pay for the meal at the restaurant · +82 2-785-4422' },
     { name: 'Mongtan', detail: 'No reservations · Dinner Oct 26 (Mon) · Samgakji, Yongsan · on-site waitlist: register in person ~2–3 hrs ahead' },
     { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
