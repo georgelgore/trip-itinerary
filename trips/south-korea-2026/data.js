@@ -131,10 +131,10 @@ let DAYS = [
       {
         label: 'Afternoon — Bukchon Craft Shops',
         icon: '🐚',
-        content: 'Two craft stops along the Bukchon walk:\n\u2022 Jinjoo Shell: a three-generation najeonchilgi (mother-of-pearl inlay) maker with a shop in Gahoe-dong. They also run 60-minute classes where you inlay a small piece like a mirror, box or card case.\n\u2022 Saeksil Nubi: a traditional colored-thread quilting workshop in a public hanok. You can see finished pieces, and they offer a 50-minute quilting experience (\u20a915,000).',
+        content: 'Two craft stops along the Bukchon walk:\n\u2022 Jinjoo Shell: a three-generation najeonchilgi (mother-of-pearl inlay) maker in Gahoe-dong. Browse and buy here: small mirrors, boxes and card cases are the easy-to-pack pieces.\n\u2022 Saeksil Nubi: a traditional colored-thread quilting workshop in a public hanok. You can see finished pieces, and they offer a 50-minute quilting experience (\u20a915,000).\nFor more mother-of-pearl, the Insadong side alleys (8-gil, 10-gil, 12-gil) back near the hotel are full of craft and antique shops, and the KCDF Gallery Shop on Insadong-gil carries contemporary pieces.',
         address: 'Jinjoo Shell \u00b7 #301, 172-1 Gahoe-dong (Anguk Station exit 2) \u00b7 Saeksil Nubi \u00b7 17 Bukchon-ro 12-gil, Jongno-gu, Seoul',
         notes: [
-          { type: 'info', text: 'Jinjoo Shell classes run Mon/Wed/Fri/Sat at 11:30am and 2pm; book online at least 2 days ahead. The 2pm class would run right up to the 3pm seal class.' },
+          { type: 'info', text: 'Jinjoo Shell is an upstairs workshop (#301), so check on Naver Map that the shop is open before walking up. Najeon pricing guide: card cases roughly \u20a920,000\u201335,000, small jewelry boxes \u20a945,000\u201380,000. Real shell shifts color when you tilt it; painted imitations stay flat white or silver.' },
           { type: 'warning', text: 'Saeksil Nubi is listed as open 10am\u20135pm, but closed days aren\u2019t published. Call +82 2-733-2577 to confirm it\u2019s open on a Monday.' }
         ]
       },
@@ -404,6 +404,15 @@ let DAYS = [
         ]
       },
       {
+        label: 'Optional — Jestory',
+        icon: '🏺',
+        content: 'A shop in the Jungmun area, near lunch, stocking work from about 300 local Jeju makers, ceramics included, alongside gifts and accessories. A quick browse on the way to the Bonte Museum if you want more pottery options than Saturday’s studio.',
+        address: 'Jestory (제스토리) · 60 Maksukpo-ro, Seogwipo',
+        notes: [
+          { type: 'info', text: 'Listed as open 09:00–21:00 with no closing day. Hours came from a travel listing, so check Naver before you go.' }
+        ]
+      },
+      {
         label: 'Afternoon — Bonte Museum',
         icon: '🏛️',
         content: 'Tadao Ando in concrete, water and light, housing a collection of traditional Korean craft: bojagi wrapping cloths, lacquer, furniture, funerary objects. That combination lands squarely on both the ceramics and the interiors interest. There is also a Kusama Infinity Mirrored Room and an Ando meditation room.\nAfterwards walk down the street to see the exterior of Itami Jun’s Bangju Church, the "Noah’s Ark" church. Itami also designed the PODO Hotel nearby.',
@@ -442,7 +451,7 @@ let DAYS = [
     highlights: [
       { icon: '☕', text: 'Ohsayo Coffee' },
       { icon: '🥾', text: 'Olle Route 7 to Oedolgae' },
-      { icon: '🏺', text: 'Seongji Pottery wheel session' },
+      { icon: '🏘️', text: 'Seongeup Folk Village' },
       { icon: '🍵', text: 'Sumangdawon tea class' }
     ],
     sections: [
@@ -482,13 +491,12 @@ let DAYS = [
         ]
       },
       {
-        label: 'Afternoon — Seongji Pottery',
-        icon: '🏺',
-        content: 'A wheel-throwing or hand-building session with Na Myeong-kwon, who has 25 years in traditional pottery and has run sessions for 13 years. It is the closest hands-on studio to your base that takes foreign visitors, and it is a few minutes from lunch.\nThe Jeju-specific thing to look for while you are on the island is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. The craft nearly died out after the 1960s and was revived by a small group of potters.',
-        address: 'Seongji Pottery (성지도예) · 85 Seongeupiri-ro, Pyoseon-myeon',
+        label: 'Afternoon — Seongeup Folk Village Walk',
+        icon: '🏘️',
+        content: 'Stay in the village after lunch instead of doing a pottery class. Seongeup is a lived-in Joseon-era village of black basalt-walled houses with thatched roofs, stone dol hareubang statues at the old gates, and a 1,000-year-old zelkova tree. Walk the lanes for an hour or so, then head on to Sumangdawon, where the farm’s own teaware is for sale.\nThe Jeju-specific ceramic to look for is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. Sumangdawon and Saturday’s Jeju Clay Pottery Lab are your best chances to buy some.',
+        address: 'Seongeup Folk Village · Seongeup-ri, Pyoseon-myeon, Seogwipo',
         notes: [
-          { type: 'reservation', text: 'Book through KKday (product 104114) and confirm with the studio at least a day ahead. Listed 09:00–18:00, last entry 17:00.' },
-          { type: 'warning', text: 'Pieces need weeks to dry and fire, so ask about international shipping before you book. Seogwipo’s Haeng Bok Pottery Studio, for comparison, only ships within Korea and only after about a month.' }
+          { type: 'info', text: 'No ticket needed; it is a working village, so stay out of yards unless a house is signed as open to visitors. Some residents run paid tours and sell local goods, which are optional.' }
         ]
       },
       {
@@ -563,6 +571,16 @@ let DAYS = [
         ]
       },
       {
+        label: 'Midday — Jeju Clay Pottery Lab',
+        icon: '🏺',
+        content: 'Kim Kyungchan’s studio, on the way from lunch to Manjanggul. He makes contemporary onggi from Jeju clay (shown at Maison & Objet in 2022): the unglazed, breathable earthenware the island is known for. This is the pottery-buying stop of the Jeju leg, in place of a class. Tea cups and small vessels are the easiest to carry home.',
+        address: 'Jeju Clay Pottery Lab · 28 Haengwon-ro 2-gil, Gujwa-eup',
+        notes: [
+          { type: 'warning', text: 'A working studio with no published hours. Contact them (Instagram or the number on Naver) a few days ahead to confirm someone will be there on Saturday.' },
+          { type: 'info', text: 'Wrap pieces in clothes and pack them in your carry-on for the flights back.' }
+        ]
+      },
+      {
         label: 'Afternoon — Manjanggul Lava Tube',
         icon: '🕳️',
         content: 'The UNESCO lava tube reopened on May 30, 2026, after two years and five months closed following a December 2023 rockfall. ₩12.1 billion went into a new flat stainless-steel walkway. Only Section 1, about 1km of the roughly 7.4km tube, is open.',
@@ -575,7 +593,7 @@ let DAYS = [
       {
         label: 'Afternoon — Dahee-yeon',
         icon: '🍵',
-        content: 'A 60,000-pyeong eco-friendly tea farm with a cafe built inside a lava cave. You can taste and buy the farm’s own tea. The tea foot-bath needs a booking if you want it.\nSpace Seooh, a tea-and-pastry cafe with pottery workshops, is a few minutes away at 1948-6 Seonheul-ri if you want a second clay session (book ahead).',
+        content: 'A 60,000-pyeong eco-friendly tea farm with a cafe built inside a lava cave. You can taste and buy the farm’s own tea. The tea foot-bath needs a booking if you want it.\nSpace Seooh, a tea-and-pastry cafe with pottery workshops, is a few minutes away at 1948-6 Seonheul-ri if you want a pastry stop.',
         address: 'Dahee-yeon (다희연) · 266-4 Seongyo-ro, Jocheon-eup · 064-783-0882',
         notes: [
           { type: 'info', text: 'Open 09:00–18:00 year-round. Call ahead to check entry times.' }
@@ -607,7 +625,8 @@ let DAYS = [
         { time: '8:00 AM',  activity: 'Seongsan Ilchulbong',       note: '20–30 min climb, before the buses' },
         { time: '9:30 AM',  activity: 'Fritz Coffee Seongsan',     note: 'Breakfast with a view of the peak' },
         { time: '11:00 AM', activity: 'Myeongjin Jeonbok',         note: 'Early lunch; ~30 min wait is normal' },
-        { time: '12:45 PM', activity: 'Manjanggul Lava Tube',      note: 'Section 1 only, ~1 km' },
+        { time: '12:15 PM', activity: 'Jeju Clay Pottery Lab',     note: 'Browse and buy onggi; confirm it is open' },
+        { time: '1:00 PM',  activity: 'Manjanggul Lava Tube',      note: 'Section 1 only, ~1 km' },
         { time: '2:30 PM',  activity: 'Dahee-yeon tea farm',       note: 'Lava-cave cafe, tasting and buying' },
         { time: '5:00 PM',  activity: 'Haenyeo’s Kitchen Jongdal', note: 'Booked seating, ~140 min' },
         { time: '7:30 PM',  activity: 'Drive back to Seogwipo',    note: '~1 hr 10 min in the dark' }
@@ -620,7 +639,7 @@ let DAYS = [
           tips: [
             'Haenyeo’s Kitchen: Catchtable, ₩59,000 pp, 17:00 seating, Thu–Sun only',
             'Dahee-yeon: call 064-783-0882 to confirm entry times; foot-bath needs booking',
-            'Space Seooh pottery session (optional second clay stop): book ahead'
+            'Jeju Clay Pottery Lab: message ahead to confirm someone is there to sell'
           ]
         },
         {
@@ -1083,7 +1102,6 @@ const QUICK_REF = {
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Confirmed · Oct 29, 7:00 PM · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
     { name: 'Haenyeo’s Kitchen, Jongdal', detail: 'BOOK FIRST · Not yet booked · Dinner Oct 24 (Sat), 17:00 seating · ₩59,000 pp · Thu–Sun only, so the whole Saturday is built around it · Catchtable via en.haenyeokitchen.com, or KakaoTalk / 070-5224-1828' },
-    { name: 'Seongji Pottery — wheel session', detail: 'Not yet booked · Afternoon Oct 23 (Fri) · 85 Seongeupiri-ro, Pyoseon-myeon · book on KKday (product 104114) and confirm with the studio ≥1 day ahead · ask about international shipping, pieces take weeks to fire' },
     { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Late afternoon Oct 23 (Fri) · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
     { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 22 (Thu) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
     { name: 'International Driving Permit', detail: 'BEFORE YOU FLY · Get from AAA in the US; it cannot be issued in Korea · carry it with your US license and passport · required for the Jeju rental car' },
@@ -1148,7 +1166,6 @@ const QUICK_REF = {
     { name: 'Seoul Botanic Park', detail: 'Needs a day — Gangseo-gu, next to Gimpo Airport (GMP), the opposite side of the city from ICN, so not a pre-departure stop.' },
     { name: 'Jeju Doyewon / Gueok Onggi Village', detail: 'Jeju ceramics alternate · Kang Chang-eon’s centre in Yeongnak, Daejeong (founded 1996), restored the traditional stone kilns; Gueok-ri nearby has an onggi experience school and a village museum built from 700+ donated pieces. Appointment only, hours unverified. Swap for Jeoji on Oct 22 if onggi matters more than painting.' },
     { name: 'Damhwaheon (Jeju Sum Onggi)', detail: 'Jeju ceramics alternate · Kang Seung-chul, grand prize at the 10th Korea Onggi Contest; cafe, workshop and gallery, teaches onggi classes. Unglazed brown and black tea ware. Jeju City area, exact address unconfirmed — check Naver.' },
-    { name: 'Jeju Clay Pottery Lab', detail: 'Jeju ceramics alternate · Kim Kyungchan · 28 Haengwon-ro 2-gil, Gujwa · contemporary onggi from Jeju clay, shown at Maison & Objet 2022 · contact before visiting · fits the Oct 24 east-coast day' },
     { name: 'Dansong Recipe', detail: 'Jeju alternate · Gimnyeong, northeast coast · a potter and cook: local-ingredient meal then a pottery session · Airbnb Experience in Korean, German and English, 4.94 from 359 reviews' },
     { name: 'Orteas tea farm', detail: 'Jeju tea alternate · Jeju-si · Airbnb tea session hosted in Korean and English by owner Wonhee Lee, 4.94 from 307 reviews, max 2 guests · the best English-language farm tasting found' },
     { name: 'Jeju Dawon tea maze', detail: 'Jeju tea alternate · 1246 Sallongnam-ro · 09:50–18:00 · ₩12,000 including tea and snacks · 500m up with ocean views' },
