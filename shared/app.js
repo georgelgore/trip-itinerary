@@ -71,7 +71,7 @@ function renderSection(dayId, section) {
       </div>
       <div class="section-body">
         <div class="section-content">${esc(section.content)}</div>
-        ${section.address ? `<div class="section-address"><span>📍</span><span>${addrHtml(section.address, section.mapQuery)}</span></div>` : ''}
+        ${section.address ? `<div class="section-address"><span>📍</span><span>${addrHtml(section.address, section.mapQuery, section.mapUrl)}</span></div>` : ''}
         ${section.url ? `<div class="section-address"><span>🔗</span><a href="${esc(section.url)}" target="_blank" rel="noopener">${esc(section.url)}</a></div>` : ''}
         ${notesHtml ? `<div class="section-notes">${notesHtml}</div>` : ''}
       </div>
@@ -363,12 +363,13 @@ function mapQueryFor(addr, override) {
   return name;
 }
 
-function addrHtml(addr, override) {
+function addrHtml(addr, override, mapUrl) {
   const text = esc(addr);
   if (typeof TRIP_META === 'undefined' || TRIP_META.mapLinks !== 'naver') return text;
+  // A pasted NAVER place/share link (mapUrl) wins over a name search.
   const q = mapQueryFor(addr, override);
-  if (!q) return text;
-  const href = 'https://map.naver.com/p/search/' + encodeURIComponent(q);
+  if (!q && !mapUrl) return text;
+  const href = mapUrl || ('https://map.naver.com/p/search/' + encodeURIComponent(q));
   return `<a class="map-link" href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`;
 }
 
@@ -452,7 +453,7 @@ function renderDDSection(s) {
         <span class="dd-chev">▼</span>
       </div>
       <div class="dd-section-body">
-        ${s.address ? `<div class="dd-address"><span>📍</span><span>${addrHtml(s.address, s.mapQuery)}</span></div>` : ''}
+        ${s.address ? `<div class="dd-address"><span>📍</span><span>${addrHtml(s.address, s.mapQuery, s.mapUrl)}</span></div>` : ''}
         <div class="dd-content-text">${esc(s.content)}</div>
         ${tipsHtml}
         ${notesHtml}
