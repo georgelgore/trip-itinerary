@@ -57,6 +57,7 @@ let DAYS = [
         icon: '🏨',
         content: 'ICN to Insadong is about an hour: AREX express train to Seoul Station (~45 min), then Line 1 two stops to Jonggak and a 5-min walk; or a taxi straight to the hotel (~60–80 min, more in rush hour). Check in to Hotel Sunbee Insadong — a quiet side street just off the main Insadong pedestrian street, 5 min walk to Jonggak Station (Line 1) and 7 min to Anguk Station (Line 3).',
         address: 'Hotel Sunbee Insadong · 26 Insadong 7-gil, Seoul',
+        mapQuery: '인사동7길 26',
         notes: [
           { type: 'reservation', text: 'Confirmed · Check-in Oct 18 · Check-out Oct 21' }
         ]
@@ -141,6 +142,7 @@ let DAYS = [
         icon: '🐚',
         content: 'Two craft stops along the Bukchon walk:\n\u2022 Jinjoo Shell: a three-generation najeonchilgi (mother-of-pearl inlay) maker in Gahoe-dong. Browse and buy here: small mirrors, boxes and card cases are the easy-to-pack pieces.\n\u2022 Saeksil Nubi: a traditional colored-thread quilting workshop in a public hanok. You can see finished pieces, and they offer a 50-minute quilting experience (\u20a915,000).\nFor more mother-of-pearl, the Insadong side alleys (8-gil, 10-gil, 12-gil) back near the hotel are full of craft and antique shops, and the KCDF Gallery Shop on Insadong-gil carries contemporary pieces.',
         address: 'Jinjoo Shell \u00b7 #301, 172-1 Gahoe-dong (Anguk Station exit 2) \u00b7 Saeksil Nubi \u00b7 17 Bukchon-ro 12-gil, Jongno-gu, Seoul',
+        mapQuery: '가회동 172-1',
         notes: [
           { type: 'info', text: 'Jinjoo Shell is an upstairs workshop (#301), so check on Naver Map that the shop is open before walking up. Najeon pricing guide: card cases roughly \u20a920,000\u201335,000, small jewelry boxes \u20a945,000\u201380,000. Real shell shifts color when you tilt it; painted imitations stay flat white or silver.' },
           { type: 'warning', text: 'Saeksil Nubi is listed as open 10am\u20135pm, but closed days aren\u2019t published. Call +82 2-733-2577 to confirm it\u2019s open on a Monday.' }
@@ -151,6 +153,7 @@ let DAYS = [
         icon: '🪨',
         content: 'Carve your own dojang (Korean name seal) into stone with a traditional engraving knife, guided by an English-speaking calligrapher at Feel So Good Calli Studio. Two hours; you leave with the finished seal in a case. The studio is by Anguk Station, between Bukchon and Samcheong-dong.',
         address: 'Feel So Good Calli Studio · 3F, 147 Gwanhun-dong, Jongno-gu, Seoul (Anguk Station exit 6)',
+        mapQuery: '관훈동 147',
         notes: [
           { type: 'reservation', text: 'Book online ahead (Trazy lists it). Monday session starts at 3pm and runs 2 hours. Closed Sundays.' }
         ]
@@ -194,6 +197,7 @@ let DAYS = [
         icon: '🎨',
         content: '10:50 AM to about 12:00 PM (1 hr 10 min): [1:2] Signature Color Analysis for two at Vic’s Lab Korea — founded 2016 as Korea’s only personal-color consultancy dedicated exclusively to international clients, so it’s English throughout, no interpreter needed. Full draping session plus makeup and product recommendations.',
         address: 'Vic’s Lab Korea · 15 World Cup buk-ro 4-gil, Mapo-gu, Seoul [3F]',
+        mapQuery: '월드컵북로4길 15',
         notes: [
           { type: 'reservation', text: 'Confirmed by email: Oct 20 at 10:50 AM, 2 people. Prepayment already made through EXIMLink.' },
           { type: 'cash', text: 'Remaining balance is due at the studio: pay in KRW cash, or with your own overseas credit card through EXIMLink (same system as the prepayment).' },
@@ -252,6 +256,7 @@ let DAYS = [
         icon: '🥟',
         content: 'Ipum in Yeonhui-dong, right next to Yeonnam: a Korean-Chinese spot known for jjajangmyeon and crispy dumplings.',
         address: 'Ipum · 20 Yeonhui-ro 11-gil, Seodaemun-gu, Seoul',
+        mapQuery: '연희로11길 20',
         notes: [
           { type: 'info', text: 'Dinner service 5–9pm (lunch 11am–3pm). Closed Sundays.' }
         ]
@@ -276,6 +281,7 @@ let DAYS = [
         icon: '🏨',
         content: 'Check out of Hotel Sunbee Insadong.',
         address: 'Hotel Sunbee Insadong · 26 Insadong 7-gil, Seoul',
+        mapQuery: '인사동7길 26',
         notes: []
       },
       {
@@ -598,6 +604,7 @@ let DAYS = [
         icon: '🏺',
         content: 'Kim Kyungchan’s studio, on the way from lunch to Manjanggul. He makes contemporary onggi from Jeju clay (shown at Maison & Objet in 2022): the unglazed, breathable earthenware the island is known for. This is the pottery-buying stop of the Jeju leg, in place of a class. Tea cups and small vessels are the easiest to carry home.',
         address: 'Jeju Clay Pottery Lab · 28 Haengwon-ro 2-gil, Gujwa-eup',
+        mapQuery: '행원로2길 28',
         notes: [
           { type: 'warning', text: 'A working studio with no published hours. Contact them (Instagram or the number on Naver) a few days ahead to confirm someone will be there on Saturday.' },
           { type: 'info', text: 'Wrap pieces in clothes and pack them in your carry-on for the flights back.' }
@@ -740,6 +747,7 @@ let DAYS = [
         icon: '🍜',
         content: 'Drop the bags at the hotel, then head to Apgujeong (about 30 minutes by subway or taxi) for a late lunch at Apgujeong Sanghoe: buckwheat makguksu dressed in freshly pressed perilla oil, plus chicken. Then on to the Gangnam and Songpa side for the afternoon.',
         address: 'Apgujeong Sanghoe · 13-2 Seolleung-ro 155-gil, Gangnam-gu, Seoul (near Apgujeong Rodeo Station)',
+        mapQuery: '선릉로155길 13-2',
         notes: [
           { type: 'info', text: 'Open daily 11am–10pm (last order 9pm). Takes reservations: +82 50-71426-8999.' }
         ]
@@ -779,6 +787,7 @@ let DAYS = [
         icon: '🔥',
         content: 'A late dinner at Sancheong Charcoal Garden in Euljiro, a short walk or one subway stop from the hotel, and a direct Line 2 ride from Jamsil. Saved from the "Want to go" list.',
         address: 'Sancheong Charcoal Garden \u00b7 114-6 Eulji-ro, Jung-gu, Seoul',
+        mapQuery: '을지로 114-6',
         notes: [
           { type: 'info', text: 'Open daily 11:30am\u201311pm. Long waits at peak times; join the waitlist in the Catch Table app.' }
         ]
@@ -1014,6 +1023,7 @@ let DAYS = [
         icon: '💆',
         content: 'Booked for 7:00 PM. Head back toward the hotel for EcoJardin Myeongdong \u2014 a 3-minute walk from Myeongdong Station, a few subway stops from Dongdaemun. English-speaking staff (English, Japanese, and Chinese service). Open until 10pm on weekdays. Offers K-style cuts, 9/15/18-step scalp treatments, keratin treatment, perms, and coloring.',
         address: 'EcoJardin Myeongdong \u00b7 3F, 8-10 Myeongdong 8-gil, Jung-gu, Seoul',
+        mapQuery: '명동8길 8-10',
         notes: [
           { type: 'reservation', text: 'Confirmed via WhatsApp: Oct 29 at 7:00 PM, 2 people. Contact EcoJardin on WhatsApp at +82 10-8332-6980 to make changes.' }
         ]
