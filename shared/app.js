@@ -346,7 +346,8 @@ function esc(s) {
 // ─── Map links ────────────────────────────────────────────────────────────────
 // When TRIP_META.mapLinks === 'naver', 📍 addresses become links to a NAVER Map search.
 // Query = venue name: the text before the first " · ", preferring the Hangul in parentheses
-// when present (NAVER matches Korean names far better). A section/stop may set `mapQuery`
+// when present (NAVER matches Korean names far better), else the text before the first comma
+// (extra district/city words make NAVER return nothing). A section/stop may set `mapQuery`
 // to override. Multi-leg entries (containing →) are left as plain text.
 function mapQueryFor(addr, override) {
   if (override) return override;
@@ -357,6 +358,7 @@ function mapQueryFor(addr, override) {
     name = paren[1].trim();
   } else {
     name = name.replace(/\([^)]*\)/g, '').replace(/\s{2,}/g, ' ').trim();
+    name = name.split(',')[0].trim();
   }
   return name;
 }
