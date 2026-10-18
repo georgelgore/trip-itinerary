@@ -71,7 +71,7 @@ function renderSection(dayId, section) {
       </div>
       <div class="section-body">
         <div class="section-content">${esc(section.content)}</div>
-        ${section.address ? `<div class="section-address"><span>📍</span><span>${esc(section.address)}</span></div>` : ''}
+        ${section.address ? `<div class="section-address"><span>📍</span><span>${addrHtml(section.address, section.mapQuery)}</span></div>` : ''}
         ${section.url ? `<div class="section-address"><span>🔗</span><a href="${esc(section.url)}" target="_blank" rel="noopener">${esc(section.url)}</a></div>` : ''}
         ${notesHtml ? `<div class="section-notes">${notesHtml}</div>` : ''}
       </div>
@@ -343,6 +343,33 @@ function esc(s) {
     .replace(/'/g, '&#39;');
 }
 
+// ─── Map links ────────────────────────────────────────────────────────────────
+// When TRIP_META.mapLinks === 'naver', 📍 addresses become links to a NAVER Map search.
+// Query = venue name: the text before the first " · ", preferring the Hangul in parentheses
+// when present (NAVER matches Korean names far better). A section/stop may set `mapQuery`
+// to override. Multi-leg entries (containing →) are left as plain text.
+function mapQueryFor(addr, override) {
+  if (override) return override;
+  if (!addr || addr.indexOf('→') !== -1) return '';
+  let name = String(addr).split(' · ')[0].replace(/\[[^\]]*\]/g, '').trim();
+  const paren = name.match(/\(([^)]*[\uAC00-\uD7A3][^)]*)\)/);
+  if (paren) {
+    name = paren[1].trim();
+  } else {
+    name = name.replace(/\([^)]*\)/g, '').replace(/\s{2,}/g, ' ').trim();
+  }
+  return name;
+}
+
+function addrHtml(addr, override) {
+  const text = esc(addr);
+  if (typeof TRIP_META === 'undefined' || TRIP_META.mapLinks !== 'naver') return text;
+  const q = mapQueryFor(addr, override);
+  if (!q) return text;
+  const href = 'https://map.naver.com/p/search/' + encodeURIComponent(q);
+  return `<a class="map-link" href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`;
+}
+
 // ─── DEEP DIVE ────────────────────────────────────────────────────────────────
 
 function openDeepDive(dayId) {
@@ -423,7 +450,7 @@ function renderDDSection(s) {
         <span class="dd-chev">▼</span>
       </div>
       <div class="dd-section-body">
-        ${s.address ? `<div class="dd-address"><span>📍</span><span>${esc(s.address)}</span></div>` : ''}
+        ${s.address ? `<div class="dd-address"><span>📍</span><span>${addrHtml(s.address, s.mapQuery)}</span></div>` : ''}
         <div class="dd-content-text">${esc(s.content)}</div>
         ${tipsHtml}
         ${notesHtml}

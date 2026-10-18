@@ -339,6 +339,14 @@ mark {
   line-height: 1.4;
 }
 
+.section-address a.map-link,
+.dd-address a.map-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+
 .section-notes { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
 
 .note {

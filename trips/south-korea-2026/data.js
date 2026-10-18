@@ -5,6 +5,7 @@ const TRIP_META = {
   dates: 'Oct 18 – 31',
   travelers: 'George & Doug',
   startDate: '2026-10-18',
+  mapLinks: 'naver',   // 📍 addresses link to NAVER Map
 };
 
 // ─── EDIT CONFIG ──────────────────────────────────────────────────────────────
@@ -268,6 +269,7 @@ let DAYS = [
         icon: '✈️',
         content: 'Domestic flight from Seoul/Gimpo to Jeju. Depart 9:10am, arrive 10:25am — 1h 15m.',
         address: 'Seoul/Gimpo (GMP) · Terminal D (Domestic) → Jeju (CJU)',
+        mapQuery: '김포국제공항 국내선',
         notes: []
       },
       {
@@ -700,6 +702,7 @@ let DAYS = [
         icon: '✈️',
         content: 'Domestic flight from Jeju back to Seoul/Gimpo. Depart 9:50am, arrive 11:05am — 1h 15m.',
         address: 'Jeju (CJU) → Seoul/Gimpo (GMP) · Terminal D (Domestic)',
+        mapQuery: '제주국제공항',
         notes: []
       },
       {
@@ -997,6 +1000,7 @@ let DAYS = [
         icon: '⛰️',
         content: 'Start from the hotel around 8:00 and walk up Namsan from the Myeongdong side, about 45–60 minutes up the trail and stairs to N Seoul Tower and the city views. Then go down the south side toward Hannam-dong through the Namsan Outdoor Botanical Garden, a quiet terraced garden on the old foreign-residence site. It comes out near the Leeum. Budget 2–2.5 hours total at an easy pace.',
         address: 'Namsan Park (from Myeongdong) → N Seoul Tower → Namsan Outdoor Botanical Garden, Hannam-dong',
+        mapQuery: 'N서울타워',
         notes: [
           { type: 'info', text: 'Wear real shoes; the Myeongdong-side climb is mostly stairs. Leeum opens at 10am.' }
         ]
