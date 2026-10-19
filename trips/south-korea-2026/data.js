@@ -889,6 +889,16 @@ let DAYS = [
         ]
       },
       {
+        label: 'Late Morning – Fritz Coffee Wonseo',
+        icon: '☕',
+        content: 'Coffee after the Secret Garden tour. Fritz Coffee Wonseo sits between Changdeokgung and Anguk, a hanok-style cafe where separate buildings wrap around a courtyard, with a wooden porch to sit out on if the weather holds. It is the Seoul roaster you will also meet at Seongsan on Jeju, in a much older setting. A few minutes on foot from the palace gate, and on the way to Ikseon-dong.',
+        address: 'Fritz Coffee Company Wonseo · 83 Yulgok-ro, Jongno-gu, Seoul (1F, Arario Space)',
+        mapQuery: '프릳츠 원서점',
+        notes: [
+          { type: 'info', text: 'Hours not verified, so check Naver Map the day before. Added from an Instagram guide to design-minded Seoul spots.' }
+        ]
+      },
+      {
         label: 'Midday — Ikseon-dong-gil',
         icon: '🏘️',
         content: 'Walk over to Ikseon-dong-gil — Seoul\u2019s smallest hanok village, now packed with boutique cafes, indie fashion shops, and small galleries tucked into century-old houses.',
@@ -1127,6 +1137,17 @@ let DAYS = [
         ]
       },
       {
+        label: 'Optional – MMMG',
+        icon: '✏️',
+        content: 'MMMG (Millimeter Milligram), a stationery and everyday-objects brand that works closely with small workshops and material suppliers in Seoul’s older districts. The store is on Sowol-ro at the foot of Namsan, a short taxi or about a 20-minute walk from Namdaemun Market. It opens at 11:30, so it slots between the market and Myeongdong. If the morning runs long, drop Myeongdong shopping instead.',
+        address: 'MMMG · 31-1 Sowol-ro, Jung-gu, Seoul',
+        mapQuery: '소월로 31-1',
+        notes: [
+          { type: 'info', text: 'Listed as open 11:30am to 8pm, closed the last Monday of each month (Oct 26 this year, so Saturday is fine). The listing is from a Time Out article and the store has moved before, so confirm the address and hours on Naver Map.' },
+          { type: 'warning', text: 'Leave Myeongdong by about 1:30pm for the 5:30pm flight. Keep this to 30 to 40 minutes.' }
+        ]
+      },
+      {
         label: 'Late Morning — Myeongdong Shopping',
         icon: '🛍️',
         content: 'Myeongdong is right next to Namdaemun and to the hotel, so it\u2019s an easy last stop — Aland\u2019s flagship for multi-brand Korean fashion, and Su;py (SUPY) for menswear. Alkimia Seo Chon Ice Cream (an NYT pick) or Youngpoong Bookstore Jongno Main Branch are also nearby if there\u2019s time.',
@@ -1235,7 +1256,12 @@ const QUICK_REF = {
     { name: 'BongSoon’s Black Pork', detail: 'Jeju food swap · 1010 Gueok-ri, Daejeong · 064-792-2030 · black pork with abalone and prawn · a west-side meal' },
     { name: 'Somban', detail: 'Jeju food swap · Seohong-dong, Seogwipo · gogi guksu in town if you miss Ollae Guksu' },
     { name: 'Muroi', detail: 'Jeju food swap · 21 Donggwangbondong-ro, Andeok · bread and coffee near O’Sulloc' },
-    { name: 'Dosun Dawon', detail: 'Jeju — NOT visitable · a private Amorepacific field; VisitJeju says entry is prohibited' }
+    { name: 'Dosun Dawon', detail: 'Jeju — NOT visitable · a private Amorepacific field; VisitJeju says entry is prohibited' },
+    { name: 'Daeo Bookstore', detail: 'Seochon, near Gyeongbokgung · 55 Jahamun-ro 7-gil (Gyeongbokgung Stn exit 2) · open since 1951, now a book cafe with old books and used objects · older listing says 11am to 10pm, closed days not found, check Naver · Seochon is not on a current day (Day 2 has passed), so Oct 27 open day fits · pairs with Arumjigi' },
+    { name: 'Arumjigi', detail: 'Seochon / Anguk · research, exhibitions and design programs on clothing, food and how people live · HQ in Tongui-dong (older report says ₩10,000 entry) plus a free hanok in Anguk-dong · hours not verified · pairs with Daeo Bookstore on the Oct 27 open day' },
+    { name: 'Point of View', detail: 'Seongsu · 18 Yeonmujang-gil, Seongdong-gu · three-floor stationery space: tools and art books, curated objects, art paper and fountain pens · listed 12pm to 8pm · Seongsu is not on a current day; pair with Jayeondo Sogeumppang and LCDC Seoul if Oct 27 becomes a Seongsu day' },
+    { name: 'Eastern Edition Atelier', detail: 'Gangnam · 17 Eonju-ro 133-gil, Gangnam-gu · furniture brand atelier built around an archive, tea, books and nature · Mon to Sat 10am to 7pm, CLOSED SUNDAYS, so it cannot join the Sunday Oct 25 Apgujeong lunch · fits Oct 27 or any weekday' },
+    { name: 'Sikijang', detail: 'Functional objects and exhibitions by younger craftspeople · could not confirm the address or hours, check Naver Map before slotting' }
   ]
 };
 
