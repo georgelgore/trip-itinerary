@@ -598,6 +598,8 @@ let DAYS = [
         mapQuery: '행원로2길 28',
         notes: [
           { type: 'warning', text: 'A working studio with no published hours. Contact them (Instagram or the number on Naver) a few days ahead to confirm someone will be there on Saturday.' },
+          { type: 'info', text: 'Instagram DM sent Oct 21 asking to visit Saturday around midday and for a rough price on small cups. Prices are not published anywhere online.' },
+          { type: 'warning', text: 'Fallback: if there is no reply by Friday night, skip this stop and go straight from lunch to Manjanggul. It is optional.' },
           { type: 'info', text: 'Wrap pieces in clothes and pack them in your carry-on for the flights back.' }
         ]
       },
