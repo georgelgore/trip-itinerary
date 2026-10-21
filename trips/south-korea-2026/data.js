@@ -378,16 +378,6 @@ let DAYS = [
     ],
     sections: [
       {
-        label: '10:00am — Book Seoul Secret Garden Tour (Oct 28)',
-        icon: '📲',
-        content: 'This is only the booking reminder. The Huwon Secret Garden is at Changdeokgung in Seoul, and the visit itself is on Oct 28 (Day 11). Booking for that tour opens at 10:00am KST today. Book the 10:30 English tour at ticket.uforus.co.kr before heading out. The popular slots go quickly.',
-        url: 'https://ticket.uforus.co.kr/web/main?shopEncode=&lang=en',
-        notes: [
-          { type: 'reservation', text: 'Book right at 10:00am. 5,000 KRW, plus a separate Changdeokgung ticket on the day.' },
-          { type: 'warning', text: 'You will be at O’Sulloc at 10:00am under this plan, so do it on your phone the moment it opens rather than waiting until you are back. Have the site loaded and logged in beforehand.' }
-        ]
-      },
-      {
         label: 'Breakfast — Sambo Sikdang',
         icon: '🥘',
         content: 'The classic Seogwipo seafood breakfast. Order the jeonbok ttukbaegi (abalone seafood hot pot) or the jeonbokjuk (abalone porridge). Aim for the 08:00 open so you are on the road west by about 09:00.',
