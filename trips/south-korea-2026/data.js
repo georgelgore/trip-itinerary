@@ -836,27 +836,19 @@ let DAYS = [
   },
   {
     id: 10,
-    date: 'Tuesday, October 27 — Open Day',
+    date: 'Tuesday, October 27 — Seongsu & Appointment',
     location: 'Seoul',
-    sublocation: 'Open Day',
+    sublocation: 'Seongsu & Appointment',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
-      { icon: '🗓️', text: 'Open day' },
+      { icon: '📅', text: 'GU Clinic, 12:30pm' },
       { icon: '🥖', text: 'Jayeondo salt bread' },
       { icon: '👓', text: 'Gentle Monster & Blue Elephant' },
-      { icon: '🛍️', text: 'Musinsa & EQL' },
-      { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' }
+      { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' },
+      { icon: '🛍️', text: 'Musinsa & EQL (flexible)' }
     ],
     sections: [
-      {
-        label: 'Open Day',
-        icon: '🗓️',
-        content: 'TBD — nothing planned yet.',
-        notes: [
-          { type: 'info', text: 'Open day: kept free on purpose. Fill in or leave flexible. See pinnedSpots for unslotted ideas.' }
-        ]
-      },
       {
         label: 'Morning – Jayeondo Salt Bread (Seongsu)',
         icon: '🥖',
@@ -874,26 +866,39 @@ let DAYS = [
         address: 'Seongsu-dong, Seongdong-gu, Seoul',
         mapQuery: '젠틀몬스터 성수',
         notes: [
-          { type: 'info', text: 'Look up the exact store addresses on Naver Map. Several Gentle Monster locations exist in Seoul.' }
+          { type: 'info', text: 'Look up the exact store addresses on Naver Map. Several Gentle Monster locations exist in Seoul.' },
+          { type: 'warning', text: 'Wrap up here by about 11:15 so you can get to the 12:30 appointment with time to spare.' }
+        ]
+      },
+      {
+        label: '12:30pm — GU Clinic Appointment',
+        icon: '📅',
+        content: 'Confirmed appointment for both of you at 12:30pm, on the 4th floor of the building. Consultation is in English.',
+        notes: [
+          { type: 'reservation', text: 'Confirmed via WhatsApp for Oct 27, 12:30pm, 4F. Bring your passports.' },
+          { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day, so keep the rest of the afternoon flexible.' },
+          { type: 'info', text: 'Address is not entered here yet. Use the map link in the clinic WhatsApp message and check the travel time from Seongsu.' }
         ]
       },
       {
         label: 'Lunch – Mu-gu-ok or Neung-dong Minari',
         icon: '🍲',
-        content: 'Two traditional Korean lunch options from the same friend\u2019s list: Mu-gu-ok (무구옥) for traditional Korean chicken soup, or Neung-dong Minari (능동미나리) for minari soup.',
+        content: 'After the appointment. Two traditional Korean lunch options from the same friend\u2019s list: Mu-gu-ok (무구옥) for traditional Korean chicken soup, or Neung-dong Minari (능동미나리) for minari soup.',
         address: 'Seongsu / Neung-dong area, Seoul',
         mapQuery: '무구옥',
         notes: [
-          { type: 'info', text: 'Addresses and hours not verified. Confirm both on Naver Map before choosing, since Neung-dong is a short ride from Seongsu.' }
+          { type: 'info', text: 'Addresses and hours not verified. Confirm both on Naver Map before choosing. Pick whichever is easiest to reach from the clinic, or eat near it instead if the wait runs long.' }
         ]
       },
       {
-        label: 'Afternoon – Musinsa & EQL',
+        label: 'Afternoon – Musinsa & EQL (flexible)',
         icon: '🛍️',
-        content: 'Musinsa has three stores in the area: Musinsa Kicks (shoes), Musinsa Standard (their own brand, already on your pinned list) and the Musinsa multi-brand shop. EQL is another multi-brand shop. Pair with Point of View (stationery) and LCDC Seoul (concept store), both on your pinned list.',
+        content: 'Only if time and energy allow after the appointment. Musinsa has three stores in the area: Musinsa Kicks (shoes), Musinsa Standard (their own brand, already on your pinned list) and the Musinsa multi-brand shop. EQL is another multi-brand shop. Pair with Point of View (stationery) and LCDC Seoul (concept store), both on your pinned list.',
         address: 'Seongsu-dong, Seongdong-gu, Seoul',
         mapQuery: '무신사 스탠다드 성수',
-        notes: []
+        notes: [
+          { type: 'info', text: 'Optional. Anything you skip can move to another day or stay unslotted.' }
+        ]
       },
       {
         label: 'Late Afternoon – Olive Young (optional)',
@@ -1305,6 +1310,7 @@ const QUICK_REF = {
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM (1 hr 10 min) · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
     { name: 'Seal Carving Class — Feel So Good Calli Studio', detail: 'Not yet booked · Mon Oct 19, 3–5pm · Anguk Station exit 6 · book online (Trazy)' },
     { name: 'Hwahaedang', detail: 'Confirmed via AutoReserve · Lunch Oct 20 (Tue), 12:45 · 2 people, seating only · Yeouido · listed as "Hanakando Yeouido Branch" · fee prepaid, pay for the meal at the restaurant · +82 2-785-4422' },
+    { name: 'GU Clinic appointment', detail: 'Confirmed via WhatsApp · Oct 27 (Tue), 12:30pm · 4F of the building · bring passports · waits can run long' },
     { name: 'Mongtan', detail: 'No reservations · Dinner Oct 26 (Mon) · Samgakji, Yongsan · on-site waitlist: register in person ~2–3 hrs ahead' },
     { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
