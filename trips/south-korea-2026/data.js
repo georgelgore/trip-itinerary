@@ -374,15 +374,15 @@ let DAYS = [
       { icon: '🌅', text: 'Seongsan Ilchulbong' },
       { icon: '🕳️', text: 'Manjanggul (reopened 2026)' },
       { icon: '🍵', text: 'Dahee-yeon lava-cave tea' },
-      { icon: '🤿', text: 'Haenyeo’s Kitchen' }
+      { icon: '🍖', text: 'Ungdam Sikdang' }
     ],
     sections: [
       {
         label: '07:00 — Drive East',
         icon: '🚗',
-        content: 'Leave Seogwipo by 07:00 for Seongsan, about an hour. This is the one day with a hard anchor at the far end of it, so the early start is doing real work.',
+        content: 'Leave Seogwipo by 07:00 for Seongsan, about an hour. The early start gets you up the cone before the tour buses and leaves room for the full run.',
         notes: [
-          { type: 'info', text: 'Moved here from Saturday for the weather. Thursday is the one dry day of the leg (clear, about 10–17°C, light wind), which suits the open tuff cone and the coastal dinner. Rain is forecast from Friday midday or evening through Sunday.' }
+          { type: 'info', text: 'Moved here from Saturday for the weather. Thursday is the one dry day of the leg (clear, about 10–17°C, light wind), which suits the open tuff cone and the coast. Rain is forecast from Friday midday or evening through Sunday.' }
         ]
       },
       {
@@ -407,7 +407,7 @@ let DAYS = [
       {
         label: 'Late Morning — Myeongjin Jeonbok',
         icon: '🦪',
-        content: 'Jeonbok dolsotbap, abalone stone-pot rice, which is the dish people drive to this coast for. Grilled abalone too. Eat it as an early lunch so you are hungry again for the haenyeo dinner.\nAbalone rice runs about ₩15,000 and up, grilled abalone about ₩30,000 and up (older figures, so expect more).',
+        content: 'Jeonbok dolsotbap, abalone stone-pot rice, which is the dish people drive to this coast for. Grilled abalone too. Eat it as an early lunch, before the pottery lab and Manjanggul.\nAbalone rice runs about ₩15,000 and up, grilled abalone about ₩30,000 and up (older figures, so expect more).',
         address: 'Myeongjin Jeonbok (명진전복) · 1282 Haemajihaean-ro, Pyeongdae-ri, Gujwa-eup · 064-782-9944',
         notes: [
           { type: 'info', text: 'Open 09:30–20:30, last order 20:00, closed Tuesdays. Walk-in with a waiting ticket; 30-minute waits are normal.' }
@@ -446,25 +446,25 @@ let DAYS = [
         ]
       },
       {
-        label: 'Dinner — Haenyeo’s Kitchen',
-        icon: '🤿',
-        content: 'The anchor of the whole Jeju leg. A staged performance and Q&A with a haenyeo diver in her 90s, followed by a buffet of the seafood the divers caught. About 140 minutes, ₩59,000 per person. It is the most direct way to meet the island’s women divers.',
-        address: 'Haenyeo’s Kitchen, Jongdal branch (해녀의부엌 종달점) · 2265 Haemajihaean-ro, Gujwa-eup · 070-5224-1828',
-        notes: [
-          { type: 'reservation', text: 'Reservation required via Catchtable, linked from en.haenyeokitchen.com. Thu–Sun only, seatings at 12:00 and 17:00. Book this first: it runs only four days a week and the rest of Thursday is built around the 17:00 seating. Book it for Thursday Oct 22.' },
-          { type: 'info', text: 'The Q&A is in Jeju dialect, so expect to lean on interpretation. If you ever switch to the noon seating, the free haenyeo diving show below Ilchulbong runs about 13:30 and 15:00 for 20 minutes, weather permitting (times vary by source).' }
-        ]
+        label: 'Late Afternoon — Drive Back',
+        icon: '🚗',
+        content: 'About 1 hour 10 minutes back to Seogwipo. Leave Dahee-yeon by about 4:00 to reach Ungdam Sikdang around 5:30, after it opens at 3:00. Take Route 1136 or 97 rather than the coast road.',
+        notes: []
       },
       {
-        label: 'Evening — Drive Back',
-        icon: '🌙',
-        content: 'About 1 hour 10 minutes back to Seogwipo, in the dark. Take Route 1136 or 97 rather than the coast road.',
-        notes: []
+        label: 'Dinner — Ungdam Sikdang',
+        icon: '🍖',
+        content: 'Back in Seogwipo for Jeju heukdwaeji (black pork) grilled over charcoal briquettes on a pot-lid griddle. Essentially one meat, one option, which makes it easy without Korean. About 3 minutes on foot from the Olle Market. Replaces Haenyeo’s Kitchen tonight.',
+        address: 'Ungdam Sikdang (웅담식당) · 5 Jungang-ro 59beon-gil, Seogwipo · 0507-1379-6442',
+        notes: [
+          { type: 'warning', text: 'Mon–Sat 15:00–22:00, closed Sundays, so Thursday works. Do not arrive before 15:00 (an older listing says noon, but recent reports agree on a 15:00 open). Roughly ₩20,000–30,000 per person (estimate). Walk-in; lot next door.' },
+          { type: 'info', text: 'Ungdam Sikdang is also listed for the Oct 21 dinner.' }
+        ]
       }
     ],
     deepDive: {
       title: 'East Coast Run',
-      subtitle: 'Thursday Oct 22 · the one day with a hard anchor at the far end',
+      subtitle: 'Thursday Oct 22 · the dry day, so the full east coast run',
       stops: [],
       timeline: [
         { time: '7:00 AM',  activity: 'Leave Seogwipo',            note: '~1 hr to Seongsan via 1136/97' },
@@ -474,16 +474,15 @@ let DAYS = [
         { time: '12:15 PM', activity: 'Jeju Clay Pottery Lab',     note: 'Browse and buy onggi; confirm it is open' },
         { time: '1:00 PM',  activity: 'Manjanggul Lava Tube',      note: 'Section 1 only, ~1 km' },
         { time: '2:30 PM',  activity: 'Dahee-yeon tea farm',       note: 'Lava-cave cafe, tasting and buying' },
-        { time: '5:00 PM',  activity: 'Haenyeo’s Kitchen Jongdal', note: 'Booked seating, ~140 min' },
-        { time: '7:30 PM',  activity: 'Drive back to Seogwipo',    note: '~1 hr 10 min in the dark' }
+        { time: '4:00 PM',  activity: 'Drive back to Seogwipo',    note: '~1 hr 10 min via 1136 or 97' },
+        { time: '5:30 PM',  activity: 'Ungdam Sikdang',            note: 'Black pork; opens 3:00 PM, closed Sundays' }
       ],
       logistics: [
         {
           icon: '📋',
-          label: 'What has to be booked',
-          content: 'Haenyeo’s Kitchen is the only hard reservation today, and it decides the shape of the day.',
+          label: 'What to confirm',
+          content: 'Nothing today is a hard reservation, but two stops need a quick check.',
           tips: [
-            'Haenyeo’s Kitchen: Catchtable, ₩59,000 pp, 17:00 seating, Thu–Sun only',
             'Dahee-yeon: call 064-783-0882 to confirm entry times; foot-bath needs booking',
             'Jeju Clay Pottery Lab: message ahead to confirm someone is there to sell'
           ]
@@ -495,16 +494,16 @@ let DAYS = [
           content: 'Roughly an hour each way. Parking is easy at all of today’s stops.',
           tips: [
             'Use Naver Map, not Google Maps, for directions and live hours',
-            'Return on Route 1136 or 97, not the coast road, after dark',
+            'Return on Route 1136 or 97, not the coast road',
             'Speed cameras are everywhere and fines follow the rental'
           ]
         },
         {
           icon: '⚠️',
           label: 'Weather',
-          content: 'Thursday is the dry day: clear and light wind. It is the right day for the open tuff cone and the coastal dinner, because Friday evening through Sunday is wet. There is no good dry swap day if something forces a change.',
+          content: 'Thursday is the dry day: clear and light wind. It is the right day for the open tuff cone and the coast, because Friday evening through Sunday is wet. There is no good dry swap day if something forces a change.',
           notes: [
-            { type: 'warning', text: 'If you must change days, move the Catchtable booking first: Haenyeo’s Kitchen runs Thu–Sun only.' }
+            { type: 'info', text: 'Winds were strong into Thursday morning and seas stay high, so check conditions at the Seongsan trailhead before climbing.' }
           ]
         }
       ],
@@ -513,7 +512,7 @@ let DAYS = [
           id: 'east-prep',
           label: 'Before Thursday',
           items: [
-            'Haenyeo’s Kitchen booked on Catchtable for Thursday Oct 22, 17:00 seating',
+            'Jeju Clay Pottery Lab confirmed for Thursday (010-2124-1598)',
             'Dahee-yeon confirmed still operating (064-783-0882 or Naver Map)',
             'Seongsan Ilchulbong hours checked on Naver',
             'Manjanggul confirmed open (1st Wednesday closures)',
@@ -536,7 +535,8 @@ let DAYS = [
       { icon: '☕', text: 'Ohsayo Coffee' },
       { icon: '🥾', text: 'Olle Route 7 to Oedolgae' },
       { icon: '🏘️', text: 'Seongeup Folk Village' },
-      { icon: '🍵', text: 'Sumangdawon tea class' }
+      { icon: '🍵', text: 'Sumangdawon tea class' },
+      { icon: '☕', text: 'Damda Jeju' }
     ],
     sections: [
       {
@@ -587,6 +587,16 @@ let DAYS = [
         ]
       },
       {
+        label: 'Afternoon — Damda Jeju',
+        icon: '☕',
+        content: 'A rustic cafe in Pyoseon-myeon with windows onto the citrus orchards, a short drive from Seongeup, so it slots in between the village and Sumangdawon. One write-up says it serves a weekly hansik (Korean set meal) on a menu that changes with local produce, and suggests going on a Friday.',
+        address: 'Damda Jeju (담다제주) · 732 Wonnim-ro, Pyoseon-myeon, Seogwipo',
+        mapQuery: '담다제주',
+        notes: [
+          { type: 'info', text: 'Open Mon–Sat 10:30–18:00, closed Sundays (from a travel blog; confirm on Naver). Check the hansik day and whether it needs booking before building a meal around it. Lunch is already Yetnal Patjuk.' }
+        ]
+      },
+      {
         label: 'Late Afternoon — Sumangdawon Tea Class',
         icon: '🍵',
         content: 'On the way back toward Seogwipo. A one-hour tea and matcha class at a farm run by a local farming association: you taste their own organic green, black and matcha, whisk matcha, and get tea snacks. They sell leaf and teaware made on the farm, and the black tea is the one worth attention for a pu-erh and white-tea drinker. ₩30,000 per person.',
@@ -619,18 +629,31 @@ let DAYS = [
       { icon: '🍵', text: 'O’Sulloc Tea Stone' },
       { icon: '🎨', text: 'Jeoji Artists’ Village' },
       { icon: '🏛️', text: 'Bonte Museum (Ando)' },
-      { icon: '🐟', text: 'Negeori galchi' }
+      { icon: '🐟', text: 'Negeori galchi' },
+      { icon: '☕', text: 'Lavarr' },
+      { icon: '🐟', text: 'Miyoungine mackerel sashimi' }
     ],
     sections: [
       {
         label: 'Breakfast — Sambo Sikdang',
         icon: '🥘',
-        content: 'The classic Seogwipo seafood breakfast. Order the jeonbok ttukbaegi (abalone seafood hot pot) or the jeonbokjuk (abalone porridge). Aim for the 08:00 open so you are on the road west by about 09:00.',
+        content: 'The classic Seogwipo seafood breakfast. Order the jeonbok ttukbaegi (abalone seafood hot pot) or the jeonbokjuk (abalone porridge). Aim for the 08:00 open, then coffee at Lavarr when it opens at 9:00, so you are on the road west by about 10:00.',
         address: 'Sambo Sikdang (삼보식당) · 25 Jungjeong-ro, Seogwi-dong, Seogwipo · 064-762-3620',
         notes: [
           { type: 'info', text: 'Open 08:00–21:00, last order 20:00. Closed the 2nd and 4th Wednesday of the month (Oct 14 and 28), so today is clear. Walk-in, cards accepted.' },
           { type: 'warning', text: 'There is a second Sambo Sikdang in Shin-Jeju that closes the 2nd and 4th Tuesday. Make sure you go to the Seogwipo one.' },
           { type: 'info', text: 'Moved here from Thursday for the weather. Saturday is forecast wet all day (about 30 mm), so this day is built around indoor stops: the tea museum, the art museums and Bonte. Allow extra time for the drives.' }
+        ]
+      },
+      {
+        label: 'Morning — Lavarr',
+        icon: '☕',
+        content: 'Coffee at Lavarr (라바르), a bathhouse that opened in 1971, closed in 2017 and was reimagined in 2022 as a cafe and arts space in central Seogwipo. Each floor is different, so go up to the roof before picking a seat. It opens at 9:00, so go straight after Sambo Sikdang, then head west.',
+        address: 'Lavarr (라바르) · 13 Jungang-ro, Seogwipo',
+        mapQuery: '서귀포시 중앙로 13',
+        notes: [
+          { type: 'info', text: 'Open daily 9:00–22:00, no closing day listed (from a travel blog; confirm on Naver).' },
+          { type: 'warning', text: 'This pushes O’Sulloc to about 10:30, when it gets busy. Keep the coffee to about 40 minutes.' }
         ]
       },
       {
@@ -657,19 +680,19 @@ let DAYS = [
         ]
       },
       {
-        label: 'Lunch — Gozip Dol Wooluck',
-        icon: '🐠',
-        content: 'A Jeju hansang set table built around braised and fried rockfish, and the island’s top-rated restaurant on Tripadvisor. About 30 minutes from Jeoji, on the Jungmun side.',
-        address: 'Gozip Dol Wooluck, Jungmun branch (고집돌우럭 중문점) · 879 Iljuseo-ro, Seogwipo · 0507-1408-1540',
+        label: 'Lunch — Miyoungine Mackerel Sashimi',
+        icon: '🐟',
+        content: 'Miyoungine (미영이네) is known for raw Jeju mackerel sashimi (고등어회), often served as a set with a mackerel stew. This is the Hamo branch in Daejeong-eup on the southwest coast, so plan a drive south from Jeoji and then back toward Bonte (allow about 35–40 minutes from Jeoji and 20–25 from Bonte; estimates). A reviewer paid ₩85,000 for a sashimi and stew set at the Jocheon branch; Hamo prices may differ.',
+        address: 'Miyoungine (미영이네식당) · 42 Hamohanggu-ro, Daejeong-eup, Seogwipo',
+        mapQuery: '하모항구로 42',
         notes: [
-          { type: 'warning', text: 'Open 10:00–21:30 with a 15:00–17:00 break, and lunch last order is 14:50. You must be in the door before then. Lunch is walk-in only: join the line in person, order while you wait, and it moves fast.' },
-          { type: 'info', text: 'Dinner seats can be reserved on Catchtable (about 10% of them, released on the 1st and 15th at 11:00 for the next two weeks) if you ever want to swap lunch for dinner.' }
+          { type: 'warning', text: 'Opening hours, closed days and reservation rules were not found. Check Naver Map or call before driving down, and have a fallback in mind. One review calls the service slow.' }
         ]
       },
       {
         label: 'Optional — Jestory',
         icon: '🏺',
-        content: 'A shop in the Jungmun area, near lunch, stocking work from about 300 local Jeju makers, ceramics included, alongside gifts and accessories. A quick browse on the way to the Bonte Museum if you want more pottery options than Thursday’s studio.',
+        content: 'A shop stocking work from about 300 local Jeju makers, ceramics included, alongside gifts and accessories. A quick browse on the way to the Bonte Museum if you want more pottery options than Thursday’s studio.',
         address: 'Jestory (제스토리) · 60 Maksukpo-ro, Seogwipo',
         notes: [
           { type: 'info', text: 'Listed as open 09:00–21:00 with no closing day. Hours came from a travel listing, so check Naver before you go.' }
@@ -771,14 +794,10 @@ let DAYS = [
         ]
       },
       {
-        label: 'Evening — Sancheong Charcoal Garden',
-        icon: '🔥',
-        content: 'A late dinner at Sancheong Charcoal Garden in Euljiro, a short walk or one subway stop from the hotel, and a direct Line 2 ride from Jamsil. Saved from the "Want to go" list.',
-        address: 'Sancheong Charcoal Garden \u00b7 114-6 Eulji-ro, Jung-gu, Seoul',
-        mapQuery: '을지로 114-6',
-        notes: [
-          { type: 'info', text: 'Open daily 11:30am\u201311pm. Long waits at peak times; join the waitlist in the Catch Table app.' }
-        ]
+        label: 'Evening — Fried Chicken',
+        icon: '🍗',
+        content: 'TBD. Fried chicken for dinner, spot not chosen yet. Replaces Sancheong Charcoal Garden.',
+        notes: []
       }
     ]
   },
@@ -1093,6 +1112,12 @@ let DAYS = [
         notes: [
           { type: 'reservation', text: 'Confirmed via WhatsApp: Oct 29 at 7:00 PM, 2 people. Contact EcoJardin on WhatsApp at +82 10-8332-6980 to make changes.' }
         ]
+      },
+      {
+        label: 'Dinner — Doug to Decide',
+        icon: '🍽️',
+        content: 'TBD. Doug is choosing dinner. EcoJardin starts at 7:00 PM, so this will be a late dinner after the treatment, in or near Myeongdong.',
+        notes: []
       }
     ]
   },
@@ -1162,6 +1187,12 @@ let DAYS = [
         content: 'A cluster of multi-level antique and vintage furniture shops along the street behind the Hamilton Hotel — Korean, Japanese, and European pieces, plus smaller decorative antiques. Worth a browse even if you\u2019re not shipping furniture home.',
         address: 'Itaewon Antique Furniture Street, Itaewon-dong, Yongsan-gu, Seoul',
         mapQuery: '이태원 앤틱가구거리',
+        notes: []
+      },
+      {
+        label: 'Dinner — Doug to Decide',
+        icon: '🍽️',
+        content: 'TBD. Doug is choosing dinner. Itaewon is expected to be crowded for Halloween weekend, so a reservation or early seating will help if he picks something there.',
         notes: []
       },
       {
@@ -1294,7 +1325,6 @@ const QUICK_REF = {
     { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Confirmed · Oct 29, 7:00 PM · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
-    { name: 'Haenyeo’s Kitchen, Jongdal', detail: 'BOOK FIRST · Not yet booked · Dinner Oct 22 (Thu), 17:00 seating · ₩59,000 pp · Thu–Sun only, so the whole Thursday is built around it · moved from Sat for the weather · Catchtable via en.haenyeokitchen.com, or KakaoTalk / 070-5224-1828' },
     { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Late afternoon Oct 23 (Fri) · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
     { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 24 (Sat) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
     { name: 'International Driving Permit', detail: 'BEFORE YOU FLY · Get from AAA in the US; it cannot be issued in Korea · carry it with your US license and passport · required for the Jeju rental car' },
@@ -1303,23 +1333,24 @@ const QUICK_REF = {
   hours: [
     { name: 'Ollae Guksu (Oct 21)', detail: '08:00–15:00, last order ~14:55 · closed Sundays, so Oct 21 is the only chance' },
     { name: 'Seogwi Dawon (Oct 21)', detail: 'Closes 17:00 · arrive by 16:15 · closed Tuesdays' },
-    { name: 'Ungdam Sikdang (Oct 21)', detail: 'Opens 15:00, to 22:00 · closed Sundays · an older listing says noon, do not rely on it' },
+    { name: 'Ungdam Sikdang (Oct 21, Oct 22)', detail: 'Opens 15:00, to 22:00 · closed Sundays · an older listing says noon, do not rely on it' },
     { name: 'Arario Museum (Oct 21)', detail: '10:00–19:00, last entry 18:00 · closed Mondays' },
     { name: 'Sambo Sikdang (Oct 24)', detail: '08:00–21:00, last order 20:00 · closed 2nd & 4th Wednesday (Oct 14, 28) · go to the Seogwipo branch, not Shin-Jeju' },
-    { name: 'Gozip Dol Wooluck (Oct 24)', detail: 'Lunch last order 14:50, then closed 15:00–17:00 · be in the door before 14:50 · lunch is walk-in only' },
+    { name: 'Lavarr (Oct 24)', detail: 'Open daily 09:00–22:00 · former bathhouse, go up to the roof · 13 Jungang-ro, Seogwipo' },
+    { name: 'Miyoungine, Hamo (Oct 24)', detail: 'Hours and closed days not found · check Naver or call before going · mackerel sashimi (고등어회) · 42 Hamohanggu-ro, Daejeong-eup' },
     { name: 'Bonte Museum (Oct 24)', detail: '10:00–18:00 but last admission 17:00 · arrive by 16:30' },
     { name: 'Jeju Museum of Contemporary Art (Oct 24)', detail: '09:00–18:00 · sources disagree on the closing day (most say Mon, one says Wed); Saturday is safe · surprise closures during exhibition changeovers, check Naver the day before' },
     { name: 'Ohsayo Coffee (Oct 23)', detail: '10:00–18:30 · closed Sundays · almost no sign, pin it on Naver Map' },
     { name: 'Yetnal Patjuk (Oct 23)', detail: '10:00–17:00 · closed Mondays' },
+    { name: 'Damda Jeju (Oct 23)', detail: 'Mon–Sat 10:30–18:00 · closed Sundays · cafe with orchard views, weekly hansik meal · 732 Wonnim-ro, Pyoseon-myeon' },
     { name: 'Ppolsaljib (Oct 23)', detail: 'Opens 15:00 to midnight · no closing day but can close early when the meat sells out · ~30 min wait after 17:00' },
     { name: 'Myeongjin Jeonbok (Oct 22)', detail: '09:30–20:30, last order 20:00 · closed Tuesdays · waiting ticket, ~30 min' },
     { name: 'Manjanggul (Oct 22)', detail: '09:00–18:00, last entry 17:10 · closed the 1st Wednesday · reopened May 30, 2026, Section 1 only (~1 km of 7.4 km)' },
-    { name: 'Haenyeo’s Kitchen (Oct 22)', detail: 'Thu–Sun only · seatings 12:00 and 17:00 · ~140 min' },
     { name: 'Seongsan Ilchulbong (Oct 22)', detail: 'Oct hours 05:00–19:00, last ticket 18:00 · ₩5,000 adults · closed only the first Monday of the month (checked Oct 21) · confirm on Naver' }
   ],
   cashOnly: [
     { name: 'Seogwipo Maeil Olle Market', detail: 'Older vendors are cash-only · carry ₩50,000–100,000 in small notes · night stalls run 17:00–22:00' },
-    { name: 'Everything else on Jeju', detail: 'None of the Jeju restaurants on this itinerary was reported cash-only; Sambo Sikdang and Gozip Dol Wooluck take cards. Card acceptance at the smaller spots was not confirmed, so keep some cash.' }
+    { name: 'Everything else on Jeju', detail: 'None of the Jeju restaurants on this itinerary was reported cash-only; Sambo Sikdang takes cards. Card acceptance at the smaller spots was not confirmed, so keep some cash.' }
   ],
   transit: [
     { name: 'Arrival Flight', detail: 'Lands Incheon (ICN) 3:20pm, Oct 18 — add flight number once booked' },
