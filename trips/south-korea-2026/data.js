@@ -843,26 +843,15 @@ let DAYS = [
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
       { icon: '📅', text: 'GU Clinic, 12:30pm' },
-      { icon: '🥖', text: 'Jayeondo salt bread' },
       { icon: '👓', text: 'Gentle Monster & Blue Elephant' },
       { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' },
       { icon: '🛍️', text: 'Musinsa & EQL (flexible)' }
     ],
     sections: [
       {
-        label: 'Morning – Jayeondo Salt Bread (Seongsu)',
-        icon: '🥖',
-        content: 'Suggested use of this open day: Seongsu-dong, Seoul\u2019s converted-warehouse shopping district. Start with salt bread at Jayeondo Sogeumppang (already on your pinned list), then walk the neighborhood.',
-        address: 'Jayeondo Sogeumppang, Seongsu-dong, Seongdong-gu, Seoul',
-        mapQuery: '자연도소금빵 성수',
-        notes: [
-          { type: 'info', text: 'Hours not verified, so check Naver Map. Added from a friend\u2019s Seoul recs. Closest stations are Seongsu or Ttukseom (Line 2).' }
-        ]
-      },
-      {
-        label: 'Late Morning – Eyewear: Gentle Monster & Blue Elephant',
+        label: 'Morning – Eyewear: Gentle Monster & Blue Elephant',
         icon: '👓',
-        content: 'Gentle Monster is the Korean eyewear brand known for its theatrical flagship stores. Blue Elephant is another eyewear shop worth comparing. Both are in Seongsu.',
+        content: 'Gentle Monster is the Korean eyewear brand known for its theatrical flagship stores. Blue Elephant is another eyewear shop worth comparing. Both are in Seongsu, Seoul\u2019s converted-warehouse shopping district. Closest stations are Seongsu or Ttukseom (Line 2).',
         address: 'Seongsu-dong, Seongdong-gu, Seoul',
         mapQuery: '젠틀몬스터 성수',
         notes: [
@@ -952,14 +941,6 @@ let DAYS = [
         content: 'Walk over to Ikseon-dong-gil — Seoul\u2019s smallest hanok village, now packed with boutique cafes, indie fashion shops, and small galleries tucked into century-old houses.',
         address: 'Ikseon-dong-gil, Jongno-gu, Seoul',
         mapQuery: '익선동',
-        notes: []
-      },
-      {
-        label: 'Snack – Jayeondo Salt Bread (Ikseon-dong)',
-        icon: '🥖',
-        content: 'Ikseon-dong is famous for its salt bread, from Jayeondo. A quick stop while you walk the alleys. You will have the Seongsu branch on Oct 27 too, so treat this as the lighter option if you skip that.',
-        address: 'Ikseon-dong, Jongno-gu, Seoul',
-        mapQuery: '자연도소금빵 익선동',
         notes: []
       },
       {
