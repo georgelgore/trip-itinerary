@@ -23,6 +23,7 @@ const EDIT_CFG = {
     cashOnly: 'Cash Only',
     transit: 'Transit',
     pinnedSpots: 'Saved Pins',
+    tips: 'Tips',
   },
 };
 
@@ -849,7 +850,11 @@ let DAYS = [
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
-      { icon: '🗓️', text: 'Open day' }
+      { icon: '🗓️', text: 'Open day' },
+      { icon: '🥖', text: 'Jayeondo salt bread' },
+      { icon: '👓', text: 'Gentle Monster & Blue Elephant' },
+      { icon: '🛍️', text: 'Musinsa & EQL' },
+      { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' }
     ],
     sections: [
       {
@@ -859,6 +864,51 @@ let DAYS = [
         notes: [
           { type: 'info', text: 'Open day: kept free on purpose. Fill in or leave flexible. See pinnedSpots for unslotted ideas.' }
         ]
+      },
+      {
+        label: 'Morning – Jayeondo Salt Bread (Seongsu)',
+        icon: '🥖',
+        content: 'Suggested use of this open day: Seongsu-dong, Seoul\u2019s converted-warehouse shopping district. Start with salt bread at Jayeondo Sogeumppang (already on your pinned list), then walk the neighborhood.',
+        address: 'Jayeondo Sogeumppang, Seongsu-dong, Seongdong-gu, Seoul',
+        mapQuery: '자연도소금빵 성수',
+        notes: [
+          { type: 'info', text: 'Hours not verified, so check Naver Map. Added from a friend\u2019s Seoul recs. Closest stations are Seongsu or Ttukseom (Line 2).' }
+        ]
+      },
+      {
+        label: 'Late Morning – Eyewear: Gentle Monster & Blue Elephant',
+        icon: '👓',
+        content: 'Gentle Monster is the Korean eyewear brand known for its theatrical flagship stores. Blue Elephant is another eyewear shop worth comparing. Both are in Seongsu.',
+        address: 'Seongsu-dong, Seongdong-gu, Seoul',
+        mapQuery: '젠틀몬스터 성수',
+        notes: [
+          { type: 'info', text: 'Look up the exact store addresses on Naver Map. Several Gentle Monster locations exist in Seoul.' }
+        ]
+      },
+      {
+        label: 'Lunch – Mu-gu-ok or Neung-dong Minari',
+        icon: '🍲',
+        content: 'Two traditional Korean lunch options from the same friend\u2019s list: Mu-gu-ok (무구옥) for traditional Korean chicken soup, or Neung-dong Minari (능동미나리) for minari soup.',
+        address: 'Seongsu / Neung-dong area, Seoul',
+        mapQuery: '무구옥',
+        notes: [
+          { type: 'info', text: 'Addresses and hours not verified. Confirm both on Naver Map before choosing, since Neung-dong is a short ride from Seongsu.' }
+        ]
+      },
+      {
+        label: 'Afternoon – Musinsa & EQL',
+        icon: '🛍️',
+        content: 'Musinsa has three stores in the area: Musinsa Kicks (shoes), Musinsa Standard (their own brand, already on your pinned list) and the Musinsa multi-brand shop. EQL is another multi-brand shop. Pair with Point of View (stationery) and LCDC Seoul (concept store), both on your pinned list.',
+        address: 'Seongsu-dong, Seongdong-gu, Seoul',
+        mapQuery: '무신사 스탠다드 성수',
+        notes: []
+      },
+      {
+        label: 'Late Afternoon – Olive Young (optional)',
+        icon: '💄',
+        content: 'Olive Young is the Korean Sephora, and there is one on almost every main street. A good place for a first skincare pass before the Myeongdong stop on Oct 31.',
+        mapQuery: '올리브영 성수',
+        notes: []
       }
     ]
   },
@@ -872,6 +922,7 @@ let DAYS = [
     highlights: [
       { icon: '🌳', text: 'Huwon Secret Garden' },
       { icon: '🏘️', text: 'Ikseon-dong-gil' },
+      { icon: '🍸', text: 'Saeseoul (optional)' },
       { icon: '🎨', text: 'Seoul Museum of Craft Art' },
       { icon: '🛒', text: 'Gwangjang Market' },
       { icon: '🍖', text: 'Galmaegisal Alley' }
@@ -904,6 +955,14 @@ let DAYS = [
         content: 'Walk over to Ikseon-dong-gil — Seoul\u2019s smallest hanok village, now packed with boutique cafes, indie fashion shops, and small galleries tucked into century-old houses.',
         address: 'Ikseon-dong-gil, Jongno-gu, Seoul',
         mapQuery: '익선동',
+        notes: []
+      },
+      {
+        label: 'Snack – Jayeondo Salt Bread (Ikseon-dong)',
+        icon: '🥖',
+        content: 'Ikseon-dong is famous for its salt bread, from Jayeondo. A quick stop while you walk the alleys. You will have the Seongsu branch on Oct 27 too, so treat this as the lighter option if you skip that.',
+        address: 'Ikseon-dong, Jongno-gu, Seoul',
+        mapQuery: '자연도소금빵 익선동',
         notes: []
       },
       {
@@ -959,6 +1018,16 @@ let DAYS = [
         notes: [
           { type: 'info', text: 'Walk-in only. The alley\u2019s grills open mid-afternoon (Mi Galmaegisal: 2:30\u201311pm, closed Mondays). Gets packed after about 7pm, so go early for an outdoor table.' }
         ]
+      },
+      {
+        label: 'Late Evening – Saeseoul Cocktail Bar (optional)',
+        icon: '🍸',
+        content: 'Saeseoul (새서울) is a trendy cocktail bar hidden inside an arcade in Ikseon-dong, with great views from the top. Close to the galmaegisal alley, so it works as a final drink before heading back to Myeongdong.',
+        address: 'Saeseoul, Ikseon-dong, Jongno-gu, Seoul',
+        mapQuery: '새서울 익선동',
+        notes: [
+          { type: 'info', text: 'Hours not verified, so check Naver Map. Added from a friend\u2019s Seoul recs.' }
+        ]
       }
     ]
   },
@@ -973,6 +1042,7 @@ let DAYS = [
       { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
       { icon: '☕', text: 'Cha Cha Tea Club' },
       { icon: '🛍️', text: 'DDP' },
+      { icon: '🌊', text: 'Cheonggyecheon walk' },
       { icon: '💆', text: 'EcoJardin Myeongdong' }
     ],
     sections: [
@@ -1029,6 +1099,16 @@ let DAYS = [
         notes: []
       },
       {
+        label: 'Early Evening – Cheonggyecheon Stream Walk (optional)',
+        icon: '🌊',
+        content: 'Cheonggyecheon is the man-made stream running through central Seoul, nice to walk along. It passes right by Dongdaemun, so you can walk it west toward Myeongdong after DDP (about 40 to 50 minutes to the Gwanggyo area, then a short walk to the hotel). Or just do a stretch of it and take the subway.',
+        address: 'Cheonggyecheon Stream, Jung-gu / Jongno-gu, Seoul',
+        mapQuery: '청계천',
+        notes: [
+          { type: 'warning', text: 'EcoJardin is booked for 7:00 PM. Leave the stream by about 6:15 so you are not rushed.' }
+        ]
+      },
+      {
         label: 'Evening — Hair/Scalp Treatment at EcoJardin',
         icon: '💆',
         content: 'Booked for 7:00 PM. Head back toward the hotel for EcoJardin Myeongdong \u2014 a 3-minute walk from Myeongdong Station, a few subway stops from Dongdaemun. English-speaking staff (English, Japanese, and Chinese service). Open until 10pm on weekdays. Offers K-style cuts, 9/15/18-step scalp treatments, keratin treatment, perms, and coloring.',
@@ -1050,6 +1130,7 @@ let DAYS = [
     highlights: [
       { icon: '⛰️', text: 'Namsan hike' },
       { icon: '🖼️', text: 'Leeum Museum of Art' },
+      { icon: '🎨', text: 'Pace Gallery' },
       { icon: '🛍️', text: 'Beaker & NIFTYDO' },
       { icon: '🪑', text: 'Itaewon Antique Furniture St.' },
       { icon: '🍹', text: 'VIBD BLVD / Shortbus' }
@@ -1072,6 +1153,16 @@ let DAYS = [
         address: 'Leeum Museum of Art, Hannam-dong, Yongsan-gu, Seoul',
         mapQuery: '리움미술관',
         notes: []
+      },
+      {
+        label: 'Late Morning – Pace Gallery Seoul',
+        icon: '🎨',
+        content: 'Pace Gallery is a short walk from the Leeum in Hannam-dong, so it fits before the Kwangjuyo stop. Check the current show before you go.',
+        address: 'Pace Gallery Seoul, Hannam-dong, Yongsan-gu, Seoul',
+        mapQuery: '페이스갤러리 서울',
+        notes: [
+          { type: 'info', text: 'Hours and exact address not verified. Confirm on Naver Map.' }
+        ]
       },
       {
         label: 'Midday — Kwangjuyo Showroom',
@@ -1103,6 +1194,16 @@ let DAYS = [
         content: 'VIBD BLVD, an NYT pick, for a last relaxed evening — or Shortbus, a cozy LGBTQ+ corner bar also in Itaewon, if you\u2019re after something more low-key and neighborhood-y. Gyeongridan-gil is right next door for a bar crawl: Berry Very Much, Sool Club, and craft makgeolli.',
         address: 'VIBD BLVD / Shortbus, Itaewon, Seoul',
         notes: []
+      },
+      {
+        label: 'Evening – Itaewon Back Alleys & Halloween Crowds',
+        icon: '🎃',
+        content: 'A friend\u2019s tip for Itaewon: wander the back alleys for bars and restaurants. The same friend advised avoiding Itaewon around Halloween, and Oct 30 is the Friday before Halloween weekend. Plan to be done by early evening or keep to the quieter Hannam side if it gets rowdy.',
+        address: 'Itaewon, Yongsan-gu, Seoul',
+        mapQuery: '이태원',
+        notes: [
+          { type: 'warning', text: 'Halloween weekend crowds. If the streets are packed, swap the drinks for Hannam-dong or head back to Myeongdong early.' }
+        ]
       }
     ]
   },
@@ -1117,6 +1218,7 @@ let DAYS = [
       { icon: '🛒', text: 'Namdaemun Market' },
       { icon: '🧵', text: 'Kukje Embroidery' },
       { icon: '🛍️', text: 'Aland & Su;py' },
+      { icon: '🥟', text: 'Myeongdong Gyoza' },
       { icon: '✈️', text: 'Depart 5:30pm' }
     ],
     sections: [
@@ -1134,6 +1236,16 @@ let DAYS = [
         mapQuery: '남대문시장',
         notes: [
           { type: 'info', text: 'Kitchenware floors open 8:30am\u20136:30pm, closed Sundays (Saturday is fine). Brass and stoneware are heavy, so save room in a checked bag.' }
+        ]
+      },
+      {
+        label: 'Optional – Deoksugung Palace',
+        icon: '🏯',
+        content: 'Deoksugung is the palace between City Hall and Myeongdong. It opens at 9:00am, so it fits before Namdaemun Market if you want a quiet last palace visit. Only do this if you drop MMMG, since the morning is tight with a 1:30pm departure from Myeongdong.',
+        address: 'Deoksugung Palace, Jung-gu, Seoul',
+        mapQuery: '덕수궁',
+        notes: [
+          { type: 'warning', text: 'Closed Mondays, so Saturday is fine. Verify hours on Naver Map.' }
         ]
       },
       {
@@ -1156,6 +1268,25 @@ let DAYS = [
         notes: []
       },
       {
+        label: 'Lunch – Myeongdong Gyoza or Galchi Jorim Alley',
+        icon: '🥟',
+        content: 'Myeongdong Gyoza (명동교자) is the original location and an institution: knife-cut noodles (kalguksu) in a rich beefy broth, very garlicky kimchi, and best with an order of steamed dumplings. The alternative is the Galchi Jorim Alley (갈치조림 골목) by Namdaemun Market, an alley of restaurants all serving the same dish, spicy braised cutlassfish, with lots of side dishes.',
+        address: 'Myeongdong Gyoza, Myeongdong, Jung-gu, Seoul',
+        mapQuery: '명동교자',
+        notes: [
+          { type: 'info', text: 'Very popular, so expect a line at peak lunch. Go around 11:00 to be out by 12:15. The alley is next to Namdaemun Market, so it fits naturally after the market.' }
+        ]
+      },
+      {
+        label: 'Optional – Skincare Stops',
+        icon: '💄',
+        content: 'Skincare options from the same friend\u2019s list, in order of how close they are to the hotel: Olive Young (the Korean Sephora, everywhere in Myeongdong), Readyyoung Pharmacy (products you would be prescribed by a dermatologist and also find in pharmacies), and OFF Beauty (a warehouse-style beauty store). Check where the nearest Readyyoung and OFF Beauty branches are on Naver Map. Gangnam options if you ever have a spare half day: Optima Wellness Museum (also in Sinsa, Bukchon and Itaewon) and Wellness House Seoul (clinic, products curated to your skin concern, and an Erewhon-style wellness smoothie).',
+        mapQuery: '올리브영 명동',
+        notes: [
+          { type: 'info', text: 'Branch addresses and hours not verified. Shinsegae Twelve in Apgujeong (the Korean Erewhon smoothie) is another option, near your Oct 25 Apgujeong lunch.' }
+        ]
+      },
+      {
         label: 'Flight — Departure from Incheon',
         icon: '✈️',
         content: 'Depart Incheon International Airport (ICN) at 5:30pm. Leave Myeongdong by ~1:30pm — AREX from Seoul Station (~45 min to ICN) or taxi (~60–80 min) — to be at the airport 3 hours ahead for an international departure.',
@@ -1171,6 +1302,10 @@ let DAYS = [
 
 // ─── QUICK REF ────────────────────────────────────────────────────────────────
 const QUICK_REF = {
+  tips: [
+    { name: 'Gwangjang Market (Oct 28)', detail: 'A friend warns the vendors are notorious for overcharging tourists. Worth seeing, but check prices before you order.' },
+    { name: 'Itaewon around Halloween (Oct 30)', detail: 'A friend advises avoiding Itaewon near Halloween. Oct 30 is the eve of Halloween weekend, so expect crowds.' }
+  ],
   reservations: [
     { name: 'Hotel Sunbee Insadong', detail: 'Confirmed · Check-in Oct 18 · Check-out Oct 21 · 26 Insadong 7-gil, Seoul' },
     { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–25 · Unit #7' },
