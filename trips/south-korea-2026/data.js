@@ -862,11 +862,14 @@ let DAYS = [
       {
         label: '12:30pm — GU Clinic Appointment',
         icon: '📅',
-        content: 'Confirmed appointment for both of you at 12:30pm, on the 4th floor of the building. Consultation is in English.',
+        content: 'Confirmed appointment for both of you at 12:30pm, on the 4th floor of the building. Consultation is in English. It is in Gangnam, so head over from Seongsu around 11:45 (about 30 minutes on Line 2, so check Naver Map).',
+        address: 'W Tower, 3~4F · 54 Seocho-daero 77-gil, Seocho-gu, Seoul (서울특별시 서초구 서초대로77길 54 더블유타워 3~4층)',
+        mapQuery: '서울특별시 서초구 서초대로77길 54 더블유타워',
         notes: [
           { type: 'reservation', text: 'Confirmed via WhatsApp for Oct 27, 12:30pm, 4F. Bring your passports.' },
           { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day, so keep the rest of the afternoon flexible.' },
-          { type: 'info', text: 'Address is not entered here yet. Use the map link in the clinic WhatsApp message and check the travel time from Seongsu.' }
+          { type: 'info', text: 'Nearest stations: Sinnonhyeon Station Exit 7 (Line 9), a 2-minute walk, or Gangnam Station Exit 10 (Line 2), a 6-minute walk. No parking, so go by subway or taxi.' },
+          { type: 'warning', text: 'The clinic sent a list of pre-visit instructions on WhatsApp. Read it before Oct 26, since something may need doing the day before.' }
         ]
       },
       {
@@ -876,7 +879,7 @@ let DAYS = [
         address: 'Seongsu / Neung-dong area, Seoul',
         mapQuery: '무구옥',
         notes: [
-          { type: 'info', text: 'Addresses and hours not verified. Confirm both on Naver Map before choosing. Pick whichever is easiest to reach from the clinic, or eat near it instead if the wait runs long.' }
+          { type: 'info', text: 'Addresses and hours not verified. Confirm both on Naver Map before choosing. The clinic is in Gangnam, so both of these are a detour from it. Eating near the clinic is easier, and fine if the wait runs long.' }
         ]
       },
       {
