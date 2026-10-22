@@ -633,19 +633,16 @@ let DAYS = [
     theme: 'busan',
     stay: 'The Westin Josun Busan · check-in 3:00 PM',
     highlights: [
-      { icon: '✈️', text: 'Jeju → Busan flight' },
+      { icon: '✈️', text: 'KE1550 CJU → PUS, 18:20' },
       { icon: '🏨', text: 'Westin Josun Busan' }
     ],
     sections: [
       {
-        label: 'Check-Out — Seom Studio & Flight to Busan',
-        icon: '✈️',
-        content: 'Check out of Seom Studio In Seogwipo #7, return the rental car at CJU, then fly Jeju (CJU) to Busan (PUS). Flight number and times are TBD, so trim the Seogwipo stops below around the flight. Anything after the flight is cut.',
-        address: 'Jeju International Airport (CJU) → Gimhae International Airport (PUS)',
-        mapQuery: '제주국제공항',
+        label: 'Check-Out — Seom Studio',
+        icon: '🏡',
+        content: 'Around 7:00, check out of Seom Studio In Seogwipo #7 and put the bags in the car. You will not be back, because the flight to Busan leaves CJU at 18:20.',
         notes: [
-          { type: 'warning', text: 'The storm is expected to arrive this weekend. Check flight status that morning and allow extra time for the drive to CJU.' },
-          { type: 'info', text: 'The Jeju rental car now goes back on Oct 24, not Oct 25.' }
+          { type: 'warning', text: 'The storm is expected to arrive this weekend. Check flight status that morning and allow extra time for the drives.' }
         ]
       },
       {
@@ -698,7 +695,7 @@ let DAYS = [
       {
         label: 'Rain Fallback — Seongeup Folk Village Walk (optional)',
         icon: '🏘️',
-        content: 'Only if it is dry, and instead of Seopjikoji if it is wet: walk the lanes for an hour or so after lunch, then go to Damda Jeju for a long cafe stop and on to Sumangdawon. Seongeup is a lived-in Joseon-era village of black basalt-walled houses with thatched roofs, stone dol hareubang statues at the old gates, and a 1,000-year-old zelkova tree. Walk the lanes for an hour or so, then head on to Sumangdawon, where the farm’s own teaware is for sale.\nThe Jeju-specific ceramic to look for is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. Sumangdawon and Thursday’s Jeju Clay Pottery Lab are your best chances to buy some.',
+        content: 'Only if it is dry, and instead of Seopjikoji if it is wet: walk the lanes for an hour or so after lunch, then go to Damda Jeju for a long cafe stop before the drive to CJU. Seongeup is a lived-in Joseon-era village of black basalt-walled houses with thatched roofs, stone dol hareubang statues at the old gates, and a 1,000-year-old zelkova tree. Walk the lanes for an hour or so, then head for the airport.\nThe Jeju-specific ceramic to look for is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. Thursday’s Jeju Clay Pottery Lab is your best chance to buy some.',
         address: 'Seongeup Folk Village · Seongeup-ri, Pyoseon-myeon, Seogwipo',
         mapQuery: '성읍민속마을',
         notes: [
@@ -708,7 +705,7 @@ let DAYS = [
       {
         label: 'Rain Fallback — Damda Jeju',
         icon: '☕',
-        content: 'A rustic cafe in Pyoseon-myeon with windows onto the citrus orchards, a short drive from Seongeup, so it slots in between the village and Sumangdawon. One write-up says it serves a weekly hansik (Korean set meal) on a menu that changes with local produce, and suggests going on a Friday.',
+        content: 'A rustic cafe in Pyoseon-myeon with windows onto the citrus orchards, a short drive from Seongeup, so it slots in between the village and the drive to CJU. One write-up says it serves a weekly hansik (Korean set meal) on a menu that changes with local produce, and suggests going on a Friday.',
         address: 'Damda Jeju (담다제주) · 732 Wonnim-ro, Pyoseon-myeon, Seogwipo',
         mapQuery: '담다제주',
         notes: [
@@ -716,28 +713,40 @@ let DAYS = [
         ]
       },
       {
-        label: 'Late Afternoon — Sumangdawon Store',
-        icon: '🍵',
-        content: 'Around 3:30, on the way back toward Seogwipo. Just the shop, no class: they sell leaf and teaware made on the farm, and the black tea is the one worth attention for a pu-erh and white-tea drinker.',
-        address: 'Sumangdawon (수망다원) · Sumang-ri, Namwon-eup, Seogwipo · 0504-1340-3033',
+        label: 'Afternoon — Drive to CJU & Return the Car',
+        icon: '🚗',
+        content: 'Leave the east side by about 3:30 PM. It is roughly an hour to the airport (estimate), then return the rental car. The check-in counter closes 30 minutes before departure (17:50), so aim to be at CJU by about 4:45 PM.',
+        address: 'Jeju International Airport (CJU)',
+        mapQuery: '제주국제공항',
         notes: [
-          { type: 'info', text: 'Staff are likely Korean-only. Confirm the shop is open for walk-ins before driving over; if not, Oneureun Nokcha Hanjan, the field cafe at the Seongeup intersection, is a walk-in alternative. The one-hour class (₩30,000) is phone booking only if you change your mind: call 1330 and have them phone the farm.' }
+          { type: 'warning', text: 'The Sumangdawon store is cut: it is inland near Seogwipo and does not fit before the flight.' },
+          { type: 'info', text: 'The Jeju rental car now goes back Oct 24, not Oct 25.' }
+        ]
+      },
+      {
+        label: 'Flight — KE1550 Jeju to Busan',
+        icon: '✈️',
+        content: 'Korean Air KE1550. Depart Jeju (CJU) 18:20, arrive Busan (Gimhae, PUS) 19:20, Terminal D (domestic). Economy, 20 kg checked bag.',
+        address: 'Jeju International Airport (CJU) → Gimhae International Airport (PUS)',
+        mapQuery: '김해국제공항',
+        notes: [
+          { type: 'warning', text: 'Bring your passport: the airline checks ID at check-in and boarding. Check flight status that morning because of the storm.' }
         ]
       },
       {
         label: 'Check-In — The Westin Josun Busan',
         icon: '🏨',
-        content: 'Check-in is from 3:00 PM. Check-out is Sunday at 12:00 PM.',
+        content: 'Check-in is from 3:00 PM. You land at 19:20, so expect to arrive around 20:30 (estimate). Check-out is Sunday at 12:00 PM.',
         address: 'The Westin Josun Busan · 67 Dongbaek-ro, Haeundae-gu, Busan 48100 · +82-51-749-7000',
         mapQuery: '웨스틴 조선 부산',
         notes: [
-          { type: 'reservation', text: 'Booked under Richard Gore. Marriott Bonvoy confirmation email is in your inbox · Oct 24–25.' }
+          { type: 'reservation', text: 'Hotel confirmed · Oct 24–25' }
         ]
       },
       {
-        label: 'Evening — Dinner in Haeundae',
+        label: 'Late Dinner — Haeundae',
         icon: '🍽️',
-        content: 'TBD.',
+        content: 'TBD. Pick somewhere open late.',
         notes: []
       }
     ]
@@ -773,7 +782,7 @@ let DAYS = [
         icon: '🚄',
         content: 'Busan 21:41 → Seoul 00:21 (2h 40m). First Class, forward-facing, adult. Car 4, seats 6B and 6C.',
         notes: [
-          { type: 'info', text: 'Platform information is released 15 minutes before departure. Show each QR code at the gate. Ticket no. 80012-1023-10031-18 (seat 6B).' },
+          { type: 'info', text: 'Platform information is released 15 minutes before departure. Show each QR code at the gate.' },
           { type: 'warning', text: 'The train gets in at 00:21, so the subway may be finished for the night. Plan on a taxi to Myeongdong.' }
         ]
       },
@@ -783,7 +792,7 @@ let DAYS = [
         content: 'Expect to reach the hotel around 1:00 AM. Tell the hotel you are arriving after midnight so the front desk is staffed.',
         address: 'Seoul Myeongdong',
         notes: [
-          { type: 'reservation', text: 'Hotel confirmed · Confirmation #42971084 · Oct 25–31' }
+          { type: 'reservation', text: 'Hotel confirmed · Oct 25–31' }
         ]
       }
     ]
@@ -1303,7 +1312,8 @@ const QUICK_REF = {
   reservations: [
     { name: 'Hotel Sunbee Insadong', detail: 'Confirmed · Check-in Oct 18 · Check-out Oct 21 · 26 Insadong 7-gil, Seoul' },
     { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–24 · Unit #7' },
-    { name: 'The Westin Josun Busan', detail: 'Confirmed · Oct 24–25 · check-in 3:00 PM, check-out 12:00 PM · booked under Richard Gore · 67 Dongbaek-ro, Haeundae-gu · +82-51-749-7000' },
+    { name: 'KE1550 · Jeju to Busan', detail: 'Confirmed · Sat Oct 24, 18:20 → 19:20 · Korean Air · Terminal D at Gimhae' },
+    { name: 'The Westin Josun Busan', detail: 'Confirmed · Oct 24–25 · check-in 3:00 PM, check-out 12:00 PM · 67 Dongbaek-ro, Haeundae-gu · +82-51-749-7000' },
     { name: 'KTX 080 · Busan → Seoul', detail: 'Confirmed · Sun Oct 25, 21:41 → 00:21 · First Class, Car 4, seats 6B & 6C · QR codes in the KORAIL web tickets · platform shown 15 min before departure' },
     { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31 · arriving after midnight on the KTX, tell the hotel' },
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM (1 hr 10 min) · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
@@ -1314,7 +1324,7 @@ const QUICK_REF = {
     { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Confirmed · Oct 29, 7:00 PM · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
-    { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Late afternoon Oct 24 (Sat), only if the flight allows · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
+    { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Dropped for now, no time before the Oct 24 flight · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
     { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 23 (Fri) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
     { name: 'International Driving Permit', detail: 'BEFORE YOU FLY · Get from AAA in the US; it cannot be issued in Korea · carry it with your US license and passport · required for the Jeju rental car' },
     { name: 'Jeju rental car', detail: 'Not yet booked · Pick up CJU Oct 21, return CJU Oct 24 before the Busan flight · effectively required for this leg · budget ₩50,000–100,000/day for a compact plus full insurance (estimate)' }
@@ -1346,12 +1356,12 @@ const QUICK_REF = {
     { name: 'ICN → Insadong', detail: 'AREX express to Seoul Station (~45 min) + Line 1 to Jonggak · or taxi ~60–80 min' },
     { name: 'Departure Flight', detail: 'Departs Incheon (ICN) 5:30pm, Oct 31 — leave Myeongdong by ~1:30pm · add flight number once booked' },
     { name: 'GMP → CJU (Oct 21)', detail: 'Depart Gimpo Terminal D 9:10am · Arrive Jeju 10:25am · 1h 15m' },
-    { name: 'CJU → PUS (Oct 24)', detail: 'Jeju to Busan · flight number and times TBD · return the rental car first' },
+    { name: 'KE1550 CJU → PUS (Oct 24)', detail: 'Korean Air · depart Jeju 18:20, arrive Gimhae 19:20 · Terminal D · check-in counter closes 17:50 · return the rental car first' },
     { name: 'KTX 080 (Oct 25)', detail: 'Busan 21:41 → Seoul 00:21 · First Class, Car 4, seats 6B & 6C · taxi from Seoul to Myeongdong, the subway may be done' },
     { name: 'Jeju — car required', detail: 'Rent at CJU. Buses connect the main towns but the tea farms, Jeoji, Bonte, the Seongeup studios and the east coast are poorly served. Alternatives: a hired car with driver for one day (Friday is the best candidate, via Klook or Trazy), Kakao T taxis for evenings in Seogwipo town.' },
     { name: 'Drive times from Seogwipo', detail: 'O’Sulloc / Seogwang-ri ~40 min · Bonte & Jungmun ~25–30 min · Jeoji ~45 min · Seongeup ~35–40 min · Jeju City or CJU ~1 hr · Seongsan ~1 hr · Yeongsil trailhead ~30 min' },
     { name: 'Jeju driving notes', detail: 'Right-hand traffic. Speed cameras everywhere and fines follow the rental. The Hallasan roads (1131, 1100) are winding and can be foggy. Parking is easy except in central Seogwipo. Use Naver Map, not Google Maps.' },
-    { name: 'Departure day (Oct 24)', detail: 'Flight time TBD · return the rental car at CJU and check flight status first thing, the storm is due this weekend' },
+    { name: 'Departure day (Oct 24)', detail: 'Leave the east side by ~3:30pm, at CJU by ~4:45pm for the 18:20 flight · return the rental car · check flight status first thing, the storm is due this weekend' },
     { name: 'Help lines', detail: '1330 is the 24-hour travel line in English and will phone a venue for you — useful for the Sumangdawon booking. Consider a Korean eSIM: Hallasan booking may need Korean SMS verification.' },
     { name: 'Late-October weather (climate averages)', detail: '~20°C by day, ~14°C at night, often windy, typhoon season mostly over. Bring a windproof layer. Forecast as of Oct 21: Oct 22 is the one dry day, so the East Coast run is on Thursday. Rain from Friday midday or evening through Sunday, with Oct 24 and 25 the wettest.' },
   ],
