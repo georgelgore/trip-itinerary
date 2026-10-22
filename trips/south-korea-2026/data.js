@@ -440,7 +440,7 @@ let DAYS = [
         label: 'Afternoon — Dahee-yeon',
         icon: '🍵',
         content: 'A 60,000-pyeong eco-friendly tea farm with a cafe built inside a lava cave. You can taste and buy the farm’s own tea. The tea foot-bath needs a booking if you want it.\nSpace Seooh, a tea-and-pastry cafe with pottery workshops, is a few minutes away at 1948-6 Seonheul-ri if you want a pastry stop.',
-        address: 'Dahee-yeon (다희연) · 266-4 Seongyo-ro, Jocheon-eup · 064-783-0882',
+        address: 'Dahee-yeon (다희연) · 266-4 Seongyo-ro, Jocheon-eup · 064-783-0882 · Alt address (Google Maps listing): 117 Seongyo-ro, Jocheon-eup',
         notes: [
           { type: 'warning', text: 'Not confirmed that it is still operating: a 2022 review says it closed, and a separate light-art park (Jeju LAF) is on the same road. Call 064-783-0882 or check Naver Map before going. If it is gone, skip it or go to Space Seooh instead.' }
         ]
