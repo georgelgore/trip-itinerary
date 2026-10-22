@@ -533,16 +533,16 @@ let DAYS = [
     stay: 'Seom Studio In Seogwipo #7',
     highlights: [
       { icon: '☕', text: 'Ohsayo Coffee' },
-      { icon: '🥾', text: 'Olle Route 7 to Oedolgae' },
-      { icon: '🏘️', text: 'Seongeup Folk Village' },
-      { icon: '🍵', text: 'Sumangdawon tea class' },
-      { icon: '☕', text: 'Damda Jeju' }
+      { icon: '🥾', text: 'Oedolgae short walk' },
+      { icon: '🏘️', text: 'Seongeup lunch' },
+      { icon: '🌊', text: 'Seopjikoji' },
+      { icon: '🍵', text: 'Sumangdawon store' }
     ],
     sections: [
       {
         label: 'Breakfast — Olle Market',
         icon: '🍡',
-        content: 'Morning is when the produce side of the market is open. Omegi tteok (millet rice cakes), Hallabong and tangerines, and whatever is being griddled. The market’s own signatures are omegi tteok, tilefish, cutlassfish and black pork.',
+        content: 'Around 7:15, to leave a buffer before the rain. Morning is when the produce side of the market is open. Omegi tteok (millet rice cakes), Hallabong and tangerines, and whatever is being griddled. The market’s own signatures are omegi tteok, tilefish, cutlassfish and black pork.',
         address: 'Seogwipo Maeil Olle Market · 18 Jungang-ro 62beon-gil, Seogwipo',
         mapQuery: '서귀포매일올레시장',
         notes: [
@@ -550,18 +550,18 @@ let DAYS = [
         ]
       },
       {
-        label: 'Morning — Olle Route 7 to Oedolgae',
+        label: 'Morning — Oedolgae Short Walk',
         icon: '🥾',
-        content: 'Go straight after the market breakfast, around 8:30, and aim to be done by noon, before the rain. The best half-day walk from your door. From central Seogwipo past Samaebong park out to the Oedolgae sea stack: roughly 5km and 1.5–2 hours on easy coastal paths, with basalt coast and the Beomseom and Munseom islets offshore. The full Route 7 runs about 17km west to Wolpyeong if you want more.\nJeongbang Falls, which drops straight into the sea, is about 1.3km from the market, and Cheonjiyeon Falls is also close.',
+        content: 'Drive to Oedolgae (there is parking) around 8:00 instead of walking the full 5km of Olle Route 7, so you never depend on a taxi back. Walk the stretch you like around the sea stack, with the basalt coast and the Beomseom and Munseom islets offshore, then return to the car. About 30–45 minutes; be at Ohsayo for 10:00.\nIf it looks bad when you arrive, swap to Jeongbang Falls (it drops straight into the sea, about 1.3km from the market) or Cheonjiyeon Falls, both short.',
         notes: [
-          { type: 'info', text: 'Distances are approximate; check jejuolle.org for the current route map. The 2026 hours and fees for the waterfalls were not verified, so confirm before detouring.' },
-          { type: 'warning', text: 'Rain timing differs by forecast: the Seogwipo hourly forecast says dry until the evening, while the Korean met office and AccuWeather say rain from midday (10–60 mm across Jeju). Do the walk first and turn back at Oedolgae if the sky closes in. Wet basalt is slippery.' }
+          { type: 'info', text: 'Distances and drive times are approximate; check Naver Map. The 2026 hours and fees for the waterfalls were not verified, so confirm before detouring.' },
+          { type: 'warning', text: 'The most detailed hourly forecast shows heavy rain from the afternoon and about 10 m/s wind, while other sources disagree on timing. Treat 11:00 as the cutoff for anything outdoors. Wet basalt is slippery, so turn back if the wind or sea feels rough.' }
         ]
       },
       {
         label: 'Coffee — Ohsayo Coffee',
         icon: '☕',
-        content: 'After the Route 7 walk (it opens at 10:00). Seogwipo’s specialty coffee stop, singled out by Sprudge. Espresso pulled on a Decent DE-1 and good pour-overs.',
+        content: 'After the Oedolgae walk (it opens at 10:00). Seogwipo’s specialty coffee stop, singled out by Sprudge. Espresso pulled on a Decent DE-1 and good pour-overs.',
         address: 'Ohsayo Coffee (오세요커피) · 17 Sinjung-ro 13beon-gil, 1F, Seogwipo (opposite Daesin Middle School)',
         notes: [
           { type: 'warning', text: 'Open 10:00–18:30, closed Sundays. It is on the ground floor of a house with almost no sign and there is no lot, so pin it on Naver Map before you go.' }
@@ -570,16 +570,26 @@ let DAYS = [
       {
         label: 'Lunch — Yetnal Patjuk',
         icon: '🍲',
-        content: 'About 35–40 minutes northeast, among the stone houses of Seongeup Folk Village. A tiny mother-and-daughter shop that makes its own doenjang. Order the saeal patjuk (red-bean porridge with rice balls) and the siraegi gukbap.\nChef Woongchul Park of London’s Michelin-starred Sollip told Suitcase: "I’d say this is my and Bomee’s favourite place to eat in all of Korea."',
+        content: 'Leave Ohsayo around 10:45 and aim to eat by about 11:30, so you are indoors before the heavy rain. About 35–40 minutes northeast, among the stone houses of Seongeup Folk Village. A tiny mother-and-daughter shop that makes its own doenjang. Order the saeal patjuk (red-bean porridge with rice balls) and the siraegi gukbap.\nChef Woongchul Park of London’s Michelin-starred Sollip told Suitcase: "I’d say this is my and Bomee’s favourite place to eat in all of Korea."',
         address: 'Yetnal Patjuk (옛날팥죽) · 130 Seongeupminsok-ro, Pyoseon-myeon · 0507-1358-3479',
         notes: [
           { type: 'warning', text: 'Open 10:00–17:00, closed Mondays. Walk-in. Around ₩10,000–11,000 per dish (unverified).' }
         ]
       },
       {
-        label: 'Afternoon — Seongeup Folk Village Walk (optional)',
+        label: 'Afternoon — Seopjikoji',
+        icon: '🌊',
+        content: 'About 20–25 minutes from Seongeup (estimate), around 12:45. A coastal headland walk with the Ando-designed buildings on the peninsula. This is the day’s anchor, and it is outdoors, so skip it if it is already raining and use the rain fallback below. Bonte tomorrow is also Ando, so you may want to skip the buildings and just do the headland.',
+        address: 'Seopjikoji · Seongsan-eup, Seogwipo',
+        mapQuery: '섭지코지',
+        notes: [
+          { type: 'warning', text: 'Opening hours and visitor access for the Ando buildings were not verified. Check Naver Map or call before driving out.' }
+        ]
+      },
+      {
+        label: 'Rain Fallback — Seongeup Folk Village Walk (optional)',
         icon: '🏘️',
-        content: 'Optional, and only if it is dry: rain is forecast from midday or evening. If it is wet, skip the lanes and go straight to Sumangdawon. Stay in the village after lunch instead of doing a pottery class. Seongeup is a lived-in Joseon-era village of black basalt-walled houses with thatched roofs, stone dol hareubang statues at the old gates, and a 1,000-year-old zelkova tree. Walk the lanes for an hour or so, then head on to Sumangdawon, where the farm’s own teaware is for sale.\nThe Jeju-specific ceramic to look for is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. Sumangdawon and Thursday’s Jeju Clay Pottery Lab are your best chances to buy some.',
+        content: 'Only if it is dry, and instead of Seopjikoji if it is wet: walk the lanes for an hour or so after lunch, then go to Damda Jeju for a long cafe stop and on to Sumangdawon. Seongeup is a lived-in Joseon-era village of black basalt-walled houses with thatched roofs, stone dol hareubang statues at the old gates, and a 1,000-year-old zelkova tree. Walk the lanes for an hour or so, then head on to Sumangdawon, where the farm’s own teaware is for sale.\nThe Jeju-specific ceramic to look for is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. Sumangdawon and Thursday’s Jeju Clay Pottery Lab are your best chances to buy some.',
         address: 'Seongeup Folk Village · Seongeup-ri, Pyoseon-myeon, Seogwipo',
         mapQuery: '성읍민속마을',
         notes: [
@@ -587,7 +597,7 @@ let DAYS = [
         ]
       },
       {
-        label: 'Afternoon — Damda Jeju',
+        label: 'Rain Fallback — Damda Jeju',
         icon: '☕',
         content: 'A rustic cafe in Pyoseon-myeon with windows onto the citrus orchards, a short drive from Seongeup, so it slots in between the village and Sumangdawon. One write-up says it serves a weekly hansik (Korean set meal) on a menu that changes with local produce, and suggests going on a Friday.',
         address: 'Damda Jeju (담다제주) · 732 Wonnim-ro, Pyoseon-myeon, Seogwipo',
@@ -597,13 +607,12 @@ let DAYS = [
         ]
       },
       {
-        label: 'Late Afternoon — Sumangdawon Tea Class',
+        label: 'Late Afternoon — Sumangdawon Store',
         icon: '🍵',
-        content: 'On the way back toward Seogwipo. A one-hour tea and matcha class at a farm run by a local farming association: you taste their own organic green, black and matcha, whisk matcha, and get tea snacks. They sell leaf and teaware made on the farm, and the black tea is the one worth attention for a pu-erh and white-tea drinker. ₩30,000 per person.',
+        content: 'Around 3:30, on the way back toward Seogwipo. Just the shop, no class: they sell leaf and teaware made on the farm, and the black tea is the one worth attention for a pu-erh and white-tea drinker.',
         address: 'Sumangdawon (수망다원) · Sumang-ri, Namwon-eup, Seogwipo · 0504-1340-3033',
         notes: [
-          { type: 'reservation', text: 'Phone booking only, and plan on Korean-only staff. Call 1330 (the 24-hour English travel line) and have them phone the farm for you, or ask your Airbnb host.' },
-          { type: 'info', text: 'If no class slot works, Oneureun Nokcha Hanjan, the field cafe at the Seongeup intersection, is a walk-in alternative.' }
+          { type: 'info', text: 'Staff are likely Korean-only. Confirm the shop is open for walk-ins before driving over; if not, Oneureun Nokcha Hanjan, the field cafe at the Seongeup intersection, is a walk-in alternative. The one-hour class (₩30,000) is phone booking only if you change your mind: call 1330 and have them phone the farm.' }
         ]
       },
       {
