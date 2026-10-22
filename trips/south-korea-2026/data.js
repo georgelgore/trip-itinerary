@@ -526,101 +526,78 @@ let DAYS = [
   },
   {
     id: 6,
-    date: 'Friday, October 23 — Tea Fields & the West',
+    date: 'Friday, October 23 — Jeju City',
     location: 'Jeju',
-    sublocation: 'Seogwang-ri · Jeoji · Andeok',
+    sublocation: 'Jeju City · Dongmun · Tapdong',
     theme: 'jeju',
     stay: 'Seom Studio In Seogwipo #7',
     highlights: [
-      { icon: '🍵', text: 'O’Sulloc Tea Stone' },
-      { icon: '🎨', text: 'Jeoji Artists’ Village' },
-      { icon: '🏛️', text: 'Bonte Museum (Ando)' },
-      { icon: '🐟', text: 'Negeori galchi' },
-      { icon: '☕', text: 'Lavarr' },
-      { icon: '🐟', text: 'Miyoungine mackerel sashimi' }
+      { icon: '🎨', text: 'Arario Dongmun Motel II' },
+      { icon: '🏺', text: 'D&Department Jeju' },
+      { icon: '🍜', text: 'Jamae Guksu' },
+      { icon: '🍖', text: 'Ppolsaljib' }
     ],
     sections: [
       {
-        label: 'Breakfast — Sambo Sikdang',
-        icon: '🥘',
-        content: 'The classic Seogwipo seafood breakfast. Order the jeonbok ttukbaegi (abalone seafood hot pot) or the jeonbokjuk (abalone porridge). Aim for the 08:00 open, then coffee at Lavarr when it opens at 9:00, so you are on the road west by about 10:00.',
-        address: 'Sambo Sikdang (삼보식당) · 25 Jungjeong-ro, Seogwi-dong, Seogwipo · 064-762-3620',
+        label: 'Morning — Drive to Jeju City',
+        icon: '🚗',
+        content: 'Leave around 9:00 for the drive north, about an hour (estimate). Rain is forecast to build from the afternoon with about 10 m/s wind, so the day is built to be back in Seogwipo by mid afternoon.',
         notes: [
-          { type: 'info', text: 'Open 08:00–21:00, last order 20:00. Closed the 2nd and 4th Wednesday of the month (Oct 14 and 28), so Friday is clear. Walk-in, cards accepted.' },
-          { type: 'warning', text: 'There is a second Sambo Sikdang in Shin-Jeju that closes the 2nd and 4th Tuesday. Make sure you go to the Seogwipo one.' },
-          { type: 'info', text: 'Moved up to Friday because of the storm that is due to hit Jeju over the weekend. The day is built around indoor stops: the tea museum, the art museums and Bonte. Allow extra time for the drives and watch the forecast.' }
+          { type: 'warning', text: 'Forecast sources disagree on timing. Check Naver or the KMA app before you leave.' }
         ]
       },
       {
-        label: 'Morning — Lavarr',
-        icon: '☕',
-        content: 'Coffee at Lavarr (라바르), a bathhouse that opened in 1971, closed in 2017 and was reimagined in 2022 as a cafe and arts space in central Seogwipo. Each floor is different, so go up to the roof before picking a seat. It opens at 9:00, so go straight after Sambo Sikdang, then head west.',
-        address: 'Lavarr (라바르) · 13 Jungang-ro, Seogwipo',
-        mapQuery: '서귀포시 중앙로 13',
-        notes: [
-          { type: 'info', text: 'Open daily 9:00–22:00, no closing day listed (from a travel blog; confirm on Naver).' },
-          { type: 'warning', text: 'This pushes O’Sulloc to about 10:30, when it gets busy. Keep the coffee to about 40 minutes.' }
-        ]
-      },
-      {
-        label: 'Morning — O’Sulloc Tea Museum & Seogwang Fields',
-        icon: '🍵',
-        content: 'About 40 minutes west. Amorepacific opened this in 2001 as Korea’s first tea museum, and the fields behind it are the largest organic tea farm in the country.\nWhat is actually worth your time: the Tea Stone building, where tea masters prepare and serve tea and the cellar staff pour tastings (one reviewer singled out the Jeju Cedar Wood Aged Tea Vintage, the closest thing to an aged Jeju tea you will find here); the walk out into the fields; and buying sejak-grade loose leaf.\nBe clear-eyed about the scale. O’Sulloc’s Jeju tea is machine-planted, machine-tended and machine-harvested. It is a large commercial operation, not artisanal, which is why the small farms are on this itinerary too.',
-        address: 'O’Sulloc Tea Museum · 15 Sinhwayeoksa-ro, Andeok-myeon, Seogwipo · +82-64-794-5312',
-        mapQuery: '오설록티뮤지엄',
-        notes: [
-          { type: 'info', text: 'Open 09:00–18:00 daily (some listings say 19:00 in summer), no closing day, free entry. Visitors report it gets very busy by 10:30, so arrive near the 09:00 open. Rain is building: keep the fields walk short and spend the time in the Tea Stone building.' },
-          { type: 'reservation', text: 'Tea Stone classes are bookable in advance at osulloc.com. Worth doing a few days ahead if you want the guided pour rather than just the cellar tasting.' },
-          { type: 'info', text: 'Late October is off-season: ujeon is picked before late April and sejak late April to early May, so nothing is being harvested. The plants are usually in flower and the shops are selling this spring’s stock. Good for tasting and buying, not for picking. Skip the Innisfree Jeju House next door unless you want skincare; it adds nothing on tea.' }
-        ]
-      },
-      {
-        label: 'Late Morning — Jeoji Culture & Arts Village',
+        label: 'Morning — Arario Dongmun Motel II',
         icon: '🎨',
-        content: 'About 15 minutes north of O’Sulloc, a village where artists actually live and work, with studios and small galleries down the lanes. Two anchors, and the walk between them is the point:\n• Jeju Museum of Contemporary Art (제주현대미술관), 35 Jeoji 14-gil, ₩2,000.\n• Kim Tschang-Yeul Museum of Art, 883-5 Yonggeum-ro, Hallim-eup, ₩2,000. Around 220 of the water-drop painter’s major works, which he donated; he lived on Jeju from 1951 to 1953 during the war. The building itself is strong.\nThis is your best shot at works on paper on the island.',
-        address: 'Jeju Museum of Contemporary Art · 35 Jeoji 14-gil, Hangyeong-myeon',
-        mapQuery: '제주현대미술관',
+        content: 'Around 10:00, when it opens. Contemporary art in an old-town Jeju City building. Allow about an hour.',
+        address: 'Arario Dongmun Motel II · 23 Sanji-ro, Jeju City',
+        mapQuery: '아라리오 동문모텔II',
         notes: [
-          { type: 'info', text: 'Both open 09:00–18:00. The Kim Tschang-Yeul is closed Mondays. Sources disagree on the Contemporary Art museum’s closing day (most say Monday, one older listing says Wednesday); Friday is safe either way.' },
-          { type: 'warning', text: 'Visitors report surprise closures at the Contemporary Art museum during exhibition changeovers. Check on Naver the day before.' }
+          { type: 'info', text: 'Reported open Tuesday to Sunday 10:00 to 19:00, closed Mondays, adult entry around ₩20,000. One older source differs, so confirm on Naver.' }
         ]
       },
       {
-        label: 'Lunch — Miyoungine Mackerel Sashimi',
-        icon: '🐟',
-        content: 'Miyoungine (미영이네) is known for raw Jeju mackerel sashimi (고등어회), often served as a set with a mackerel stew. This is the Hamo branch in Daejeong-eup on the southwest coast, so plan a drive south from Jeoji and then back toward Bonte (allow about 35–40 minutes from Jeoji and 20–25 from Bonte; estimates). A reviewer paid ₩85,000 for a sashimi and stew set at the Jocheon branch; Hamo prices may differ.',
-        address: 'Miyoungine (미영이네식당) · 42 Hamohanggu-ro, Daejeong-eup, Seogwipo',
-        mapQuery: '하모항구로 42',
-        notes: [
-          { type: 'warning', text: 'Opening hours, closed days and reservation rules were not found. Check Naver Map or call before driving down, and have a fallback in mind. One review calls the service slow.' }
-        ]
-      },
-      {
-        label: 'Optional — Jestory',
+        label: 'Late Morning — D&Department Jeju',
         icon: '🏺',
-        content: 'A shop stocking work from about 300 local Jeju makers, ceramics included, alongside gifts and accessories. A quick browse on the way to the Bonte Museum if you want more pottery options than Thursday’s studio.',
-        address: 'Jestory (제스토리) · 60 Maksukpo-ro, Seogwipo',
+        content: 'Around 11:15. The 2nd floor store sells Jeju crafts, tableware, furniture and books, which suits the ceramics and handmade goods interest. The 1st floor cafe serves brunch made with Jeju ingredients; coffee is enough here, since lunch is next.',
+        address: 'D&Department Jeju · 3 Tapdong-ro 2-gil, Jeju City',
+        mapQuery: '디앤디파트먼트 제주',
         notes: [
-          { type: 'info', text: 'Listed as open 09:00–21:00 with no closing day. Hours came from a travel listing, so check Naver before you go.' }
+          { type: 'info', text: 'Open 10:30 to 18:30, closed Wednesdays, free entry. Check the cafe kitchen’s last order on Naver if you want to eat there.' }
         ]
       },
       {
-        label: 'Afternoon — Bonte Museum',
-        icon: '🏛️',
-        content: 'Tadao Ando in concrete, water and light, housing a collection of traditional Korean craft: bojagi wrapping cloths, lacquer, furniture, funerary objects. That combination lands squarely on both the ceramics and the interiors interest. There is also a Kusama Infinity Mirrored Room and an Ando meditation room.\nAfterwards walk down the street to see the exterior of Itami Jun’s Bangju Church, the "Noah’s Ark" church. Itami also designed the PODO Hotel nearby.',
-        address: 'Bonte Museum (본태박물관) · 69 Sallongnam-ro 762beon-gil, Andeok-myeon · +82-64-792-8108',
+        label: 'Lunch — Jamae Guksu',
+        icon: '🍜',
+        content: 'Around 12:30. Pork noodles (gogi guksu) and spicy mixed noodles, on Tapdong-ro 11-gil, the same road as D&Department. The walking distance between them was not verified.',
+        address: 'Jamae Guksu · Tapdong-ro 11-gil, Jeju City',
+        mapQuery: '자매국수',
         notes: [
-          { type: 'warning', text: 'Open 10:00–18:00 but last admission is 17:00, so arrive by 16:30 at the latest. Listed as open daily, though one listing says closed on public holidays.' },
-          { type: 'info', text: 'Permanent exhibition ₩30,000 adults on the official site; Naver booking is reported around ₩29,000 including a coffee and postcard. Visitor access to the PODO Hotel itself was not verifiable for 2026, so treat it as a drive-by.' }
+          { type: 'warning', text: 'Hours come from a single local-favorites article: 09:00 to 14:20 and 16:00 to 19:40, closed Wednesdays. Confirm on Naver before you commit.' },
+          { type: 'info', text: 'Pork twice today, noodles at lunch and black pork at dinner. If you would rather not, Negeori Sikdang (galchi, open daily 07:00 to 21:40) is a dinner swap in Seogwipo.' }
         ]
       },
       {
-        label: 'Dinner — Negeori Sikdang',
-        icon: '🐟',
-        content: 'Seogwipo is the galchi (cutlassfish) town and this is the place for it. Order the jorim to share and add a galchi guk to compare the clear-soup version.\nGalchi jorim is ₩55,000 medium or ₩65,000 large, galchi guk ₩16,000, sea-urchin seaweed soup ₩16,000.',
-        address: 'Negeori Sikdang (네거리식당) · 20 Seomun-ro 29beon-gil, Seogwi-dong · 064-762-5513',
+        label: 'Optional — Dongmun Market',
+        icon: '🛍️',
+        content: 'Around 1:00 if it is close and the rain holds off. A covered traditional market with street food and seafood, so it also works as a rain stop. The walk from Tapdong was not checked.',
         notes: [
-          { type: 'info', text: 'Open daily 07:00–21:40, last order 20:40, closed only on Korean holidays. Walk-in. Tablet ordering at the table makes it easy without Korean, and there is a free public lot nearby.' }
+          { type: 'info', text: 'Check the distance on Naver Map before you plan around it.' }
+        ]
+      },
+      {
+        label: 'Afternoon — Drive Back to Seogwipo',
+        icon: '🚗',
+        content: 'Leave by about 1:45 to stay ahead of the heaviest rain and wind. About an hour back.',
+        notes: []
+      },
+      {
+        label: 'Dinner — Ppolsaljib',
+        icon: '🍖',
+        content: 'A second black-pork lesson, different from Ungdam. The specialty is ppolsal, pork cheek and jowl, and the mixed set brings six cuts with unlimited sides including kimchi jjigae and steamed egg. English menu.',
+        address: 'Ppolsaljib (뽈살집), main branch · 41 Jungjeong-ro 91beon-gil, Seogwipo · 064-763-6860',
+        notes: [
+          { type: 'warning', text: 'Open daily 15:00–24:00 with no regular closing day, but it can close early when the meat runs out. No reservations; expect about a 30-minute wait after 17:00.' }
         ]
       }
     ]
@@ -685,7 +662,7 @@ let DAYS = [
       {
         label: 'Afternoon — Seopjikoji',
         icon: '🌊',
-        content: 'About 20–25 minutes from Seongeup (estimate), around 12:45. A coastal headland walk with the Ando-designed buildings on the peninsula. This is the day’s anchor, and it is outdoors, so skip it if it is already raining and use the rain fallback below. Bonte on Friday is also Ando, so you may want to skip the buildings and just do the headland.',
+        content: 'About 20–25 minutes from Seongeup (estimate), around 12:45. A coastal headland walk with the Ando-designed buildings on the peninsula. This is the day’s anchor, and it is outdoors, so skip it if it is already raining and use the rain fallback below.',
         address: 'Seopjikoji · Seongsan-eup, Seogwipo',
         mapQuery: '섭지코지',
         notes: [
@@ -1325,7 +1302,6 @@ const QUICK_REF = {
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Confirmed · Oct 29, 7:00 PM · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
     { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Dropped for now, no time before the Oct 24 flight · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
-    { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 23 (Fri) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
     { name: 'International Driving Permit', detail: 'BEFORE YOU FLY · Get from AAA in the US; it cannot be issued in Korea · carry it with your US license and passport · required for the Jeju rental car' },
     { name: 'Jeju rental car', detail: 'Not yet booked · Pick up CJU Oct 21, return CJU Oct 24 before the Busan flight · effectively required for this leg · budget ₩50,000–100,000/day for a compact plus full insurance (estimate)' }
   ],
@@ -1334,11 +1310,9 @@ const QUICK_REF = {
     { name: 'Seogwi Dawon (Oct 21)', detail: 'Closes 17:00 · arrive by 16:15 · closed Tuesdays' },
     { name: 'Ungdam Sikdang (Oct 21, Oct 22)', detail: 'Opens 15:00, to 22:00 · closed Sundays · an older listing says noon, do not rely on it' },
     { name: 'Arario Museum (Oct 21)', detail: '10:00–19:00, last entry 18:00 · closed Mondays' },
-    { name: 'Sambo Sikdang (Oct 23)', detail: '08:00–21:00, last order 20:00 · closed 2nd & 4th Wednesday (Oct 14, 28) · go to the Seogwipo branch, not Shin-Jeju' },
-    { name: 'Lavarr (Oct 23)', detail: 'Open daily 09:00–22:00 · former bathhouse, go up to the roof · 13 Jungang-ro, Seogwipo' },
-    { name: 'Miyoungine, Hamo (Oct 23)', detail: 'Hours and closed days not found · check Naver or call before going · mackerel sashimi (고등어회) · 42 Hamohanggu-ro, Daejeong-eup' },
-    { name: 'Bonte Museum (Oct 23)', detail: '10:00–18:00 but last admission 17:00 · arrive by 16:30' },
-    { name: 'Jeju Museum of Contemporary Art (Oct 23)', detail: '09:00–18:00 · sources disagree on the closing day (most say Mon, one says Wed); Friday is safe · surprise closures during exhibition changeovers, check Naver the day before' },
+    { name: 'Arario Dongmun Motel II (Oct 23)', detail: 'Reported Tue–Sun 10:00–19:00, closed Mondays · adult ~₩20,000 · one older source differs, confirm on Naver · 23 Sanji-ro, Jeju City' },
+    { name: 'D&Department Jeju (Oct 23)', detail: '10:30–18:30 · closed Wednesdays · free entry · 3 Tapdong-ro 2-gil, Jeju City' },
+    { name: 'Jamae Guksu (Oct 23)', detail: '09:00–14:20 and 16:00–19:40 · closed Wednesdays · single source, confirm on Naver · Tapdong-ro 11-gil, Jeju City' },
     { name: 'Ohsayo Coffee (Oct 24)', detail: '10:00–18:30 · closed Sundays · almost no sign, pin it on Naver Map' },
     { name: 'Yetnal Patjuk (Oct 24)', detail: '10:00–17:00 · closed Mondays' },
     { name: 'Damda Jeju (Oct 24)', detail: 'Mon–Sat 10:30–18:00 · closed Sundays · cafe with orchard views, weekly hansik meal · 732 Wonnim-ro, Pyoseon-myeon' },
