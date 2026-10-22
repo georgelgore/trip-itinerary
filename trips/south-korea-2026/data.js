@@ -526,110 +526,7 @@ let DAYS = [
   },
   {
     id: 6,
-    date: 'Friday, October 23 — Seogwipo & Seongeup',
-    location: 'Jeju',
-    sublocation: 'Seogwipo town · Olle 7 · Seongeup',
-    theme: 'jeju',
-    stay: 'Seom Studio In Seogwipo #7',
-    highlights: [
-      { icon: '☕', text: 'Ohsayo Coffee' },
-      { icon: '🥾', text: 'Oedolgae short walk' },
-      { icon: '🏘️', text: 'Seongeup lunch' },
-      { icon: '🌊', text: 'Seopjikoji' },
-      { icon: '🍵', text: 'Sumangdawon store' }
-    ],
-    sections: [
-      {
-        label: 'Breakfast — Olle Market',
-        icon: '🍡',
-        content: 'Around 7:15, to leave a buffer before the rain. Morning is when the produce side of the market is open. Omegi tteok (millet rice cakes), Hallabong and tangerines, and whatever is being griddled. The market’s own signatures are omegi tteok, tilefish, cutlassfish and black pork.',
-        address: 'Seogwipo Maeil Olle Market · 18 Jungang-ro 62beon-gil, Seogwipo',
-        mapQuery: '서귀포매일올레시장',
-        notes: [
-          { type: 'cash', text: 'Bring cash for the older stalls.' }
-        ]
-      },
-      {
-        label: 'Morning — Oedolgae Short Walk',
-        icon: '🥾',
-        content: 'Drive to Oedolgae (there is parking) around 8:00 instead of walking the full 5km of Olle Route 7, so you never depend on a taxi back. Walk the stretch you like around the sea stack, with the basalt coast and the Beomseom and Munseom islets offshore, then return to the car. About 30–45 minutes; be at Ohsayo for 10:00.\nIf it looks bad when you arrive, swap to Jeongbang Falls (it drops straight into the sea, about 1.3km from the market) or Cheonjiyeon Falls, both short.',
-        notes: [
-          { type: 'info', text: 'Distances and drive times are approximate; check Naver Map. The 2026 hours and fees for the waterfalls were not verified, so confirm before detouring.' },
-          { type: 'warning', text: 'The most detailed hourly forecast shows heavy rain from the afternoon and about 10 m/s wind, while other sources disagree on timing. Treat 11:00 as the cutoff for anything outdoors. Wet basalt is slippery, so turn back if the wind or sea feels rough.' }
-        ]
-      },
-      {
-        label: 'Coffee — Ohsayo Coffee',
-        icon: '☕',
-        content: 'After the Oedolgae walk (it opens at 10:00). Seogwipo’s specialty coffee stop, singled out by Sprudge. Espresso pulled on a Decent DE-1 and good pour-overs.',
-        address: 'Ohsayo Coffee (오세요커피) · 17 Sinjung-ro 13beon-gil, 1F, Seogwipo (opposite Daesin Middle School)',
-        notes: [
-          { type: 'warning', text: 'Open 10:00–18:30, closed Sundays. It is on the ground floor of a house with almost no sign and there is no lot, so pin it on Naver Map before you go.' }
-        ]
-      },
-      {
-        label: 'Lunch — Yetnal Patjuk',
-        icon: '🍲',
-        content: 'Leave Ohsayo around 10:45 and aim to eat by about 11:30, so you are indoors before the heavy rain. About 35–40 minutes northeast, among the stone houses of Seongeup Folk Village. A tiny mother-and-daughter shop that makes its own doenjang. Order the saeal patjuk (red-bean porridge with rice balls) and the siraegi gukbap.\nChef Woongchul Park of London’s Michelin-starred Sollip told Suitcase: "I’d say this is my and Bomee’s favourite place to eat in all of Korea."',
-        address: 'Yetnal Patjuk (옛날팥죽) · 130 Seongeupminsok-ro, Pyoseon-myeon · 0507-1358-3479',
-        notes: [
-          { type: 'warning', text: 'Open 10:00–17:00, closed Mondays. Walk-in. Around ₩10,000–11,000 per dish (unverified).' }
-        ]
-      },
-      {
-        label: 'Afternoon — Seopjikoji',
-        icon: '🌊',
-        content: 'About 20–25 minutes from Seongeup (estimate), around 12:45. A coastal headland walk with the Ando-designed buildings on the peninsula. This is the day’s anchor, and it is outdoors, so skip it if it is already raining and use the rain fallback below. Bonte tomorrow is also Ando, so you may want to skip the buildings and just do the headland.',
-        address: 'Seopjikoji · Seongsan-eup, Seogwipo',
-        mapQuery: '섭지코지',
-        notes: [
-          { type: 'warning', text: 'Opening hours and visitor access for the Ando buildings were not verified. Check Naver Map or call before driving out.' }
-        ]
-      },
-      {
-        label: 'Rain Fallback — Seongeup Folk Village Walk (optional)',
-        icon: '🏘️',
-        content: 'Only if it is dry, and instead of Seopjikoji if it is wet: walk the lanes for an hour or so after lunch, then go to Damda Jeju for a long cafe stop and on to Sumangdawon. Seongeup is a lived-in Joseon-era village of black basalt-walled houses with thatched roofs, stone dol hareubang statues at the old gates, and a 1,000-year-old zelkova tree. Walk the lanes for an hour or so, then head on to Sumangdawon, where the farm’s own teaware is for sale.\nThe Jeju-specific ceramic to look for is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. Sumangdawon and Thursday’s Jeju Clay Pottery Lab are your best chances to buy some.',
-        address: 'Seongeup Folk Village · Seongeup-ri, Pyoseon-myeon, Seogwipo',
-        mapQuery: '성읍민속마을',
-        notes: [
-          { type: 'info', text: 'No ticket needed; it is a working village, so stay out of yards unless a house is signed as open to visitors. Some residents run paid tours and sell local goods, which are optional.' }
-        ]
-      },
-      {
-        label: 'Rain Fallback — Damda Jeju',
-        icon: '☕',
-        content: 'A rustic cafe in Pyoseon-myeon with windows onto the citrus orchards, a short drive from Seongeup, so it slots in between the village and Sumangdawon. One write-up says it serves a weekly hansik (Korean set meal) on a menu that changes with local produce, and suggests going on a Friday.',
-        address: 'Damda Jeju (담다제주) · 732 Wonnim-ro, Pyoseon-myeon, Seogwipo',
-        mapQuery: '담다제주',
-        notes: [
-          { type: 'info', text: 'Open Mon–Sat 10:30–18:00, closed Sundays (from a travel blog; confirm on Naver). Check the hansik day and whether it needs booking before building a meal around it. Lunch is already Yetnal Patjuk.' }
-        ]
-      },
-      {
-        label: 'Late Afternoon — Sumangdawon Store',
-        icon: '🍵',
-        content: 'Around 3:30, on the way back toward Seogwipo. Just the shop, no class: they sell leaf and teaware made on the farm, and the black tea is the one worth attention for a pu-erh and white-tea drinker.',
-        address: 'Sumangdawon (수망다원) · Sumang-ri, Namwon-eup, Seogwipo · 0504-1340-3033',
-        notes: [
-          { type: 'info', text: 'Staff are likely Korean-only. Confirm the shop is open for walk-ins before driving over; if not, Oneureun Nokcha Hanjan, the field cafe at the Seongeup intersection, is a walk-in alternative. The one-hour class (₩30,000) is phone booking only if you change your mind: call 1330 and have them phone the farm.' }
-        ]
-      },
-      {
-        label: 'Dinner — Ppolsaljib',
-        icon: '🍖',
-        content: 'A second black-pork lesson, different from Ungdam. The specialty is ppolsal, pork cheek and jowl, and the mixed set brings six cuts with unlimited sides including kimchi jjigae and steamed egg. English menu.',
-        address: 'Ppolsaljib (뽈살집), main branch · 41 Jungjeong-ro 91beon-gil, Seogwipo · 064-763-6860',
-        notes: [
-          { type: 'warning', text: 'Open daily 15:00–24:00 with no regular closing day, but it can close early when the meat runs out. No reservations; expect about a 30-minute wait after 17:00.' },
-          { type: 'info', text: 'If you would rather not eat pork twice this leg, go back to Sambo Sikdang for okdom gui (grilled tilefish) and jari mulhoe (cold raw-fish soup) instead.' }
-        ]
-      }
-    ]
-  },
-  {
-    id: 7,
-    date: 'Saturday, October 24 — Tea Fields & the West',
+    date: 'Friday, October 23 — Tea Fields & the West',
     location: 'Jeju',
     sublocation: 'Seogwang-ri · Jeoji · Andeok',
     theme: 'jeju',
@@ -649,9 +546,9 @@ let DAYS = [
         content: 'The classic Seogwipo seafood breakfast. Order the jeonbok ttukbaegi (abalone seafood hot pot) or the jeonbokjuk (abalone porridge). Aim for the 08:00 open, then coffee at Lavarr when it opens at 9:00, so you are on the road west by about 10:00.',
         address: 'Sambo Sikdang (삼보식당) · 25 Jungjeong-ro, Seogwi-dong, Seogwipo · 064-762-3620',
         notes: [
-          { type: 'info', text: 'Open 08:00–21:00, last order 20:00. Closed the 2nd and 4th Wednesday of the month (Oct 14 and 28), so today is clear. Walk-in, cards accepted.' },
+          { type: 'info', text: 'Open 08:00–21:00, last order 20:00. Closed the 2nd and 4th Wednesday of the month (Oct 14 and 28), so Friday is clear. Walk-in, cards accepted.' },
           { type: 'warning', text: 'There is a second Sambo Sikdang in Shin-Jeju that closes the 2nd and 4th Tuesday. Make sure you go to the Seogwipo one.' },
-          { type: 'info', text: 'Moved here from Thursday for the weather. Saturday is forecast wet all day (about 30 mm), so this day is built around indoor stops: the tea museum, the art museums and Bonte. Allow extra time for the drives.' }
+          { type: 'info', text: 'Moved up to Friday because of the storm that is due to hit Jeju over the weekend. The day is built around indoor stops: the tea museum, the art museums and Bonte. Allow extra time for the drives and watch the forecast.' }
         ]
       },
       {
@@ -672,7 +569,7 @@ let DAYS = [
         address: 'O’Sulloc Tea Museum · 15 Sinhwayeoksa-ro, Andeok-myeon, Seogwipo · +82-64-794-5312',
         mapQuery: '오설록티뮤지엄',
         notes: [
-          { type: 'info', text: 'Open 09:00–18:00 daily (some listings say 19:00 in summer), no closing day, free entry. Visitors report it gets very busy by 10:30, so arrive near the 09:00 open. Saturday is forecast wet: keep the fields walk short and spend the time in the Tea Stone building.' },
+          { type: 'info', text: 'Open 09:00–18:00 daily (some listings say 19:00 in summer), no closing day, free entry. Visitors report it gets very busy by 10:30, so arrive near the 09:00 open. Rain is building: keep the fields walk short and spend the time in the Tea Stone building.' },
           { type: 'reservation', text: 'Tea Stone classes are bookable in advance at osulloc.com. Worth doing a few days ahead if you want the guided pour rather than just the cellar tasting.' },
           { type: 'info', text: 'Late October is off-season: ujeon is picked before late April and sejak late April to early May, so nothing is being harvested. The plants are usually in flower and the shops are selling this spring’s stock. Good for tasting and buying, not for picking. Skip the Innisfree Jeju House next door unless you want skincare; it adds nothing on tea.' }
         ]
@@ -684,7 +581,7 @@ let DAYS = [
         address: 'Jeju Museum of Contemporary Art · 35 Jeoji 14-gil, Hangyeong-myeon',
         mapQuery: '제주현대미술관',
         notes: [
-          { type: 'info', text: 'Both open 09:00–18:00. The Kim Tschang-Yeul is closed Mondays. Sources disagree on the Contemporary Art museum’s closing day (most say Monday, one older listing says Wednesday); Saturday is safe either way.' },
+          { type: 'info', text: 'Both open 09:00–18:00. The Kim Tschang-Yeul is closed Mondays. Sources disagree on the Contemporary Art museum’s closing day (most say Monday, one older listing says Wednesday); Friday is safe either way.' },
           { type: 'warning', text: 'Visitors report surprise closures at the Contemporary Art museum during exhibition changeovers. Check on Naver the day before.' }
         ]
       },
@@ -729,84 +626,165 @@ let DAYS = [
     ]
   },
   {
-    id: 8,
-    date: 'Sunday, October 25 — Jeju → Seoul',
-    location: 'Jeju → Seoul',
-    sublocation: 'Checkout · Flight to Seoul',
-    theme: 'jeju',
-    stay: 'Seoul Myeongdong Hotel · check-in',
+    id: 7,
+    date: 'Saturday, October 24 — Seogwipo → Busan',
+    location: 'Jeju → Busan',
+    sublocation: 'Flight to Busan · Haeundae',
+    theme: 'busan',
+    stay: 'The Westin Josun Busan · check-in 3:00 PM',
+    highlights: [
+      { icon: '✈️', text: 'Jeju → Busan flight' },
+      { icon: '🏨', text: 'Westin Josun Busan' }
+    ],
     sections: [
       {
-        label: 'Check-Out — Seom Studio',
-        icon: '🏡',
-        content: 'Check out of Seom Studio In Seogwipo #7 and leave by 07:00 to be at CJU around 08:20 for the 9:50am flight.',
+        label: 'Check-Out — Seom Studio & Flight to Busan',
+        icon: '✈️',
+        content: 'Check out of Seom Studio In Seogwipo #7, return the rental car at CJU, then fly Jeju (CJU) to Busan (PUS). Flight number and times are TBD, so trim the Seogwipo stops below around the flight. Anything after the flight is cut.',
+        address: 'Jeju International Airport (CJU) → Gimhae International Airport (PUS)',
+        mapQuery: '제주국제공항',
         notes: [
-          { type: 'warning', text: 'Ollae Guksu is closed Sundays and most places near the airport will not be open in time. Buy omegi tteok and fruit at the Olle Market on Saturday night for a car breakfast. Negeori Sikdang opens at 07:00 if you would rather sit down quickly before leaving.' },
-          { type: 'warning', text: 'Heavy rain is forecast all day Sunday (about 39 mm) with light wind. Flights should be fine, but allow extra time for the drive to CJU and check flight status that morning.' }
+          { type: 'warning', text: 'The storm is expected to arrive this weekend. Check flight status that morning and allow extra time for the drive to CJU.' },
+          { type: 'info', text: 'The Jeju rental car now goes back on Oct 24, not Oct 25.' }
         ]
       },
       {
-        label: 'Flight — CJU to GMP',
-        icon: '✈️',
-        content: 'Domestic flight from Jeju back to Seoul/Gimpo. Depart 9:50am, arrive 11:05am — 1h 15m.',
-        address: 'Jeju (CJU) → Seoul/Gimpo (GMP) · Terminal D (Domestic)',
-        mapQuery: '제주국제공항',
+        label: 'Breakfast — Olle Market',
+        icon: '🍡',
+        content: 'Around 7:15, to leave a buffer before the rain. Morning is when the produce side of the market is open. Omegi tteok (millet rice cakes), Hallabong and tangerines, and whatever is being griddled. The market’s own signatures are omegi tteok, tilefish, cutlassfish and black pork.',
+        address: 'Seogwipo Maeil Olle Market · 18 Jungang-ro 62beon-gil, Seogwipo',
+        mapQuery: '서귀포매일올레시장',
+        notes: [
+          { type: 'cash', text: 'Bring cash for the older stalls.' }
+        ]
+      },
+      {
+        label: 'Morning — Oedolgae Short Walk',
+        icon: '🥾',
+        content: 'Drive to Oedolgae (there is parking) around 8:00 instead of walking the full 5km of Olle Route 7, so you never depend on a taxi back. Walk the stretch you like around the sea stack, with the basalt coast and the Beomseom and Munseom islets offshore, then return to the car. About 30–45 minutes; be at Ohsayo for 10:00.\nIf it looks bad when you arrive, swap to Jeongbang Falls (it drops straight into the sea, about 1.3km from the market) or Cheonjiyeon Falls, both short.',
+        notes: [
+          { type: 'info', text: 'Distances and drive times are approximate; check Naver Map. The 2026 hours and fees for the waterfalls were not verified, so confirm before detouring.' },
+          { type: 'warning', text: 'The most detailed hourly forecast shows heavy rain from the afternoon and about 10 m/s wind, while other sources disagree on timing. Treat 11:00 as the cutoff for anything outdoors. Wet basalt is slippery, so turn back if the wind or sea feels rough.' }
+        ]
+      },
+      {
+        label: 'Coffee — Ohsayo Coffee',
+        icon: '☕',
+        content: 'After the Oedolgae walk (it opens at 10:00). Seogwipo’s specialty coffee stop, singled out by Sprudge. Espresso pulled on a Decent DE-1 and good pour-overs.',
+        address: 'Ohsayo Coffee (오세요커피) · 17 Sinjung-ro 13beon-gil, 1F, Seogwipo (opposite Daesin Middle School)',
+        notes: [
+          { type: 'warning', text: 'Open 10:00–18:30, closed Sundays. It is on the ground floor of a house with almost no sign and there is no lot, so pin it on Naver Map before you go.' }
+        ]
+      },
+      {
+        label: 'Lunch — Yetnal Patjuk',
+        icon: '🍲',
+        content: 'Leave Ohsayo around 10:45 and aim to eat by about 11:30, so you are indoors before the heavy rain. About 35–40 minutes northeast, among the stone houses of Seongeup Folk Village. A tiny mother-and-daughter shop that makes its own doenjang. Order the saeal patjuk (red-bean porridge with rice balls) and the siraegi gukbap.\nChef Woongchul Park of London’s Michelin-starred Sollip told Suitcase: "I’d say this is my and Bomee’s favourite place to eat in all of Korea."',
+        address: 'Yetnal Patjuk (옛날팥죽) · 130 Seongeupminsok-ro, Pyoseon-myeon · 0507-1358-3479',
+        notes: [
+          { type: 'warning', text: 'Open 10:00–17:00, closed Mondays. Walk-in. Around ₩10,000–11,000 per dish (unverified).' }
+        ]
+      },
+      {
+        label: 'Afternoon — Seopjikoji',
+        icon: '🌊',
+        content: 'About 20–25 minutes from Seongeup (estimate), around 12:45. A coastal headland walk with the Ando-designed buildings on the peninsula. This is the day’s anchor, and it is outdoors, so skip it if it is already raining and use the rain fallback below. Bonte on Friday is also Ando, so you may want to skip the buildings and just do the headland.',
+        address: 'Seopjikoji · Seongsan-eup, Seogwipo',
+        mapQuery: '섭지코지',
+        notes: [
+          { type: 'warning', text: 'Opening hours and visitor access for the Ando buildings were not verified. Check Naver Map or call before driving out.' }
+        ]
+      },
+      {
+        label: 'Rain Fallback — Seongeup Folk Village Walk (optional)',
+        icon: '🏘️',
+        content: 'Only if it is dry, and instead of Seopjikoji if it is wet: walk the lanes for an hour or so after lunch, then go to Damda Jeju for a long cafe stop and on to Sumangdawon. Seongeup is a lived-in Joseon-era village of black basalt-walled houses with thatched roofs, stone dol hareubang statues at the old gates, and a 1,000-year-old zelkova tree. Walk the lanes for an hour or so, then head on to Sumangdawon, where the farm’s own teaware is for sale.\nThe Jeju-specific ceramic to look for is onggi: unglazed earthenware made from volcanic-ash soil and fired in stone kilns, which breathes because it is not lacquered. Sumangdawon and Thursday’s Jeju Clay Pottery Lab are your best chances to buy some.',
+        address: 'Seongeup Folk Village · Seongeup-ri, Pyoseon-myeon, Seogwipo',
+        mapQuery: '성읍민속마을',
+        notes: [
+          { type: 'info', text: 'No ticket needed; it is a working village, so stay out of yards unless a house is signed as open to visitors. Some residents run paid tours and sell local goods, which are optional.' }
+        ]
+      },
+      {
+        label: 'Rain Fallback — Damda Jeju',
+        icon: '☕',
+        content: 'A rustic cafe in Pyoseon-myeon with windows onto the citrus orchards, a short drive from Seongeup, so it slots in between the village and Sumangdawon. One write-up says it serves a weekly hansik (Korean set meal) on a menu that changes with local produce, and suggests going on a Friday.',
+        address: 'Damda Jeju (담다제주) · 732 Wonnim-ro, Pyoseon-myeon, Seogwipo',
+        mapQuery: '담다제주',
+        notes: [
+          { type: 'info', text: 'Open Mon–Sat 10:30–18:00, closed Sundays (from a travel blog; confirm on Naver). Check the hansik day and whether it needs booking before building a meal around it. Lunch is already Yetnal Patjuk.' }
+        ]
+      },
+      {
+        label: 'Late Afternoon — Sumangdawon Store',
+        icon: '🍵',
+        content: 'Around 3:30, on the way back toward Seogwipo. Just the shop, no class: they sell leaf and teaware made on the farm, and the black tea is the one worth attention for a pu-erh and white-tea drinker.',
+        address: 'Sumangdawon (수망다원) · Sumang-ri, Namwon-eup, Seogwipo · 0504-1340-3033',
+        notes: [
+          { type: 'info', text: 'Staff are likely Korean-only. Confirm the shop is open for walk-ins before driving over; if not, Oneureun Nokcha Hanjan, the field cafe at the Seongeup intersection, is a walk-in alternative. The one-hour class (₩30,000) is phone booking only if you change your mind: call 1330 and have them phone the farm.' }
+        ]
+      },
+      {
+        label: 'Check-In — The Westin Josun Busan',
+        icon: '🏨',
+        content: 'Check-in is from 3:00 PM. Check-out is Sunday at 12:00 PM.',
+        address: 'The Westin Josun Busan · 67 Dongbaek-ro, Haeundae-gu, Busan 48100 · +82-51-749-7000',
+        mapQuery: '웨스틴 조선 부산',
+        notes: [
+          { type: 'reservation', text: 'Booked under Richard Gore. Marriott Bonvoy confirmation email is in your inbox · Oct 24–25.' }
+        ]
+      },
+      {
+        label: 'Evening — Dinner in Haeundae',
+        icon: '🍽️',
+        content: 'TBD.',
+        notes: []
+      }
+    ]
+  },
+  {
+    id: 8,
+    date: 'Sunday, October 25 — Busan → Seoul',
+    location: 'Busan → Seoul',
+    sublocation: 'Haeundae · KTX 080 at 21:41',
+    theme: 'busan',
+    stay: 'Seoul Myeongdong Hotel · late check-in after midnight',
+    highlights: [
+      { icon: '🌊', text: 'Busan daytime TBD' },
+      { icon: '🚄', text: 'KTX 080 to Seoul' }
+    ],
+    sections: [
+      {
+        label: 'Check-Out — The Westin Josun Busan',
+        icon: '🏨',
+        content: 'Check out by 12:00 PM. The train is not until 21:41, so ask the front desk to hold your bags for the day.',
+        address: 'The Westin Josun Busan · 67 Dongbaek-ro, Haeundae-gu, Busan',
+        mapQuery: '웨스틴 조선 부산',
         notes: []
       },
       {
-        label: 'Check-In — Seoul Myeongdong',
+        label: 'Daytime — Busan',
+        icon: '🌊',
+        content: 'TBD. About nine hours between check-out and the train.',
+        notes: []
+      },
+      {
+        label: 'Train — KTX 080 to Seoul',
+        icon: '🚄',
+        content: 'Busan 21:41 → Seoul 00:21 (2h 40m). First Class, forward-facing, adult. Car 4, seats 6B and 6C.',
+        notes: [
+          { type: 'info', text: 'Platform information is released 15 minutes before departure. Show each QR code at the gate. Ticket no. 80012-1023-10031-18 (seat 6B).' },
+          { type: 'warning', text: 'The train gets in at 00:21, so the subway may be finished for the night. Plan on a taxi to Myeongdong.' }
+        ]
+      },
+      {
+        label: 'Late Check-In — Seoul Myeongdong',
         icon: '🏨',
-        content: 'Check in to the Seoul Myeongdong hotel.',
+        content: 'Expect to reach the hotel around 1:00 AM. Tell the hotel you are arriving after midnight so the front desk is staffed.',
         address: 'Seoul Myeongdong',
         notes: [
           { type: 'reservation', text: 'Hotel confirmed · Confirmation #42971084 · Oct 25–31' }
         ]
-      },
-      {
-        label: 'Lunch — Apgujeong Sanghoe',
-        icon: '🍜',
-        content: 'Drop the bags at the hotel, then head to Apgujeong (about 30 minutes by subway or taxi) for a late lunch at Apgujeong Sanghoe: buckwheat makguksu dressed in freshly pressed perilla oil, plus chicken. Then on to the Gangnam and Songpa side for the afternoon.',
-        address: 'Apgujeong Sanghoe · 13-2 Seolleung-ro 155-gil, Gangnam-gu, Seoul (near Apgujeong Rodeo Station)',
-        mapQuery: '선릉로155길 13-2',
-        notes: [
-          { type: 'info', text: 'Open daily 11am–10pm (last order 9pm). Takes reservations: +82 50-71426-8999.' }
-        ]
-      },
-      {
-        label: 'Afternoon — Bongeunsa & COEX',
-        icon: '🛕',
-        content: 'About 15 minutes from Apgujeong to Samseong. Bongeunsa is a 1,200-year-old Buddhist temple set right among Gangnam’s towers, with a giant standing Maitreya statue. COEX is directly across the street: the Starfield Library’s two-story bookshelf atrium is the main draw.',
-        address: 'Bongeunsa · 531 Bongeunsa-ro, Gangnam-gu, Seoul (Bongeunsa Station, Line 9) · COEX across the street',
-        mapQuery: '봉은사',
-        notes: [
-          { type: 'warning', text: 'Bongeunsa’s Templelife program (tea ceremony, meditation with a monk, lotus-lantern craft; ₩20,000, foreigners only) runs only on Thursdays, 2–4pm. Today is just a walk-through. To do the program, it would need to move to Thu Oct 29.' }
-        ]
-      },
-      {
-        label: 'Late Afternoon — Songpa Walk',
-        icon: '🚶',
-        content: 'Line 2 east to Jamsil (about 10 minutes) and follow the Songpa walking tour on page 117 of the tour book.',
-        address: 'Jamsil, Songpa-gu, Seoul',
-        mapQuery: '잠실',
-        notes: [
-          { type: 'info', text: 'Follow the Songpa walk on page 117 of the tour book.' }
-        ]
-      },
-      {
-        label: 'Evening — Lotte World & Magic Island (optional)',
-        icon: '🎢',
-        content: 'Lotte World is at Jamsil, where the walk ends. The indoor Adventure dome is open 10am–9pm on Sundays; Magic Island, the outdoor section on Seokchon Lake, lights up after dark. Even without rides, the walk around the lake and the Magic Island castle at night is worth it. Take Line 2 straight back to Euljiro for dinner (about 35 minutes, no transfers).',
-        address: 'Lotte World · 240 Olympic-ro, Songpa-gu, Seoul (Jamsil Station)',
-        mapQuery: '롯데월드',
-        notes: [
-          { type: 'warning', text: 'Magic Island rides close in rain, strong wind, or temperatures outside 0–30°C.' }
-        ]
-      },
-      {
-        label: 'Evening — Fried Chicken',
-        icon: '🍗',
-        content: 'TBD. Fried chicken for dinner, spot not chosen yet. Replaces Sancheong Charcoal Garden.',
-        notes: []
       }
     ]
   },
@@ -1299,7 +1277,7 @@ let DAYS = [
         content: 'Skincare options from the same friend\u2019s list, in order of how close they are to the hotel: Olive Young (the Korean Sephora, everywhere in Myeongdong), Readyyoung Pharmacy (products you would be prescribed by a dermatologist and also find in pharmacies), and OFF Beauty (a warehouse-style beauty store). Check where the nearest Readyyoung and OFF Beauty branches are on Naver Map. Gangnam options if you ever have a spare half day: Optima Wellness Museum (also in Sinsa, Bukchon and Itaewon) and Wellness House Seoul (clinic, products curated to your skin concern, and an Erewhon-style wellness smoothie).',
         mapQuery: '올리브영 명동',
         notes: [
-          { type: 'info', text: 'Branch addresses and hours not verified. Shinsegae Twelve in Apgujeong (the Korean Erewhon smoothie) is another option, near your Oct 25 Apgujeong lunch.' }
+          { type: 'info', text: 'Branch addresses and hours not verified. Shinsegae Twelve in Apgujeong (the Korean Erewhon smoothie) is another option, an Apgujeong stop if you add one.' }
         ]
       },
       {
@@ -1324,8 +1302,10 @@ const QUICK_REF = {
   ],
   reservations: [
     { name: 'Hotel Sunbee Insadong', detail: 'Confirmed · Check-in Oct 18 · Check-out Oct 21 · 26 Insadong 7-gil, Seoul' },
-    { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–25 · Unit #7' },
-    { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31' },
+    { name: 'Seom Studio In Seogwipo #7', detail: 'AirBnb confirmed · Oct 21–24 · Unit #7' },
+    { name: 'The Westin Josun Busan', detail: 'Confirmed · Oct 24–25 · check-in 3:00 PM, check-out 12:00 PM · booked under Richard Gore · 67 Dongbaek-ro, Haeundae-gu · +82-51-749-7000' },
+    { name: 'KTX 080 · Busan → Seoul', detail: 'Confirmed · Sun Oct 25, 21:41 → 00:21 · First Class, Car 4, seats 6B & 6C · QR codes in the KORAIL web tickets · platform shown 15 min before departure' },
+    { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31 · arriving after midnight on the KTX, tell the hotel' },
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM (1 hr 10 min) · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
     { name: 'Seal Carving Class — Feel So Good Calli Studio', detail: 'Not yet booked · Mon Oct 19, 3–5pm · Anguk Station exit 6 · book online (Trazy)' },
     { name: 'Hwahaedang', detail: 'Confirmed via AutoReserve · Lunch Oct 20 (Tue), 12:45 · 2 people, seating only · Yeouido · listed as "Hanakando Yeouido Branch" · fee prepaid, pay for the meal at the restaurant · +82 2-785-4422' },
@@ -1334,24 +1314,24 @@ const QUICK_REF = {
     { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Confirmed · Oct 29, 7:00 PM · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
-    { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Late afternoon Oct 23 (Fri) · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
-    { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 24 (Sat) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
+    { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Late afternoon Oct 24 (Sat), only if the flight allows · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
+    { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 23 (Fri) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
     { name: 'International Driving Permit', detail: 'BEFORE YOU FLY · Get from AAA in the US; it cannot be issued in Korea · carry it with your US license and passport · required for the Jeju rental car' },
-    { name: 'Jeju rental car', detail: 'Not yet booked · Pick up CJU Oct 21, return Oct 25 · effectively required for this leg · budget ₩50,000–100,000/day for a compact plus full insurance (estimate)' }
+    { name: 'Jeju rental car', detail: 'Not yet booked · Pick up CJU Oct 21, return CJU Oct 24 before the Busan flight · effectively required for this leg · budget ₩50,000–100,000/day for a compact plus full insurance (estimate)' }
   ],
   hours: [
     { name: 'Ollae Guksu (Oct 21)', detail: '08:00–15:00, last order ~14:55 · closed Sundays, so Oct 21 is the only chance' },
     { name: 'Seogwi Dawon (Oct 21)', detail: 'Closes 17:00 · arrive by 16:15 · closed Tuesdays' },
     { name: 'Ungdam Sikdang (Oct 21, Oct 22)', detail: 'Opens 15:00, to 22:00 · closed Sundays · an older listing says noon, do not rely on it' },
     { name: 'Arario Museum (Oct 21)', detail: '10:00–19:00, last entry 18:00 · closed Mondays' },
-    { name: 'Sambo Sikdang (Oct 24)', detail: '08:00–21:00, last order 20:00 · closed 2nd & 4th Wednesday (Oct 14, 28) · go to the Seogwipo branch, not Shin-Jeju' },
-    { name: 'Lavarr (Oct 24)', detail: 'Open daily 09:00–22:00 · former bathhouse, go up to the roof · 13 Jungang-ro, Seogwipo' },
-    { name: 'Miyoungine, Hamo (Oct 24)', detail: 'Hours and closed days not found · check Naver or call before going · mackerel sashimi (고등어회) · 42 Hamohanggu-ro, Daejeong-eup' },
-    { name: 'Bonte Museum (Oct 24)', detail: '10:00–18:00 but last admission 17:00 · arrive by 16:30' },
-    { name: 'Jeju Museum of Contemporary Art (Oct 24)', detail: '09:00–18:00 · sources disagree on the closing day (most say Mon, one says Wed); Saturday is safe · surprise closures during exhibition changeovers, check Naver the day before' },
-    { name: 'Ohsayo Coffee (Oct 23)', detail: '10:00–18:30 · closed Sundays · almost no sign, pin it on Naver Map' },
-    { name: 'Yetnal Patjuk (Oct 23)', detail: '10:00–17:00 · closed Mondays' },
-    { name: 'Damda Jeju (Oct 23)', detail: 'Mon–Sat 10:30–18:00 · closed Sundays · cafe with orchard views, weekly hansik meal · 732 Wonnim-ro, Pyoseon-myeon' },
+    { name: 'Sambo Sikdang (Oct 23)', detail: '08:00–21:00, last order 20:00 · closed 2nd & 4th Wednesday (Oct 14, 28) · go to the Seogwipo branch, not Shin-Jeju' },
+    { name: 'Lavarr (Oct 23)', detail: 'Open daily 09:00–22:00 · former bathhouse, go up to the roof · 13 Jungang-ro, Seogwipo' },
+    { name: 'Miyoungine, Hamo (Oct 23)', detail: 'Hours and closed days not found · check Naver or call before going · mackerel sashimi (고등어회) · 42 Hamohanggu-ro, Daejeong-eup' },
+    { name: 'Bonte Museum (Oct 23)', detail: '10:00–18:00 but last admission 17:00 · arrive by 16:30' },
+    { name: 'Jeju Museum of Contemporary Art (Oct 23)', detail: '09:00–18:00 · sources disagree on the closing day (most say Mon, one says Wed); Friday is safe · surprise closures during exhibition changeovers, check Naver the day before' },
+    { name: 'Ohsayo Coffee (Oct 24)', detail: '10:00–18:30 · closed Sundays · almost no sign, pin it on Naver Map' },
+    { name: 'Yetnal Patjuk (Oct 24)', detail: '10:00–17:00 · closed Mondays' },
+    { name: 'Damda Jeju (Oct 24)', detail: 'Mon–Sat 10:30–18:00 · closed Sundays · cafe with orchard views, weekly hansik meal · 732 Wonnim-ro, Pyoseon-myeon' },
     { name: 'Ppolsaljib (Oct 23)', detail: 'Opens 15:00 to midnight · no closing day but can close early when the meat sells out · ~30 min wait after 17:00' },
     { name: 'Myeongjin Jeonbok (Oct 22)', detail: '09:30–20:30, last order 20:00 · closed Tuesdays · waiting ticket, ~30 min' },
     { name: 'Manjanggul (Oct 22)', detail: '09:00–18:00, last entry 17:10 · closed the 1st Wednesday · reopened May 30, 2026, Section 1 only (~1 km of 7.4 km)' },
@@ -1366,11 +1346,12 @@ const QUICK_REF = {
     { name: 'ICN → Insadong', detail: 'AREX express to Seoul Station (~45 min) + Line 1 to Jonggak · or taxi ~60–80 min' },
     { name: 'Departure Flight', detail: 'Departs Incheon (ICN) 5:30pm, Oct 31 — leave Myeongdong by ~1:30pm · add flight number once booked' },
     { name: 'GMP → CJU (Oct 21)', detail: 'Depart Gimpo Terminal D 9:10am · Arrive Jeju 10:25am · 1h 15m' },
-    { name: 'CJU → GMP (Oct 25)', detail: 'Depart Jeju 9:50am · Arrive Gimpo Terminal D 11:05am · 1h 15m' },
-    { name: 'Jeju — car required', detail: 'Rent at CJU. Buses connect the main towns but the tea farms, Jeoji, Bonte, the Seongeup studios and the east coast are poorly served. Alternatives: a hired car with driver for one day (Saturday is the best candidate, via Klook or Trazy), Kakao T taxis for evenings in Seogwipo town.' },
+    { name: 'CJU → PUS (Oct 24)', detail: 'Jeju to Busan · flight number and times TBD · return the rental car first' },
+    { name: 'KTX 080 (Oct 25)', detail: 'Busan 21:41 → Seoul 00:21 · First Class, Car 4, seats 6B & 6C · taxi from Seoul to Myeongdong, the subway may be done' },
+    { name: 'Jeju — car required', detail: 'Rent at CJU. Buses connect the main towns but the tea farms, Jeoji, Bonte, the Seongeup studios and the east coast are poorly served. Alternatives: a hired car with driver for one day (Friday is the best candidate, via Klook or Trazy), Kakao T taxis for evenings in Seogwipo town.' },
     { name: 'Drive times from Seogwipo', detail: 'O’Sulloc / Seogwang-ri ~40 min · Bonte & Jungmun ~25–30 min · Jeoji ~45 min · Seongeup ~35–40 min · Jeju City or CJU ~1 hr · Seongsan ~1 hr · Yeongsil trailhead ~30 min' },
     { name: 'Jeju driving notes', detail: 'Right-hand traffic. Speed cameras everywhere and fines follow the rental. The Hallasan roads (1131, 1100) are winding and can be foggy. Parking is easy except in central Seogwipo. Use Naver Map, not Google Maps.' },
-    { name: 'Departure morning (Oct 25)', detail: 'Leave Seogwipo by 07:00 to be at CJU ~08:20 for the 9:50am flight' },
+    { name: 'Departure day (Oct 24)', detail: 'Flight time TBD · return the rental car at CJU and check flight status first thing, the storm is due this weekend' },
     { name: 'Help lines', detail: '1330 is the 24-hour travel line in English and will phone a venue for you — useful for the Sumangdawon booking. Consider a Korean eSIM: Hallasan booking may need Korean SMS verification.' },
     { name: 'Late-October weather (climate averages)', detail: '~20°C by day, ~14°C at night, often windy, typhoon season mostly over. Bring a windproof layer. Forecast as of Oct 21: Oct 22 is the one dry day, so the East Coast run is on Thursday. Rain from Friday midday or evening through Sunday, with Oct 24 and 25 the wettest.' },
   ],
@@ -1412,7 +1393,7 @@ const QUICK_REF = {
     { name: 'Daeo Bookstore', detail: 'Seochon, near Gyeongbokgung · 55 Jahamun-ro 7-gil (Gyeongbokgung Stn exit 2) · open since 1951, now a book cafe with old books and used objects · older listing says 11am to 10pm, closed days not found, check Naver · Seochon is not on a current day (Day 2 has passed), so Oct 27 open day fits · pairs with Arumjigi' },
     { name: 'Arumjigi', detail: 'Seochon / Anguk · research, exhibitions and design programs on clothing, food and how people live · HQ in Tongui-dong (older report says ₩10,000 entry) plus a free hanok in Anguk-dong · hours not verified · pairs with Daeo Bookstore on the Oct 27 open day' },
     { name: 'Point of View', detail: 'Seongsu · 18 Yeonmujang-gil, Seongdong-gu · three-floor stationery space: tools and art books, curated objects, art paper and fountain pens · listed 12pm to 8pm · Seongsu is not on a current day; pair with Jayeondo Sogeumppang and LCDC Seoul if Oct 27 becomes a Seongsu day' },
-    { name: 'Eastern Edition Atelier', detail: 'Gangnam · 17 Eonju-ro 133-gil, Gangnam-gu · furniture brand atelier built around an archive, tea, books and nature · Mon to Sat 10am to 7pm, CLOSED SUNDAYS, so it cannot join the Sunday Oct 25 Apgujeong lunch · fits Oct 27 or any weekday' },
+    { name: 'Eastern Edition Atelier', detail: 'Gangnam · 17 Eonju-ro 133-gil, Gangnam-gu · furniture brand atelier built around an archive, tea, books and nature · Mon to Sat 10am to 7pm, CLOSED SUNDAYS · fits Oct 27 or any weekday' },
     { name: 'Sikijang', detail: 'Functional objects and exhibitions by younger craftspeople · could not confirm the address or hours, check Naver Map before slotting' }
   ]
 };
