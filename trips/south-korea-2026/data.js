@@ -724,13 +724,15 @@ let DAYS = [
         ]
       },
       {
-        label: 'Late Dinner — Haeundae Market',
+        label: 'Late Dinner — Haeundae Market Gomjangeo',
         icon: '🍽️',
-        content: 'Around 21:00, a short taxi from the hotel. Market tteokbokki at Sangguk Ine with eomuk skewers and the fried twist doughnut, then graze the other stalls. Backup if you land late: the pojangmacha tents at Mipo serve grilled shellfish sets until about 4am.',
-        address: 'Sangguk Ine · 40-1 Gunam-ro 41beon-gil, Haeundae-gu, Busan · 051-742-9001',
-        mapQuery: '상국이네',
+        content: 'Around 21:00, a short taxi from the hotel. Gomjangeo (grilled hagfish) is Busan’s signature drinking food. Haeundae Sangomjangeo (해운대산곰장어) is inside the market: salt-grilled or marinated, from ₩40,000 for 300g, and finish with fried rice in the leftover sauce. Before or after, Sangguk Ine (상국이네) for market tteokbokki, eomuk and twigim.',
+        address: '해운대산곰장어 · 14-1 Gunam-ro 41beon-gil, Haeundae-gu, Busan · 051-747-6004',
+        mapQuery: '해운대산곰장어',
         notes: [
-          { type: 'warning', text: 'No hours found for Sangguk Ine. Call before you head over. Heavy rain and gusts are forecast tonight, so take a taxi rather than walking the beach.' }
+          { type: 'info', text: 'Haeundae Sangomjangeo: 11:30 to 23:00, open year-round. Backup if the flight runs late: Haegeumgang Gomjangeo (해금강곰장어), 37 Gunam-ro 41beon-gil, open until 02:00 daily, 051-746-5054.' },
+          { type: 'info', text: 'Sangguk Ine: listed as 24 hours on a Korean market guide · 40-1 Gunam-ro 41beon-gil · 051-742-9001.' },
+          { type: 'warning', text: 'Heavy rain and gusts are forecast tonight, so take a taxi rather than walking the beach.' }
         ]
       }
     ]
@@ -747,7 +749,8 @@ let DAYS = [
       { icon: '🖼️', text: 'Busan Museum of Art' },
       { icon: '🏭', text: 'F1963' },
       { icon: '☕', text: 'Aery Coffee' },
-      { icon: '🥟', text: 'Sinbalwon' },
+      { icon: '🥢', text: 'Jungang Momil' },
+      { icon: '🥩', text: 'Choryang galbi' },
       { icon: '🚄', text: 'KTX 080 to Seoul' }
     ],
     sections: [
@@ -787,7 +790,8 @@ let DAYS = [
         mapQuery: 'F1963',
         notes: [
           { type: 'info', text: 'Kukje Gallery: Tue to Sun 10:00 to 18:00. Terarosa: 9:00 to 21:00 daily.' },
-          { type: 'warning', text: 'Boksoondoga hours not found. Call 051-757-2963. Terarosa is the fallback.' }
+          { type: 'warning', text: 'Boksoondoga hours not found. Call 051-757-2963. Terarosa is the fallback.' },
+          { type: 'info', text: 'If there is time, wander Mangmi-dong (망리단길), the local cafe neighborhood around F1963. Moto Coffee (모토커피, 16 Gwajeong-ro) is open Sundays 11:00 to 21:00.' }
         ]
       },
       {
@@ -803,22 +807,25 @@ let DAYS = [
       {
         label: 'Afternoon — Jung-gu: Aery Coffee & Modern History',
         icon: '☕',
-        content: 'Around 16:00, one subway stop to Jungang Station. Aery Coffee: owner won the 2024 Korea barista championship; get a single-origin latte. Yeongyeongjae is a 3-minute walk, with yuja makgeolli and plum tea. The Busan Modern History Museum (former Bank of Korea building, free) is nearby. Then the covered Gukje Market and Bosu-dong book alley if time allows.',
+        content: 'Around 16:00, one subway stop to Jungang Station. Aery Coffee: owner won the 2024 Korea barista championship; get a single-origin latte. Yeongyeongjae is a 3-minute walk, with yuja makgeolli and plum tea. The Busan Modern History Museum (former Bank of Korea building, free) is nearby. Snack stop: Jungang Momil (중앙모밀), open since 1956, for buckwheat soba or momil hot pot. Then the covered Gukje Market and Bosu-dong book alley if time allows.',
         address: 'Aery Coffee · 47 Jungang-daero, Jung-gu, Busan',
         mapQuery: '애리커피',
         notes: [
           { type: 'warning', text: 'Aery Coffee: 10:00 to 19:00, last order 18:30. Modern History Museum closes 18:00. Yeongyeongjae listed until 20:00.' },
+          { type: 'info', text: 'Jungang Momil: 9-1 Jungang-daero 49beon-gil · 11:00 to 20:00, closed Wednesdays. Skip Ttungbojip (closed the 4th Sunday, which is Oct 25) and Jungang Sikdang (closed Sundays).' },
           { type: 'info', text: 'If the rain lets up: swap to Yeongdo for Momos Coffee’s harbor warehouse roastery, Busan Biennale at Space Wonji (free, last entry 17:30, through Nov 1), and Huinnyeoul village.' }
         ]
       },
       {
-        label: 'Dinner — Sinbalwon',
-        icon: '🥟',
-        content: 'Around 19:00, across from Busan Station in Chinatown. Dumplings, a local favorite. Alternatives: Choryang pork galbi alley (Unhwa Kalbi), or 24-hour Daegong pork gukbap. Be at the platform area by 21:15.',
-        address: 'Sinbalwon · 62 Daeyeong-ro 243beon-gil, Dong-gu, Busan',
-        mapQuery: '신발원',
+        label: 'Dinner — Choryang Six Flavors Street',
+        icon: '🥩',
+        content: 'Around 19:00, across the 8-lane road from Busan Station (초량육미거리). Local pick: Miryang Galbi (밀양갈비), pork galbi, one of DiningCode’s top-rated Choryang old-timers. Gukbap option: Uri Dwaeji Gukbap (우리돼지국밥). Safe fallback with confirmed hours: Sinbalwon dumplings in Chinatown. Be at the platform area by 21:15.',
+        address: '밀양갈비 · Choryang-ro, Dong-gu, Busan · 051-466-4546',
+        mapQuery: '밀양갈비 초량',
         notes: [
-          { type: 'warning', text: 'Sinbalwon: 11:00 to 20:00, closed Tuesdays. Sit down by 19:00. Skip Pyeongsanok, it is closed Sundays.' }
+          { type: 'warning', text: 'Miryang Galbi Sunday hours not confirmed. Call ahead.' },
+          { type: 'info', text: 'Sinbalwon (신발원): 62 Daeyeong-ro 243beon-gil · 11:00 to 20:00, closed Tuesdays · sit down by 19:00.' },
+          { type: 'warning', text: 'Skip Pyeongsanok (closed Sundays) and Choryang Milmyeon (Korean reviewers find the broth oddly sweet).' }
         ]
       },
       {
@@ -1389,7 +1396,13 @@ const QUICK_REF = {
     { name: 'Myeongjin Jeonbok (Oct 22)', detail: '09:30–20:30, last order 20:00 · closed Tuesdays · waiting ticket, ~30 min' },
     { name: 'Manjanggul (Oct 22)', detail: '09:00–18:00, last entry 17:10 · closed the 1st Wednesday · reopened May 30, 2026, Section 1 only (~1 km of 7.4 km)' },
     { name: 'Seongsan Ilchulbong (Oct 22)', detail: 'Oct hours 05:00–19:00, last ticket 18:00 · ₩5,000 adults · closed only the first Monday of the month (checked Oct 21) · confirm on Naver' },
-    { name: 'Sangguk Ine (Oct 24)', detail: 'Hours not found · call 051-742-9001 · Haeundae Market' },
+    { name: 'Haeundae Sangomjangeo (Oct 24)', detail: '11:30–23:00 · open year-round · Haeundae Market · 051-747-6004' },
+    { name: 'Haegeumgang Gomjangeo (Oct 24)', detail: '11:00–02:00 daily · late backup · 051-746-5054' },
+    { name: 'Sangguk Ine (Oct 24)', detail: 'Listed 24 hours · Haeundae Market · 051-742-9001' },
+    { name: 'Jungang Momil (Oct 25)', detail: '11:00–20:00 · closed Wednesdays · Jung-gu, since 1956' },
+    { name: 'Moto Coffee, Mangmi-dong (Oct 25)', detail: 'Sun 11:00–21:00' },
+    { name: 'Miryang Galbi, Choryang (Oct 25)', detail: 'Sunday hours not confirmed · call 051-466-4546' },
+    { name: 'Ttungbojip, Jungang Sikdang (Oct 25)', detail: 'Both closed Oct 25 (4th Sunday / Sundays) · skip' },
     { name: 'Kumsu Bokguk (Oct 25)', detail: 'Tagged 24 hours, year-round, no posted schedule · call 051-742-3600' },
     { name: 'Busan Museum of Art (Oct 25)', detail: '10:00–18:00 · closed Mondays' },
     { name: 'Kukje Gallery Busan, F1963 (Oct 25)', detail: 'Tue–Sun 10:00–18:00 · Korakrit Arunanondchai show ends Oct 31' },
