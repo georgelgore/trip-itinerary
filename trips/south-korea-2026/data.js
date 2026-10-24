@@ -746,7 +746,7 @@ let DAYS = [
     stay: 'Seoul Myeongdong Hotel · late check-in after midnight',
     highlights: [
       { icon: '🐡', text: 'Kumsu Bokguk' },
-      { icon: '🖼️', text: 'Busan Museum of Art' },
+      { icon: '🖼️', text: 'Space Lee Ufan' },
       { icon: '🛍️', text: 'Haeridan-gil' },
       { icon: '🏭', text: 'F1963' },
       { icon: '☕', text: 'Aery Coffee' },
@@ -766,13 +766,13 @@ let DAYS = [
         ]
       },
       {
-        label: 'Morning — Busan Museum of Art',
+        label: 'Morning — Space Lee Ufan & Busan Museum of Art',
         icon: '🖼️',
-        content: '10:00 to 11:00, about 10 minutes by taxi. Reopened in September 2026 after a two-year renovation. Keep it to one show: the 1945 to 1953 exhibition on Busan as the wartime capital (about 260 works plus archives).',
-        address: 'Busan Museum of Art · Centum City, Haeundae-gu, Busan',
-        mapQuery: '부산시립미술관',
+        content: '10:00 to 11:00, about 10 minutes by taxi. Start at Space Lee Ufan (이우환공간), the dedicated Lee Ufan building on the museum grounds, with his From Line, From Point and Relatum works. If time is left, the main building reopened in September 2026; its best show is the 1945 to 1953 exhibition on Busan as the wartime capital.',
+        address: 'Busan Museum of Art · 58 APEC-ro, Haeundae-gu, Busan · BEXCO station exit 5',
+        mapQuery: '이우환공간',
         notes: [
-          { type: 'info', text: 'Open 10:00 to 18:00, closed Mondays. Sunday is fine.' }
+          { type: 'info', text: 'Space Lee Ufan: 10:00 to 18:00, last entry 17:30, closed Mondays, free. Main building last entry 17:00. Info 051-740-2601.' }
         ]
       },
       {
@@ -824,6 +824,8 @@ let DAYS = [
         notes: [
           { type: 'warning', text: 'Aery Coffee: 10:00 to 19:00, last order 18:30. Modern History Museum closes 18:00. Yeongyeongjae listed until 20:00.' },
           { type: 'info', text: 'Jungang Momil: 9-1 Jungang-daero 49beon-gil · 11:00 to 20:00, closed Wednesdays. Skip Ttungbojip (closed the 4th Sunday, which is Oct 25) and Jungang Sikdang (closed Sundays).' },
+          { type: 'info', text: 'Shopping: GOYOU (고유), a Japanese-archive vintage shop in Gwangbok-dong with Yohji Yamamoto and Junya Watanabe, hand-picked in Japan by the owner. 14 Gwangbok-jungang-ro 34beon-gil, Jung-gu · 13:00 to 20:00 · short walk from Jungang.' },
+          { type: 'warning', text: 'GOYOU closed day not listed. Check its Instagram or call before going.' },
           { type: 'info', text: 'If the rain lets up: swap to Yeongdo for Momos Coffee’s harbor warehouse roastery, Busan Biennale at Space Wonji (free, last entry 17:30, through Nov 1), and Huinnyeoul village.' }
         ]
       },
@@ -1416,7 +1418,8 @@ const QUICK_REF = {
     { name: 'Miryang Galbi, Choryang (Oct 25)', detail: 'Sunday hours not confirmed · call 051-466-4546' },
     { name: 'Ttungbojip, Jungang Sikdang (Oct 25)', detail: 'Both closed Oct 25 (4th Sunday / Sundays) · skip' },
     { name: 'Kumsu Bokguk (Oct 25)', detail: 'Tagged 24 hours, year-round, no posted schedule · call 051-742-3600' },
-    { name: 'Busan Museum of Art (Oct 25)', detail: '10:00–18:00 · closed Mondays' },
+    { name: 'Space Lee Ufan / Busan Museum of Art (Oct 25)', detail: '10:00–18:00 · closed Mondays · Lee Ufan last entry 17:30, free · main building last entry 17:00' },
+    { name: 'GOYOU, Gwangbok-dong (Oct 25)', detail: '13:00–20:00 · closed day not listed, check first · Japanese-archive vintage incl. Yohji' },
     { name: 'Kukje Gallery Busan, F1963 (Oct 25)', detail: 'Tue–Sun 10:00–18:00 · Korakrit Arunanondchai show ends Oct 31' },
     { name: 'Boksoondoga, F1963 (Oct 25)', detail: 'Hours not found · call 051-757-2963 · Terarosa (9:00–21:00 daily) is the fallback' },
     { name: 'Aery Coffee (Oct 25)', detail: '10:00–19:00 daily, last order 18:30 · 47 Jungang-daero, Jung-gu' },
