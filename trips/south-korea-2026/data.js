@@ -747,6 +747,7 @@ let DAYS = [
     highlights: [
       { icon: '🐡', text: 'Kumsu Bokguk' },
       { icon: '🖼️', text: 'Busan Museum of Art' },
+      { icon: '🛍️', text: 'Haeridan-gil' },
       { icon: '🏭', text: 'F1963' },
       { icon: '☕', text: 'Aery Coffee' },
       { icon: '🥢', text: 'Jungang Momil' },
@@ -767,7 +768,7 @@ let DAYS = [
       {
         label: 'Morning — Busan Museum of Art',
         icon: '🖼️',
-        content: '10:00, about 10 minutes by taxi. Reopened in September 2026 after a two-year renovation. Priority: the 1945 to 1953 show on Busan as the wartime capital (about 260 works plus archives). Also on: "Future Museology." Allow about 1.5 hours.',
+        content: '10:00 to 11:00, about 10 minutes by taxi. Reopened in September 2026 after a two-year renovation. Keep it to one show: the 1945 to 1953 exhibition on Busan as the wartime capital (about 260 works plus archives).',
         address: 'Busan Museum of Art · Centum City, Haeundae-gu, Busan',
         mapQuery: '부산시립미술관',
         notes: [
@@ -775,9 +776,19 @@ let DAYS = [
         ]
       },
       {
+        label: 'Late Morning — Haeridan-gil',
+        icon: '🛍️',
+        content: '11:15 to 12:00. A lane of indie shops by the old Haeundae Station, about 10 minutes from the Westin and a good rainy-day browse. Omyohan Sangjeom (오묘한 상점) for European vintage kitchenware and ceramics. Loft Mansion (루프트맨션) for tableware, vases and its own textiles in a converted house. Orleans Store (올리언스 스토어) for remade 1950s to 1990s vintage clothing and bags.',
+        address: 'Haeridan-gil · around 1-ro 38beon-gil, U-dong, Haeundae-gu, Busan',
+        mapQuery: '해리단길',
+        notes: [
+          { type: 'info', text: 'Omyohan Sangjeom 11:00 to 19:00 · Loft Mansion from 11:00 · Orleans Store 12:00 to 20:00 daily. London Sanghoe is closed Sundays.' }
+        ]
+      },
+      {
         label: 'Check-Out — The Westin Josun Busan',
         icon: '🏨',
-        content: 'Back by 12:00 PM to check out. The train is not until 21:41, so ask the front desk to hold your bags until mid-afternoon.',
+        content: 'Back by 12:00 PM to check out, or ask the front desk tonight for a 1:00 PM late checkout to take the pressure off. The train is not until 21:41, so ask them to hold your bags until mid-afternoon.',
         address: 'The Westin Josun Busan · 67 Dongbaek-ro, Haeundae-gu, Busan',
         mapQuery: '웨스틴 조선 부산',
         notes: []
@@ -1399,6 +1410,7 @@ const QUICK_REF = {
     { name: 'Haeundae Sangomjangeo (Oct 24)', detail: '11:30–23:00 · open year-round · Haeundae Market · 051-747-6004' },
     { name: 'Haegeumgang Gomjangeo (Oct 24)', detail: '11:00–02:00 daily · late backup · 051-746-5054' },
     { name: 'Sangguk Ine (Oct 24)', detail: 'Listed 24 hours · Haeundae Market · 051-742-9001' },
+    { name: 'Haeridan-gil shops (Oct 25)', detail: 'Most open 11:00–12:00 · Omyohan Sangjeom 11–19 · Loft Mansion from 11 · Orleans Store 12–20 · London Sanghoe closed Sundays' },
     { name: 'Jungang Momil (Oct 25)', detail: '11:00–20:00 · closed Wednesdays · Jung-gu, since 1956' },
     { name: 'Moto Coffee, Mangmi-dong (Oct 25)', detail: 'Sun 11:00–21:00' },
     { name: 'Miryang Galbi, Choryang (Oct 25)', detail: 'Sunday hours not confirmed · call 051-466-4546' },
