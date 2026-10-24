@@ -724,10 +724,14 @@ let DAYS = [
         ]
       },
       {
-        label: 'Late Dinner — Haeundae',
+        label: 'Late Dinner — Haeundae Market',
         icon: '🍽️',
-        content: 'TBD. Pick somewhere open late.',
-        notes: []
+        content: 'Around 21:00, a short taxi from the hotel. Market tteokbokki at Sangguk Ine with eomuk skewers and the fried twist doughnut, then graze the other stalls. Backup if you land late: the pojangmacha tents at Mipo serve grilled shellfish sets until about 4am.',
+        address: 'Sangguk Ine · 40-1 Gunam-ro 41beon-gil, Haeundae-gu, Busan · 051-742-9001',
+        mapQuery: '상국이네',
+        notes: [
+          { type: 'warning', text: 'No hours found for Sangguk Ine. Call before you head over. Heavy rain and gusts are forecast tonight, so take a taxi rather than walking the beach.' }
+        ]
       }
     ]
   },
@@ -739,23 +743,83 @@ let DAYS = [
     theme: 'busan',
     stay: 'Seoul Myeongdong Hotel · late check-in after midnight',
     highlights: [
-      { icon: '🌊', text: 'Busan daytime TBD' },
+      { icon: '🐡', text: 'Kumsu Bokguk' },
+      { icon: '🖼️', text: 'Busan Museum of Art' },
+      { icon: '🏭', text: 'F1963' },
+      { icon: '☕', text: 'Aery Coffee' },
+      { icon: '🥟', text: 'Sinbalwon' },
       { icon: '🚄', text: 'KTX 080 to Seoul' }
     ],
     sections: [
       {
+        label: 'Breakfast — Kumsu Bokguk',
+        icon: '🐡',
+        content: 'Around 8:30. Michelin-listed blowfish soup, the classic Haeundae breakfast. Eunbok guk (silver puffer soup) is ₩15,000; bok bulgogi if you want something bigger.',
+        address: 'Kumsu Bokguk · 23 Jung-dong 1-ro 43beon-gil, Haeundae-gu, Busan · 051-742-3600',
+        mapQuery: '금수복국 해운대',
+        notes: [
+          { type: 'warning', text: 'Tagged 24 hours and open year-round, but no posted schedule. Call to confirm.' }
+        ]
+      },
+      {
+        label: 'Morning — Busan Museum of Art',
+        icon: '🖼️',
+        content: '10:00, about 10 minutes by taxi. Reopened in September 2026 after a two-year renovation. Priority: the 1945 to 1953 show on Busan as the wartime capital (about 260 works plus archives). Also on: "Future Museology." Allow about 1.5 hours.',
+        address: 'Busan Museum of Art · Centum City, Haeundae-gu, Busan',
+        mapQuery: '부산시립미술관',
+        notes: [
+          { type: 'info', text: 'Open 10:00 to 18:00, closed Mondays. Sunday is fine.' }
+        ]
+      },
+      {
         label: 'Check-Out — The Westin Josun Busan',
         icon: '🏨',
-        content: 'Check out by 12:00 PM. The train is not until 21:41, so ask the front desk to hold your bags for the day.',
+        content: 'Back by 12:00 PM to check out. The train is not until 21:41, so ask the front desk to hold your bags until mid-afternoon.',
         address: 'The Westin Josun Busan · 67 Dongbaek-ro, Haeundae-gu, Busan',
         mapQuery: '웨스틴 조선 부산',
         notes: []
       },
       {
-        label: 'Daytime — Busan',
-        icon: '🌊',
-        content: 'TBD. About nine hours between check-out and the train.',
-        notes: []
+        label: 'Lunch & Gallery — F1963',
+        icon: '🏭',
+        content: '12:30 to 14:30. A former wire factory turned culture complex. Kukje Gallery Busan has Korakrit Arunanondchai’s "Post Ritual Bodies" (ends Oct 31). Yes24 used bookstore and the F1963 library are in the same complex. Lunch at Boksoondoga, the makgeolli brewery restaurant (₩80,000 set, à la carte from ₩38,000), or keep it casual with Terarosa coffee in the old factory hall.',
+        address: 'F1963 · 20 Gurak-ro 123beon-gil, Suyeong-gu, Busan',
+        mapQuery: 'F1963',
+        notes: [
+          { type: 'info', text: 'Kukje Gallery: Tue to Sun 10:00 to 18:00. Terarosa: 9:00 to 21:00 daily.' },
+          { type: 'warning', text: 'Boksoondoga hours not found. Call 051-757-2963. Terarosa is the fallback.' }
+        ]
+      },
+      {
+        label: 'Afternoon — Bags & Busan Station',
+        icon: '🧳',
+        content: 'Around 14:45, taxi back to the Westin for the bags, then on to Busan Station. Allow 45+ minutes in rain traffic. Store the bags at the station.',
+        address: 'Busan Station, Dong-gu, Busan',
+        mapQuery: '부산역',
+        notes: [
+          { type: 'warning', text: 'Station luggage lockers not confirmed. Check sizes and availability when you arrive.' }
+        ]
+      },
+      {
+        label: 'Afternoon — Jung-gu: Aery Coffee & Modern History',
+        icon: '☕',
+        content: 'Around 16:00, one subway stop to Jungang Station. Aery Coffee: owner won the 2024 Korea barista championship; get a single-origin latte. Yeongyeongjae is a 3-minute walk, with yuja makgeolli and plum tea. The Busan Modern History Museum (former Bank of Korea building, free) is nearby. Then the covered Gukje Market and Bosu-dong book alley if time allows.',
+        address: 'Aery Coffee · 47 Jungang-daero, Jung-gu, Busan',
+        mapQuery: '애리커피',
+        notes: [
+          { type: 'warning', text: 'Aery Coffee: 10:00 to 19:00, last order 18:30. Modern History Museum closes 18:00. Yeongyeongjae listed until 20:00.' },
+          { type: 'info', text: 'If the rain lets up: swap to Yeongdo for Momos Coffee’s harbor warehouse roastery, Busan Biennale at Space Wonji (free, last entry 17:30, through Nov 1), and Huinnyeoul village.' }
+        ]
+      },
+      {
+        label: 'Dinner — Sinbalwon',
+        icon: '🥟',
+        content: 'Around 19:00, across from Busan Station in Chinatown. Dumplings, a local favorite. Alternatives: Choryang pork galbi alley (Unhwa Kalbi), or 24-hour Daegong pork gukbap. Be at the platform area by 21:15.',
+        address: 'Sinbalwon · 62 Daeyeong-ro 243beon-gil, Dong-gu, Busan',
+        mapQuery: '신발원',
+        notes: [
+          { type: 'warning', text: 'Sinbalwon: 11:00 to 20:00, closed Tuesdays. Sit down by 19:00. Skip Pyeongsanok, it is closed Sundays.' }
+        ]
       },
       {
         label: 'Train — KTX 080 to Seoul',
@@ -1324,7 +1388,16 @@ const QUICK_REF = {
     { name: 'Jamae Guksu (Oct 24)', detail: '09:00–14:20 and 16:00–19:40 · closed Wednesdays · single source, confirm on Naver · Tapdong-ro 11-gil, Jeju City' },
     { name: 'Myeongjin Jeonbok (Oct 22)', detail: '09:30–20:30, last order 20:00 · closed Tuesdays · waiting ticket, ~30 min' },
     { name: 'Manjanggul (Oct 22)', detail: '09:00–18:00, last entry 17:10 · closed the 1st Wednesday · reopened May 30, 2026, Section 1 only (~1 km of 7.4 km)' },
-    { name: 'Seongsan Ilchulbong (Oct 22)', detail: 'Oct hours 05:00–19:00, last ticket 18:00 · ₩5,000 adults · closed only the first Monday of the month (checked Oct 21) · confirm on Naver' }
+    { name: 'Seongsan Ilchulbong (Oct 22)', detail: 'Oct hours 05:00–19:00, last ticket 18:00 · ₩5,000 adults · closed only the first Monday of the month (checked Oct 21) · confirm on Naver' },
+    { name: 'Sangguk Ine (Oct 24)', detail: 'Hours not found · call 051-742-9001 · Haeundae Market' },
+    { name: 'Kumsu Bokguk (Oct 25)', detail: 'Tagged 24 hours, year-round, no posted schedule · call 051-742-3600' },
+    { name: 'Busan Museum of Art (Oct 25)', detail: '10:00–18:00 · closed Mondays' },
+    { name: 'Kukje Gallery Busan, F1963 (Oct 25)', detail: 'Tue–Sun 10:00–18:00 · Korakrit Arunanondchai show ends Oct 31' },
+    { name: 'Boksoondoga, F1963 (Oct 25)', detail: 'Hours not found · call 051-757-2963 · Terarosa (9:00–21:00 daily) is the fallback' },
+    { name: 'Aery Coffee (Oct 25)', detail: '10:00–19:00 daily, last order 18:30 · 47 Jungang-daero, Jung-gu' },
+    { name: 'Busan Modern History Museum (Oct 25)', detail: 'Tue–Sun 9:00–18:00 · free' },
+    { name: 'Busan Biennale (through Nov 1)', detail: '10:00–18:00, closed Mondays · Space Wonji last entry 17:30, free · MOCA Busan last entry 17:00' },
+    { name: 'Sinbalwon (Oct 25)', detail: '11:00–20:00 · closed Tuesdays · sit down by 19:00' }
   ],
   cashOnly: [
     { name: 'Seogwipo Maeil Olle Market', detail: 'Older vendors are cash-only · carry ₩50,000–100,000 in small notes · night stalls run 17:00–22:00' },
