@@ -972,6 +972,13 @@ let DAYS = [
         content: 'Olive Young is the Korean Sephora, and there is one on almost every main street. A good place for a first skincare pass before the Myeongdong stop on Oct 31.',
         mapQuery: '올리브영 성수',
         notes: []
+      },
+      {
+        label: 'Evening – Pottery Drop-Off at Hotel',
+        icon: '🏺',
+        content: 'Head back to Seoul Myeongdong Hotel to drop off the pottery before dinner or any evening plans.',
+        address: 'Seoul Myeongdong Hotel, Seoul',
+        notes: []
       }
     ]
   },
