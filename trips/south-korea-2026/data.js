@@ -919,6 +919,7 @@ let DAYS = [
       { icon: '📅', text: 'GU Clinic, 12:30pm' },
       { icon: '👓', text: 'Gentle Monster & Blue Elephant' },
       { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' },
+      { icon: '📚', text: 'COEX Mall & Starfield Library' },
       { icon: '🛍️', text: 'Musinsa & EQL (flexible)' }
     ],
     sections: [
@@ -954,6 +955,16 @@ let DAYS = [
         mapQuery: '무구옥',
         notes: [
           { type: 'info', text: 'Addresses and hours not verified. Confirm both on Naver Map before choosing. The clinic is in Gangnam, so both of these are a detour from it. Eating near the clinic is easier, and fine if the wait runs long.' }
+        ]
+      },
+      {
+        label: 'Afternoon – COEX Mall & Starfield Library',
+        icon: '📚',
+        content: 'Since you are already in Gangnam for the clinic, COEX is an easy add: Starfield COEX Mall is home to the Starfield Library, the huge open-plan library with floor-to-ceiling bookshelves that is one of Seoul’s most photographed spots. It is a few stops east of Gangnam on Line 2 (Samseong Station), or a short taxi ride. The mall also has plenty of food options if you skip the Seongsu lunch picks.',
+        address: 'Starfield COEX Mall · 513 Yeongdong-daero, Gangnam-gu, Seoul',
+        mapQuery: '스타필드 코엑스몰 별마당도서관',
+        notes: [
+          { type: 'info', text: 'Hours not verified. Check Naver Map before going. If the clinic wait runs long, this is the first thing to drop or move to another day.' }
         ]
       },
       {
