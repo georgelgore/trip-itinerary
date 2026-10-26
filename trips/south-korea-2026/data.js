@@ -892,12 +892,32 @@ let DAYS = [
         ]
       },
       {
-        label: 'Evening – Back to the Hotel',
+        label: 'Afternoon – Namdaemun Market',
+        icon: '🛍️',
+        content: 'Head straight from Samgakji on Line 4 to Hoehyeon Station (about 10 minutes), right at the market. Browse the stalls and alleys, and look for kitchenware and small ceramics. A walk, not a mission, after a big lunch.',
+        address: 'Namdaemun Market, Jung-gu, Seoul',
+        mapQuery: '남대문시장',
+        notes: [
+          { type: 'warning', text: 'Many stalls wind down in the early evening, so go first. Hours not verified, check Naver Map.' }
+        ]
+      },
+      {
+        label: 'Early Evening – Rest at the Hotel',
         icon: '🏨',
-        content: 'Head back to Seoul Myeongdong Hotel after lunch (Samgakji to Myeongdong is about 15 minutes on Line 4, no transfer) and rest. If you feel like it later, Myeongdong street food and Namdaemun Market are both a short walk from the hotel. Keep it an easy night, since the clinic appointment is at 12:30 tomorrow.',
+        content: 'Walk back to Seoul Myeongdong Hotel (about 10 to 15 minutes from the market) to rest and freshen up before dinner.',
         address: 'Seoul Myeongdong Hotel, Seoul',
         notes: [
           { type: 'warning', text: 'The clinic’s WhatsApp pre-visit instructions may need something done today, the day before. Read them tonight.' }
+        ]
+      },
+      {
+        label: 'Dinner – Light Noodles in Myeongdong, then Cheonggyecheon',
+        icon: '🍜',
+        content: 'Something light after the big lunch: Myeongdong Kyoja is a long-running spot near the hotel for kalguksu (knife-cut noodle soup) and mandu dumplings. Afterwards, walk the lit-up Cheonggyecheon stream (about 15 minutes from Myeongdong), then head back early, since the clinic appointment is at 12:30 tomorrow.',
+        address: 'Myeongdong Kyoja · Myeongdong, Jung-gu, Seoul',
+        mapQuery: '명동교자 본점',
+        notes: [
+          { type: 'info', text: 'Hours and wait times not verified. Check Naver Map. Myeongdong street food is the fallback if there is a line.' }
         ]
       }
     ]
