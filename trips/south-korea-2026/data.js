@@ -964,7 +964,8 @@ let DAYS = [
         address: 'Starfield COEX Mall · 513 Yeongdong-daero, Gangnam-gu, Seoul',
         mapQuery: '스타필드 코엑스몰 별마당도서관',
         notes: [
-          { type: 'info', text: 'Hours not verified. Check Naver Map before going. If the clinic wait runs long, this is the first thing to drop or move to another day.' }
+          { type: 'info', text: 'Usually open 10:30am to 10pm, following the mall’s hours (from a Feb 2026 travel guide, not confirmed with the mall). Check Naver Map before going. If the clinic wait runs long, this is the first thing to drop or move to another day.' },
+          { type: 'info', text: 'Free entry, in the mall’s B1 level. Plan on 10 to 20 minutes for the library itself. Busiest from late afternoon into the evening, so earlier in the afternoon is better.' }
         ]
       },
       {
