@@ -935,6 +935,7 @@ let DAYS = [
       { icon: '👓', text: 'Gentle Monster & Blue Elephant' },
       { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' },
       { icon: '📚', text: 'COEX Mall & Starfield Library' },
+      { icon: '👞', text: 'Dosan Park menswear loop' },
       { icon: '🛍️', text: 'Musinsa & EQL (flexible)' }
     ],
     sections: [
@@ -992,6 +993,18 @@ let DAYS = [
         notes: [
           { type: 'info', text: 'Usually open 10:30am to 10pm, following the mall’s hours (from a Feb 2026 travel guide, not confirmed with the mall). Check Naver Map before going. If the clinic wait runs long, this is the first thing to drop or move to another day.' },
           { type: 'info', text: 'Free entry, in the mall’s B1 level. Plan on 10 to 20 minutes for the library itself. Busiest from late afternoon into the evening, so earlier in the afternoon is better.' }
+        ]
+      },
+      {
+        label: 'Afternoon – Menswear Loop: Dosan Park & Apgujeong',
+        icon: '👞',
+        content: 'After the clinic, taxi to Dosan Park (about 15 to 20 minutes from Sinnonhyeon, check Naver Map). Four shops from the Permanent Style Seoul guide sit within a few blocks of each other:\n• Unipair: the widest range of classic shoes in Seoul, with Alden and more.\n• Random Walk: smart-casual multibrand with JM Weston, Coherence and Esk. Same alley as Unipair.\n• Joe’s Garage: Japanese repro brands such as Toys McCoy, Full Count and Warehouse.\n• San Francisco Market: Korea’s first menswear multibrand, with Nepenthes, Engineered Garments and Alden.\nSuggested order: Unipair, Random Walk, Joe’s Garage, San Francisco Market. Allow about 2 hours.',
+        address: 'Unipair · 37-1 Eonju-ro 164-gil · Random Walk · 40 Eonju-ro 164-gil · Joe’s Garage · 75 Apgujeong-ro 46-gil · San Francisco Market · 29-10 Dosan-daero 49-gil, Gangnam-gu, Seoul',
+        mapQuery: '언주로164길 37-1',
+        notes: [
+          { type: 'warning', text: 'Everything closes early. Listed hours: Random Walk 12:30 to 20:00 daily, Unipair 11:00 to 20:00, Joe’s Garage 11:00 to 20:00, San Francisco Market 11:00 to 20:30 on one listing (an older one says 22:00). Aim to start by about 4:00pm and finish by 7:30pm.' },
+          { type: 'info', text: 'Hours come from third-party listings, not the shops. Check Naver Map the day before. San Francisco Market’s address differs between listings (the other is 11 Eonju-ro 170-gil), so confirm on Naver.' },
+          { type: 'info', text: 'None of these is confirmed to stock Gitman Bros. Ask at Joe’s Garage and Random Walk. If the clinic wait runs long, drop COEX first and keep this.' }
         ]
       },
       {
@@ -1082,6 +1095,17 @@ let DAYS = [
         address: 'Seoul Museum of Craft Art, Jongno-gu, Seoul',
         mapQuery: '서울공예박물관',
         notes: []
+      },
+      {
+        label: 'Optional – Take Ivy & Tannery (Seochon)',
+        icon: '🧥',
+        content: 'Ivy-style vintage in Seochon, just west of Gyeongbokgung. Take Ivy is a small basement vintage shop selling Ralph Lauren, the Japanese J Press line and a lot of Van Jacket. Tannery, across the road per Permanent Style, mixes smart and casual (Boogie Holiday, East Harbor Surplus, Kenneth Field). Short taxi from Anguk (check Naver Map). Ask about Gitman at Take Ivy, since vintage stock varies.\nTo fit it, skip Jidaebang and go Craft Art, then Seochon about 3:30 to 4:45pm, then taxi to Jogyesa.',
+        address: 'Take Ivy · B1, 49-1 Jahamun-ro, Jongno-gu, Seoul · Tannery · across the road (address not confirmed)',
+        mapQuery: '자하문로 49-1',
+        notes: [
+          { type: 'warning', text: 'Take Ivy is listed as open 13:00 to 20:00 daily in a GQ Korea article (undated). Tannery’s hours and address were not found. Check both on Naver Map the day before.' },
+          { type: 'info', text: 'A recent visitor says sizing at both shops leans small.' }
+        ]
       },
       {
         label: 'Afternoon — Tea at Jidaebang',
