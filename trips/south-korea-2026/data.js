@@ -863,31 +863,16 @@ let DAYS = [
   },
   {
     id: 9,
-    date: 'Monday, October 26 — Yongsan & Noryangjin',
+    date: 'Monday, October 26 — Yongsan & Samgakji',
     location: 'Seoul',
-    sublocation: 'Yongsan & Noryangjin',
+    sublocation: 'Yongsan & Samgakji',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
-      { icon: '🐟', text: 'Noryangjin Fish Market' },
       { icon: '🏛️', text: 'National Museum of Korea' },
-      { icon: '🍴', text: 'Fresh seafood lunch' }
+      { icon: '🍖', text: 'Mongtan late lunch' }
     ],
     sections: [
-      {
-        label: 'Morning — Noryangjin Fish Market',
-        icon: '🐟',
-        content: 'Go early for the real wholesale-market energy — pick your own fish, shellfish, or octopus on the market floor, then have it prepared sashimi-style at one of the upstairs restaurants for an unusual breakfast or early lunch.',
-        address: 'Noryangjin Fish Market, Dongjak-gu, Seoul',
-        mapQuery: '노량진수산시장',
-        notes: []
-      },
-      {
-        label: 'Midday — Travel to Yongsan',
-        icon: '🚇',
-        content: 'Short subway hop from Noryangjin to Ichon Station (Jungang Line or Line 4) — about 15–20 minutes door to door.',
-        notes: []
-      },
       {
         label: 'Afternoon — National Museum of Korea',
         icon: '🏛️',
@@ -925,6 +910,7 @@ let DAYS = [
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
     highlights: [
+      { icon: '🐟', text: 'Noryangjin Fish Market (breakfast)' },
       { icon: '📅', text: 'GU Clinic, 12:30pm' },
       { icon: '👓', text: 'Gentle Monster & Blue Elephant' },
       { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' },
@@ -932,6 +918,17 @@ let DAYS = [
       { icon: '🛍️', text: 'Musinsa & EQL (flexible)' }
     ],
     sections: [
+      {
+        label: 'Early Morning — Noryangjin Fish Market Breakfast',
+        icon: '🐟',
+        content: 'Moved from Oct 26. Go early for the real wholesale-market energy: pick your own fish, shellfish, or octopus on the market floor, then have it prepared sashimi-style at one of the upstairs restaurants for an unusual breakfast.',
+        address: 'Noryangjin Fish Market, Dongjak-gu, Seoul',
+        mapQuery: '노량진수산시장',
+        notes: [
+          { type: 'warning', text: 'Noryangjin is across the river from Seongsu, roughly 45 to 60 minutes by subway (check Naver Map). Aim to leave the market by about 9:00 so the eyewear stop still fits before the 12:30 clinic appointment.' },
+          { type: 'info', text: 'Upstairs restaurant hours and whether they serve a sashimi breakfast this early are not verified. Check on Naver Map, and have a backup breakfast in mind.' }
+        ]
+      },
       {
         label: 'Morning – Eyewear: Gentle Monster & Blue Elephant',
         icon: '👓',
