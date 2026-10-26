@@ -867,7 +867,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Yongsan & Samgakji',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '🏛️', text: 'National Museum of Korea' },
       { icon: '🍖', text: 'Mongtan late lunch' }
@@ -928,7 +928,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Seongsu & Appointment',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '🐟', text: 'Noryangjin Fish Market (breakfast)' },
       { icon: '📅', text: 'GU Clinic, 12:30pm' },
@@ -1039,7 +1039,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Jongno & Ikseon-dong',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '🌳', text: 'Huwon Secret Garden' },
       { icon: '🏘️', text: 'Ikseon-dong-gil' },
@@ -1161,7 +1161,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Dongdaemun & Jegi-dong',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
       { icon: '☕', text: 'Cha Cha Tea Club' },
@@ -1256,7 +1256,7 @@ let DAYS = [
     location: 'Seoul',
     sublocation: 'Hannam-dong & Itaewon',
     theme: 'seoul',
-    stay: 'Seoul Myeongdong Hotel · confirmation #42971084',
+    stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '⛰️', text: 'Namsan hike' },
       { icon: '🖼️', text: 'Leeum Museum of Art' },
@@ -1448,7 +1448,7 @@ const QUICK_REF = {
     { name: 'KE1550 · Jeju to Busan', detail: 'Confirmed · Sat Oct 24, 18:20 → 19:20 · Korean Air · Terminal D at Gimhae' },
     { name: 'The Westin Josun Busan', detail: 'Confirmed · Oct 24–25 · check-in 3:00 PM, check-out 12:00 PM · 67 Dongbaek-ro, Haeundae-gu · +82-51-749-7000' },
     { name: 'KTX 080 · Busan → Seoul', detail: 'Confirmed · Sun Oct 25, 21:41 → 00:21 · First Class, Car 4, seats 6B & 6C · QR codes in the KORAIL web tickets · platform shown 15 min before departure' },
-    { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Confirmation #42971084 · Oct 25–31 · arriving after midnight on the KTX, tell the hotel' },
+    { name: 'Seoul Myeongdong Hotel', detail: 'Confirmed · Oct 25–31 · arriving after midnight on the KTX, tell the hotel' },
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM (1 hr 10 min) · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
     { name: 'Seal Carving Class — Feel So Good Calli Studio', detail: 'Not yet booked · Mon Oct 19, 3–5pm · Anguk Station exit 6 · book online (Trazy)' },
     { name: 'Hwahaedang', detail: 'Confirmed via AutoReserve · Lunch Oct 20 (Tue), 12:45 · 2 people, seating only · Yeouido · listed as "Hanakando Yeouido Branch" · fee prepaid, pay for the meal at the restaurant · +82 2-785-4422' },
