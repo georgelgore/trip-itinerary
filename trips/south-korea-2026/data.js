@@ -897,13 +897,22 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Evening — Mongtan',
+        label: 'Late Lunch — Mongtan',
         icon: '🍖',
-        content: 'Dinner at Mongtan near Samgakji Station, a short hop from Ichon: straw-fire-grilled beef short ribs (udae galbi) and smoky pork belly. One of the most sought-after barbecue spots in Seoul.',
+        content: 'Late lunch at Mongtan near Samgakji Station, a short hop from Ichon: straw-fire-grilled beef short ribs (udae galbi) and smoky pork belly. One of the most sought-after barbecue spots in Seoul. Moved from dinner to lunch; already on the waitlist.',
         address: 'Mongtan · 50 Baekbeom-ro 99-gil, Yongsan-gu, Seoul',
         mapQuery: '몽탄',
         notes: [
           { type: 'warning', text: 'No reservations: on-site waitlist only (open daily 12\u201310pm). Register in person about 2\u20133 hours before you want to eat, e.g. around 3:30pm during the museum visit (Samgakji is one stop from Ichon). They call when your table is ready and you must be back within 10 minutes. Without a Korean phone number, tell the staff when you register.' }
+        ]
+      },
+      {
+        label: 'Evening – Back to the Hotel',
+        icon: '🏨',
+        content: 'Head back to Seoul Myeongdong Hotel after lunch (Samgakji to Myeongdong is about 15 minutes on Line 4, no transfer) and rest. If you feel like it later, Myeongdong street food and Namdaemun Market are both a short walk from the hotel. Keep it an easy night, since the clinic appointment is at 12:30 tomorrow.',
+        address: 'Seoul Myeongdong Hotel, Seoul',
+        notes: [
+          { type: 'warning', text: 'The clinic’s WhatsApp pre-visit instructions may need something done today, the day before. Read them tonight.' }
         ]
       }
     ]
