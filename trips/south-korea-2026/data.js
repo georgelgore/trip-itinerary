@@ -922,19 +922,16 @@ let DAYS = [
   },
   {
     id: 10,
-    date: 'Tuesday, October 27 — Seongsu & Appointment',
+    date: 'Tuesday, October 27 — Noryangjin, Appointment & Dosan Park',
     location: 'Seoul',
-    sublocation: 'Seongsu & Appointment',
+    sublocation: 'Noryangjin, Gangnam & Dosan Park',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '🐟', text: 'Noryangjin Fish Market (breakfast)' },
-      { icon: '📅', text: 'GU Clinic, 12:30pm' },
-      { icon: '👓', text: 'Gentle Monster & Blue Elephant' },
-      { icon: '🍲', text: 'Mu-gu-ok / Neung-dong Minari' },
-      { icon: '📚', text: 'COEX Mall & Starfield Library' },
+      { icon: '📅', text: 'GU Clinic, 12:30pm (may run to ~3:30)' },
       { icon: '👞', text: 'Dosan Park menswear loop' },
-      { icon: '🛍️', text: 'Musinsa & EQL (flexible)' }
+      { icon: '🏺', text: 'Pottery drop-off at hotel, 7 to 8pm' }
     ],
     sections: [
       {
@@ -944,90 +941,51 @@ let DAYS = [
         address: 'Noryangjin Fish Market, Dongjak-gu, Seoul',
         mapQuery: '노량진수산시장',
         notes: [
-          { type: 'warning', text: 'Noryangjin is across the river from Seongsu, roughly 45 to 60 minutes by subway (check Naver Map). Aim to leave the market by about 9:00 so the eyewear stop still fits before the 12:30 clinic appointment.' },
+          { type: 'info', text: 'Noryangjin is on Line 9, which runs straight to Sinnonhyeon (the clinic stop), roughly 25 minutes (check Naver Map). That is why it now leads the day: no cross-city detour before the appointment.' },
           { type: 'info', text: 'Upstairs restaurant hours and whether they serve a sashimi breakfast this early are not verified. Check on Naver Map, and have a backup breakfast in mind.' }
-        ]
-      },
-      {
-        label: 'Morning – Eyewear: Gentle Monster & Blue Elephant',
-        icon: '👓',
-        content: 'Gentle Monster is the Korean eyewear brand known for its theatrical flagship stores. Blue Elephant is another eyewear shop worth comparing. Both are in Seongsu, Seoul\u2019s converted-warehouse shopping district. Closest stations are Seongsu or Ttukseom (Line 2).',
-        address: 'Seongsu-dong, Seongdong-gu, Seoul',
-        mapQuery: '젠틀몬스터 성수',
-        notes: [
-          { type: 'info', text: 'Look up the exact store addresses on Naver Map. Several Gentle Monster locations exist in Seoul.' },
-          { type: 'warning', text: 'Wrap up here by about 11:15 so you can get to the 12:30 appointment with time to spare.' }
         ]
       },
       {
         label: '12:30pm — GU Clinic Appointment',
         icon: '📅',
-        content: 'Confirmed appointment for both of you at 12:30pm, on the 4th floor of the building. Consultation is in English. It is in Gangnam, so head over from Seongsu around 11:45 (about 30 minutes on Line 2, so check Naver Map).',
+        content: 'Confirmed appointment for both of you at 12:30pm, on the 4th floor of the building. Consultation is in English. Take Line 9 from Noryangjin to Sinnonhyeon (about 25 minutes, check Naver Map) and leave the market by about 11:30. Treatment may take up to 3 hours, so plan to be done around 3:30pm.',
         address: 'W Tower, 3~4F · 54 Seocho-daero 77-gil, Seocho-gu, Seoul (서울특별시 서초구 서초대로77길 54 더블유타워 3~4층)',
         mapQuery: '서울특별시 서초구 서초대로77길 54 더블유타워',
         notes: [
           { type: 'reservation', text: 'Confirmed via WhatsApp for Oct 27, 12:30pm, 4F. Bring your passports.' },
-          { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day, so keep the rest of the afternoon flexible.' },
+          { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day, so the menswear loop below is the only thing planned after it.' },
           { type: 'info', text: 'Nearest stations: Sinnonhyeon Station Exit 7 (Line 9), a 2-minute walk, or Gangnam Station Exit 10 (Line 2), a 6-minute walk. No parking, so go by subway or taxi.' },
           { type: 'warning', text: 'The clinic sent a list of pre-visit instructions on WhatsApp. Read it before Oct 26, since something may need doing the day before.' }
         ]
       },
       {
-        label: 'Lunch – Mu-gu-ok or Neung-dong Minari',
-        icon: '🍲',
-        content: 'After the appointment. Two traditional Korean lunch options from the same friend\u2019s list: Mu-gu-ok (무구옥) for traditional Korean chicken soup, or Neung-dong Minari (능동미나리) for minari soup.',
-        address: 'Seongsu / Neung-dong area, Seoul',
-        mapQuery: '무구옥',
+        label: 'Quick Bite near the Clinic',
+        icon: '🥢',
+        content: 'Keep lunch simple and close to Sinnonhyeon: something small before the appointment, or right after it. Mu-gu-ok and Neung-dong Minari were dropped from this day since both are detours from Gangnam. They stay on the friend\u2019s list for another day.',
         notes: [
-          { type: 'info', text: 'Addresses and hours not verified. Confirm both on Naver Map before choosing. The clinic is in Gangnam, so both of these are a detour from it. Eating near the clinic is easier, and fine if the wait runs long.' }
-        ]
-      },
-      {
-        label: 'Afternoon – COEX Mall & Starfield Library',
-        icon: '📚',
-        content: 'Since you are already in Gangnam for the clinic, COEX is an easy add: Starfield COEX Mall is home to the Starfield Library, the huge open-plan library with floor-to-ceiling bookshelves that is one of Seoul’s most photographed spots. It is a few stops east of Gangnam on Line 2 (Samseong Station), or a short taxi ride. The mall also has plenty of food options if you skip the Seongsu lunch picks.',
-        address: 'Starfield COEX Mall · 513 Yeongdong-daero, Gangnam-gu, Seoul',
-        mapQuery: '스타필드 코엑스몰 별마당도서관',
-        notes: [
-          { type: 'info', text: 'Usually open 10:30am to 10pm, following the mall’s hours (from a Feb 2026 travel guide, not confirmed with the mall). Check Naver Map before going. If the clinic wait runs long, this is the first thing to drop or move to another day.' },
-          { type: 'info', text: 'Free entry, in the mall’s B1 level. Plan on 10 to 20 minutes for the library itself. Busiest from late afternoon into the evening, so earlier in the afternoon is better.' }
+          { type: 'info', text: 'No venue picked yet. Check Naver Map for something near Sinnonhyeon Station.' }
         ]
       },
       {
         label: 'Afternoon – Menswear Loop: Dosan Park & Apgujeong',
         icon: '👞',
-        content: 'After the clinic, taxi to Dosan Park (about 15 to 20 minutes from Sinnonhyeon, check Naver Map). Four shops from the Permanent Style Seoul guide sit within a few blocks of each other:\n• Unipair: the widest range of classic shoes in Seoul, with Alden and more.\n• Random Walk: smart-casual multibrand with JM Weston, Coherence and Esk. Same alley as Unipair.\n• Joe’s Garage: Japanese repro brands such as Toys McCoy, Full Count and Warehouse.\n• San Francisco Market: Korea’s first menswear multibrand, with Nepenthes, Engineered Garments and Alden.\nSuggested order: Unipair, Random Walk, Joe’s Garage, San Francisco Market. Allow about 2 hours.',
+        content: 'After the clinic (and a quick bite), taxi to Dosan Park (about 15 to 20 minutes from Sinnonhyeon, check Naver Map). Four shops from the Permanent Style Seoul guide sit within a few blocks of each other:\n• Unipair: the widest range of classic shoes in Seoul, with Alden and more.\n• Random Walk: smart-casual multibrand with JM Weston, Coherence and Esk. Same alley as Unipair.\n• Joe’s Garage: Japanese repro brands such as Toys McCoy, Full Count and Warehouse.\n• San Francisco Market: Korea’s first menswear multibrand, with Nepenthes, Engineered Garments and Alden.\nSuggested order: Unipair, Random Walk, Joe’s Garage, San Francisco Market. Allow about 2 hours.',
         address: 'Unipair · 37-1 Eonju-ro 164-gil · Random Walk · 40 Eonju-ro 164-gil · Joe’s Garage · 75 Apgujeong-ro 46-gil · San Francisco Market · 29-10 Dosan-daero 49-gil, Gangnam-gu, Seoul',
         mapQuery: '언주로164길 37-1',
         notes: [
-          { type: 'warning', text: 'Everything closes early. Listed hours: Random Walk 12:30 to 20:00 daily, Unipair 11:00 to 20:00, Joe’s Garage 11:00 to 20:00, San Francisco Market 11:00 to 20:30 on one listing (an older one says 22:00). Aim to start by about 4:00pm and finish by 7:30pm.' },
+          { type: 'warning', text: 'Everything closes early. Listed hours: Random Walk 12:30 to 20:00 daily, Unipair 11:00 to 20:00, Joe’s Garage 11:00 to 20:00, San Francisco Market 11:00 to 20:30 on one listing (an older one says 22:00). Start by about 4:00pm and wrap up by about 6:00pm so you can reach the hotel before the pottery drop-off at 7pm.' },
           { type: 'info', text: 'Hours come from third-party listings, not the shops. Check Naver Map the day before. San Francisco Market’s address differs between listings (the other is 11 Eonju-ro 170-gil), so confirm on Naver.' },
-          { type: 'info', text: 'None of these is confirmed to stock Gitman Bros. Ask at Joe’s Garage and Random Walk. If the clinic wait runs long, drop COEX first and keep this.' }
+          { type: 'info', text: 'None of these is confirmed to stock Gitman Bros. Ask at Joe’s Garage and Random Walk. If the clinic runs long, shorten the loop rather than skipping the pottery drop-off.' }
         ]
       },
       {
-        label: 'Afternoon – Musinsa & EQL (flexible)',
-        icon: '🛍️',
-        content: 'Only if time and energy allow after the appointment. Musinsa has three stores in the area: Musinsa Kicks (shoes), Musinsa Standard (their own brand, already on your pinned list) and the Musinsa multi-brand shop. EQL is another multi-brand shop. Pair with Point of View (stationery) and LCDC Seoul (concept store), both on your pinned list.',
-        address: 'Seongsu-dong, Seongdong-gu, Seoul',
-        mapQuery: '무신사 스탠다드 성수',
-        notes: [
-          { type: 'info', text: 'Optional. Anything you skip can move to another day or stay unslotted.' }
-        ]
-      },
-      {
-        label: 'Late Afternoon – Olive Young (optional)',
-        icon: '💄',
-        content: 'Olive Young is the Korean Sephora, and there is one on almost every main street. A good place for a first skincare pass before the Myeongdong stop on Oct 31.',
-        mapQuery: '올리브영 성수',
-        notes: []
-      },
-      {
-        label: 'Evening – Pottery Drop-Off at Hotel',
+        label: 'Evening – Pottery Drop-Off at Hotel, 7 to 8pm',
         icon: '🏺',
-        content: 'Head back to Seoul Myeongdong Hotel to drop off the pottery before dinner or any evening plans.',
+        content: 'Fixed: the pottery drop-off at Seoul Myeongdong Hotel is between 7 and 8pm. Leave Dosan Park by about 6:00 to 6:15 (about 35 to 40 minutes by subway, check Naver Map). Dinner afterward, near the hotel.',
         address: 'Seoul Myeongdong Hotel, Seoul',
-        notes: []
+        notes: [
+          { type: 'warning', text: 'Hard constraint. If the clinic runs long, trim the menswear loop, not this.' }
+        ]
       }
     ]
   },
@@ -1551,6 +1509,9 @@ const QUICK_REF = {
     { name: 'Arumjigi', detail: 'Seochon / Anguk · research, exhibitions and design programs on clothing, food and how people live · HQ in Tongui-dong (older report says ₩10,000 entry) plus a free hanok in Anguk-dong · hours not verified · pairs with Daeo Bookstore on the Oct 27 open day' },
     { name: 'Point of View', detail: 'Seongsu · 18 Yeonmujang-gil, Seongdong-gu · three-floor stationery space: tools and art books, curated objects, art paper and fountain pens · listed 12pm to 8pm · Seongsu is not on a current day; pair with Jayeondo Sogeumppang and LCDC Seoul if Oct 27 becomes a Seongsu day' },
     { name: 'Eastern Edition Atelier', detail: 'Gangnam · 17 Eonju-ro 133-gil, Gangnam-gu · furniture brand atelier built around an archive, tea, books and nature · Mon to Sat 10am to 7pm, CLOSED SUNDAYS · fits Oct 27 or any weekday' },
+    { name: 'Gentle Monster & Blue Elephant', detail: 'Seongsu eyewear · moved off Oct 27 · needs its own Seongsu half-day, pair with Musinsa, EQL, Point of View, LCDC Seoul and Jayeondo Sogeumppang · confirm store addresses on Naver Map' },
+    { name: 'Mu-gu-ok & Neung-dong Minari', detail: 'Traditional Korean lunch options (chicken soup, minari soup) from a friend\u2019s list · moved off Oct 27 · addresses and hours not verified' },
+    { name: 'Starfield COEX Mall & Starfield Library', detail: 'Gangnam · optional, not a must · free, 10 to 20 minutes for the library · only if a Gangnam stop ends early · hours not confirmed' },
     { name: 'Sikijang', detail: 'Functional objects and exhibitions by younger craftspeople · could not confirm the address or hours, check Naver Map before slotting' }
   ]
 };
