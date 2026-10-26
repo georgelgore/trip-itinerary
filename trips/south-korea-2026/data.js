@@ -870,7 +870,8 @@ let DAYS = [
     stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '🏛️', text: 'National Museum of Korea' },
-      { icon: '🍖', text: 'Mongtan late lunch' }
+      { icon: '🍖', text: 'Mongtan late lunch' },
+      { icon: '🍜', text: 'Dinner at I Love ShinDangDong' }
     ],
     sections: [
       {
@@ -911,14 +912,11 @@ let DAYS = [
         ]
       },
       {
-        label: 'Dinner – Light Noodles in Myeongdong, then Cheonggyecheon',
+        label: 'Dinner – I Love ShinDangDong',
         icon: '🍜',
-        content: 'Something light after the big lunch: Myeongdong Kyoja is a long-running spot near the hotel for kalguksu (knife-cut noodle soup) and mandu dumplings. Afterwards, walk the lit-up Cheonggyecheon stream (about 15 minutes from Myeongdong), then head back early, since the clinic appointment is at 12:30 tomorrow.',
-        address: 'Myeongdong Kyoja · Myeongdong, Jung-gu, Seoul',
-        mapQuery: '명동교자 본점',
-        notes: [
-          { type: 'info', text: 'Hours and wait times not verified. Check Naver Map. Myeongdong street food is the fallback if there is a line.' }
-        ]
+        content: 'Dinner done at I Love ShinDangDong (replaced the earlier Myeongdong Kyoja plan). Head back early, since the clinic appointment is at 12:30 tomorrow.',
+        mapQuery: '아이러브신당동',
+        notes: []
       }
     ]
   },
