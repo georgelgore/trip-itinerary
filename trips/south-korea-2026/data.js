@@ -1061,8 +1061,7 @@ let DAYS = [
       { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
       { icon: '☕', text: 'Cha Cha Tea Club' },
       { icon: '🛍️', text: 'DDP' },
-      { icon: '🌊', text: 'Cheonggyecheon walk' },
-      { icon: '💆', text: 'EcoJardin 7pm (may move to Fri 9pm)' }
+      { icon: '🌊', text: 'Cheonggyecheon walk' }
     ],
     sections: [
       {
@@ -1073,7 +1072,7 @@ let DAYS = [
         mapQuery: '서울특별시 서초구 서초대로77길 54 더블유타워',
         notes: [
           { type: 'reservation', text: 'Rescheduled from Oct 27, 12:30pm to Oct 29, 10:30am, 4F. Bring your passports.' },
-          { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day. The only fixed commitment after it is EcoJardin at 7:00 PM, so the afternoon below is flexible and can be trimmed.' },
+          { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day. Nothing else is fixed after it (EcoJardin moved to Friday), so the afternoon below is flexible and can be trimmed.' },
           { type: 'info', text: 'Nearest stations: Sinnonhyeon Station Exit 7 (Line 9), a 2-minute walk, or Gangnam Station Exit 10 (Line 2), a 6-minute walk. No parking, so go by subway or taxi.' },
           { type: 'warning', text: 'The clinic sent pre-visit instructions on WhatsApp. Reread them tomorrow (Oct 28), since something may need doing the day before, and check with the clinic that nothing changed with the new date.' }
         ]
@@ -1126,25 +1125,12 @@ let DAYS = [
         content: 'Cheonggyecheon is the man-made stream running through central Seoul, nice to walk along. It passes right by Dongdaemun, so you can walk it west toward Myeongdong after DDP (about 40 to 50 minutes to the Gwanggyo area, then a short walk to the hotel). Or just do a stretch of it and take the subway.',
         address: 'Cheonggyecheon Stream, Jung-gu / Jongno-gu, Seoul',
         mapQuery: '청계천',
-        notes: [
-          { type: 'warning', text: 'EcoJardin is booked for 7:00 PM. Leave the stream by about 6:15 so you are not rushed.' }
-        ]
-      },
-      {
-        label: 'Evening — Hair/Scalp Treatment at EcoJardin',
-        icon: '💆',
-        content: 'Booked for 7:00 PM. Head back toward the hotel for EcoJardin Myeongdong \u2014 a 3-minute walk from Myeongdong Station, a few subway stops from Dongdaemun. English-speaking staff (English, Japanese, and Chinese service). Open until 10pm on weekdays. Offers K-style cuts, 9/15/18-step scalp treatments, keratin treatment, perms, and coloring.',
-        address: 'EcoJardin Myeongdong \u00b7 3F, 8-10 Myeongdong 8-gil, Jung-gu, Seoul',
-        mapQuery: '명동8길 8-10',
-        notes: [
-          { type: 'reservation', text: 'Confirmed via WhatsApp: Oct 29 at 7:00 PM, 2 people. Contact EcoJardin on WhatsApp at +82 10-8332-6980 to make changes.' },
-          { type: 'warning', text: 'Possible move: Friday Oct 30 at 9:00 PM (EcoJardin is open until 10pm). Not confirmed yet, so this 7:00 PM booking stands until EcoJardin agrees to the change.' }
-        ]
+        notes: []
       },
       {
         label: 'Dinner — Doug to Decide',
         icon: '🍽️',
-        content: 'TBD. Doug is choosing dinner. EcoJardin starts at 7:00 PM, so this will be a late dinner after the treatment, in or near Myeongdong.',
+        content: 'TBD. Doug is choosing dinner. With EcoJardin moved to Friday, there is no fixed time tonight.',
         notes: []
       }
     ]
@@ -1163,7 +1149,7 @@ let DAYS = [
       { icon: '🪑', text: 'Itaewon Antique Furniture St.' },
       { icon: '🛕', text: 'Jogyesa Temple, 5:30pm' },
       { icon: '🍱', text: 'Balwoo Gongyang, 6pm' },
-      { icon: '💆', text: 'EcoJardin 9pm (pending)' },
+      { icon: '💆', text: 'EcoJardin, 8pm' },
       { icon: '🍹', text: 'VIBD BLVD / Shortbus' }
     ],
     sections: [
@@ -1231,13 +1217,14 @@ let DAYS = [
         ]
       },
       {
-        label: '9:00pm – Scalp Treatment at EcoJardin (pending)',
+        label: '8:00pm – Scalp Treatment at EcoJardin',
         icon: '💆',
-        content: 'Proposed move from Thursday 7:00 PM. EcoJardin Myeongdong is open until 10pm, and a 6:00pm dinner should wrap up around 8:00, leaving time to get back to Myeongdong. Offers 9/15/18-step scalp treatments, so pick a length that finishes before close.',
+        content: 'Moved from Thursday 7:00 PM to after dinner. EcoJardin Myeongdong is a 3-minute walk from Myeongdong Station and open until 10pm. English-speaking staff. Offers 9/15/18-step scalp treatments, so pick a length that finishes before close.',
         address: 'EcoJardin Myeongdong · 3F, 8-10 Myeongdong 8-gil, Jung-gu, Seoul',
         mapQuery: '명동8길 8-10',
         notes: [
-          { type: 'warning', text: 'Not confirmed. Ask EcoJardin on WhatsApp (+82 10-8332-6980) whether Friday Oct 30 at 9:00 PM works for 2 people, and whether the treatment will finish by their 10pm close. Until they confirm, Thursday 7:00 PM stands.' }
+          { type: 'reservation', text: 'Moved to Friday Oct 30 at 8:00 PM, 2 people. Changes via WhatsApp +82 10-8332-6980.' },
+          { type: 'warning', text: 'Tight after the 6:00pm Balwoo Gongyang dinner. A multi-course temple meal may run long and Jongno to Myeongdong needs a taxi or subway ride (check Naver Map). Tell Balwoo you have an 8:00pm appointment, and message EcoJardin if you will be late.' }
         ]
       },
       {
@@ -1370,9 +1357,10 @@ const QUICK_REF = {
     { name: 'Hwahaedang', detail: 'Confirmed via AutoReserve · Lunch Oct 20 (Tue), 12:45 · 2 people, seating only · Yeouido · listed as "Hanakando Yeouido Branch" · fee prepaid, pay for the meal at the restaurant · +82 2-785-4422' },
     { name: 'GU Clinic appointment', detail: 'Rescheduled · Oct 29 (Thu), 10:30am (was Oct 27, 12:30pm) · 4F of the building · bring passports · waits can run long' },
     { name: 'Mongtan', detail: 'No reservations · Dinner Oct 26 (Mon) · Samgakji, Yongsan · on-site waitlist: register in person ~2–3 hrs ahead' },
-    { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
+    { name: 'A Flower Blossom on the Rice', detail: 'Lunch Oct 28 (Wed), 12:00pm · confirm it is booked · +82 2-732-0276 · open daily 11:30am to 3pm' },
+    { name: 'Balwoo Gongyang', detail: 'Dinner Oct 30 (Fri), 6:00pm (was Wed lunch) · confirm it is booked · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
-    { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Confirmed · Oct 29, 7:00 PM · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
+    { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Moved · Oct 30 (Fri), 8:00 PM, after dinner (was Oct 29, 7:00 PM) · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
     { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Dropped for now, no time before the Oct 24 flight · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
     { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 23 (Fri) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
     { name: 'International Driving Permit', detail: 'BEFORE YOU FLY · Get from AAA in the US; it cannot be issued in Korea · carry it with your US license and passport · required for the Jeju rental car' },
