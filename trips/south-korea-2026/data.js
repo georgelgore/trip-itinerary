@@ -1213,7 +1213,8 @@ let DAYS = [
         mapQuery: '발우공양',
         notes: [
           { type: 'reservation', text: 'Reservation for 6:00pm. Confirm it is held: +82 2-733-2081. Closed Sundays, so Friday is fine.' },
-          { type: 'info', text: 'Moved here from the Wednesday lunch plan.' }
+          { type: 'info', text: 'Moved here from the Wednesday lunch plan.' },
+          { type: 'info', text: 'Set course menus, about 20 to 22 dishes each (Seon, Won, Maeum, plus a pricier Hee by advance reservation). Counts and prices come from a 2017 article, so confirm the current menu and price when you check the booking. Dinner seating listed 6:00pm to 9:00pm Monday to Saturday.' }
         ]
       },
       {
