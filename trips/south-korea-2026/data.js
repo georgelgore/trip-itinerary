@@ -907,14 +907,12 @@ let DAYS = [
         icon: '🏨',
         content: 'Walk back to Seoul Myeongdong Hotel (about 10 to 15 minutes from the market) to rest and freshen up before dinner.',
         address: 'Seoul Myeongdong Hotel, Seoul',
-        notes: [
-          { type: 'warning', text: 'The clinic’s WhatsApp pre-visit instructions may need something done today, the day before. Read them tonight.' }
-        ]
+        notes: []
       },
       {
         label: 'Dinner – I Love ShinDangDong',
         icon: '🍜',
-        content: 'Dinner done at I Love ShinDangDong (replaced the earlier Myeongdong Kyoja plan). Head back early, since the clinic appointment is at 12:30 tomorrow.',
+        content: 'Dinner done at I Love ShinDangDong (replaced the earlier Myeongdong Kyoja plan).',
         mapQuery: '아이러브신당동',
         notes: []
       }
@@ -922,14 +920,13 @@ let DAYS = [
   },
   {
     id: 10,
-    date: 'Tuesday, October 27 — Noryangjin, Appointment & Dosan Park',
+    date: 'Tuesday, October 27 — Noryangjin & Dosan Park',
     location: 'Seoul',
-    sublocation: 'Noryangjin, Gangnam & Dosan Park',
+    sublocation: 'Noryangjin & Dosan Park',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
       { icon: '🐟', text: 'Noryangjin Fish Market (breakfast)' },
-      { icon: '📅', text: 'GU Clinic, 12:30pm (may run to ~3:30)' },
       { icon: '👞', text: 'Dosan Park menswear loop' },
       { icon: '🏺', text: 'Pottery drop-off at hotel, 7 to 8pm' }
     ],
@@ -941,41 +938,28 @@ let DAYS = [
         address: 'Noryangjin Fish Market, Dongjak-gu, Seoul',
         mapQuery: '노량진수산시장',
         notes: [
-          { type: 'info', text: 'Noryangjin is on Line 9, which runs straight to Sinnonhyeon (the clinic stop), roughly 25 minutes (check Naver Map). That is why it now leads the day: no cross-city detour before the appointment.' },
+          { type: 'info', text: 'The clinic appointment that was planned for today moved to Thursday, Oct 29 at 10:30am, so nothing is fixed before the afternoon.' },
           { type: 'info', text: 'Upstairs restaurant hours and whether they serve a sashimi breakfast this early are not verified. Check on Naver Map, and have a backup breakfast in mind.' }
         ]
       },
       {
-        label: '12:30pm — GU Clinic Appointment',
-        icon: '📅',
-        content: 'Confirmed appointment for both of you at 12:30pm, on the 4th floor of the building. Consultation is in English. Take Line 9 from Noryangjin to Sinnonhyeon (about 25 minutes, check Naver Map) and leave the market by about 11:30. Treatment may take up to 3 hours, so plan to be done around 3:30pm.',
-        address: 'W Tower, 3~4F · 54 Seocho-daero 77-gil, Seocho-gu, Seoul (서울특별시 서초구 서초대로77길 54 더블유타워 3~4층)',
-        mapQuery: '서울특별시 서초구 서초대로77길 54 더블유타워',
-        notes: [
-          { type: 'reservation', text: 'Confirmed via WhatsApp for Oct 27, 12:30pm, 4F. Bring your passports.' },
-          { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day, so the menswear loop below is the only thing planned after it.' },
-          { type: 'info', text: 'Nearest stations: Sinnonhyeon Station Exit 7 (Line 9), a 2-minute walk, or Gangnam Station Exit 10 (Line 2), a 6-minute walk. No parking, so go by subway or taxi.' },
-          { type: 'warning', text: 'The clinic sent a list of pre-visit instructions on WhatsApp. Read it before Oct 26, since something may need doing the day before.' }
-        ]
-      },
-      {
-        label: 'Quick Bite near the Clinic',
+        label: 'Lunch – Keep It Simple',
         icon: '🥢',
-        content: 'Keep lunch simple and close to Sinnonhyeon: something small before the appointment, or right after it. Mu-gu-ok and Neung-dong Minari were dropped from this day since both are detours from Gangnam. They stay on the friend\u2019s list for another day.',
+        content: 'Something easy before the menswear loop. Mu-gu-ok and Neung-dong Minari were dropped from this day since both are detours from Gangnam. They stay on the friend\u2019s list for another day.',
         notes: [
-          { type: 'info', text: 'No venue picked yet. Check Naver Map for something near Sinnonhyeon Station.' }
+          { type: 'info', text: 'No venue picked yet. Check Naver Map for something near Dosan Park or on the way.' }
         ]
       },
       {
         label: 'Afternoon – Menswear Loop: Dosan Park & Apgujeong',
         icon: '👞',
-        content: 'After the clinic (and a quick bite), taxi to Dosan Park (about 15 to 20 minutes from Sinnonhyeon, check Naver Map). Four shops from the Permanent Style Seoul guide sit within a few blocks of each other:\n• Unipair: the widest range of classic shoes in Seoul, with Alden and more.\n• Random Walk: smart-casual multibrand with JM Weston, Coherence and Esk. Same alley as Unipair.\n• Joe’s Garage: Japanese repro brands such as Toys McCoy, Full Count and Warehouse.\n• San Francisco Market: Korea’s first menswear multibrand, with Nepenthes, Engineered Garments and Alden.\nSuggested order: Unipair, Random Walk, Joe’s Garage, San Francisco Market. Allow about 2 hours.',
+        content: 'Head to Dosan Park by taxi or subway (check Naver Map for the route from where you are). Four shops from the Permanent Style Seoul guide sit within a few blocks of each other:\n• Unipair: the widest range of classic shoes in Seoul, with Alden and more.\n• Random Walk: smart-casual multibrand with JM Weston, Coherence and Esk. Same alley as Unipair.\n• Joe’s Garage: Japanese repro brands such as Toys McCoy, Full Count and Warehouse.\n• San Francisco Market: Korea’s first menswear multibrand, with Nepenthes, Engineered Garments and Alden.\nSuggested order: Unipair, Random Walk, Joe’s Garage, San Francisco Market. Allow about 2 hours.',
         address: 'Unipair · 37-1 Eonju-ro 164-gil · Random Walk · 40 Eonju-ro 164-gil · Joe’s Garage · 75 Apgujeong-ro 46-gil · San Francisco Market · 29-10 Dosan-daero 49-gil, Gangnam-gu, Seoul',
         mapQuery: '언주로164길 37-1',
         notes: [
           { type: 'warning', text: 'Everything closes early. Listed hours: Random Walk 12:30 to 20:00 daily, Unipair 11:00 to 20:00, Joe’s Garage 11:00 to 20:00, San Francisco Market 11:00 to 20:30 on one listing (an older one says 22:00). Start by about 4:00pm and wrap up by about 6:00pm so you can reach the hotel before the pottery drop-off at 7pm.' },
           { type: 'info', text: 'Hours come from third-party listings, not the shops. Check Naver Map the day before. San Francisco Market’s address differs between listings (the other is 11 Eonju-ro 170-gil), so confirm on Naver.' },
-          { type: 'info', text: 'None of these is confirmed to stock Gitman Bros. Ask at Joe’s Garage and Random Walk. If the clinic runs long, shorten the loop rather than skipping the pottery drop-off.' }
+          { type: 'info', text: 'None of these is confirmed to stock Gitman Bros. Ask at Joe’s Garage and Random Walk. If the loop runs long, shorten it rather than skipping the pottery drop-off.' }
         ]
       },
       {
@@ -984,7 +968,7 @@ let DAYS = [
         content: 'Fixed: the pottery drop-off at Seoul Myeongdong Hotel is between 7 and 8pm. Leave Dosan Park by about 6:00 to 6:15 (about 35 to 40 minutes by subway, check Naver Map). Dinner afterward, near the hotel.',
         address: 'Seoul Myeongdong Hotel, Seoul',
         notes: [
-          { type: 'warning', text: 'Hard constraint. If the clinic runs long, trim the menswear loop, not this.' }
+          { type: 'warning', text: 'Hard constraint. If the afternoon runs long, trim the menswear loop, not this.' }
         ]
       }
     ]
@@ -1119,6 +1103,7 @@ let DAYS = [
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
+      { icon: '📅', text: 'GU Clinic, 10:30am (may run to ~1:30pm)' },
       { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
       { icon: '☕', text: 'Cha Cha Tea Club' },
       { icon: '🛍️', text: 'DDP' },
@@ -1127,22 +1112,45 @@ let DAYS = [
     ],
     sections: [
       {
-        label: 'Morning — Seoul Yangnyeongsi Medicine Market',
+        label: '10:30am – GU Clinic Appointment',
+        icon: '📅',
+        content: 'Moved from Tuesday, Oct 27. Appointment for both of you at 10:30am, on the 4th floor of the building. Consultation is in English. Treatment may take up to 3 hours, so plan to be done around 1:30pm. Go by subway or taxi from the hotel (check Naver Map for timing) and aim to arrive a little early.',
+        address: 'W Tower, 3~4F · 54 Seocho-daero 77-gil, Seocho-gu, Seoul (서울특별시 서초구 서초대로77길 54 더블유타워 3~4층)',
+        mapQuery: '서울특별시 서초구 서초대로77길 54 더블유타워',
+        notes: [
+          { type: 'reservation', text: 'Rescheduled from Oct 27, 12:30pm to Oct 29, 10:30am, 4F. Bring your passports.' },
+          { type: 'warning', text: 'The clinic says there may be extended waiting times depending on the day. The only fixed commitment after it is EcoJardin at 7:00 PM, so the afternoon below is flexible and can be trimmed.' },
+          { type: 'info', text: 'Nearest stations: Sinnonhyeon Station Exit 7 (Line 9), a 2-minute walk, or Gangnam Station Exit 10 (Line 2), a 6-minute walk. No parking, so go by subway or taxi.' },
+          { type: 'warning', text: 'The clinic sent pre-visit instructions on WhatsApp. Reread them tomorrow (Oct 28), since something may need doing the day before, and check with the clinic that nothing changed with the new date.' }
+        ]
+      },
+      {
+        label: 'Lunch – Near the Clinic',
+        icon: '🥢',
+        content: 'Keep lunch simple and close to Sinnonhyeon after the appointment, before heading east to Jegi-dong.',
+        notes: [
+          { type: 'info', text: 'No venue picked yet. Check Naver Map for something near Sinnonhyeon Station.' }
+        ]
+      },
+      {
+        label: 'Afternoon — Seoul Yangnyeongsi Medicine Market',
         icon: '🌿',
         content: 'Seoul Yangnyeongsi Medicine Market in Jegi-dong is Korea\u2019s largest traditional herbal medicine market — narrow lanes stacked with dried roots and herbs. The small Herbal Medicine Museum on site gives good context before wandering the stalls. Stop in at the Seoul K-Medi Center on the market for the Bojewon massage: a heated massage bed with hand and foot massage (\u20a95,000). The medicinal foot bath (\u20a96,000) is also here.',
         address: 'Seoul K-Medi Center · 26 Yangnyeongjungang-ro, Dongdaemun-gu, Seoul',
         mapQuery: '서울한방진흥센터',
         notes: [
-          { type: 'info', text: 'K-Medi Center: 10am–6pm, closed Mondays, so start here around 10. Experiences are first-come, first-served, booked on site.' }
+          { type: 'info', text: 'K-Medi Center: 10am–6pm, closed Mondays. With the clinic first, aim to be here by about 3pm so there is time before it closes. Experiences are first-come, first-served, booked on site.' }
         ]
       },
       {
-        label: 'Midday — Dapsimni Antiques Market',
+        label: 'Optional — Dapsimni Antiques Market',
         icon: '🧸',
         content: 'Dapsimni Antiques Market (an Instagram find), just down the road — a sprawling, less-touristed market for antiques, vintage furniture, and curios.',
         address: 'Dapsimni Antiques Market, Seoul',
         mapQuery: '답십리 고미술상가',
-        notes: []
+        notes: [
+          { type: 'info', text: 'Optional now that the clinic takes the morning. Skip it if you are short on time; it is open 9am to 7pm.' }
+        ]
       },
       {
         label: 'Afternoon — Seoul Folk Flea Market',
@@ -1408,7 +1416,7 @@ const QUICK_REF = {
     { name: 'Vic\u2019s Lab Korea — Color Analysis', detail: 'Confirmed · Oct 20, 10:50 AM (1 hr 10 min) · 2 people · [1:2] Signature Color Analysis · Hongdae, Mapo-gu · prepaid via EXIMLink, balance due at studio (KRW cash or overseas credit card via EXIMLink)' },
     { name: 'Seal Carving Class — Feel So Good Calli Studio', detail: 'Not yet booked · Mon Oct 19, 3–5pm · Anguk Station exit 6 · book online (Trazy)' },
     { name: 'Hwahaedang', detail: 'Confirmed via AutoReserve · Lunch Oct 20 (Tue), 12:45 · 2 people, seating only · Yeouido · listed as "Hanakando Yeouido Branch" · fee prepaid, pay for the meal at the restaurant · +82 2-785-4422' },
-    { name: 'GU Clinic appointment', detail: 'Confirmed via WhatsApp · Oct 27 (Tue), 12:30pm · 4F of the building · bring passports · waits can run long' },
+    { name: 'GU Clinic appointment', detail: 'Rescheduled · Oct 29 (Thu), 10:30am (was Oct 27, 12:30pm) · 4F of the building · bring passports · waits can run long' },
     { name: 'Mongtan', detail: 'No reservations · Dinner Oct 26 (Mon) · Samgakji, Yongsan · on-site waitlist: register in person ~2–3 hrs ahead' },
     { name: 'Balwoo Gongyang', detail: 'Not yet booked · Lunch Oct 28 (Wed), 1:30pm seating · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
