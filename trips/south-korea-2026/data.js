@@ -975,123 +975,77 @@ let DAYS = [
   },
   {
     id: 11,
-    date: 'Wednesday, October 28 — Jongno & Ikseon-dong',
+    date: 'Wednesday, October 28 — Jongno & Seongsu',
     location: 'Seoul',
-    sublocation: 'Jongno & Ikseon-dong',
+    sublocation: 'Jongno & Seongsu',
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
+      { icon: '☕', text: 'Fritz Coffee Wonseo, 9am' },
       { icon: '🌳', text: 'Huwon Secret Garden' },
-      { icon: '🏘️', text: 'Ikseon-dong-gil' },
-      { icon: '🍸', text: 'Saeseoul (optional)' },
-      { icon: '🎨', text: 'Seoul Museum of Craft Art' },
-      { icon: '🛒', text: 'Gwangjang Market' },
-      { icon: '🍖', text: 'Galmaegisal Alley' }
+      { icon: '🍱', text: 'A Flower Blossom on the Rice, 12pm' },
+      { icon: '🎨', text: 'KCDF Gallery Shop' },
+      { icon: '🛍️', text: 'Seongsu: pins, Ader Error, Boundary' }
     ],
     sections: [
       {
+        label: '9:00am – Breakfast at Fritz Coffee Wonseo',
+        icon: '☕',
+        content: 'Breakfast at Fritz Coffee Wonseo, between Changdeokgung and Anguk. A hanok-style cafe where separate buildings wrap around a courtyard, with a wooden porch to sit out on if the weather holds. It is the Seoul roaster you also met at Seongsan on Jeju, in a much older setting. A few minutes on foot from the palace gate, so it leads straight into the 10:30 tour.',
+        address: 'Fritz Coffee Company Wonseo · 83 Yulgok-ro, Jongno-gu, Seoul (1F, Arario Space)',
+        mapQuery: '프릳츠 원서점',
+        notes: [
+          { type: 'info', text: 'Moved from a post-tour coffee to a 9:00am breakfast. Opening hours and food menu are not verified, so check Naver Map tonight that it is open by 9:00.' }
+        ]
+      },
+      {
         label: 'Morning — Changdeokgung & Huwon Secret Garden',
         icon: '🌳',
-        content: 'Start the day here: get to Changdeokgung around 10:00 to buy the palace ticket and see the main halls, then join the 10:30 English tour of Huwon, the Secret Garden: the royal family’s wooded back garden of pavilions and ponds, open only by guided tour (about 90 minutes). Late October should be near peak autumn color.',
+        content: 'After breakfast, get to Changdeokgung around 10:00 to buy the palace ticket and see the main halls, then join the 10:30 English tour of Huwon, the Secret Garden: the royal family’s wooded back garden of pavilions and ponds, open only by guided tour (about 90 minutes). Late October should be near peak autumn color.',
         address: 'Changdeokgung Palace · 99 Yulgok-ro, Jongno-gu, Seoul',
         mapQuery: '창덕궁',
         notes: [
           { type: 'reservation', text: 'Book the 10:30 English Secret Garden tour at ticket.uforus.co.kr (account required). Booking opens Oct 22 at 10:00am KST (6 days ahead) and closes 3 days before. 5,000 KRW, plus a separate palace ticket. 50 walk-up spots per tour if online sells out.' },
-          { type: 'warning', text: 'Changdeokgung is closed Mondays. English tours run 10:30, 11:30, 14:30 and 15:30.' }
+          { type: 'warning', text: 'Changdeokgung is closed Mondays. English tours run 10:30, 11:30, 14:30 and 15:30.' },
+          { type: 'warning', text: 'The 10:30 Huwon tour runs about 90 minutes and ends around 12:00, while lunch is booked for 12:00 in Gwanhun-dong (about 15 minutes away). Expect to be a little late and tell the restaurant, or keep the tour on 10:30 and ask for 12:15.' }
         ]
       },
       {
-        label: 'Late Morning – Fritz Coffee Wonseo',
-        icon: '☕',
-        content: 'Coffee after the Secret Garden tour. Fritz Coffee Wonseo sits between Changdeokgung and Anguk, a hanok-style cafe where separate buildings wrap around a courtyard, with a wooden porch to sit out on if the weather holds. It is the Seoul roaster you will also meet at Seongsan on Jeju, in a much older setting. A few minutes on foot from the palace gate, and on the way to Ikseon-dong.',
-        address: 'Fritz Coffee Company Wonseo · 83 Yulgok-ro, Jongno-gu, Seoul (1F, Arario Space)',
-        mapQuery: '프릳츠 원서점',
-        notes: [
-          { type: 'info', text: 'Hours not verified, so check Naver Map the day before. Added from an Instagram guide to design-minded Seoul spots.' }
-        ]
-      },
-      {
-        label: 'Midday — Ikseon-dong-gil',
-        icon: '🏘️',
-        content: 'Walk over to Ikseon-dong-gil — Seoul\u2019s smallest hanok village, now packed with boutique cafes, indie fashion shops, and small galleries tucked into century-old houses.',
-        address: 'Ikseon-dong-gil, Jongno-gu, Seoul',
-        mapQuery: '익선동',
-        notes: []
-      },
-      {
-        label: 'Lunch — Temple Cuisine or Modern Korean',
+        label: '12:00pm – Lunch at A Flower Blossom on the Rice',
         icon: '🍱',
-        content: 'Three good options right in this cluster: Balwoo Gongyang, the Michelin-starred temple-cuisine restaurant a few minutes from Jogyesa Temple; A Flower Blossom on the Rice, a Michelin-recommended modern Korean tasting menu nearby in Gwanhun-dong; or Koong (Gaeseong Mandu Koong), a Michelin Bib Gourmand spot for North Korean-style dumplings, if you\u2019d rather save the sit-down meal for dinner and keep lunch casual.',
-        address: 'Insadong / Gwanhun-dong, Jongno-gu, Seoul',
-        mapQuery: '인사동',
+        content: 'Reservation at 12:00pm. A Michelin-recommended modern Korean tasting menu in Gwanhun-dong, about a 15-minute walk or a short taxi from Changdeokgung.',
+        address: 'A Flower Blossom on the Rice · Gwanhun-dong, Jongno-gu, Seoul',
+        mapQuery: 'A Flower Blossom on the Rice',
         notes: [
-          { type: 'reservation', text: 'Balwoo Gongyang: book the 1:30pm lunch seating (closed Sundays; reserve up to a month ahead, +82 2-733-2081). A Flower Blossom on the Rice: open daily 11:30am\u20133pm, call +82 2-732-0276. Koong is walk-in only.' }
+          { type: 'reservation', text: 'Reservation for 12:00pm. Confirm it is held: +82 2-732-0276. Open daily 11:30am to 3pm.' }
         ]
       },
       {
-        label: 'Afternoon — Seoul Museum of Craft Art',
+        label: 'Early Afternoon – KCDF Gallery Shop',
         icon: '🎨',
-        content: 'A short walk to the Seoul Museum of Craft Art near Anguk — it\u2019s closed Mondays, so it moves here from earlier in the trip. The guidebook flags a good gift shop on site.',
-        address: 'Seoul Museum of Craft Art, Jongno-gu, Seoul',
-        mapQuery: '서울공예박물관',
+        content: 'Stop at the KCDF Gallery Shop on Insadong-gil, the Korea Craft & Design Foundation shop: a well-curated selection of contemporary Korean craft and design objects. A short walk from lunch, and easy to do before heading east to Seongsu.',
+        address: 'KCDF Gallery Shop · Insadong-gil, Jongno-gu, Seoul',
+        mapQuery: 'KCDF 갤러리숍 인사동',
+        notes: [
+          { type: 'info', text: 'Hours not verified. Check Naver Map.' }
+        ]
+      },
+      {
+        label: 'Afternoon – Seongsu (Seongdong-gu)',
+        icon: '🛍️',
+        content: 'Head east to Seongsu (about 30 minutes from Insadong by subway or taxi; check Naver Map). Work the loop from George\u2019s saved pins:\n\u2022 LCDC Seoul: concept store, saved to Want to go in April.\n\u2022 Jayeondo Sogeumppang: the salt bread bakery in Seongsu.\n\u2022 Coor: clothing store.\n\u2022 DOCUMENT Flagship Store: clothing store from the Korea list.\n\u2022 Narrative Object (내러티브오브젝트): household goods store.\n\u2022 Forest Seoulsup: fruit parlor, a good sweet stop.\nAlso add Ader Error and Boundary to the loop.',
+        address: 'Seongsu-dong, Seongdong-gu, Seoul',
+        mapQuery: '성수동',
+        notes: [
+          { type: 'warning', text: 'Store addresses and hours are not verified for any of these. Check each on Naver Map before slotting an order, since Seongsu shops often open late morning to noon and some close one weekday.' },
+          { type: 'info', text: 'Ader Error and Boundary were added from feedback with no address. Confirm which Seongsu locations before heading out.' }
+        ]
+      },
+      {
+        label: 'Evening – Dinner (placeholder)',
+        icon: '🍽️',
+        content: 'TBD. George to review the saved pins and pick dinner. Grandmother\u2019s Recipe, a Korean restaurant saved to Want to go on Sep 21, is the one restaurant pin from the Seongsu list.',
         notes: []
-      },
-      {
-        label: 'Optional – Take Ivy & Tannery (Seochon)',
-        icon: '🧥',
-        content: 'Ivy-style vintage in Seochon, just west of Gyeongbokgung. Take Ivy is a small basement vintage shop selling Ralph Lauren, the Japanese J Press line and a lot of Van Jacket. Tannery, across the road per Permanent Style, mixes smart and casual (Boogie Holiday, East Harbor Surplus, Kenneth Field). Short taxi from Anguk (check Naver Map). Ask about Gitman at Take Ivy, since vintage stock varies.\nTo fit it, skip Jidaebang and go Craft Art, then Seochon about 3:30 to 4:45pm, then taxi to Jogyesa.',
-        address: 'Take Ivy · B1, 49-1 Jahamun-ro, Jongno-gu, Seoul · Tannery · across the road (address not confirmed)',
-        mapQuery: '자하문로 49-1',
-        notes: [
-          { type: 'warning', text: 'Take Ivy is listed as open 13:00 to 20:00 daily in a GQ Korea article (undated). Tannery’s hours and address were not found. Check both on Naver Map the day before.' },
-          { type: 'info', text: 'A recent visitor says sizing at both shops leans small.' }
-        ]
-      },
-      {
-        label: 'Afternoon — Tea at Jidaebang',
-        icon: '☕',
-        content: 'Tea at Jidaebang, sourced from an Instagram find: a traditional tea house in Insadong that has been there for over 35 years, a few minutes from Jogyesa.',
-        address: 'Jidaebang, Insadong, Jongno-gu, Seoul',
-        mapQuery: '지대방',
-        notes: [
-          { type: 'info', text: 'Moved from the morning: it opens at 10:30am, after you need to be at Changdeokgung. Open daily.' }
-        ]
-      },
-      {
-        label: 'Late Afternoon — Jogyesa Temple',
-        icon: '🛕',
-        content: 'Short stop at Jogyesa Temple, the head temple of the Jogye Order — a quiet, colorful contrast to the market streets around it, and only a few minutes\u2019 walk from Insadong.',
-        address: 'Jogyesa Temple, Jongno-gu, Seoul',
-        mapQuery: '조계사',
-        notes: []
-      },
-      {
-        label: 'Early Evening — Gwangjang Market',
-        icon: '🛒',
-        content: 'Gwangjang Market — the NYT pick from the "Want to go" list. Street food, textiles, and one of Seoul\u2019s oldest markets. Get yukhoe (seasoned raw beef) at Buchon Yukhoe, the market\u2019s best-known spot for it.',
-        address: 'Gwangjang Market, Seoul',
-        mapQuery: '광장시장',
-        notes: []
-      },
-      {
-        label: 'Evening — Galmaegisal Alley (Street BBQ)',
-        icon: '🍖',
-        content: 'One stop from Gwangjang, the Jongno 3-ga galmaegisal alley: a lane of old-school spots grilling pork skirt meat at plastic tables out on the street. Ikseon-dong Wando Matjib is a well-known pick there; it grills aged kimchi alongside the meat. Order somaek (soju + beer). The Jongno 3-ga pojangmacha tent stalls are next door for another drink after.',
-        address: 'Galmaegisal Alley · behind Jongno 3-ga Station exit 6 (Ikseon-dong Wando Matjib: 29 Donhwamun-ro 11ga-gil), Jongno-gu, Seoul',
-        mapQuery: '종로3가 갈매기살골목',
-        notes: [
-          { type: 'info', text: 'Walk-in only. The alley\u2019s grills open mid-afternoon (Mi Galmaegisal: 2:30\u201311pm, closed Mondays). Gets packed after about 7pm, so go early for an outdoor table.' }
-        ]
-      },
-      {
-        label: 'Late Evening – Saeseoul Cocktail Bar (optional)',
-        icon: '🍸',
-        content: 'Saeseoul (새서울) is a trendy cocktail bar hidden inside an arcade in Ikseon-dong, with great views from the top. Close to the galmaegisal alley, so it works as a final drink before heading back to Myeongdong.',
-        address: 'Saeseoul, Ikseon-dong, Jongno-gu, Seoul',
-        mapQuery: '새서울 익선동',
-        notes: [
-          { type: 'info', text: 'Hours not verified, so check Naver Map. Added from a friend\u2019s Seoul recs.' }
-        ]
       }
     ]
   },
@@ -1103,18 +1057,18 @@ let DAYS = [
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
-      { icon: '📅', text: 'GU Clinic, 10:30am (may run to ~1:30pm)' },
+      { icon: '📅', text: 'GU Clinic, 10:30am (until about 1pm)' },
       { icon: '🌿', text: 'Yangnyeongsi Medicine Market' },
       { icon: '☕', text: 'Cha Cha Tea Club' },
       { icon: '🛍️', text: 'DDP' },
       { icon: '🌊', text: 'Cheonggyecheon walk' },
-      { icon: '💆', text: 'EcoJardin Myeongdong' }
+      { icon: '💆', text: 'EcoJardin 7pm (may move to Fri 9pm)' }
     ],
     sections: [
       {
         label: '10:30am – GU Clinic Appointment',
         icon: '📅',
-        content: 'Moved from Tuesday, Oct 27. Appointment for both of you at 10:30am, on the 4th floor of the building. Consultation is in English. Treatment may take up to 3 hours, so plan to be done around 1:30pm. Go by subway or taxi from the hotel (check Naver Map for timing) and aim to arrive a little early.',
+        content: 'Moved from Tuesday, Oct 27. Appointment for both of you at 10:30am, on the 4th floor of the building. Consultation is in English. Treatment is expected to run until about 1pm (estimate, so confirm with the clinic). Go by subway or taxi from the hotel (check Naver Map for timing) and aim to arrive a little early.',
         address: 'W Tower, 3~4F · 54 Seocho-daero 77-gil, Seocho-gu, Seoul (서울특별시 서초구 서초대로77길 54 더블유타워 3~4층)',
         mapQuery: '서울특별시 서초구 서초대로77길 54 더블유타워',
         notes: [
@@ -1143,29 +1097,9 @@ let DAYS = [
         ]
       },
       {
-        label: 'Optional — Dapsimni Antiques Market',
-        icon: '🧸',
-        content: 'Dapsimni Antiques Market (an Instagram find), just down the road — a sprawling, less-touristed market for antiques, vintage furniture, and curios.',
-        address: 'Dapsimni Antiques Market, Seoul',
-        mapQuery: '답십리 고미술상가',
-        notes: [
-          { type: 'info', text: 'Optional now that the clinic takes the morning. Skip it if you are short on time; it is open 9am to 7pm.' }
-        ]
-      },
-      {
-        label: 'Afternoon — Seoul Folk Flea Market',
-        icon: '🏺',
-        content: 'Seoul Folk Flea Market in Sinseol-dong, on the way from Dapsimni back toward Dongdaemun: a big covered market of antiques, secondhand goods, vintage clothes and old electronics.',
-        address: 'Seoul Folk Flea Market · 21 Cheonho-daero 4-gil, Dongdaemun-gu, Seoul',
-        mapQuery: '서울풍물시장',
-        notes: [
-          { type: 'info', text: 'Open 10am–7pm. Closed Tuesdays. Sinseol-dong Station exit 9. (Dapsimni Antiques Market is open 9am\u20137pm, closed only the 1st and 3rd Sundays.)' }
-        ]
-      },
-      {
         label: 'Afternoon — Tea at Cha Cha Tea Club',
         icon: '☕',
-        content: 'Cha Cha Tea Club, a hidden hanok tea house down an alley near Dongdaemun Station, where you brew your own tea. It\u2019s a few minutes from DDP, so it fits between the flea market and DDP.',
+        content: 'Cha Cha Tea Club, a hidden hanok tea house down an alley near Dongdaemun Station, where you brew your own tea. It\u2019s a few minutes from DDP, so it fits between the medicine market and DDP.',
         address: 'Cha Cha Tea Club \u00b7 13 Jong-ro 46ga-gil, Jongno-gu, Seoul (Dongdaemun Station exit 6)',
         mapQuery: '차차티클럽',
         notes: [
@@ -1203,7 +1137,8 @@ let DAYS = [
         address: 'EcoJardin Myeongdong \u00b7 3F, 8-10 Myeongdong 8-gil, Jung-gu, Seoul',
         mapQuery: '명동8길 8-10',
         notes: [
-          { type: 'reservation', text: 'Confirmed via WhatsApp: Oct 29 at 7:00 PM, 2 people. Contact EcoJardin on WhatsApp at +82 10-8332-6980 to make changes.' }
+          { type: 'reservation', text: 'Confirmed via WhatsApp: Oct 29 at 7:00 PM, 2 people. Contact EcoJardin on WhatsApp at +82 10-8332-6980 to make changes.' },
+          { type: 'warning', text: 'Possible move: Friday Oct 30 at 9:00 PM (EcoJardin is open until 10pm). Not confirmed yet, so this 7:00 PM booking stands until EcoJardin agrees to the change.' }
         ]
       },
       {
@@ -1222,24 +1157,16 @@ let DAYS = [
     theme: 'seoul',
     stay: 'Seoul Myeongdong Hotel · Oct 25–31',
     highlights: [
-      { icon: '⛰️', text: 'Namsan hike' },
       { icon: '🖼️', text: 'Leeum Museum of Art' },
       { icon: '🎨', text: 'Pace Gallery' },
       { icon: '🛍️', text: 'Beaker & NIFTYDO' },
       { icon: '🪑', text: 'Itaewon Antique Furniture St.' },
+      { icon: '🛕', text: 'Jogyesa Temple, 5:30pm' },
+      { icon: '🍱', text: 'Balwoo Gongyang, 6pm' },
+      { icon: '💆', text: 'EcoJardin 9pm (pending)' },
       { icon: '🍹', text: 'VIBD BLVD / Shortbus' }
     ],
     sections: [
-      {
-        label: 'Early Morning — Namsan Hike & Botanical Garden',
-        icon: '⛰️',
-        content: 'Start from the hotel around 8:00 and walk up Namsan from the Myeongdong side, about 45–60 minutes up the trail and stairs to N Seoul Tower and the city views. Then go down the south side toward Hannam-dong through the Namsan Outdoor Botanical Garden, a quiet terraced garden on the old foreign-residence site. It comes out near the Leeum. Budget 2–2.5 hours total at an easy pace.',
-        address: 'Namsan Park (from Myeongdong) → N Seoul Tower → Namsan Outdoor Botanical Garden, Hannam-dong',
-        mapQuery: 'N서울타워',
-        notes: [
-          { type: 'info', text: 'Wear real shoes; the Myeongdong-side climb is mostly stairs. Leeum opens at 10am.' }
-        ]
-      },
       {
         label: 'Late Morning — Leeum Museum of Art',
         icon: '🖼️',
@@ -1283,10 +1210,35 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Dinner — Doug to Decide',
-        icon: '🍽️',
-        content: 'TBD. Doug is choosing dinner. Itaewon is expected to be crowded for Halloween weekend, so a reservation or early seating will help if he picks something there.',
-        notes: []
+        label: '5:30pm – Jogyesa Temple',
+        icon: '🛕',
+        content: 'Short visit to Jogyesa, the head temple of the Jogye Order, before dinner. A few minutes on foot from Balwoo Gongyang. From Hannam and Itaewon it is roughly 30 to 40 minutes, so leave the antiques street by about 4:45.',
+        address: 'Jogyesa Temple · 55 Ujeongguk-ro, Jongno-gu, Seoul',
+        mapQuery: '조계사',
+        notes: [
+          { type: 'info', text: 'Moved here from Wednesday.' }
+        ]
+      },
+      {
+        label: '6:00pm – Dinner at Balwoo Gongyang',
+        icon: '🍱',
+        content: 'Reservation at 6:00pm. Balwoo Gongyang is the Michelin-starred temple-cuisine restaurant a few minutes from Jogyesa.',
+        address: 'Balwoo Gongyang · Ujeongguk-ro, Jongno-gu, Seoul',
+        mapQuery: '발우공양',
+        notes: [
+          { type: 'reservation', text: 'Reservation for 6:00pm. Confirm it is held: +82 2-733-2081. Closed Sundays, so Friday is fine.' },
+          { type: 'info', text: 'Moved here from the Wednesday lunch plan.' }
+        ]
+      },
+      {
+        label: '9:00pm – Scalp Treatment at EcoJardin (pending)',
+        icon: '💆',
+        content: 'Proposed move from Thursday 7:00 PM. EcoJardin Myeongdong is open until 10pm, and a 6:00pm dinner should wrap up around 8:00, leaving time to get back to Myeongdong. Offers 9/15/18-step scalp treatments, so pick a length that finishes before close.',
+        address: 'EcoJardin Myeongdong · 3F, 8-10 Myeongdong 8-gil, Jung-gu, Seoul',
+        mapQuery: '명동8길 8-10',
+        notes: [
+          { type: 'warning', text: 'Not confirmed. Ask EcoJardin on WhatsApp (+82 10-8332-6980) whether Friday Oct 30 at 9:00 PM works for 2 people, and whether the treatment will finish by their 10pm close. Until they confirm, Thursday 7:00 PM stands.' }
+        ]
       },
       {
         label: 'Evening — Drinks',
@@ -1520,6 +1472,8 @@ const QUICK_REF = {
     { name: 'Gentle Monster & Blue Elephant', detail: 'Seongsu eyewear · moved off Oct 27 · needs its own Seongsu half-day, pair with Musinsa, EQL, Point of View, LCDC Seoul and Jayeondo Sogeumppang · confirm store addresses on Naver Map' },
     { name: 'Mu-gu-ok & Neung-dong Minari', detail: 'Traditional Korean lunch options (chicken soup, minari soup) from a friend\u2019s list · moved off Oct 27 · addresses and hours not verified' },
     { name: 'Starfield COEX Mall & Starfield Library', detail: 'Gangnam · optional, not a must · free, 10 to 20 minutes for the library · only if a Gangnam stop ends early · hours not confirmed' },
+    { name: 'Parked from Oct 28', detail: 'Moved off Wednesday when the afternoon became Seongsu: Ikseon-dong-gil, Seoul Museum of Craft Art (closed Mondays), Take Ivy and Tannery in Seochon, Jidaebang tea in Insadong, Gwangjang Market with Buchon Yukhoe, Galmaegisal Alley (Ikseon-dong Wando Matjib), Saeseoul cocktail bar. Jogyesa and Balwoo Gongyang moved to Friday Oct 30.' },
+    { name: 'Parked from Oct 29', detail: 'Removed from Thursday: Seoul Folk Flea Market (Sinseol-dong, open 10am to 7pm, closed Tuesdays) and Dapsimni Antiques Market (open 9am to 7pm, closed the 1st and 3rd Sundays).' },
     { name: 'Sikijang', detail: 'Functional objects and exhibitions by younger craftspeople · could not confirm the address or hours, check Naver Map before slotting' }
   ]
 };
