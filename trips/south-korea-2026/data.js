@@ -1154,7 +1154,7 @@ let DAYS = [
       { icon: '🪑', text: 'Itaewon Antique Furniture St.' },
       { icon: '🛕', text: 'Jogyesa Temple, 5:30pm' },
       { icon: '🍱', text: 'Balwoo Gongyang, 6pm' },
-      { icon: '💆', text: 'EcoJardin, 8pm' },
+      { icon: '💆', text: 'EcoJardin, 7pm' },
       { icon: '🍹', text: 'VIBD BLVD / Shortbus' }
     ],
     sections: [
@@ -1223,14 +1223,14 @@ let DAYS = [
         ]
       },
       {
-        label: '8:00pm – Scalp Treatment at EcoJardin',
+        label: '7:00pm – Scalp Treatment at EcoJardin',
         icon: '💆',
-        content: 'Moved from Thursday 7:00 PM to after dinner. EcoJardin Myeongdong is a 3-minute walk from Myeongdong Station and open until 10pm. English-speaking staff. Offers 9/15/18-step scalp treatments, so pick a length that finishes before close.',
+        content: 'Moved from Thursday 7:00 PM to Friday 7:00 PM. EcoJardin Myeongdong is a 3-minute walk from Myeongdong Station and open until 10pm. English-speaking staff. Offers 9/15/18-step scalp treatments, so pick a length that finishes before close.',
         address: 'EcoJardin Myeongdong · 3F, 8-10 Myeongdong 8-gil, Jung-gu, Seoul',
         mapQuery: '명동8길 8-10',
         notes: [
-          { type: 'reservation', text: 'Moved to Friday Oct 30 at 8:00 PM, 2 people. Changes via WhatsApp +82 10-8332-6980.' },
-          { type: 'warning', text: 'Tight after the 6:00pm Balwoo Gongyang dinner. A multi-course temple meal may run long and Jongno to Myeongdong needs a taxi or subway ride (check Naver Map). Tell Balwoo you have an 8:00pm appointment, and message EcoJardin if you will be late.' }
+          { type: 'reservation', text: 'Friday Oct 30 at 7:00 PM, 2 people (was 8:00 PM). Confirm the new time with EcoJardin via WhatsApp +82 10-8332-6980.' },
+          { type: 'warning', text: 'Only an hour after the 6:00pm Balwoo Gongyang reservation. The 20+ dish temple course will likely need to be cut short, and Jongno to Myeongdong needs a taxi or subway ride (check Naver Map). Tell Balwoo when seated that you need to leave by about 6:40, and message EcoJardin if you will be late.' }
         ]
       },
       {
@@ -1367,7 +1367,7 @@ const QUICK_REF = {
     { name: 'Mukjung', detail: 'Dinner Oct 29 (Thu), 7:00pm · 17 Toegye-ro 48-gil, Jung-gu · +82 10-8350-6743 · pre-order the main dish a day ahead · open Tue–Sat 5:30–11pm' },
     { name: 'Balwoo Gongyang', detail: 'Dinner Oct 30 (Fri), 6:00pm (was Wed lunch) · confirm it is booked · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
-    { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Moved · Oct 30 (Fri), 8:00 PM, after dinner (was Oct 29, 7:00 PM) · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
+    { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Moved · Oct 30 (Fri), 7:00 PM (was Oct 29, 7:00 PM, then Oct 30, 8:00 PM) · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
     { name: 'Sumangdawon — tea & matcha class', detail: 'Not yet booked · Dropped for now, no time before the Oct 24 flight · ₩30,000 pp, 1 hr · phone only, 0504-1340-3033, likely Korean-only · have the 1330 English line or your Airbnb host call' },
     { name: 'O’Sulloc Tea Stone class', detail: 'Optional · Morning Oct 23 (Fri) · book a few days ahead at osulloc.com · otherwise the cellar tasting is walk-up' },
     { name: 'International Driving Permit', detail: 'BEFORE YOU FLY · Get from AAA in the US; it cannot be issued in Korea · carry it with your US license and passport · required for the Jeju rental car' },
