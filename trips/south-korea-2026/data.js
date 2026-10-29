@@ -1128,10 +1128,15 @@ let DAYS = [
         notes: []
       },
       {
-        label: 'Dinner — Doug to Decide',
+        label: '7:00pm — Dinner at Mukjung',
         icon: '🍽️',
-        content: 'TBD. Doug is choosing dinner. With EcoJardin moved to Friday, there is no fixed time tonight.',
-        notes: []
+        content: 'Dinner at Mukjung (묵정), a Michelin-listed Korean restaurant in Jung-gu. Chef Austin Kang makes his own fermented foods and jang in-house and serves traditional Korean dishes with a contemporary touch. It is close to Myeongdong, so a short taxi or subway ride from the hotel, and an easy hop back after the Cheonggyecheon walk.',
+        address: 'Mukjung · 17 Toegye-ro 48-gil, Jung-gu, Seoul 04619 (서울 중구 퇴계로48길 17)',
+        mapQuery: '묵정 퇴계로48길 17',
+        notes: [
+          { type: 'reservation', text: 'Reservation at 7:00pm. Restaurant phone: +82 10-8350-6743.' },
+          { type: 'warning', text: 'The Michelin Guide says to order the main dish a day in advance. If you have not already, contact the restaurant to pre-order.' }
+        ]
       }
     ]
   },
@@ -1359,6 +1364,7 @@ const QUICK_REF = {
     { name: 'GU Clinic appointment', detail: 'Rescheduled · Oct 29 (Thu), 10:30am (was Oct 27, 12:30pm) · 4F of the building · bring passports · waits can run long' },
     { name: 'Mongtan', detail: 'No reservations · Dinner Oct 26 (Mon) · Samgakji, Yongsan · on-site waitlist: register in person ~2–3 hrs ahead' },
     { name: 'A Flower Blossom on the Rice', detail: 'Lunch Oct 28 (Wed), 12:00pm · confirm it is booked · +82 2-732-0276 · open daily 11:30am to 3pm' },
+    { name: 'Mukjung', detail: 'Dinner Oct 29 (Thu), 7:00pm · 17 Toegye-ro 48-gil, Jung-gu · +82 10-8350-6743 · pre-order the main dish a day ahead · open Tue–Sat 5:30–11pm' },
     { name: 'Balwoo Gongyang', detail: 'Dinner Oct 30 (Fri), 6:00pm (was Wed lunch) · confirm it is booked · +82 2-733-2081 · closed Sundays' },
     { name: 'Huwon Secret Garden — 10:30 English Tour', detail: 'Not yet booked · Oct 28 · Changdeokgung · booking opens Oct 22, 10:00am KST at ticket.uforus.co.kr · 5,000 KRW + palace ticket' },
     { name: 'EcoJardin Myeongdong — Hair/Scalp Treatment', detail: 'Moved · Oct 30 (Fri), 8:00 PM, after dinner (was Oct 29, 7:00 PM) · 2 people · 3F, 8-10 Myeongdong 8-gil · changes via WhatsApp +82 10-8332-6980' },
