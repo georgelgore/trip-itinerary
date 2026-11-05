@@ -2,6 +2,10 @@
 
 Use this command when the user wants to add a new trip to the repo. Follow these steps in order.
 
+## Step 0 — Check the playbook
+
+Read `TRAVEL_PLAYBOOK.md`. If the user is still planning (not just pasting a finished itinerary), check the draft against its planning rules and pre-trip checklist, and point out any days that break them before building the trip files.
+
 ## Step 1 — Gather the itinerary content
 
 The user will provide the trip content as **YAML** (preferred), raw HTML, or a written description. Accept any of these without asking them to reformat.

@@ -10,6 +10,10 @@ Landing page: `https://georgelgore.github.io/trip-itinerary/`
 |------|-----|
 | California 2026 | `trips/california-2026/` |
 
+## Planning a trip
+
+Start with the [Travel Playbook](TRAVEL_PLAYBOOK.md): our planning rules, day-type menu, pre-trip checklist, and a log of past trips.
+
 ## Adding a trip
 
 Copy `_template/` into `trips/destination-year/`, fill in the data, then add a card to the root `index.html`. See `CLAUDE.md` for the full schema.
