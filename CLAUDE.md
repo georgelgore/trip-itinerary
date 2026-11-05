@@ -4,6 +4,8 @@
 
 Before drafting or revising any itinerary content, read `TRAVEL_PLAYBOOK.md` at the repo root. It holds George and Doug's planning rules, the day-type menu, and a pre-trip checklist learned from past trip debriefs. Apply it when suggesting days: one anchor activity per day, restaurants and shopping as side dishes, no two days in a row of the same type. After a trip, add a row to its trip log.
 
+To change an existing trip (move, add, drop, re-plan, mid-trip edits), use the `update-itinerary` skill in `.claude/skills/update-itinerary/`.
+
 ## Repo structure
 
 ```
