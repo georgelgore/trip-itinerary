@@ -129,6 +129,7 @@ const TRIP_META = {
   shortName: 'California 2026',     // short title — used in clipboard text & day-detail share
   dates: 'May 29 – June 7',         // pretty date range
   travelers: 'George & Doug',
+  mapLinks: 'google',               // OPTIONAL — 📍 link provider: 'google' (default), 'naver' (Korea), 'none'
   startDate: '2026-05-29',          // ISO date of Day 1 — used as the fallback date when a day's
                                     //   `date` string is non-parseable. Per-day dates derive as
                                     //   `startDate + (idx)`. Override per-day with `day.dateISO`.

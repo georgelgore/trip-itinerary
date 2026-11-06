@@ -344,14 +344,22 @@ function esc(s) {
 }
 
 // ─── Map links ────────────────────────────────────────────────────────────────
-// When TRIP_META.mapLinks === 'naver', 📍 addresses become links to a NAVER Map search.
-// Query = venue name: the text before the first " · ", preferring the Hangul in parentheses
-// when present (NAVER matches Korean names far better), else the text before the first comma
-// (extra district/city words make NAVER return nothing). A section/stop may set `mapQuery`
-// to override. Multi-leg entries (containing →) are left as plain text.
+// 📍 addresses link to a map search. TRIP_META.mapLinks picks the provider:
+//   'google' (default when unset) — Google Maps search for the full address.
+//   'naver'  — NAVER Map (use for Korea, where Google Maps is weak). Query = venue name: the text
+//              before the first " · ", preferring the Hangul in parentheses when present, else the
+//              text before the first comma (extra district/city words make NAVER return nothing).
+//   'none'   — plain text, no links.
+// A section/stop may set `mapQuery` to override the query, or `mapUrl` to link a pasted place URL.
+// Multi-leg entries (containing →) are left as plain text.
+function mapProvider() {
+  return (typeof TRIP_META !== 'undefined' && TRIP_META.mapLinks) || 'google';
+}
+
 function mapQueryFor(addr, override) {
   if (override) return override;
   if (!addr || addr.indexOf('→') !== -1) return '';
+  if (mapProvider() === 'google') return String(addr).replace(/\s·\s/g, ', ').trim();
   let name = String(addr).split(' · ')[0].replace(/\[[^\]]*\]/g, '').trim();
   const paren = name.match(/\(([^)]*[\uAC00-\uD7A3][^)]*)\)/);
   if (paren) {
@@ -365,11 +373,15 @@ function mapQueryFor(addr, override) {
 
 function addrHtml(addr, override, mapUrl) {
   const text = esc(addr);
-  if (typeof TRIP_META === 'undefined' || TRIP_META.mapLinks !== 'naver') return text;
-  // A pasted NAVER place/share link (mapUrl) wins over a name search.
+  const provider = mapProvider();
+  if (provider === 'none') return text;
+  // A pasted place/share link (mapUrl) wins over a search.
   const q = mapQueryFor(addr, override);
   if (!q && !mapUrl) return text;
-  const href = mapUrl || ('https://map.naver.com/p/search/' + encodeURIComponent(q));
+  const search = provider === 'naver'
+    ? 'https://map.naver.com/p/search/' + encodeURIComponent(q)
+    : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+  const href = mapUrl || search;
   return `<a class="map-link" href="${esc(href)}" target="_blank" rel="noopener">${text}</a>`;
 }
 

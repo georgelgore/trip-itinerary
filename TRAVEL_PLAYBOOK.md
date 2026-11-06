@@ -28,7 +28,6 @@ The trip was too repetitive, not too hard. Too many days followed the same patte
 **What wore us down**
 
 - Neighborhood walks where the only thing to do was shop
-- Museums, especially more than one in a stretch
 - The same day shape over and over, and a pace that was a bit too packed
 - The back half of the trip, when days had the fewest real activities
 
@@ -54,9 +53,8 @@ The trip was too repetitive, not too hard. Too many days followed the same patte
 3. **Rotate day types.** No two days in a row of the same type (see the menu below).
 4. **Keep the second half strong.** Put at least one top must-do in the final third of the trip.
 5. **Plan at least one night out.** Look up music, bars, or events before the trip.
-6. **Museums only when they're a highlight.** At most one every few days. George can go solo while Doug does something else.
-7. **Each person owns days.** Each of us picks two or three must-dos and fully plans one or two days. Doug's days can be fully scheduled.
-8. **Leave room for re-planning.** We enjoy adjusting on the go, so a draft can stay loose. Leave one open half-day per city.
+6. **Each person owns days.** Each of us picks two or three must-dos and fully plans one or two days. Doug's days can be fully scheduled.
+7. **Leave room for re-planning.** We enjoy adjusting on the go, so a draft can stay loose. Leave one open half-day per city.
 
 ## Day-type menu
 
@@ -69,7 +67,7 @@ Label each day in the itinerary with one of these types.
 | Experience | A booked session, tour, or show | Color analysis, spa, guided tour, performance |
 | Social / night | Built around an evening out | Live music, bar crawl, night market, a DJ set |
 | Food | One destination meal plus markets and street food | Fish market breakfast, a tasting menu |
-| Culture | One highlight museum, palace, or temple | A single museum, not two |
+| Culture | A museum, palace, or temple | A palace visit, a museum, a temple stay |
 | Slow / free | Wander, rest, shop as you go | Neighborhood stroll, café, hotel time |
 
 A good default for each day: **one anchor + one meal + one flexible slot.**
@@ -83,7 +81,6 @@ A good default for each day: **one anchor + one meal + one flexible slot.**
 - [ ] At least one night out is planned
 - [ ] The final third of the trip has a top must-do
 - [ ] Each city has an open half-day
-- [ ] Museums only where they're a real highlight
 - [ ] Doug has fully planned at least one day
 - [ ] Checked for concerts, marathons, festivals, and weather that could affect traffic or access
 

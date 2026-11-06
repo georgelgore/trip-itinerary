@@ -42,14 +42,14 @@ Common requests and what each one touches:
 - **Sections stay in time order** within a day.
 - **`highlights`** (the day's summary chips) must match the sections after every change.
 - **Note types:** `info`, `warning` (hours, timing risks, closures), `cash`, `reservation`. Nothing else.
-- **Maps:** these trips use NAVER Map in Korea (`TRIP_META.mapLinks`). Set `mapQuery` to the venue's local-language name, and put English-only venues' street address in `address`. Use whatever map the trip's `TRIP_META` names.
+- **Maps:** 📍 addresses link to Google Maps by default. Write `address` as `Venue · street address, city` so the search finds it. Set `TRIP_META.mapLinks` per country only when Google is weak there: `'naver'` for South Korea (then set `mapQuery` to the venue's Korean name). If the user pastes a place link, put it in `mapUrl`.
 - **Timing between stops:** when two fixed times are close, add a `warning` with travel time and what to cut if it runs long.
 - Day `date` strings look like `'Friday, October 30 — Hannam-dong & Itaewon'`; update the part after the dash when the day's focus changes.
 
 ### Facts and honesty
 
 - Look up hours, closing days, prices, and addresses before writing them. Cite nothing you didn't check.
-- When you couldn't confirm something, say so in a note: `Not verified; check Naver Map before going.`
+- When you couldn't confirm something, say so in a note: `Not verified; check the map listing before going.`
 - Check the trip's dates against closing days (many places close Mondays or Sundays).
 - Check for concerts, marathons, festivals, or holidays that affect a day's plans.
 
