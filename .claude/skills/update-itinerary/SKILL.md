@@ -9,7 +9,7 @@ George and Doug edit their trip pages from a phone, often mid-trip, in short mes
 
 ## 1. Orient (quietly, every time)
 
-1. **Which trip:** the one named, else the trip whose dates include today, else the most recently edited folder in `trips/`.
+1. **Which trip:** the one named. Otherwise run `node .claude/skills/update-itinerary/outline.js --which` (pass the date as `YYYY-MM-DD` if the trip's time zone puts it on a different day than UTC). It picks the trip in progress today, else the next upcoming trip, else the one that ended most recently. Say which trip you used in your reply.
 2. **What day it is there:** get today's date in the trip's local time zone and map it to a day `id` (`TRIP_META.startDate` + id - 1). "Today", "tomorrow", and "Friday" mean the trip's local dates. Never change days that are already past unless asked.
 3. **Where the live data is:** if `trips/<trip>/edits.json` exists, the app shows its `days` instead of `DAYS` in `data.js`. Edit `edits.json` (and set its `updatedAt` to the current ISO time so devices pick it up). Otherwise edit `data.js`. `QUICK_REF` always lives in `data.js`.
 4. **Get a compact view first** instead of reading all of `data.js`:

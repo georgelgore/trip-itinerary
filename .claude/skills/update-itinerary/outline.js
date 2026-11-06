@@ -5,6 +5,8 @@
 //   node .claude/skills/update-itinerary/outline.js <trip-folder> --day 9    one day in full (content + notes)
 //   node .claude/skills/update-itinerary/outline.js <trip-folder> --check    validate after editing
 //
+//   node .claude/skills/update-itinerary/outline.js --which [YYYY-MM-DD]     which trip a request means
+//
 // <trip-folder> is the folder name under trips/, e.g. south-korea-2026.
 // If trips/<trip>/edits.json exists, its days are what the live app shows, so they are used here too.
 
@@ -12,9 +14,37 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
-const [trip, ...rest] = process.argv.slice(2);
-if (!trip) { console.error('Usage: outline.js <trip-folder> [--day N | --check]'); process.exit(2); }
 const root = path.resolve(__dirname, '../../..');
+let [trip, ...rest] = process.argv.slice(2);
+if (!trip) { console.error('Usage: outline.js <trip-folder> [--day N | --check]  |  outline.js --which [YYYY-MM-DD]'); process.exit(2); }
+
+if (trip === '--which') {
+  // Pick the trip in progress on the given date (default: today); if none, the next upcoming one;
+  // if none, the one that ended most recently. Pass the trip's local date when you know it.
+  const today = rest[0] || new Date().toISOString().slice(0, 10);
+  const DAY = 86400000;
+  const trips = fs.readdirSync(path.join(root, 'trips')).filter(f => fs.existsSync(path.join(root, 'trips', f, 'data.js'))).map(f => {
+    const p = path.join(root, 'trips', f);
+    const ctx = {}; vm.createContext(ctx);
+    try {
+      vm.runInContext(fs.readFileSync(path.join(p, 'data.js'), 'utf8') + '\n;globalThis.__m = { TRIP_META, n: DAYS.length };', ctx);
+    } catch { return null; }
+    let n = ctx.__m.n;
+    try { const e = JSON.parse(fs.readFileSync(path.join(p, 'edits.json'), 'utf8')); if (Array.isArray(e.days)) n = e.days.length; } catch {}
+    const start = ctx.__m.TRIP_META.startDate;
+    if (!start) return null;
+    const end = new Date(Date.parse(start) + (n - 1) * DAY).toISOString().slice(0, 10);
+    return { folder: f, name: ctx.__m.TRIP_META.name, start, end };
+  }).filter(Boolean);
+  const now = trips.find(t => t.start <= today && today <= t.end);
+  const next = trips.filter(t => t.start > today).sort((a, b) => a.start.localeCompare(b.start))[0];
+  const last = trips.filter(t => t.end < today).sort((a, b) => b.end.localeCompare(a.end))[0];
+  const pick = now || next || last;
+  trips.sort((a, b) => a.start.localeCompare(b.start)).forEach(t => console.log(`${t.folder}  ${t.start} to ${t.end}  ${t.name}`));
+  console.log(pick ? `\nPick: ${pick.folder} (${now ? 'in progress' : next ? 'next upcoming' : 'most recent'} as of ${today})` : '\nNo trips found.');
+  process.exit(0);
+}
+
 const dir = path.join(root, 'trips', trip);
 const dataPath = path.join(dir, 'data.js');
 const editsPath = path.join(dir, 'edits.json');
